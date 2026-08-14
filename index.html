@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers</title>
 <meta name="description" content="Free Google Business Profile and local SEO audit for Indian small businesses. Find out why customers can't find you on Google Maps — and fix it, step by step.">
+<link rel="canonical" href="https://www.localboost.in/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "LocalBoost",
+  "url": "https://www.localboost.in/",
+  "description": "Free Google Business Profile and local SEO audits for Indian small businesses."
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,6 +175,7 @@
     border: 1px solid var(--border); border-radius: 999px;
     padding: 6px 12px; background: var(--bg-surface);
   }
+  .lang-switch:disabled { opacity: 0.55; cursor: not-allowed; }
   .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: var(--sp-2); }
   .nav-toggle svg { width: 24px; height: 24px; }
 
@@ -533,7 +544,7 @@
     </nav>
 
     <div class="nav-actions">
-      <button class="lang-switch" type="button" aria-label="Switch language">EN / हिं</button>
+      <button class="lang-switch" type="button" disabled title="Hindi version coming in a future update" aria-label="Hindi version coming soon">EN · हिं (soon)</button>
       <a href="#hero-form" class="btn btn-primary">Start Free Audit</a>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" id="navToggle">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -829,7 +840,7 @@
         <p>Plain-language explainers — including Hindi/Hinglish versions — with no jargon and no fabricated results.</p>
       </div>
       <div class="grid-3">
-        <a class="card guide-card" href="#">
+        <a class="card guide-card" href="/google-business-profile/">
           <div class="guide-thumb" style="background:var(--primary-100);">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-600)" stroke-width="1.5"><path d="M3 9l9-6 9 6v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 21V12h6v9"/></svg>
           </div>
@@ -838,16 +849,16 @@
           <p>A complete walkthrough for first-time setup, including common verification issues.</p>
           <div class="guide-meta">7 min read · English &amp; Hindi</div>
         </a>
-        <a class="card guide-card" href="#">
+        <a class="card guide-card" href="/google-maps-seo/">
           <div class="guide-thumb" style="background:var(--accent-100);">
             <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-600)" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
-          <div class="guide-cat">Local SEO</div>
+          <div class="guide-cat">Google Maps SEO</div>
           <h3>Why your business isn't showing up on Google Maps</h3>
           <p>The most common reasons customers can't find you — and how to check which one applies.</p>
           <div class="guide-meta">6 min read · English &amp; Hindi</div>
         </a>
-        <a class="card guide-card" href="#">
+        <a class="card guide-card" href="/google-reviews/">
           <div class="guide-thumb" style="background:#FBF0DA;">
             <svg viewBox="0 0 24 24" fill="none" stroke="#C98A02" stroke-width="1.5"><path d="M12 17.5l-6.16 3.24 1.18-6.88L2 9.24l6.92-1L12 2l3.08 6.24 6.92 1-5.02 4.62 1.18 6.88z"/></svg>
           </div>
@@ -857,6 +868,11 @@
           <div class="guide-meta">5 min read · English &amp; Hindi</div>
         </a>
       </div>
+      <p style="margin-top:var(--sp-5); font-size:14.5px;">
+        More guides:
+        <a href="/local-seo/" style="color:var(--primary-600); font-weight:600;">Local SEO basics</a> ·
+        <a href="/business-growth/" style="color:var(--primary-600); font-weight:600;">Getting customers from Google</a>
+      </p>
     </div>
   </section>
 
@@ -947,7 +963,7 @@
 
     <div class="footer-bottom">
       <p>© 2026 LocalBoost. Not affiliated with or endorsed by Google.</p>
-      <button class="lang-switch" type="button" aria-label="Switch language">EN / हिंदी</button>
+      <button class="lang-switch" type="button" disabled title="Hindi version coming in a future update" aria-label="Hindi version coming soon">EN · हिंदी (soon)</button>
     </div>
   </div>
 </footer>
