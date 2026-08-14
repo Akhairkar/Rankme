@@ -109,6 +109,31 @@ Both use the same placeholder domain noted in Section 5.
 
 ---
 
+## 10. Bilingual (Hindi) pages & hreflang — added in Session 06
+
+Real Hindi versions of the homepage and all five pillar pages now exist as separate, fully translated static HTML files, not a JS-based language toggle:
+
+| English URL | Hindi URL |
+|---|---|
+| `/` | `/hi/` |
+| `/google-business-profile/` | `/hi/google-business-profile/` |
+| `/google-maps-seo/` | `/hi/google-maps-seo/` |
+| `/local-seo/` | `/hi/local-seo/` |
+| `/google-reviews/` | `/hi/google-reviews/` |
+| `/business-growth/` | `/hi/business-growth/` |
+
+Each Hindi page has its own `<title>`, meta description, canonical URL, and Article/BreadcrumbList JSON-LD written in Hindi (`inLanguage: "hi"`), and `lang="hi"` set on the `<html>` element.
+
+**hreflang implementation:** every English page and its Hindi counterpart carry `<link rel="alternate" hreflang="...">` tags pointing to each other (`en`, `hi`) plus an `x-default` pointing at the English version. The same alternate-language annotations are duplicated in `sitemap.xml` using the `xhtml:link` extension, which is the pattern Google explicitly supports for hreflang-in-sitemap.
+
+**Language switch link:** the EN/हिं control in the header (and footer, on the homepage) is now a real `<a>` link to the matching-language version of the *same page* — not a JS toggle that swaps visible text on one URL. This was a deliberate correction from the Session 05 output, where the button existed but did nothing; client-side toggles also don't give search engines two indexable, language-distinct URLs, which defeats the point of bilingual SEO.
+
+**Translation approach:** primarily standard Hindi (Devanagari script) rather than Roman-script Hinglish, since `hreflang="hi"` and the Devanagari font stack (`Noto Sans Devanagari`) both expect Devanagari; proper nouns and widely-used English terms (Google, SEO, Business Profile) are kept as-is, matching how Indian users actually search and read, per the Hinglish keyword entries in `KEYWORD-MAP.md`.
+
+**Not done in this pass:** Hindi versions of business-type/city pages (none of those exist in either language yet — out of scope, see Section 2), and no `hi-IN` region-specific variant was added (a plain `hi` tag was judged sufficient at this stage).
+
+---
+
 ## Status
 
-Core SEO page architecture is in place for the five defined pillars: clean URLs, breadcrumbs (visible + structured data), full metadata per page, self-referencing canonicals, a sitemap, robots.txt, and a cannibalization-safe internal link graph. No mass content generation occurred — five pillar pages total, each with genuine, non-thin content.
+Core SEO page architecture is in place for the five defined pillars in both English and Hindi: clean URLs, breadcrumbs (visible + structured data), full metadata per page, self-referencing canonicals, hreflang-linked language pairs, a sitemap covering both languages, robots.txt, and a cannibalization-safe internal link graph. No mass content generation occurred — five pillar pages per language (ten total), each with genuine, non-thin, independently written content.

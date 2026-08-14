@@ -81,7 +81,7 @@ This document is the master architecture. It defines *what* the product is and *
 - Structure to be detailed fully in the dedicated Keyword Architecture session (pillar pages, clusters, long-tail, Hindi/Hinglish variants).
 - No doorway pages; no fabricated statistics, rankings, or case studies.
 - Content should stay evergreen and policy-safe (i.e., not dependent on any single Google algorithm quirk).
-- **Bilingual status (as of Session 05):** the EN/हिं toggle button shown in the header is a placeholder only — it is not wired to anything yet, so clicking it currently does nothing. No Hindi-translated page versions exist yet. Proper bilingual SEO needs real translated pages at distinct URLs (e.g. `/hi/google-business-profile/`) with `hreflang` tags linking the language versions together — not a client-side JS toggle that swaps text on one URL, which search engines generally can't index as two languages. This is scoped as its own future session, not yet built.
+- **Bilingual status (as of Session 06):** real Hindi page versions now exist at distinct URLs (e.g. `/hi/google-business-profile/`), linked to their English counterparts via `hreflang` tags — not a client-side toggle. The header/footer language link now points to the actual translated page. See `SEO-ARCHITECTURE.md` for the hreflang implementation.
 
 ---
 
@@ -128,5 +128,6 @@ This document defines architecture and direction. Original scope (Session 01) co
 - Session 03 — Design system (`DESIGN-SYSTEM.md`) defined.
 - Session 04 — Homepage built as static HTML (`index.html`), following the Session 03 design tokens.
 - Session 05 — SEO architecture implemented: 5 pillar guide pages built as static HTML at clean URLs, each with breadcrumbs, canonical tags, and structured data; `sitemap.xml` and `robots.txt` added; homepage `<head>` updated with canonical + Organization schema and its guide-card links pointed at the real pillar pages. Bilingual (Hindi) pages and the EN/हिं toggle are **not yet built** — see Section 7.
+- Session 06 — Bilingual (Hindi) pages built: real translated pages at `/hi/` + `/hi/[pillar]/` for the homepage and all 5 pillars, each with its own `<title>`/description/canonical/JSON-LD in Hindi. `hreflang` alternate tags (en/hi/x-default) added to every English and Hindi page and to `sitemap.xml`. The header/footer language link on every page now points to the real counterpart page instead of being a non-functional placeholder.
 
-Not yet built: Check/Fix/Monitor/Automate tools, GBP API integration, AI audit engine, review-management automation, Hindi-translated pages, security hardening, performance work, final QA — each remains its own scoped future session.
+Not yet built: Check/Fix/Monitor/Automate tools, GBP API integration, AI audit engine, review-management automation, security hardening, performance work, final QA, business-type/city pages — each remains its own scoped future session.
