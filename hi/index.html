@@ -135,6 +135,7 @@
     <a href="/hi/" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
     <div class="nav-right">
       <a class="lang-switch" href="/" aria-label="View in English">हिं · EN</a>
+      <a href="/hi/check/" style="font-size:14px; font-weight:600; color:var(--text-secondary);">मुफ़्त चेक</a>
       <a href="#hero-form" class="btn btn-primary">मुफ़्त ऑडिट शुरू करें</a>
     </div>
   </div>
@@ -342,7 +343,10 @@
   if (heroForm) {
     heroForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('मुफ़्त ऑडिट टूल जल्द आ रहा है। यह होमपेज सिर्फ़ पेज लेआउट दिखाता है।');
+      const bizInput = document.getElementById('biz-input');
+      const biz = bizInput ? bizInput.value.trim() : '';
+      const url = biz ? '/hi/check/?biz=' + encodeURIComponent(biz) : '/hi/check/';
+      window.location.href = url;
     });
   }
 </script>

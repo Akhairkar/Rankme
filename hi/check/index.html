@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मुफ़्त Google विज़िबिलिटी चेक | LocalBoost</title>
+<meta name="description" content="अपनी Google Business Profile, रिव्यू और वेबसाइट के बारे में कुछ सवालों के जवाब दें और पाएं आसान भाषा में स्कोर और सुधार सूची — मुफ़्त, बिना साइनअप, कहीं कुछ नहीं भेजा जाता।">
+<link rel="canonical" href="https://www.localboost.in/hi/check/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/check/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/check/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/check/">
+<meta name="robots" content="noindex, follow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-base:#FAF9F6; --bg-surface:#FFFFFF; --bg-muted:#F0EEE9;
+    --text-primary:#1E1E1E; --text-secondary:#5A5A54; --border:#E2E0D9;
+    --primary-600:#0F766E; --primary-500:#14968C; --primary-100:#E0F5F2;
+    --accent-600:#E8722C; --accent-700:#CE5F1E; --accent-100:#FCE8D9;
+    --success:#1E8E5A; --warning:#C98A02; --danger:#C4402C;
+    --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px;
+    --radius-md:8px; --radius-lg:12px; --radius-xl:20px;
+    --font:'Noto Sans Devanagari','Manrope',system-ui,-apple-system,sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:var(--font); background:var(--bg-base); color:var(--text-primary); line-height:1.7; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { max-width:720px; margin:0 auto; padding:0 var(--sp-5); }
+
+  header { position:sticky; top:0; z-index:50; background:rgba(250,249,246,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .nav-inner { max-width:1180px; margin:0 auto; padding:var(--sp-4) var(--sp-5); display:flex; align-items:center; justify-content:space-between; }
+  .logo { display:flex; align-items:center; gap:var(--sp-2); font-weight:800; font-size:18px; }
+  .logo-mark { width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--primary-600),var(--primary-500)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:15px; }
+  .nav-right { display:flex; align-items:center; gap:var(--sp-3); }
+  .lang-switch { font-size:13px; font-weight:600; color:var(--text-secondary); border:1px solid var(--border); border-radius:999px; padding:6px 12px; background:var(--bg-surface); }
+
+  main { padding:var(--sp-7) 0 var(--sp-8); }
+
+  .tool-head { text-align:center; margin-bottom:var(--sp-6); }
+  .eyebrow { display:inline-block; font-size:12.5px; font-weight:700; color:var(--primary-600); background:var(--primary-100); padding:4px 12px; border-radius:999px; margin-bottom:var(--sp-4); }
+  h1 { font-size:26px; margin-bottom:var(--sp-3); }
+  .tool-head p { color:var(--text-secondary); font-size:16px; max-width:520px; margin:0 auto; }
+
+  .privacy-note { display:flex; align-items:center; gap:var(--sp-2); justify-content:center; font-size:13px; color:var(--text-secondary); font-weight:600; margin-top:var(--sp-4); }
+  .privacy-note svg { width:16px; height:16px; color:var(--primary-600); flex-shrink:0; }
+
+  .progress-track { height:6px; background:var(--bg-muted); border-radius:999px; overflow:hidden; margin-bottom:var(--sp-6); }
+  .progress-fill { height:100%; background:var(--primary-600); border-radius:999px; width:0%; transition:width .3s ease; }
+  .progress-label { font-size:13px; color:var(--text-secondary); font-weight:600; margin-bottom:var(--sp-3); text-align:center; }
+
+  .quiz-card { background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-xl); padding:var(--sp-6); box-shadow:0 8px 24px rgba(30,30,30,.06); }
+  .q-cat { font-size:12px; font-weight:700; color:var(--accent-600); margin-bottom:var(--sp-3); }
+  .q-text { font-size:18px; font-weight:700; margin-bottom:var(--sp-5); line-height:1.5; }
+  .options { display:flex; flex-direction:column; gap:var(--sp-3); }
+  .option {
+    display:flex; align-items:center; gap:var(--sp-3);
+    border:1.5px solid var(--border); border-radius:var(--radius-md);
+    padding:var(--sp-4); cursor:pointer; font-size:15px; font-weight:600;
+    background:var(--bg-surface);
+  }
+  .option:hover { border-color:var(--primary-500); background:var(--primary-100); }
+  .option input { width:18px; height:18px; accent-color:var(--primary-600); flex-shrink:0; }
+  .option.selected { border-color:var(--primary-600); background:var(--primary-100); }
+
+  .quiz-nav { display:flex; justify-content:space-between; align-items:center; margin-top:var(--sp-6); }
+  .btn { display:inline-flex; align-items:center; justify-content:center; gap:var(--sp-2); font-weight:600; font-size:15px; padding:13px 24px; border-radius:var(--radius-md); border:none; cursor:pointer; min-height:44px; font-family:var(--font); }
+  .btn-primary { background:var(--accent-600); color:#fff; }
+  .btn-primary:hover { background:var(--accent-700); }
+  .btn-primary:disabled { opacity:.45; cursor:not-allowed; }
+  .btn-ghost { background:transparent; color:var(--text-secondary); }
+  .btn-ghost:disabled { opacity:0; pointer-events:none; }
+
+  .results { display:none; }
+  .results.show { display:block; }
+
+  .score-hero { text-align:center; margin-bottom:var(--sp-7); }
+  .score-ring { width:140px; height:140px; border-radius:50%; margin:0 auto var(--sp-4); display:flex; align-items:center; justify-content:center; }
+  .score-ring-inner { width:110px; height:110px; border-radius:50%; background:var(--bg-surface); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .score-ring-inner .num { font-size:34px; font-weight:800; }
+  .score-ring-inner .lbl { font-size:11px; color:var(--text-secondary); font-weight:700; }
+  .score-hero h2 { font-size:21px; margin-bottom:var(--sp-2); }
+  .score-hero p { color:var(--text-secondary); max-width:480px; margin:0 auto; }
+
+  .result-item {
+    background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-lg);
+    padding:var(--sp-5); margin-bottom:var(--sp-4); display:flex; gap:var(--sp-4);
+  }
+  .result-status { width:34px; height:34px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+  .result-status.ok { background:#E4F4EC; color:var(--success); }
+  .result-status.warn { background:#FBF0DA; color:var(--warning); }
+  .result-status svg { width:18px; height:18px; }
+  .result-body h3 { font-size:15.5px; margin-bottom:var(--sp-2); }
+  .result-body p { font-size:14.5px; color:var(--text-secondary); margin-bottom:var(--sp-3); }
+  .result-body a.guide-link { font-size:13.5px; font-weight:700; color:var(--primary-600); }
+
+  .disclaimer-box { background:var(--bg-muted); border-radius:var(--radius-md); padding:var(--sp-4) var(--sp-5); font-size:13px; color:var(--text-secondary); margin:var(--sp-7) 0; }
+  .disclaimer-box strong { color:var(--text-primary); }
+
+  .restart-row { text-align:center; margin-top:var(--sp-6); }
+  .restart-row button { background:none; border:none; color:var(--primary-600); font-weight:700; font-size:14.5px; cursor:pointer; font-family:var(--font); }
+
+  footer { background:var(--bg-muted); border-top:1px solid var(--border); padding:var(--sp-6) 0; margin-top:var(--sp-7); }
+  .footer-bottom { max-width:1180px; margin:0 auto; padding:0 var(--sp-5); font-size:13px; color:var(--text-secondary); }
+
+  @media (max-width:600px) { h1 { font-size:22px; } .quiz-card { padding:var(--sp-5); } .q-text { font-size:16px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="/hi/" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
+    <div class="nav-right">
+      <a class="lang-switch" href="/check/" aria-label="View in English">हिं · EN</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="tool-head">
+      <div class="eyebrow">मुफ़्त चेक</div>
+      <h1 id="mainHeading">देखते हैं Google पर आपका बिज़नेस कैसा दिखता है</h1>
+      <p>8 आसान सवालों के जवाब दें। आप जो भी टाइप करते हैं वह कहीं नहीं भेजा जाता — सब कुछ आपके ब्राउज़र में ही होता है।</p>
+      <div class="privacy-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        अकाउंट की ज़रूरत नहीं · कोई डेटा डिवाइस से बाहर नहीं जाता
+      </div>
+    </div>
+
+    <div id="quizWrap">
+      <div class="progress-label" id="progressLabel">सवाल 1 / 8</div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+      <div class="quiz-card">
+        <div id="quizStepsContainer"></div>
+
+        <div class="quiz-nav">
+          <button class="btn btn-ghost" id="backBtn" type="button">पीछे</button>
+          <button class="btn btn-primary" id="nextBtn" type="button" disabled>आगे</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="results" id="resultsWrap">
+      <div class="score-hero">
+        <div class="score-ring" id="scoreRing">
+          <div class="score-ring-inner">
+            <span class="num" id="scoreNum">—</span>
+            <span class="lbl">स्कोर</span>
+          </div>
+        </div>
+        <h2 id="scoreHeadline">आप यहां खड़े हैं</h2>
+        <p id="scoreSub">आसान भाषा में — क्या सही है और पहले क्या ठीक करना है। यह किसी रैंकिंग की गारंटी नहीं है।</p>
+      </div>
+
+      <div id="resultItems"></div>
+
+      <div class="disclaimer-box">
+        <strong>इस स्कोर के बारे में:</strong> यह आपके अपने जवाबों पर आधारित एक शैक्षिक अनुमान है — यह आपकी असली Google लिस्टिंग की लाइव जांच नहीं है, और न ही किसी रैंकिंग का पूर्वानुमान। Google रैंकिंग कई कारकों पर निर्भर करती है जो किसी के नियंत्रण में नहीं हैं।
+      </div>
+
+      <div class="restart-row">
+        <button id="restartBtn" type="button">फिर से शुरू करें</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-bottom">© 2026 LocalBoost. Google से संबद्ध या समर्थित नहीं।</div>
+</footer>
+
+<script>
+(function () {
+  const questions = [
+    {
+      cat: "Google Business Profile",
+      text: "क्या आपकी Google Business Profile वेरिफ़ाई है?",
+      options: [
+        { label: "हां, वेरिफ़ाई है", points: 2 },
+        { label: "पक्का नहीं पता", points: 1 },
+        { label: "नहीं, या अभी सेट नहीं की", points: 0 }
+      ]
+    },
+    {
+      cat: "Google Business Profile",
+      text: "क्या आपकी बिज़नेस कैटेगरी आपके असली काम से अच्छी तरह मेल खाती है?",
+      options: [
+        { label: "हां, सटीक और सही है", points: 2 },
+        { label: "सेट है, पर काफ़ी सामान्य है", points: 1 },
+        { label: "पक्का नहीं / सेट नहीं है", points: 0 }
+      ]
+    },
+    {
+      cat: "Google Business Profile",
+      text: "क्या आपके बिज़नेस के समय हर दिन के लिए, छुट्टियों समेत, भरे हुए हैं?",
+      options: [
+        { label: "हां, पूरी तरह अप-टू-डेट", points: 2 },
+        { label: "ज़्यादातर, पर कुछ कमी है", points: 1 },
+        { label: "नहीं, या ज़्यादातर खाली है", points: 0 }
+      ]
+    },
+    {
+      cat: "Google Business Profile",
+      text: "आपने अपनी प्रोफ़ाइल पर लगभग कितनी फ़ोटो अपलोड की हैं?",
+      options: [
+        { label: "10 या ज़्यादा", points: 2 },
+        { label: "1 से 9", points: 1 },
+        { label: "अभी तक कोई नहीं", points: 0 }
+      ]
+    },
+    {
+      cat: "रिव्यू",
+      text: "आपके बिज़नेस के लगभग कितने Google रिव्यू हैं?",
+      options: [
+        { label: "20 या ज़्यादा", points: 2 },
+        { label: "1 से 19", points: 1 },
+        { label: "अभी तक कोई नहीं", points: 0 }
+      ]
+    },
+    {
+      cat: "रिव्यू",
+      text: "क्या आप रिव्यू का जवाब देते हैं — पॉज़िटिव और नेगेटिव दोनों?",
+      options: [
+        { label: "हां, ज़्यादातर का", points: 2 },
+        { label: "कभी-कभी", points: 1 },
+        { label: "शायद ही कभी या कभी नहीं", points: 0 }
+      ]
+    },
+    {
+      cat: "वेबसाइट और Local SEO",
+      text: "क्या आपके बिज़नेस की वेबसाइट मोबाइल पर अच्छी तरह चलती है?",
+      options: [
+        { label: "हां", points: 2 },
+        { label: "वेबसाइट है, पर मोबाइल के बारे में पक्का नहीं", points: 1 },
+        { label: "अभी वेबसाइट नहीं है", points: 0 }
+      ]
+    },
+    {
+      cat: "वेबसाइट और Local SEO",
+      text: "क्या आपका बिज़नेस नाम, पता और फ़ोन नंबर हर जगह (वेबसाइट, डायरेक्टरी, सोशल) एक जैसा है?",
+      options: [
+        { label: "हां, मैंने जांचा है", points: 2 },
+        { label: "शायद, पर ध्यान से जांचा नहीं", points: 1 },
+        { label: "पक्का नहीं / मेल नहीं खाता", points: 0 }
+      ]
+    }
+  ];
+
+  const answers = new Array(questions.length).fill(null);
+  let current = 0;
+
+  const stepsContainer = document.getElementById('quizStepsContainer');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+  const backBtn = document.getElementById('backBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const quizWrap = document.getElementById('quizWrap');
+  const resultsWrap = document.getElementById('resultsWrap');
+
+  function renderStep() {
+    const q = questions[current];
+    stepsContainer.innerHTML = `
+      <div class="q-cat">${q.cat}</div>
+      <div class="q-text">${q.text}</div>
+      <div class="options" role="radiogroup" aria-label="${q.text}">
+        ${q.options.map((opt, i) => `
+          <label class="option${answers[current] === i ? ' selected' : ''}">
+            <input type="radio" name="q${current}" value="${i}" ${answers[current] === i ? 'checked' : ''}>
+            ${opt.label}
+          </label>
+        `).join('')}
+      </div>
+    `;
+    progressLabel.textContent = `सवाल ${current + 1} / ${questions.length}`;
+    progressFill.style.width = ((current) / questions.length * 100) + '%';
+    backBtn.disabled = current === 0;
+    nextBtn.disabled = answers[current] === null;
+    nextBtn.textContent = current === questions.length - 1 ? 'मेरा रिज़ल्ट देखें' : 'आगे';
+
+    stepsContainer.querySelectorAll('.option').forEach((el, i) => {
+      el.addEventListener('click', () => {
+        answers[current] = i;
+        renderStep();
+      });
+    });
+  }
+
+  backBtn.addEventListener('click', () => {
+    if (current > 0) { current--; renderStep(); }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (answers[current] === null) return;
+    if (current < questions.length - 1) {
+      current++;
+      renderStep();
+    } else {
+      showResults();
+    }
+  });
+
+  function showResults() {
+    const maxPoints = questions.length * 2;
+    let earned = 0;
+    questions.forEach((q, i) => { earned += q.options[answers[i]].points; });
+    const score = Math.round((earned / maxPoints) * 100);
+
+    quizWrap.style.display = 'none';
+    resultsWrap.classList.add('show');
+
+    const ring = document.getElementById('scoreRing');
+    const scoreNum = document.getElementById('scoreNum');
+    scoreNum.textContent = score;
+    let ringColor = 'var(--danger)';
+    let headline = "सुधार की काफ़ी गुंजाइश है";
+    if (score >= 70) { ringColor = 'var(--success)'; headline = "आप अच्छी स्थिति में हैं"; }
+    else if (score >= 40) { ringColor = 'var(--warning)'; headline = "अच्छी शुरुआत, कुछ कमियां पूरी करनी हैं"; }
+    scoreNum.style.color = ringColor;
+    ring.style.background = `conic-gradient(${ringColor} 0% ${score}%, var(--bg-muted) ${score}% 100%)`;
+    document.getElementById('scoreHeadline').textContent = headline;
+
+    const items = questions.map((q, i) => ({ q, ans: answers[i] }));
+    items.sort((a, b) => a.ans - b.ans);
+
+    const guideMap = {
+      "Google Business Profile": { href: "/hi/google-business-profile/", label: "GBP सेटअप गाइड पढ़ें" },
+      "रिव्यू": { href: "/hi/google-reviews/", label: "रिव्यू गाइड पढ़ें" },
+      "वेबसाइट और Local SEO": { href: "/hi/local-seo/", label: "Local SEO गाइड पढ़ें" }
+    };
+
+    const resultItems = document.getElementById('resultItems');
+    resultItems.innerHTML = items.map(({ q, ans }) => {
+      const points = q.options[ans].points;
+      const isOk = points === 2;
+      const guide = guideMap[q.cat];
+      const adviceText = points === 2
+        ? "आपके जवाब के हिसाब से यह ठीक लग रहा है — ऐसे ही बनाए रखें।"
+        : points === 1
+          ? "यह आंशिक रूप से सही है। इसे और मज़बूत करना अच्छा रहेगा।"
+          : "यह सबसे ज़्यादा आपकी विज़िबिलिटी को रोक रहा है — यहीं से शुरू करें।";
+      return `
+        <div class="result-item">
+          <div class="result-status ${isOk ? 'ok' : 'warn'}">
+            ${isOk
+              ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 6"/></svg>'
+              : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 8v5M12 16h.01"/></svg>'}
+          </div>
+          <div class="result-body">
+            <h3>${q.text}</h3>
+            <p>${adviceText}</p>
+            <a class="guide-link" href="${guide.href}">${guide.label} →</a>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    progressFill.style.width = '100%';
+  }
+
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    answers.fill(null);
+    current = 0;
+    resultsWrap.classList.remove('show');
+    quizWrap.style.display = 'block';
+    renderStep();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const biz = params.get('biz');
+    if (biz) {
+      const clean = biz.slice(0, 60);
+      document.getElementById('mainHeading').textContent = `देखते हैं "${clean}" Google पर कैसा दिखता है`;
+    }
+  } catch (e) { /* ignore */ }
+
+  renderStep();
+})();
+</script>
+
+</body>
+</html>

@@ -6,6 +6,9 @@
 <title>Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers</title>
 <meta name="description" content="Free Google Business Profile and local SEO audit for Indian small businesses. Find out why customers can't find you on Google Maps — and fix it, step by step.">
 <link rel="canonical" href="https://www.localboost.in/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -537,6 +540,7 @@
     </a>
 
     <nav class="main-nav" aria-label="Main navigation">
+      <a href="/check/">Free Check</a>
       <a href="#how-it-works">How it works</a>
       <a href="#free-tools">Free tools</a>
       <a href="#guides">Guides</a>
@@ -544,7 +548,7 @@
     </nav>
 
     <div class="nav-actions">
-      <button class="lang-switch" type="button" disabled title="Hindi version coming in a future update" aria-label="Hindi version coming soon">EN · हिं (soon)</button>
+      <a class="lang-switch" href="/hi/" aria-label="हिंदी में देखें">EN · हिं</a>
       <a href="#hero-form" class="btn btn-primary">Start Free Audit</a>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" id="navToggle">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -963,7 +967,7 @@
 
     <div class="footer-bottom">
       <p>© 2026 LocalBoost. Not affiliated with or endorsed by Google.</p>
-      <button class="lang-switch" type="button" disabled title="Hindi version coming in a future update" aria-label="Hindi version coming soon">EN · हिंदी (soon)</button>
+      <a class="lang-switch" href="/hi/" aria-label="हिंदी में देखें">EN · हिंदी</a>
     </div>
   </div>
 </footer>
@@ -981,12 +985,15 @@
     });
   }
 
-  // Hero form: no backend/audit logic in this session — placeholder feedback only
+  // Hero form: navigates to the real Check tool, passing the business name along
   const heroForm = document.getElementById('hero-form');
   if (heroForm) {
     heroForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      alert('Free audit tool is coming in a future update. This homepage session only builds the page layout.');
+      const bizInput = document.getElementById('biz-input');
+      const biz = bizInput ? bizInput.value.trim() : '';
+      const url = biz ? '/check/?biz=' + encodeURIComponent(biz) : '/check/';
+      window.location.href = url;
     });
   }
 </script>

@@ -134,6 +134,17 @@ Each Hindi page has its own `<title>`, meta description, canonical URL, and Arti
 
 ---
 
+## 11. Check tool — added in Session 07
+
+`/check/` and `/hi/check/` are the first interactive (non-content) pages on the site. They're deliberately handled differently from the pillar guides:
+
+- **`<meta name="robots" content="noindex, follow">`** on both — this tool's output is a self-reported, personalized quiz result, not evergreen content meant to rank; indexing it would add no search value and risks looking like thin/duplicate content across visits. `follow` is kept so link equity still flows through its outbound links to the pillar guides.
+- **Not included in `sitemap.xml`**, consistent with the noindex directive — sitemaps should only list pages meant to be indexed.
+- **hreflang tags are still present** on the page itself (even though noindexed) so that if this decision is revisited later, the language relationship is already correctly declared.
+- Each result item links to the relevant pillar guide (`/google-business-profile/`, `/google-reviews/`, `/local-seo/` and their `/hi/` equivalents), so the tool still contributes internal link flow to the indexable content pages.
+
+---
+
 ## Status
 
-Core SEO page architecture is in place for the five defined pillars in both English and Hindi: clean URLs, breadcrumbs (visible + structured data), full metadata per page, self-referencing canonicals, hreflang-linked language pairs, a sitemap covering both languages, robots.txt, and a cannibalization-safe internal link graph. No mass content generation occurred — five pillar pages per language (ten total), each with genuine, non-thin, independently written content.
+Core SEO page architecture is in place for the five defined pillars in both English and Hindi: clean URLs, breadcrumbs (visible + structured data), full metadata per page, self-referencing canonicals, hreflang-linked language pairs, a sitemap covering both languages, robots.txt, and a cannibalization-safe internal link graph. The Check tool adds a real interactive page in both languages, intentionally excluded from indexing but linking back into the indexed guide content. No mass content generation occurred — five pillar pages per language (ten total) plus one tool page per language, each with genuine, non-thin, independently written content.
