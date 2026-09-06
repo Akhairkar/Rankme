@@ -297,4 +297,165 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://www.localboost.in/businesses/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/salon/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/salon/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.localboost.in/businesses/restaurant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/restaurant/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/restaurant/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/restaurant/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/restaurant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/restaurant/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/restaurant/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/restaurant/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/doctor/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/doctor/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/doctor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/doctor/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/doctor/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/doctor/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/doctor/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/doctor/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/dentist/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/dentist/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/dentist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/dentist/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/dentist/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/dentist/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/dentist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/dentist/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/gym/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/gym/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/gym/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/gym/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/gym/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/gym/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/gym/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/gym/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/hotel/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/hotel/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/hotel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/hotel/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/hotel/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/hotel/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/hotel/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/hotel/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/kirana-store/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/kirana-store/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/kirana-store/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/kirana-store/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/kirana-store/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/kirana-store/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/kirana-store/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/kirana-store/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/mobile-shop/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/mobile-shop/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/mobile-shop/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/mobile-shop/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/mobile-shop/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/mobile-shop/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/mobile-shop/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/mobile-shop/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/plumber/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/plumber/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/plumber/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/plumber/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/plumber/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/plumber/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/plumber/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/plumber/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/electrician/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/electrician/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/electrician/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/electrician/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/electrician/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/electrician/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/electrician/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/electrician/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
