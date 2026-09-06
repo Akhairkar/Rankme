@@ -587,4 +587,149 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://www.localboost.in/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/tools/description-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/description-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/description-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/description-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/description-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/description-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/description-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/description-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/tools/review-reply-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/review-reply-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/review-reply-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/review-reply-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/review-reply-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/review-reply-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/review-reply-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/review-reply-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/tools/review-request-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/review-request-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/review-request-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/review-request-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/review-request-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/review-request-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/review-request-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/review-request-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/tools/services-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/services-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/services-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/services-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/services-generator/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/services-generator/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/services-generator/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/services-generator/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/tools/local-seo-checklist/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/local-seo-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/local-seo-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/local-seo-checklist/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/local-seo-checklist/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/local-seo-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/local-seo-checklist/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/local-seo-checklist/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/tools/maps-embed/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/maps-embed/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/maps-embed/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/maps-embed/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/maps-embed/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/maps-embed/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/maps-embed/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/maps-embed/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/tools/places-lookup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/places-lookup/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/places-lookup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/places-lookup/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/tools/places-lookup/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/places-lookup/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/places-lookup/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/places-lookup/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/audit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/audit/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/audit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/audit/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/audit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/audit/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/audit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/audit/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
