@@ -5,4 +5,4 @@ Disallow: /hi/dashboard/
 Disallow: /checkout/
 Disallow: /hi/checkout/
 
-Sitemap: https://www.localboost.in/sitemap.xml
+Sitemap: https://akhairkar.github.io/Rankme/sitemap.xml
