@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /dashboard/
-Disallow: /hi/dashboard/
-Disallow: /checkout/
-Disallow: /hi/checkout/
-
-Sitemap: https://www.localboost.in/sitemap.xml
