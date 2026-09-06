@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मासिक रिपोर्ट्स | LocalBoost Dashboard</title>
+<meta name="description" content="गूगल मैप्स सर्च व्यूज, फोन कॉल्स और डायरेक्शन का विस्तृत मासिक विश्लेषण।">
+<link rel="canonical" href="https://www.localboost.in/hi/dashboard/reports/">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base:#F8FAFC; --bg-surface:#FFFFFF; --bg-sidebar:#0F172A;
+    --text-primary:#0F172A; --text-secondary:#64748B; --border:#E2E8F0;
+    --primary-600:#0F766E; --primary-500:#14968C; --primary-100:#E0F5F2;
+    --accent-600:#E8722C; --accent-100:#FCE8D9;
+    --success:#10B981; --warning:#F59E0B; --danger:#EF4444;
+    --font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:var(--font); background:var(--bg-base); color:var(--text-primary); line-height:1.6; display:flex; min-height:100vh; }
+  a { color:inherit; text-decoration:none; }
+  
+  /* Sidebar */
+  aside { width:260px; background:var(--bg-sidebar); color:#fff; display:flex; flex-direction:column; padding:24px 16px; flex-shrink:0; }
+  .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; margin-bottom:32px; padding:0 8px; }
+  .logo-mark { width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,var(--primary-500),var(--primary-600)); display:flex; align-items:center; justify-content:center; font-weight:800; }
+  nav.side-nav { display:flex; flex-direction:column; gap:6px; flex-grow:1; }
+  nav.side-nav a { display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:8px; font-size:14.5px; font-weight:600; color:#94A3B8; transition:all .15s ease; }
+  nav.side-nav a:hover, nav.side-nav a.active { background:#1E293B; color:#fff; }
+  nav.side-nav a.active { color:#38BDF8; font-weight:700; }
+  
+  /* Main Content */
+  main { flex-grow:1; padding:32px 40px; overflow-y:auto; }
+  .top-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid var(--border); }
+  .user-badge { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:700; }
+  .user-avatar { width:36px; height:36px; border-radius:50%; background:var(--primary-100); color:var(--primary-600); display:flex; align-items:center; justify-content:center; font-weight:800; }
+  
+  .card { background:var(--bg-surface); border:1px solid var(--border); border-radius:12px; padding:24px; box-shadow:0 1px 3px rgba(0,0,0,0.02); margin-bottom:24px; }
+  .grid-4 { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:24px; }
+  .stat-card { background:var(--bg-surface); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .stat-label { font-size:12.5px; font-weight:700; color:var(--text-secondary); text-transform:uppercase; }
+  .stat-val { font-size:28px; font-weight:800; color:var(--text-primary); margin:6px 0 2px; }
+  .stat-sub { font-size:12.5px; color:var(--success); font-weight:600; }
+
+  .btn { display:inline-block; padding:10px 20px; font-size:14px; font-weight:700; border-radius:8px; border:none; cursor:pointer; text-align:center; }
+  .btn-primary { background:var(--primary-600); color:#fff; }
+  .btn-primary:hover { background:var(--primary-500); }
+  .btn-outline { background:#fff; border:1px solid var(--border); color:var(--text-primary); }
+
+  @media (max-width:850px) {
+    body { flex-direction:column; }
+    aside { width:100%; }
+    main { padding:20px; }
+  }
+</style>
+</head>
+<body>
+
+<aside>
+  <div class="logo">
+    <span class="logo-mark">LB</span>
+    <span>LocalBoost Pro</span>
+  </div>
+  <nav class="side-nav">
+    <a href="/dashboard/" class="">ओवरव्यू</a>
+    <a href="/dashboard/reviews/" class="">रिव्यू मैनेजर</a>
+    <a href="/dashboard/auto-reply/" class="">ऑटो-रिप्लाई नियम</a>
+    <a href="/dashboard/growth-plan/" class="">30-दिन ग्रोथ प्लान</a>
+    <a href="/dashboard/reports/" class="active">मासिक रिपोर्ट्स</a>
+    <a href="/pro/">Pro Plan Details</a>
+    <a href="/" style="margin-top:auto; color:#64748B;">&larr; वेबसाइट पर वापस जाएं</a>
+  </nav>
+</aside>
+
+<main>
+  <div class="top-bar">
+    <div>
+      <h1 style="font-size:24px; font-weight:800;">मासिक परफॉर्मेंस रिपोर्ट्स</h1>
+      <p style="font-size:14.5px; color:var(--text-secondary);">गूगल मैप्स सर्च व्यूज, फोन कॉल्स और डायरेक्शन का विस्तृत मासिक विश्लेषण।</p>
+    </div>
+    <div class="user-badge">
+      <div class="user-avatar">RS</div>
+      <div>Royal Sweets &amp; Bakery <span style="display:block; font-size:12px; color:var(--primary-600); font-weight:600;">Connected &bull; Sector 18, Noida</span></div>
+    </div>
+  </div>
+
+
+  <div class="card" style="display:flex; align-items:center; justify-content:space-between; border-left:4px solid var(--primary-600);">
+    <div>
+      <h2 style="font-size:18px; margin-bottom:4px;">Monthly Performance Audit: August 2026</h2>
+      <p style="font-size:14px; color:var(--text-secondary);">Generated automatically from verified Google Business Profile and local search signals.</p>
+    </div>
+    <button onclick="window.print()" class="btn btn-primary" style="font-size:13px; display:inline-flex; align-items:center; gap:6px;">Print / Download PDF</button>
+  </div>
+
+  <div class="card" id="printableReport">
+    <div style="text-align:center; border-bottom:2px solid var(--border); padding-bottom:20px; margin-bottom:24px;">
+      <h2 style="font-size:22px; color:var(--primary-600);">LocalBoost Visibility Report &bull; Royal Sweets &amp; Bakery</h2>
+      <p style="font-size:13.5px; color:var(--text-secondary);">Reporting Period: August 1 &ndash; August 31, 2026 &bull; Location: Sector 18, Noida</p>
+    </div>
+
+    <div class="grid-4" style="margin-bottom:24px;">
+      <div style="background:var(--bg-base); padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:12px; font-weight:700; color:var(--text-secondary);">MAPS VIEWS</div>
+        <div style="font-size:24px; font-weight:800; color:var(--text-primary); margin-top:4px;">12,840</div>
+        <div style="font-size:12px; color:var(--success); font-weight:700;">+22% vs July</div>
+      </div>
+      <div style="background:var(--bg-base); padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:12px; font-weight:700; color:var(--text-secondary);">PHONE CALLS</div>
+        <div style="font-size:24px; font-weight:800; color:var(--text-primary); margin-top:4px;">348</div>
+        <div style="font-size:12px; color:var(--success); font-weight:700;">+16% vs July</div>
+      </div>
+      <div style="background:var(--bg-base); padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:12px; font-weight:700; color:var(--text-secondary);">DIRECTIONS</div>
+        <div style="font-size:24px; font-weight:800; color:var(--text-primary); margin-top:4px;">892</div>
+        <div style="font-size:12px; color:var(--success); font-weight:700;">+19% vs July</div>
+      </div>
+      <div style="background:var(--bg-base); padding:16px; border-radius:8px; text-align:center;">
+        <div style="font-size:12px; font-weight:700; color:var(--text-secondary);">NEW REVIEWS</div>
+        <div style="font-size:24px; font-weight:800; color:var(--text-primary); margin-top:4px;">14</div>
+        <div style="font-size:12px; color:var(--success); font-weight:700;">4.9 avg rating</div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px; margin-bottom:12px;">Tasks Completed in August</h3>
+    <ul style="margin:0 0 24px 20px; font-size:14.5px; color:#334155;">
+      <li>Updated primary category to Indian Sweet Shop and added Bakery secondary category.</li>
+      <li>Published festival sweets catalog with 18 individual products and starting prices.</li>
+      <li>Generated direct 1-click review link and installed counter acrylic QR standees.</li>
+      <li>Responded to 100% of incoming customer reviews within 24 hours.</li>
+    </ul>
+
+    <div style="background:var(--primary-100); border-left:4px solid var(--primary-600); padding:14px; border-radius:6px; font-size:13.5px;">
+      <strong>Consultant Note:</strong> Excellent visibility trajectory. Continue maintaining review velocity through September wedding season to preserve #1 rank on Google Maps.
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

@@ -732,4 +732,133 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.localboost.in/pro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/pro/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/pro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/pro/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/pro/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/pro/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/pro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/pro/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/cities/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/cities/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/cities/delhi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/delhi/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/delhi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/delhi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/cities/delhi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/delhi/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/delhi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/delhi/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/cities/mumbai/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/mumbai/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/mumbai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/mumbai/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/cities/mumbai/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/mumbai/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/mumbai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/mumbai/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/cities/bengaluru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/bengaluru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/bengaluru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/bengaluru/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/cities/bengaluru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/bengaluru/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/bengaluru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/bengaluru/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/cities/pune/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/pune/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/pune/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/pune/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/cities/pune/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/pune/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/pune/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/pune/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/cities/hyderabad/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/hyderabad/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/hyderabad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/hyderabad/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/cities/hyderabad/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/hyderabad/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/hyderabad/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/hyderabad/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/cities/jaipur/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/jaipur/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/jaipur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/jaipur/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/cities/jaipur/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/cities/jaipur/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/cities/jaipur/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/cities/jaipur/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
