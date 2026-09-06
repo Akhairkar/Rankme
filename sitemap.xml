@@ -200,4 +200,101 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.localboost.in/google-reviews/how-google-reviews-work/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-google-reviews-work/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-reviews-kaise-kaam-karte-hain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-google-reviews-work/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/google-reviews/google-reviews-kaise-kaam-karte-hain/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-google-reviews-work/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-reviews-kaise-kaam-karte-hain/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-google-reviews-work/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/google-reviews/how-to-ask-for-google-reviews/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-ask-for-google-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-reviews-kaise-mangaye/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-ask-for-google-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/google-reviews/google-reviews-kaise-mangaye/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-ask-for-google-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-reviews-kaise-mangaye/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-ask-for-google-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/google-reviews/how-to-reply-to-google-reviews/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-reply-to-google-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-reviews-ka-reply-kaise-kare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-reply-to-google-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/google-reviews/google-reviews-ka-reply-kaise-kare/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-reply-to-google-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-reviews-ka-reply-kaise-kare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-reply-to-google-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/google-reviews/how-to-handle-negative-reviews/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-handle-negative-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/negative-reviews-kaise-handle-kare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-handle-negative-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/google-reviews/negative-reviews-kaise-handle-kare/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-handle-negative-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/negative-reviews-kaise-handle-kare/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-handle-negative-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/google-reviews/how-to-remove-fake-google-reviews/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-remove-fake-google-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/fake-google-reviews-kaise-hataye/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-remove-fake-google-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/google-reviews/fake-google-reviews-kaise-hataye/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/how-to-remove-fake-google-reviews/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/fake-google-reviews-kaise-hataye/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/how-to-remove-fake-google-reviews/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/google-reviews/google-review-policy-mistakes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/google-review-policy-mistakes/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-review-policy-aur-galtiyan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/google-review-policy-mistakes/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/google-reviews/google-review-policy-aur-galtiyan/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/google-reviews/google-review-policy-mistakes/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/google-reviews/google-review-policy-aur-galtiyan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/google-reviews/google-review-policy-mistakes/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
