@@ -148,6 +148,8 @@
           <li><a href="/pricing/">Pricing &amp; Plans</a></li>
           <li><a href="/blog/">Knowledge Blog</a></li>
           <li><a href="/compliance/">Google Compliance</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
           <li><a href="/privacy/">Privacy Policy</a></li>
           <li><a href="/terms/">Terms of Service</a></li>
         </ul>
@@ -163,6 +165,34 @@
 
 <script>
 const DATA = [
+  // Master Expansion Tools
+  { title: "Google Maps Local Rank Grid Simulator", url: "/tools/rank-grid-simulator/", cat: "tools", desc: "Simulate 3x3 local geo-grid ranking radiuses across your neighbourhood and density." },
+  { title: "Printable Store Counter Standee & QR Generator", url: "/tools/qr-generator/", cat: "tools", desc: "Generate printable acrylic standees with direct Google review QR codes for billing counters." },
+  { title: "Review Policy Dispute & Appeal Generator", url: "/tools/review-dispute-generator/", cat: "tools", desc: "Draft policy-cited formal appeals to remove fake, defamatory, or competitor-posted reviews." },
+  { title: "Indian Local Citation Builder & NAP Formatter", url: "/tools/citation-checker/", cat: "tools", desc: "Format standardized Name, Address, and Phone data for Justdial, IndiaMART, Sulekha, and Bing." },
+
+  // Master Expansion Verticals
+  { title: "Astrologer & Vastu Consultant Local SEO Guide", url: "/businesses/astrologer/", cat: "businesses", desc: "Private consultation bookings, Kundli matching keywords, and ethical Google profile setup." },
+  { title: "Banquet Hall & Wedding Venue Google Maps Guide", url: "/businesses/banquet-hall/", cat: "businesses", desc: "Dominate peak wedding season bookings, catering packages, and hall capacity attributes." },
+  { title: "Pathology Lab & Diagnostic Center Local SEO", url: "/businesses/pathology-lab/", cat: "businesses", desc: "Home sample collection setup, NABL accreditation trust, and same-day report turnarounds." },
+  { title: "Security Guard Agency Local SEO Guide", url: "/businesses/security-services/", cat: "businesses", desc: "PSARA compliance transparency, society guard deployment, and commercial B2B contracts." },
+  { title: "Dry Cleaners & Laundry Service Google Maps Guide", url: "/businesses/dry-cleaner/", cat: "businesses", desc: "Doorstep pickup coverage radius, bridal wear dry cleaning, and WhatsApp delivery updates." },
+  { title: "Interior Designer & Architect Local SEO Guide", url: "/businesses/interior-designer/", cat: "businesses", desc: "Turnkey residential flat renovations, modular kitchen portfolios, and video walkthroughs." },
+
+  // Master Expansion Cities
+  { title: "Local SEO & Google Maps Guide for Kolkata", url: "/cities/kolkata/", cat: "cities", desc: "Rank across Park Street, Salt Lake, and Burrabazar with bilingual Bengali/English trends and KMC compliance." },
+  { title: "Local SEO & Google Maps Guide for Chennai", url: "/cities/chennai/", cat: "cities", desc: "Healthcare and retail trust factors across T. Nagar, Anna Nagar, and OMR with GCC trade licenses." },
+  { title: "Local SEO & Google Maps Guide for Ahmedabad", url: "/cities/ahmedabad/", cat: "cities", desc: "Dominate commercial hubs along SG Highway and Sindhu Bhavan Road with AMC licensing compliance." },
+  { title: "Local SEO & Google Maps Guide for Lucknow", url: "/cities/lucknow/", cat: "cities", desc: "Rank across Hazratganj, Gomti Nagar, and Alambagh for Awadhi dining and retail with LMC licensing." },
+  { title: "Local SEO & Google Maps Guide for Chandigarh Tricity", url: "/cities/chandigarh/", cat: "cities", desc: "Sector-specific grid mapping and local citations across Chandigarh, Mohali, and Panchkula." },
+  { title: "Local SEO & Google Maps Guide for Indore", url: "/cities/indore/", cat: "cities", desc: "Dominate culinary, coaching, and wholesale markets across Vijay Nagar, Chhappan Dukan, and Palasia." },
+
+  // Master Expansion Blog Posts
+  { title: "Why Did My Google Maps Ranking Drop Suddenly? Recovery", url: "/blog/google-maps-ranking-drop-troubleshooting/", cat: "blog", desc: "Diagnose sudden Google Maps ranking drops, soft suspensions, and competitor review surges." },
+  { title: "How Google AI Overviews Impact Local Business Search in India", url: "/blog/ai-overviews-and-local-seo-india/", cat: "blog", desc: "How Gemini-powered AI Overviews are changing zero-click searches and customer discovery." },
+  { title: "Complete LocalBusiness JSON-LD Schema Guide for 2026", url: "/blog/local-business-schema-markup-complete-guide/", cat: "blog", desc: "Step-by-step tutorial on implementing nested LocalBusiness JSON-LD schema with geo-coordinates." },
+  { title: "Google Business Profile vs. Justdial & IndiaMART: Real ROI", url: "/blog/justdial-indiamart-vs-google-maps/", cat: "blog", desc: "Honest ROI comparison between paid Indian directories and organic Google Maps SEO." }
+
   // Tools
   { title: "Free Google Business Profile Diagnostic Audit", url: "/check/", cat: "tools", desc: "Interactive 8-question self-audit tool providing visibility score, review velocity rating, and prioritized local SEO fix checklist." },
   { title: "Comprehensive Website & Local SEO Audit Engine", url: "/audit/", cat: "tools", desc: "Deterministic audit engine analyzing meta tags, title length, schema, and mobile responsiveness with priority fix guidance." },
@@ -189,7 +219,7 @@ const DATA = [
   { title: "Gym & Fitness Center Local SEO Guide", url: "/businesses/gym/", cat: "businesses", desc: "Dominate New Year fitness searches, personal training packages, and workout space virtual tours." },
   { title: "Hotel & Guest House Google Maps Guide", url: "/businesses/hotel/", cat: "businesses", desc: "Optimize room amenities, check-in policies, direct booking buttons, and traveler review velocity." },
   { title: "Kirana & Grocery Store Local SEO Guide", url: "/businesses/kirana-store/", cat: "businesses", desc: "Rank for daily essentials, home delivery radius, and WhatsApp order phone numbers." },
-  { title: "Mobile Repair Shop Google Maps Guide", url: "/businesses/mobile-repair/", cat: "businesses", desc: "Attract urgent screen replacement and battery repair customers with same-day warranty badges." },
+  { title: "Mobile Repair Shop Google Maps Guide", url: "/businesses/mobile-shop/", cat: "businesses", desc: "Attract urgent screen replacement and battery repair customers with same-day warranty badges." },
   { title: "Plumber Services Local SEO Guide", url: "/businesses/plumber/", cat: "businesses", desc: "Service-area business setup for emergency leaks, pipe repair, and verified plumbing citations." },
   { title: "Electrician Services Local SEO Guide", url: "/businesses/electrician/", cat: "businesses", desc: "Rank in nearby localities for house wiring, MCB tripping, and appliance installations." },
   { title: "Coaching Institute Local SEO Guide", url: "/businesses/coaching-institute/", cat: "businesses", desc: "Attract JEE, NEET, UPSC, and board exam students with topper testimonials and demo class booking." },
@@ -285,5 +315,6 @@ if (params.has('q')) {
 render();
 </script>
 
+<script src="/assets/consent.js" defer></script>
 </body>
 </html>

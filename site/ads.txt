@@ -1,0 +1,6 @@
+# ==============================================================================
+# LocalBoost Authorized Digital Sellers (ads.txt)
+# IAB Tech Lab OpenRTB Standard Compliant
+# Instructions: Replace pub-0000000000000000 with your Google AdSense Publisher ID
+# ==============================================================================
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
