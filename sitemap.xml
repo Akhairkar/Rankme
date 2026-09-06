@@ -458,4 +458,133 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://www.localboost.in/businesses/coaching-institute/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/coaching-institute/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/coaching-institute/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/coaching-institute/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/coaching-institute/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/coaching-institute/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/coaching-institute/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/coaching-institute/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/car-repair/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/car-repair/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/car-repair/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/car-repair/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/car-repair/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/car-repair/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/car-repair/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/car-repair/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/real-estate-agent/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/real-estate-agent/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/real-estate-agent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/real-estate-agent/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/real-estate-agent/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/real-estate-agent/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/real-estate-agent/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/real-estate-agent/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/chartered-accountant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/chartered-accountant/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/chartered-accountant/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/chartered-accountant/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/chartered-accountant/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/chartered-accountant/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/chartered-accountant/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/chartered-accountant/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/bakery/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/bakery/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/bakery/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/bakery/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/bakery/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/bakery/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/bakery/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/bakery/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/hardware-store/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/hardware-store/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/hardware-store/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/hardware-store/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/hardware-store/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/hardware-store/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/hardware-store/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/hardware-store/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/photographer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/photographer/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/photographer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/photographer/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/photographer/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/photographer/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/photographer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/photographer/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/businesses/pest-control/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/pest-control/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/pest-control/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/pest-control/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.localboost.in/hi/businesses/pest-control/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/businesses/pest-control/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/businesses/pest-control/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/businesses/pest-control/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
 </urlset>
