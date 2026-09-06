@@ -273,7 +273,7 @@
       <div class="options" role="radiogroup" aria-label="${q.text}">
         ${q.options.map((opt, i) => `
           <label class="option${answers[current] === i ? ' selected' : ''}">
-            <input type="radio" name="q${current}" value="${i}" ${answers[current] === i ? 'checked' : ''}>
+            <input type="radio" name="q${current}" value="${i}" aria-label="${opt.label}" ${answers[current] === i ? 'checked' : ''}>
             ${opt.label}
           </label>
         `).join('')}
