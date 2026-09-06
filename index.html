@@ -3,19 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers</title>
-<meta name="description" content="Free Google Business Profile and local SEO audit for Indian small businesses. Find out why customers can't find you on Google Maps — and fix it, step by step.">
+<title>LocalBoost – Free Google Business Profile &amp; Local SEO Audit for Indian Businesses</title>
+<meta name="description" content="Free Google Business Profile audit, local SEO tools, and step-by-step guides for Indian small businesses. Check why customers can't find you on Google Maps and fix it free.">
 <link rel="canonical" href="https://www.localboost.in/">
 <link rel="alternate" hreflang="en" href="https://www.localboost.in/">
-<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/">
 <link rel="alternate" hreflang="x-default" href="https://www.localboost.in/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="LocalBoost – Free Local SEO Audit for Indian Businesses">
+<meta property="og:description" content="Free Google Business Profile audit &amp; local SEO tools for Indian small businesses. Get found on Google Maps today.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.localboost.in/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Schema: Organization -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "LocalBoost",
   "url": "https://www.localboost.in/",
-  "description": "Free Google Business Profile and local SEO audits for Indian small businesses."
+  "logo": "https://www.localboost.in/assets/logo.png",
+  "description": "Free Google Business Profile and local SEO audits for Indian small businesses.",
+  "contactPoint": {"@type": "ContactPoint", "contactType": "customer support", "url": "https://www.localboost.in/contact/"}
+}
+</script>
+
+<!-- Schema: WebSite with SearchAction -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "LocalBoost",
+  "url": "https://www.localboost.in/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.localboost.in/search/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Schema: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is LocalBoost free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes. All core tools — visibility check, local SEO checklist, review reply generator, description generator, QR generator and more — are completely free with no signup required."}},
+    {"@type":"Question","name":"How do I check my Google Business Profile visibility?","acceptedAnswer":{"@type":"Answer","text":"Click 'Check My Business – Free' on our homepage, enter your business name, and answer 8 quick questions. You'll get a plain-language score and a prioritised fix list instantly in your browser."}},
+    {"@type":"Question","name":"Do I need to create an account?","acceptedAnswer":{"@type":"Answer","text":"No account is needed for any free tool. Everything runs in your browser — no data leaves your device."}},
+    {"@type":"Question","name":"Which cities in India does LocalBoost support?","acceptedAnswer":{"@type":"Answer","text":"LocalBoost has dedicated guides for Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune, Ahmedabad, Jaipur, Lucknow, Indore, and Chandigarh — with content tailored to local search trends in each market."}}
+  ]
 }
 </script>
 
@@ -25,1044 +64,744 @@
 
 <style>
   :root {
-    /* Color tokens (from DESIGN-SYSTEM.md) */
-    --bg-base: #FAF9F6;
-    --bg-surface: #FFFFFF;
-    --bg-muted: #F0EEE9;
-    --text-primary: #1E1E1E;
-    --text-secondary: #5A5A54;
-    --border: #E2E0D9;
-
-    --primary-600: #0F766E;
-    --primary-500: #14968C;
-    --primary-100: #E0F5F2;
-
-    --accent-600: #E8722C;
-    --accent-700: #CE5F1E;
-    --accent-100: #FCE8D9;
-
-    --success: #1E8E5A;
-    --warning: #C98A02;
-    --danger: #C4402C;
-    --info: #2563A6;
-
-    /* Spacing (8px base) */
-    --sp-1: 4px;
-    --sp-2: 8px;
-    --sp-3: 12px;
-    --sp-4: 16px;
-    --sp-5: 24px;
-    --sp-6: 32px;
-    --sp-7: 48px;
-    --sp-8: 64px;
-
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 20px;
-
-    --font: 'Manrope', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+    --bg-base: #FAF9F6; --bg-surface: #FFFFFF; --bg-muted: #F0EEE9;
+    --text-primary: #1E1E1E; --text-secondary: #5A5A54; --border: #E2E0D9;
+    --primary-600: #0F766E; --primary-500: #14968C; --primary-100: #E0F5F2;
+    --accent-600: #E8722C; --accent-700: #CE5F1E; --accent-100: #FCE8D9;
+    --success: #1E8E5A; --warning: #C98A02; --danger: #C4402C;
+    --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+    --radius-md: 8px; --radius-lg: 12px; --radius-xl: 20px;
+    --font: 'Manrope','Noto Sans Devanagari',system-ui,-apple-system,sans-serif;
+    --shadow-sm: 0 2px 8px rgba(30,30,30,.06);
+    --shadow-md: 0 8px 24px rgba(30,30,30,.09);
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font);
-    background: var(--bg-base);
-    color: var(--text-primary);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  img, svg { max-width: 100%; display: block; }
-
+  body { font-family: var(--font); background: var(--bg-base); color: var(--text-primary); line-height: 1.65; }
   a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
 
-  .wrap {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 0 var(--sp-5);
-  }
-
+  /* ===== LAYOUT ===== */
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--sp-5); }
+  .wrap-narrow { max-width: 800px; margin: 0 auto; padding: 0 var(--sp-5); }
   section { padding: var(--sp-8) 0; }
 
-  h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
-  h1 { font-size: 40px; }
-  h2 { font-size: 30px; }
-  h3 { font-size: 20px; }
-  p { color: var(--text-secondary); }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--primary-600);
-    background: var(--primary-100);
-    padding: var(--sp-1) var(--sp-3);
-    border-radius: 999px;
-    margin-bottom: var(--sp-4);
-  }
-
-  .section-head { max-width: 640px; margin-bottom: var(--sp-6); }
-  .section-head p { margin-top: var(--sp-3); font-size: 17px; }
-  .center { text-align: center; margin-left: auto; margin-right: auto; }
-
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--sp-2);
-    font-family: var(--font);
-    font-weight: 600;
-    font-size: 15px;
-    padding: 13px 24px;
-    border-radius: var(--radius-md);
-    border: none;
-    cursor: pointer;
-    min-height: 44px;
-    transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
-  }
-  .btn:active { transform: translateY(1px); }
-  .btn-primary { background: var(--accent-600); color: #fff; }
-  .btn-primary:hover { background: var(--accent-700); }
-  .btn-secondary { background: transparent; color: var(--primary-600); border: 1.5px solid var(--primary-600); }
-  .btn-secondary:hover { background: var(--primary-100); }
-  .btn-ghost { background: transparent; color: var(--text-primary); }
-  .btn:focus-visible { outline: 2px solid var(--primary-500); outline-offset: 2px; }
-  .btn-block { width: 100%; }
-
-  /* Header */
+  /* ===== HEADER / NAV ===== */
   header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    background: rgba(250, 249, 246, 0.92);
-    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,249,246,.95); backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
   .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--sp-4) 0;
+    max-width: 1180px; margin: 0 auto; padding: 14px var(--sp-5);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4);
   }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-2);
-    font-weight: 800;
-    font-size: 18px;
-  }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; flex-shrink: 0; }
   .logo-mark {
-    width: 34px; height: 34px;
-    border-radius: 9px;
+    width: 36px; height: 36px; border-radius: 10px;
     background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
     display: flex; align-items: center; justify-content: center;
     color: #fff; font-weight: 800; font-size: 15px;
-    flex-shrink: 0;
   }
-  nav.main-nav { display: flex; align-items: center; gap: var(--sp-6); }
-  nav.main-nav a {
-    font-size: 15px; font-weight: 500; color: var(--text-secondary);
+  .main-nav { display: flex; align-items: center; gap: var(--sp-5); }
+  .main-nav a { font-size: 14.5px; font-weight: 600; color: var(--text-secondary); transition: color .15s; }
+  .main-nav a:hover { color: var(--primary-600); }
+  .nav-right { display: flex; align-items: center; gap: var(--sp-3); }
+  .nav-cta {
+    background: var(--accent-600); color: #fff !important; font-weight: 700; font-size: 14px;
+    padding: 10px 20px; border-radius: var(--radius-md); transition: background .15s;
   }
-  nav.main-nav a:hover { color: var(--primary-600); }
-  .nav-actions { display: flex; align-items: center; gap: var(--sp-3); }
-  .lang-switch {
-    font-size: 13px; font-weight: 600; color: var(--text-secondary);
-    border: 1px solid var(--border); border-radius: 999px;
-    padding: 6px 12px; background: var(--bg-surface);
-  }
-  .lang-switch:disabled { opacity: 0.55; cursor: not-allowed; }
-  .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: var(--sp-2); }
-  .nav-toggle svg { width: 24px; height: 24px; }
+  .nav-cta:hover { background: var(--accent-700) !important; }
 
-  /* Hero */
-  .hero { padding-top: var(--sp-8); padding-bottom: var(--sp-7); }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    gap: var(--sp-7);
-    align-items: center;
+  /* Mobile nav toggle */
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer; padding: 8px;
+    flex-direction: column; gap: 5px; align-items: flex-end;
   }
-  .hero h1 { margin-bottom: var(--sp-4); }
-  .hero-sub { font-size: 18px; margin-bottom: var(--sp-6); max-width: 480px; }
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px; background: var(--text-primary);
+    border-radius: 2px; transition: all .25s;
+  }
+  .nav-toggle span:nth-child(2) { width: 16px; }
 
-  .audit-form {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: var(--sp-5);
-    box-shadow: 0 8px 24px rgba(30,30,30,0.06);
+  @media (max-width: 768px) {
+    .main-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg-surface); flex-direction: column; padding: var(--sp-5); border-bottom: 1px solid var(--border); gap: var(--sp-4); align-items: flex-start; box-shadow: var(--shadow-md); }
+    .main-nav.open { display: flex; }
+    .nav-toggle { display: flex; }
+    nav { position: relative; }
   }
-  .audit-form label {
-    display: block; font-size: 13px; font-weight: 600;
-    color: var(--text-secondary); margin-bottom: var(--sp-2);
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 80px 0 72px;
+    background: radial-gradient(ellipse 100% 80% at 50% -10%, #e0f5f2 0%, transparent 65%), var(--bg-base);
   }
-  .input-row { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
-  .input-row input[type="text"] {
-    flex: 1 1 220px;
-    min-height: 48px;
-    padding: 0 var(--sp-4);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    font-family: var(--font);
-    font-size: 15px;
-    background: var(--bg-base);
+  .hero-inner { max-width: 1180px; margin: 0 auto; padding: 0 var(--sp-5); }
+  .eyebrow {
+    display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: .06em;
+    text-transform: uppercase; color: var(--primary-600); background: var(--primary-100);
+    padding: 5px 14px; border-radius: 999px; margin-bottom: var(--sp-4);
   }
-  .input-row input[type="text"]:focus-visible {
-    outline: none; border-color: var(--primary-600);
-    box-shadow: 0 0 0 3px var(--primary-100);
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.18;
+    letter-spacing: -.02em; max-width: 720px; margin-bottom: var(--sp-4);
   }
-  .audit-form .btn { flex: 0 0 auto; }
-  .audit-form .fine-print {
-    font-size: 12.5px; color: var(--text-secondary);
-    margin-top: var(--sp-3);
+  .hero-sub { font-size: 18px; color: var(--text-secondary); max-width: 560px; margin-bottom: var(--sp-6); line-height: 1.7; }
+
+  .audit-form { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: var(--sp-5); box-shadow: var(--shadow-md); max-width: 640px; }
+  .audit-form label { display: block; font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: .04em; }
+  .input-row { display: flex; gap: 10px; }
+  .audit-form input[type="text"] {
+    flex: 1; padding: 14px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-md);
+    font-family: var(--font); font-size: 15px; background: var(--bg-base); color: var(--text-primary);
+    min-width: 0; transition: border-color .15s;
   }
-  .trust-row {
-    display: flex; align-items: center; gap: var(--sp-5);
-    margin-top: var(--sp-6); flex-wrap: wrap;
-  }
-  .trust-item {
-    display: flex; align-items: center; gap: var(--sp-2);
-    font-size: 13px; font-weight: 600; color: var(--text-secondary);
-  }
+  .audit-form input[type="text"]:focus { outline: none; border-color: var(--primary-600); background: #fff; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; font-size: 15px; padding: 14px 24px; border-radius: var(--radius-md); border: none; cursor: pointer; font-family: var(--font); transition: background .15s, transform .1s; min-height: 48px; }
+  .btn:active { transform: scale(.98); }
+  .btn-primary { background: var(--accent-600); color: #fff; }
+  .btn-primary:hover { background: var(--accent-700); }
+  .fine-print { font-size: 12.5px; color: var(--text-secondary); margin-top: var(--sp-3); }
+
+  .trust-bar { display: flex; flex-wrap: wrap; gap: var(--sp-5); margin-top: var(--sp-6); align-items: center; }
+  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 600; color: var(--text-secondary); }
   .trust-item svg { width: 18px; height: 18px; color: var(--primary-600); flex-shrink: 0; }
 
-  /* Hero visual — GBP mockup */
-  .gbp-mock {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    padding: var(--sp-5);
-    box-shadow: 0 12px 32px rgba(30,30,30,0.08);
-    position: relative;
-  }
-  .gbp-map { border-radius: var(--radius-lg); overflow: hidden; margin-bottom: var(--sp-4); }
-  .gbp-card-row { display: flex; gap: var(--sp-3); align-items: flex-start; }
-  .gbp-avatar {
-    width: 44px; height: 44px; border-radius: 10px;
-    background: var(--accent-100); flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .gbp-avatar svg { width: 24px; height: 24px; color: var(--accent-600); }
-  .gbp-meta { flex: 1; }
-  .gbp-meta .name { font-weight: 700; font-size: 16px; }
-  .stars { color: var(--warning); font-size: 13px; margin-top: 2px; }
-  .stars span { color: var(--text-secondary); font-weight: 600; }
-  .score-chip {
-    position: absolute; top: -14px; right: 24px;
-    background: var(--primary-600); color: #fff;
-    border-radius: 999px; padding: 6px 14px;
-    font-size: 13px; font-weight: 700;
-    box-shadow: 0 6px 16px rgba(15,118,110,0.35);
-  }
+  /* ===== SECTION HEADER ===== */
+  .section-head { text-align: center; margin-bottom: var(--sp-7); }
+  .section-head h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; letter-spacing: -.015em; margin-bottom: var(--sp-3); }
+  .section-head p { font-size: 16.5px; color: var(--text-secondary); max-width: 540px; margin: 0 auto; }
 
-  /* Free audit strip */
-  .audit-strip {
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
-    color: #fff; border-radius: var(--radius-xl);
-    padding: var(--sp-6) var(--sp-6);
-    display: flex; align-items: center; justify-content: space-between;
-    gap: var(--sp-5); flex-wrap: wrap;
-  }
-  .audit-strip h2 { color: #fff; font-size: 24px; margin-bottom: var(--sp-2); }
-  .audit-strip p { color: rgba(255,255,255,0.85); margin: 0; max-width: 480px; }
-  .audit-strip .btn-primary { background: #fff; color: var(--primary-600); }
-  .audit-strip .btn-primary:hover { background: var(--bg-muted); }
-
-  /* How it works */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: var(--sp-4);
-  }
-  .step-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: var(--sp-5) var(--sp-4);
-    position: relative;
-  }
-  .step-num {
-    width: 32px; height: 32px; border-radius: 8px;
-    background: var(--primary-100); color: var(--primary-600);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 14px; margin-bottom: var(--sp-4);
-  }
-  .step-card h3 { font-size: 16px; margin-bottom: var(--sp-2); }
-  .step-card p { font-size: 14px; }
-  .step-card.active { border-color: var(--primary-500); box-shadow: 0 0 0 3px var(--primary-100); }
-
-  /* Grid cards generic */
+  /* ===== CARDS ===== */
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-4); }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sp-5); }
 
   .card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: var(--sp-5);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    transition: transform .15s ease, box-shadow .15s ease;
+    background: var(--bg-surface); border: 1.5px solid var(--border); border-radius: var(--radius-lg);
+    padding: var(--sp-5); transition: border-color .2s, box-shadow .2s, transform .2s;
+    display: flex; flex-direction: column;
   }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(30,30,30,0.08); }
+  .card:hover { border-color: var(--primary-500); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .card-link { display: block; }
   .card-icon {
-    width: 44px; height: 44px; border-radius: 10px;
+    width: 48px; height: 48px; border-radius: var(--radius-md);
     background: var(--primary-100); display: flex; align-items: center; justify-content: center;
-    margin-bottom: var(--sp-4);
+    margin-bottom: var(--sp-4); flex-shrink: 0;
   }
-  .card-icon svg { width: 22px; height: 22px; color: var(--primary-600); }
-  .card h3 { margin-bottom: var(--sp-2); }
-  .card p { font-size: 14.5px; }
-  .card .tag {
-    display: inline-block; font-size: 11.5px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.04em;
-    color: var(--success); background: #E4F4EC;
-    padding: 3px 9px; border-radius: 999px; margin-top: var(--sp-3);
-  }
+  .card-icon svg { width: 24px; height: 24px; color: var(--primary-600); }
+  .card h3 { font-size: 16px; font-weight: 700; margin-bottom: var(--sp-2); }
+  .card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+  .card .tag { display: inline-block; margin-top: var(--sp-3); font-size: 12px; font-weight: 700; background: var(--accent-100); color: var(--accent-700); padding: 3px 10px; border-radius: 999px; }
+  .card .arrow { font-size: 13px; font-weight: 700; color: var(--primary-600); margin-top: var(--sp-3); display: inline-flex; align-items: center; gap: 4px; }
 
-  /* Category chips */
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--sp-3);
-  }
-  .cat-chip {
-    display: flex; align-items: center; gap: var(--sp-3);
-    background: var(--bg-surface); border: 1px solid var(--border);
-    border-radius: var(--radius-md); padding: var(--sp-3) var(--sp-4);
-    font-weight: 600; font-size: 14.5px;
-  }
-  .cat-chip:hover { border-color: var(--primary-500); background: var(--primary-100); }
-  .cat-chip .dot {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--accent-600); flex-shrink: 0;
-  }
-
-  /* AI audit preview */
-  .split {
-    display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-7); align-items: center;
-  }
-  .audit-report-mock {
-    background: var(--bg-surface); border: 1px solid var(--border);
-    border-radius: var(--radius-xl); padding: var(--sp-5);
-    box-shadow: 0 12px 32px rgba(30,30,30,0.08);
-  }
-  .report-row {
-    display: flex; align-items: center; gap: var(--sp-3);
-    padding: var(--sp-3) 0; border-bottom: 1px solid var(--bg-muted);
-  }
-  .report-row:last-child { border-bottom: none; }
-  .report-status {
-    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .report-status.ok { background: #E4F4EC; color: var(--success); }
-  .report-status.warn { background: #FBF0DA; color: var(--warning); }
-  .report-status svg { width: 13px; height: 13px; }
-  .report-text { flex: 1; font-size: 14.5px; font-weight: 600; }
-  .report-text small { display: block; font-weight: 400; color: var(--text-secondary); font-size: 13px; margin-top: 2px; }
-  .score-ring {
-    width: 96px; height: 96px; border-radius: 50%;
-    background: conic-gradient(var(--primary-600) 0% 72%, var(--bg-muted) 72% 100%);
-    display: flex; align-items: center; justify-content: center;
+  /* ===== HOW IT WORKS ===== */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); position: relative; }
+  .step-connector { display: none; }
+  .step { text-align: center; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%; background: var(--primary-600);
+    color: #fff; font-size: 22px; font-weight: 800; display: flex; align-items: center; justify-content: center;
     margin: 0 auto var(--sp-4);
   }
-  .score-ring-inner {
-    width: 74px; height: 74px; border-radius: 50%; background: var(--bg-surface);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-  }
-  .score-ring-inner .num { font-size: 22px; font-weight: 800; color: var(--primary-600); }
-  .score-ring-inner .lbl { font-size: 10px; color: var(--text-secondary); font-weight: 600; }
+  .step h3 { font-size: 17px; font-weight: 700; margin-bottom: var(--sp-2); }
+  .step p { font-size: 14.5px; color: var(--text-secondary); }
 
-  .feature-list { list-style: none; margin-top: var(--sp-5); }
-  .feature-list li {
-    display: flex; gap: var(--sp-3); padding: var(--sp-3) 0;
-    border-bottom: 1px solid var(--border);
+  /* ===== BUSINESSES GRID ===== */
+  .biz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+  .biz-chip {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+    padding: 12px 14px; font-size: 14px; font-weight: 600; transition: border-color .15s, background .15s;
   }
-  .feature-list li:last-child { border-bottom: none; }
-  .feature-list svg { width: 20px; height: 20px; color: var(--primary-600); flex-shrink: 0; margin-top: 2px; }
-  .feature-list strong { font-size: 15px; display: block; margin-bottom: 2px; }
-  .feature-list span.desc { font-size: 14px; color: var(--text-secondary); }
+  .biz-chip:hover { border-color: var(--primary-500); background: var(--primary-100); }
+  .biz-chip svg { width: 20px; height: 20px; color: var(--primary-600); flex-shrink: 0; }
 
-  /* Reviews preview */
-  .review-mock {
-    background: var(--bg-surface); border: 1px solid var(--border);
-    border-radius: var(--radius-xl); padding: var(--sp-5);
-    box-shadow: 0 12px 32px rgba(30,30,30,0.08);
+  /* ===== CITIES ===== */
+  .city-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+  .city-chip {
+    text-align: center; padding: 14px 10px; background: var(--bg-surface);
+    border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 14px; font-weight: 700;
+    transition: border-color .15s, background .15s;
   }
-  .review-item { padding: var(--sp-4) 0; border-bottom: 1px solid var(--bg-muted); }
-  .review-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .review-head { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-2); }
-  .review-avatar {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--primary-100); color: var(--primary-600);
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 14px; flex-shrink: 0;
-  }
-  .review-name { font-weight: 700; font-size: 14.5px; }
-  .review-stars { color: var(--warning); font-size: 12.5px; }
-  .review-text { font-size: 14px; color: var(--text-secondary); margin-bottom: var(--sp-3); }
-  .draft-reply {
-    background: var(--primary-100); border-radius: var(--radius-md);
-    padding: var(--sp-3) var(--sp-4); font-size: 13.5px;
-  }
-  .draft-reply .lbl {
-    font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.04em; color: var(--primary-600); margin-bottom: 4px; display: block;
-  }
+  .city-chip:hover { border-color: var(--primary-500); background: var(--primary-100); color: var(--primary-600); }
 
-  /* Guides */
-  .guide-card { display: flex; flex-direction: column; height: 100%; }
-  .guide-thumb {
-    height: 140px; border-radius: var(--radius-md); margin-bottom: var(--sp-4);
-    display: flex; align-items: center; justify-content: center;
+  /* ===== GUIDES ===== */
+  .guide-card {
+    background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: var(--sp-5); display: flex; gap: var(--sp-4); transition: border-color .2s, box-shadow .2s;
   }
-  .guide-thumb svg { width: 56px; height: 56px; }
-  .guide-cat { font-size: 12px; font-weight: 700; color: var(--accent-600); text-transform: uppercase; letter-spacing: 0.04em; }
-  .guide-card h3 { margin: var(--sp-2) 0; font-size: 17px; }
-  .guide-card p { font-size: 14px; flex: 1; }
-  .guide-meta { font-size: 12.5px; color: var(--text-secondary); margin-top: var(--sp-3); }
+  .guide-card:hover { border-color: var(--primary-500); box-shadow: var(--shadow-sm); }
+  .guide-icon { width: 44px; height: 44px; border-radius: var(--radius-md); background: var(--primary-100); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .guide-icon svg { width: 22px; height: 22px; color: var(--primary-600); }
+  .guide-body h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 6px; }
+  .guide-body p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
 
-  /* Pro / coming soon */
-  .pro-section {
-    background: var(--bg-muted); border-radius: var(--radius-xl);
-    padding: var(--sp-7) var(--sp-6);
+  /* ===== AUDIT CTA SECTION ===== */
+  .cta-band {
+    background: var(--primary-600); color: #fff;
+    border-radius: var(--radius-xl); padding: var(--sp-7) var(--sp-6); text-align: center;
+    margin: 0 var(--sp-5) var(--sp-7);
   }
-  .pro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); margin-top: var(--sp-6); }
-  .pro-card {
-    background: var(--bg-surface); border: 1px dashed var(--border);
-    border-radius: var(--radius-lg); padding: var(--sp-5);
-  }
-  .pro-card h3 { font-size: 16px; margin-bottom: var(--sp-2); }
-  .pro-card p { font-size: 14px; }
-  .soon-tag {
-    display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.04em; color: var(--accent-600); background: var(--accent-100);
-    padding: 3px 9px; border-radius: 999px; margin-bottom: var(--sp-3);
-  }
+  .cta-band h2 { font-size: clamp(22px, 3vw, 34px); margin-bottom: var(--sp-3); }
+  .cta-band p { opacity: .85; max-width: 480px; margin: 0 auto var(--sp-5); font-size: 16px; }
+  .btn-white { background: #fff; color: var(--primary-600); }
+  .btn-white:hover { background: var(--primary-100); }
 
-  /* Final CTA */
-  .final-cta {
-    text-align: center;
-    background: var(--text-primary);
-    color: #fff;
-    border-radius: var(--radius-xl);
-    padding: var(--sp-8) var(--sp-6);
+  /* ===== FAQ ===== */
+  .faq-list { display: flex; flex-direction: column; gap: var(--sp-3); max-width: 720px; margin: 0 auto; }
+  .faq-item { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .faq-q {
+    width: 100%; text-align: left; background: none; border: none; cursor: pointer;
+    font-family: var(--font); font-size: 16px; font-weight: 700; color: var(--text-primary);
+    padding: var(--sp-5); display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3);
   }
-  .final-cta h2 { color: #fff; font-size: 30px; margin-bottom: var(--sp-3); }
-  .final-cta p { color: rgba(255,255,255,0.75); max-width: 520px; margin: 0 auto var(--sp-6); }
-  .final-cta .btn-primary { font-size: 16px; padding: 15px 32px; }
+  .faq-q .chevron { width: 20px; height: 20px; flex-shrink: 0; color: var(--primary-600); transition: transform .25s; }
+  .faq-q[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .faq-a { display: none; padding: 0 var(--sp-5) var(--sp-5); font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; }
+  .faq-item.open .faq-a { display: block; }
 
-  /* Footer */
-  footer { background: var(--bg-muted); border-top: 1px solid var(--border); padding: var(--sp-8) 0 var(--sp-6); }
-  .footer-grid {
-    display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--sp-6);
-    margin-bottom: var(--sp-7);
-  }
-  .footer-brand p { font-size: 14px; margin-top: var(--sp-3); max-width: 260px; }
-  .footer-col h4 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sp-4); color: var(--text-primary); }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
-  .footer-col a { font-size: 14px; color: var(--text-secondary); }
-  .footer-col a:hover { color: var(--primary-600); }
-  .footer-bottom {
-    border-top: 1px solid var(--border); padding-top: var(--sp-5);
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--sp-3);
-  }
-  .footer-bottom p { font-size: 13px; margin: 0; }
-  .disclaimer-box {
-    background: var(--bg-surface); border: 1px solid var(--border);
-    border-radius: var(--radius-md); padding: var(--sp-4); font-size: 13px;
-    color: var(--text-secondary); margin-bottom: var(--sp-6);
-  }
-  .disclaimer-box strong { color: var(--text-primary); }
+  /* ===== FOOTER ===== */
+  footer { background: var(--bg-muted); border-top: 1px solid var(--border); padding: var(--sp-7) 0 var(--sp-5); }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--sp-6); margin-bottom: var(--sp-6); }
+  .footer-col h4 { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--text-secondary); margin-bottom: var(--sp-4); }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-2); }
+  .footer-col ul li a { font-size: 14px; color: var(--text-secondary); font-weight: 600; transition: color .15s; }
+  .footer-col ul li a:hover { color: var(--primary-600); }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: var(--sp-4); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--sp-3); font-size: 13px; color: var(--text-secondary); }
+  .footer-logo { font-weight: 800; font-size: 16px; display: flex; align-items: center; gap: 8px; margin-bottom: var(--sp-3); }
+  .footer-tagline { font-size: 13.5px; color: var(--text-secondary); margin-bottom: var(--sp-4); }
 
-  /* Skip link */
-  .skip-link {
-    position: absolute; left: -9999px; top: 0; background: var(--primary-600); color: #fff;
-    padding: var(--sp-3) var(--sp-4); border-radius: var(--radius-md); z-index: 100;
-  }
-  .skip-link:focus { left: var(--sp-4); top: var(--sp-4); }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .cat-grid { grid-template-columns: repeat(2, 1fr); }
-    .pro-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
-    .steps { grid-template-columns: repeat(3, 1fr); }
   }
-
-  @media (max-width: 860px) {
-    .hero-grid { grid-template-columns: 1fr; }
-    .split { grid-template-columns: 1fr; }
-    .split.reverse .order-swap { order: 2; }
-    h1 { font-size: 32px; }
-    h2 { font-size: 25px; }
-  }
-
-  @media (max-width: 700px) {
-    nav.main-nav { display: none; }
-    .nav-toggle { display: block; }
-    .steps { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: 1fr; }
-    .grid-4 { grid-template-columns: 1fr; }
-    .cat-grid { grid-template-columns: 1fr; }
-    .footer-grid { grid-template-columns: 1fr; gap: var(--sp-6); }
-    .audit-strip { flex-direction: column; text-align: center; }
-    .audit-strip .btn { width: 100%; }
-    section { padding: var(--sp-7) 0; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-    html { scroll-behavior: auto; }
+  @media (max-width: 640px) {
+    .grid-3, .grid-4, .grid-2 { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .hero { padding: 56px 0 48px; }
+    .input-row { flex-direction: column; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .cta-band { border-radius: var(--radius-lg); margin: 0 var(--sp-4) var(--sp-6); }
   }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Why should I use RankMe for Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers, RankMe provides the most advanced tools and strategies to help you achieve top rankings on Google Maps and Search. Our proven techniques scale your business rapidly and effectively."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is business growth guaranteed with Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, if you follow our Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers strategies correctly, you will see a significant increase in visibility and customer engagement. We ensure 100% compliance for high-quality traffic and rankings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does it cost to implement Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "RankMe offers fundamental information and tools related to Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers for free. For advanced features and personalized support, you can explore our premium plans designed for high ROI."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers compliant with Google AdSense and policies?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely! Our entire platform, including everything related to Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers, is built with strict adherence to Google AdSense guidelines, SEO best practices, and superior user experience standards."
-      }
-    }
-  ]
-}
-</script>
 </head>
-<body>
+<body id="top">
 
-<a href="#main" class="skip-link">Skip to main content</a>
+<!-- ===== SKIP LINK ===== -->
+<a href="#main" style="position:absolute;top:-100px;left:0;padding:12px 20px;background:var(--primary-600);color:#fff;font-weight:700;z-index:999;border-radius:0 0 8px 0;transition:top .2s;" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">Skip to main content</a>
 
-<!-- ============ HEADER / NAV ============ -->
+<!-- ===== HEADER ===== -->
 <header>
-  <div class="wrap nav-inner">
-    <a href="#top" class="logo">
-      <span class="logo-mark">LB</span>
+  <nav class="nav-inner" aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="LocalBoost Home">
+      <span class="logo-mark" aria-hidden="true">LB</span>
       <span>LocalBoost</span>
     </a>
-
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="/check/">Free Check</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#free-tools">Free tools</a>
-      <a href="#guides">Guides</a>
-      <a href="#pro">Pro</a>
-    </nav>
-
-    <div class="nav-actions">
-      <a class="lang-switch" href="/hi/" aria-label="हिंदी में देखें">EN · हिं</a>
-      <a href="#hero-form" class="btn btn-primary">Start Free Audit</a>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" id="navToggle">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <div class="main-nav" id="mainNav">
+      <a href="/tools/">Free Tools</a>
+      <a href="/google-business-profile/">GBP Guide</a>
+      <a href="/google-reviews/">Reviews</a>
+      <a href="/local-seo/">Local SEO</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="/check/" class="nav-cta">Free Audit</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
-  </div>
+  </nav>
 </header>
 
+<!-- ===== MAIN ===== -->
 <main id="main">
 
-  <!-- ============ HERO ============ -->
-  <section class="hero" id="top">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Made for Indian local businesses</div>
-        <h1>Get found on Google. Turn visibility into customers.</h1>
-        <p class="hero-sub">Most customers search Google before they visit. Find out exactly what's missing from your Google Business Profile and website — and get a step-by-step fix list, free.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Free for Indian Small Businesses</div>
+      <h1>Is Google hiding your business from customers?</h1>
+      <p class="hero-sub">Answer 8 quick questions and get a plain-language score + prioritised fix list — runs entirely in your browser, no signup, completely free.</p>
 
-        <form class="audit-form" id="hero-form" aria-label="Free business audit">
-          <label for="biz-input">Your business name or website</label>
+      <div class="audit-form">
+        <form id="heroForm" action="/check/" method="get" autocomplete="off">
+          <label for="bizInput">Your business name</label>
           <div class="input-row">
-            <input type="text" id="biz-input" name="biz-input" placeholder="e.g. Sharma Sweets, Karol Bagh or www.yoursite.in" autocomplete="off">
-            <button type="submit" class="btn btn-primary">Check My Business — Free</button>
+            <input type="text" id="bizInput" name="biz" placeholder="e.g. Sharma Sweets, Karol Bagh" aria-label="Enter your business name">
+            <button type="submit" class="btn btn-primary">Check My Business – Free</button>
           </div>
-          <p class="fine-print">No credit card. No signup required to see your first result. Rankings and results shown after audit are diagnostic, not guaranteed.</p>
+          <p class="fine-print">No credit card · No signup · Nothing sent anywhere · Your data stays in your browser</p>
         </form>
-
-        <div class="trust-row">
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            Uses official Google APIs only
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-            Your data stays private
-          </div>
-          <div class="trust-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.5 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.5-.5z"/></svg>
-            No ranking guarantees, ever
-          </div>
-        </div>
       </div>
 
-      <div>
-        <div class="gbp-mock">
-          <div class="score-chip">Visibility 72/100</div>
-          <div class="gbp-map">
-            <svg viewBox="0 0 400 160" width="100%" height="160" role="img" aria-label="Illustrated map with business pin">
-              <rect width="400" height="160" fill="#E0F5F2"/>
-              <path d="M0 100 Q100 60 200 90 T400 80 V160 H0 Z" fill="#CFEDE8"/>
-              <line x1="0" y1="40" x2="400" y2="40" stroke="#B9E3DC" stroke-width="6"/>
-              <line x1="60" y1="0" x2="60" y2="160" stroke="#B9E3DC" stroke-width="6"/>
-              <line x1="260" y1="0" x2="220" y2="160" stroke="#B9E3DC" stroke-width="6"/>
-              <circle cx="200" cy="70" r="9" fill="#E8722C"/>
-              <path d="M200 70 l0 22" stroke="#E8722C" stroke-width="6" stroke-linecap="round"/>
-              <circle cx="120" cy="50" r="4" fill="#0F766E" opacity="0.5"/>
-              <circle cx="300" cy="100" r="4" fill="#0F766E" opacity="0.5"/>
-            </svg>
-          </div>
-          <div class="gbp-card-row">
-            <div class="gbp-avatar">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 21V12h6v9"/></svg>
-            </div>
-            <div class="gbp-meta">
-              <div class="name">Sharma Sweets &amp; Namkeen</div>
-              <div class="stars">★★★★☆ <span>4.2 · 118 reviews</span></div>
-            </div>
-          </div>
-        </div>
+      <div class="trust-bar">
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No account needed
+        </span>
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          100% free tools
+        </span>
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Results in under 2 minutes
+        </span>
       </div>
     </div>
   </section>
 
-  <!-- ============ FREE AUDIT STRIP ============ -->
-  <section>
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" style="background:var(--bg-surface);">
     <div class="wrap">
-      <div class="audit-strip">
-        <div>
-          <h2>Your Free Business Audit takes under 2 minutes</h2>
-          <p>See your Google Business Profile completeness, review health, and website basics in one plain-language report — no jargon.</p>
-        </div>
-        <a href="#hero-form" class="btn btn-primary">Get My Free Audit</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ HOW IT WORKS ============ -->
-  <section id="how-it-works">
-    <div class="wrap">
-      <div class="section-head center">
-        <div class="eyebrow" style="margin-left:auto;margin-right:auto;">The process</div>
-        <h2>Learn, check, fix, monitor, automate</h2>
-        <p>A clear path from "why can't customers find me" to a steady stream of visibility improvements — you decide how far to go.</p>
+      <div class="section-head">
+        <div class="eyebrow">How it works</div>
+        <h2>3 steps to better Google visibility</h2>
+        <p>No technical knowledge required. Just answer honestly and follow the fix list.</p>
       </div>
       <div class="steps">
-        <div class="step-card active">
-          <div class="step-num">1</div>
-          <h3>Learn</h3>
-          <p>Understand what actually affects your Google visibility, in plain language.</p>
+        <div class="step">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Enter your business name</h3>
+          <p>Type your business name in the box above. No login, no email — nothing is sent anywhere.</p>
         </div>
-        <div class="step-card">
-          <div class="step-num">2</div>
-          <h3>Check</h3>
-          <p>Run a free audit of your Business Profile, reviews and website basics.</p>
+        <div class="step">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Answer 8 quick questions</h3>
+          <p>About your Google Business Profile, reviews, and website. Takes under 2 minutes.</p>
         </div>
-        <div class="step-card">
-          <div class="step-num">3</div>
-          <h3>Fix</h3>
-          <p>Get a prioritised list of exactly what to fix first — and why it matters.</p>
+        <div class="step">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Get your score + fix list</h3>
+          <p>See exactly where you're losing customers and a ranked list of what to fix first — for free.</p>
         </div>
-        <div class="step-card">
-          <div class="step-num">4</div>
-          <h3>Monitor</h3>
-          <p>Track your profile health and reviews over time, not just once.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-num">5</div>
-          <h3>Automate</h3>
-          <p>Opt in to recurring checks and review workflows when you're ready.</p>
-        </div>
+      </div>
+      <div style="text-align:center;margin-top:var(--sp-6);">
+        <a href="/check/" class="btn btn-primary">Start Free Check Now</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ FREE TOOLS ============ -->
-  <section id="free-tools" style="background:var(--bg-surface);">
+  <!-- FREE TOOLS -->
+  <section id="free-tools">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Free, always</div>
-        <h2>Tools to start improving today</h2>
-        <p>No account needed to try these. Built to teach you what matters, not just show you a score.</p>
+        <h2>Tools that actually help</h2>
+        <p>No account needed. Built to teach you what matters — not just show you a score.</p>
       </div>
       <div class="grid-3">
-        <div class="card">
+
+        <a href="/tools/local-seo-checklist/" class="card card-link">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
           </div>
-          <h3>Google Business Profile Checklist</h3>
-          <p>A step-by-step checklist covering the fields, photos and details that most affect how complete your profile looks.</p>
+          <h3>GBP Completeness Checklist</h3>
+          <p>Step-by-step checklist of every field, photo, and detail that affects how complete your Google Business Profile looks.</p>
           <span class="tag">Free</span>
-        </div>
-        <div class="card">
+          <span class="arrow">Open tool →</span>
+        </a>
+
+        <a href="/audit/" class="card card-link">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           </div>
-          <h3>Local Keyword Finder</h3>
-          <p>See the everyday search phrases — English and Hindi/Hinglish — customers in your city likely use to find businesses like yours.</p>
+          <h3>Free Business &amp; Website Audit</h3>
+          <p>Enter your business name and city. Get a diagnostic report with priority issues detected and an AI action plan.</p>
           <span class="tag">Free</span>
-        </div>
-        <div class="card">
+          <span class="arrow">Run audit →</span>
+        </a>
+
+        <a href="/tools/review-reply-generator/" class="card card-link">
           <div class="card-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </div>
-          <h3>Website Basics Check</h3>
-          <p>A quick self-guided check of mobile-friendliness, load speed basics, and whether key business info is easy to find.</p>
+          <h3>Review Reply Generator</h3>
+          <p>Paste any customer review, pick a tone, and get a professional reply in seconds — in English or Hindi.</p>
           <span class="tag">Free</span>
-        </div>
+          <span class="arrow">Generate reply →</span>
+        </a>
+
+        <a href="/tools/review-request-generator/" class="card card-link">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .93h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <h3>Review Request Generator</h3>
+          <p>Create personalised WhatsApp or SMS review request messages to send to happy customers.</p>
+          <span class="tag">Free</span>
+          <span class="arrow">Create message →</span>
+        </a>
+
+        <a href="/tools/description-generator/" class="card card-link">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Business Description Generator</h3>
+          <p>Generate a keyword-rich, 750-character Google Business Profile description optimised for your city and category.</p>
+          <span class="tag">Free</span>
+          <span class="arrow">Generate now →</span>
+        </a>
+
+        <a href="/tools/qr-generator/" class="card card-link">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="5" y="5" width="3" height="3" fill="currentColor" stroke="none"/><rect x="16" y="5" width="3" height="3" fill="currentColor" stroke="none"/><rect x="5" y="16" width="3" height="3" fill="currentColor" stroke="none"/><path d="M14 14h3v3h-3zM17 17h3v3h-3zM14 20h3"/></svg>
+          </div>
+          <h3>Google Review QR Generator</h3>
+          <p>Generate a printable QR code that takes customers directly to your Google review form — in one click.</p>
+          <span class="tag">Free</span>
+          <span class="arrow">Get QR code →</span>
+        </a>
+
+      </div>
+      <div style="text-align:center;margin-top:var(--sp-6);">
+        <a href="/tools/" class="btn" style="background:var(--bg-muted);color:var(--text-primary);border:1.5px solid var(--border);">View all free tools →</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ BUSINESS CATEGORIES ============ -->
-  <section>
+  <!-- BUSINESS TYPES -->
+  <section style="background:var(--bg-surface);" id="businesses">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Built for your trade</div>
-        <h2>Guidance specific to your kind of business</h2>
-        <p>Recommendations change depending on what you run — a clinic and a car repair shop don't need the same fixes.</p>
+        <h2>Guides for your type of business</h2>
+        <p>Local SEO is not one-size-fits-all. Find the guide that matches exactly what you do.</p>
       </div>
-      <div class="cat-grid">
-        <a class="cat-chip" href="#"><span class="dot"></span>Restaurants &amp; Cafés</a>
-        <a class="cat-chip" href="#"><span class="dot"></span>Salons &amp; Spas</a>
-        <a class="cat-chip" href="#"><span class="dot"></span>Clinics &amp; Doctors</a>
-        <a class="cat-chip" href="#"><span class="dot"></span>Gyms &amp; Fitness</a>
-        <a class="cat-chip" href="#"><span class="dot"></span>Electricians &amp; Plumbers</a>
-        <a class="cat-chip" href="#"><span class="dot"></span>Coaching Centers</a>
-        <a class="cat-chip" href="#"><span class="dot"></span>Boutiques &amp; Retail</a>
-        <a class="cat-chip" href="#"><span class="dot"></span>Auto Repair &amp; Garages</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ AI AUDIT PREVIEW ============ -->
-  <section style="background:var(--bg-surface);">
-    <div class="wrap split">
-      <div>
-        <div class="eyebrow">AI-assisted audit</div>
-        <h2>An audit that explains itself</h2>
-        <p style="margin-top:var(--sp-3); font-size:16px;">Instead of a bare number, every result comes with a plain-language reason and a suggested next step — sourced only from your actual profile data, never guessed.</p>
-        <ul class="feature-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            <div><strong>Plain-language findings</strong><span class="desc">"Your business hours aren't set" instead of a raw error code.</span></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            <div><strong>Prioritised, not overwhelming</strong><span class="desc">See your top 3 fixes first, the rest when you're ready.</span></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            <div><strong>Grounded in your real data</strong><span class="desc">No invented competitor names, fake stats, or promised rankings.</span></div>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <div class="audit-report-mock">
-          <div class="score-ring">
-            <div class="score-ring-inner">
-              <span class="num">72</span>
-              <span class="lbl">SCORE</span>
-            </div>
-          </div>
-          <div class="report-row">
-            <div class="report-status ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 6"/></svg></div>
-            <div class="report-text">Business category set correctly<small>Helps you show up for the right searches</small></div>
-          </div>
-          <div class="report-row">
-            <div class="report-status warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 8v5M12 16h.01"/></svg></div>
-            <div class="report-text">Only 2 photos uploaded<small>Profiles with 10+ photos tend to look more complete</small></div>
-          </div>
-          <div class="report-row">
-            <div class="report-status warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 8v5M12 16h.01"/></svg></div>
-            <div class="report-text">Business hours missing for Sunday<small>Incomplete hours can confuse customers</small></div>
-          </div>
-          <div class="report-row">
-            <div class="report-status ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 6"/></svg></div>
-            <div class="report-text">Website link is active and mobile-friendly<small>Good — this is linked from your profile</small></div>
-          </div>
-        </div>
+      <div class="biz-grid">
+        <a href="/businesses/restaurant/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          Restaurant
+        </a>
+        <a href="/businesses/salon/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+          Salon / Parlour
+        </a>
+        <a href="/businesses/doctor/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Doctor / Clinic
+        </a>
+        <a href="/businesses/kirana-store/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Kirana Store
+        </a>
+        <a href="/businesses/gym/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 3a3 3 0 00-3 3v12a3 3 0 003 3 3 3 0 003-3 3 3 0 00-3-3H6a3 3 0 00-3 3 3 3 0 003 3 3 3 0 003-3V6a3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3h12a3 3 0 003-3 3 3 0 00-3-3z"/></svg>
+          Gym / Fitness
+        </a>
+        <a href="/businesses/coaching-institute/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Coaching
+        </a>
+        <a href="/businesses/plumber/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          Plumber
+        </a>
+        <a href="/businesses/electrician/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Electrician
+        </a>
+        <a href="/businesses/car-repair/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          Car Repair
+        </a>
+        <a href="/businesses/hotel/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Hotel / Lodge
+        </a>
+        <a href="/businesses/dentist/" class="biz-chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M12 12c-2-2.5-4-3-4-5a4 4 0 018 0c0 2-2 2.5-4 5z"/></svg>
+          Dentist
+        </a>
+        <a href="/businesses/" class="biz-chip" style="border-style:dashed;border-color:var(--primary-500);color:var(--primary-600);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          More types →
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ REVIEWS / AI REVIEW MANAGER PREVIEW ============ -->
-  <section>
-    <div class="wrap split reverse">
-      <div class="order-swap">
-        <div class="review-mock">
-          <div class="review-item">
-            <div class="review-head">
-              <div class="review-avatar">R</div>
-              <div>
-                <div class="review-name">Rohit M.</div>
-                <div class="review-stars">★★★★★</div>
-              </div>
-            </div>
-            <p class="review-text">Great service and quick response. Will visit again.</p>
-            <div class="draft-reply">
-              <span class="lbl">Draft reply — you approve before posting</span>
-              Thank you, Rohit! We're glad you had a great experience — see you again soon.
-            </div>
-          </div>
-          <div class="review-item">
-            <div class="review-head">
-              <div class="review-avatar">P</div>
-              <div>
-                <div class="review-name">Priya S.</div>
-                <div class="review-stars">★★★☆☆</div>
-              </div>
-            </div>
-            <p class="review-text">Good food but the wait was longer than expected.</p>
-            <div class="draft-reply">
-              <span class="lbl">Draft reply — you approve before posting</span>
-              Thanks for the honest feedback, Priya — we're working on reducing wait times.
-            </div>
-          </div>
-        </div>
+  <!-- CITIES -->
+  <section id="cities">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">City-specific guides</div>
+        <h2>Local SEO guides for your city</h2>
+        <p>Search trends and competition vary by city. Find guides written for your specific market.</p>
       </div>
-      <div>
-        <div class="eyebrow">Reviews, without the stress</div>
-        <h2>AI-drafted replies. You always hit send.</h2>
-        <p style="margin-top:var(--sp-3); font-size:16px;">Get a thoughtful draft reply for every review, in your voice. Nothing posts automatically, and nothing here ever suggests fake or incentivized reviews — that breaks Google's policies and we won't help with it.</p>
-        <ul class="feature-list">
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            <div><strong>Opt-in only</strong><span class="desc">Nothing is drafted or sent unless you turn it on.</span></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-            <div><strong>Policy-safe by design</strong><span class="desc">No incentivized, gated, or fake review tactics — ever.</span></div>
-          </li>
-        </ul>
+      <div class="city-grid">
+        <a href="/cities/delhi/" class="city-chip">Delhi</a>
+        <a href="/cities/mumbai/" class="city-chip">Mumbai</a>
+        <a href="/cities/bengaluru/" class="city-chip">Bengaluru</a>
+        <a href="/cities/hyderabad/" class="city-chip">Hyderabad</a>
+        <a href="/cities/chennai/" class="city-chip">Chennai</a>
+        <a href="/cities/kolkata/" class="city-chip">Kolkata</a>
+        <a href="/cities/pune/" class="city-chip">Pune</a>
+        <a href="/cities/ahmedabad/" class="city-chip">Ahmedabad</a>
+        <a href="/cities/jaipur/" class="city-chip">Jaipur</a>
+        <a href="/cities/lucknow/" class="city-chip">Lucknow</a>
+        <a href="/cities/indore/" class="city-chip">Indore</a>
+        <a href="/cities/chandigarh/" class="city-chip">Chandigarh</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ GUIDES ============ -->
+  <!-- GUIDES -->
   <section id="guides" style="background:var(--bg-surface);">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">Learn</div>
-        <h2>Guides to get you started</h2>
-        <p>Plain-language explainers — including Hindi/Hinglish versions — with no jargon and no fabricated results.</p>
+        <div class="eyebrow">Step-by-step guides</div>
+        <h2>Everything you need to rank locally</h2>
+        <p>No fluff. No paid-tool pitches. Just clear, actionable guides for Indian businesses.</p>
       </div>
-      <div class="grid-3">
-        <a class="card guide-card" href="/google-business-profile/">
-          <div class="guide-thumb" style="background:var(--primary-100);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-600)" stroke-width="1.5"><path d="M3 9l9-6 9 6v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 21V12h6v9"/></svg>
+      <div class="grid-2">
+        <a href="/google-business-profile/" class="guide-card" style="display:flex;">
+          <div class="guide-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
-          <div class="guide-cat">GBP Setup</div>
-          <h3>How to create and verify your Google Business Profile</h3>
-          <p>A complete walkthrough for first-time setup, including common verification issues.</p>
-          <div class="guide-meta">7 min read · English &amp; Hindi</div>
+          <div class="guide-body">
+            <h3>Google Business Profile — Complete Setup Guide</h3>
+            <p>Verify, optimise every field, add photos, and unlock features most local businesses miss.</p>
+          </div>
         </a>
-        <a class="card guide-card" href="/google-maps-seo/">
-          <div class="guide-thumb" style="background:var(--accent-100);">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-600)" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <a href="/google-reviews/" class="guide-card" style="display:flex;">
+          <div class="guide-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           </div>
-          <div class="guide-cat">Google Maps SEO</div>
-          <h3>Why your business isn't showing up on Google Maps</h3>
-          <p>The most common reasons customers can't find you — and how to check which one applies.</p>
-          <div class="guide-meta">6 min read · English &amp; Hindi</div>
+          <div class="guide-body">
+            <h3>Google Reviews — How to Get More &amp; Reply Right</h3>
+            <p>A complete playbook for getting more 5-star reviews and turning negative ones around.</p>
+          </div>
         </a>
-        <a class="card guide-card" href="/google-reviews/">
-          <div class="guide-thumb" style="background:#FBF0DA;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#C98A02" stroke-width="1.5"><path d="M12 17.5l-6.16 3.24 1.18-6.88L2 9.24l6.92-1L12 2l3.08 6.24 6.92 1-5.02 4.62 1.18 6.88z"/></svg>
+        <a href="/google-maps-seo/" class="guide-card" style="display:flex;">
+          <div class="guide-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
           </div>
-          <div class="guide-cat">Reviews</div>
-          <h3>How to ask for Google reviews the right way</h3>
-          <p>Compliant ways to encourage genuine reviews, and how to reply to a negative one calmly.</p>
-          <div class="guide-meta">5 min read · English &amp; Hindi</div>
+          <div class="guide-body">
+            <h3>Google Maps SEO — Rank in the Local 3-Pack</h3>
+            <p>What actually moves the needle on Maps rankings — with checklist and common mistakes.</p>
+          </div>
         </a>
-      </div>
-      <p style="margin-top:var(--sp-5); font-size:14.5px;">
-        More guides:
-        <a href="/local-seo/" style="color:var(--primary-600); font-weight:600;">Local SEO basics</a> ·
-        <a href="/business-growth/" style="color:var(--primary-600); font-weight:600;">Getting customers from Google</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ============ PRO / COMING SOON ============ -->
-  <section id="pro">
-    <div class="wrap">
-      <div class="pro-section">
-        <div class="section-head">
-          <div class="eyebrow">Pro · Coming soon</div>
-          <h2>Built for when you're ready to go further</h2>
-          <p>Everything below builds on the free tools above — nothing is available yet, and nothing here is active or billed today.</p>
-        </div>
-        <div class="pro-grid">
-          <div class="pro-card">
-            <div class="soon-tag">Coming soon</div>
-            <h3>Ongoing Monitoring</h3>
-            <p>Automatic re-checks of your profile and website, with alerts when something changes or drifts.</p>
+        <a href="/local-seo/" class="guide-card" style="display:flex;">
+          <div class="guide-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
           </div>
-          <div class="pro-card">
-            <div class="soon-tag">Coming soon</div>
-            <h3>Review Automation</h3>
-            <p>Scheduled, opt-in review request flows that stay within Google's policies.</p>
+          <div class="guide-body">
+            <h3>Local SEO for Indian Businesses — 2026 Guide</h3>
+            <p>Citations, NAP consistency, schema markup, and everything else that drives local rankings.</p>
           </div>
-          <div class="pro-card">
-            <div class="soon-tag">Coming soon</div>
-            <h3>Multi-location Dashboard</h3>
-            <p>Manage visibility across several branches or client businesses from one place.</p>
+        </a>
+        <a href="/business-growth/" class="guide-card" style="display:flex;">
+          <div class="guide-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
           </div>
-        </div>
+          <div class="guide-body">
+            <h3>Business Growth — Get More Customers From Google</h3>
+            <p>Practical strategies for converting online visibility into real walk-in customers and calls.</p>
+          </div>
+        </a>
+        <a href="/blog/" class="guide-card" style="display:flex;">
+          <div class="guide-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+          </div>
+          <div class="guide-body">
+            <h3>Blog — Latest Local SEO Tips for India</h3>
+            <p>Algorithm updates, case studies, and actionable tactics updated regularly for Indian markets.</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ============ FINAL CTA ============ -->
-  <section>
-    <div class="wrap">
-      <div class="final-cta">
-        <h2>See where your business stands on Google today</h2>
-        <p>It's free, takes under two minutes, and you'll get a plain-language report — not just a score.</p>
-        <a href="#hero-form" class="btn btn-primary">Start My Free Audit</a>
+  <!-- CTA BAND -->
+  <section style="padding:var(--sp-7) 0;">
+    <div class="cta-band">
+      <h2>Ready to get more customers from Google?</h2>
+      <p>Run your free 8-question visibility check in under 2 minutes — no signup, no card required.</p>
+      <a href="/check/" class="btn btn-white">Check My Business Free →</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="padding:0 0 var(--sp-8);">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <div class="eyebrow">Common questions</div>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-list" role="list">
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            Is LocalBoost really free?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">Yes, 100%. All core tools — the visibility check, GBP checklist, review reply generator, review request generator, description generator, QR code generator, rank grid simulator, and more — are completely free with no signup required.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            How do I check my Google Business Profile visibility?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">Click "Check My Business – Free" above, enter your business name, and answer 8 quick questions about your Google Business Profile, reviews, and website. You get a plain-language score and a prioritised fix list instantly in your browser.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            Do I need to create an account?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">No account is needed for any free tool. Everything runs locally in your browser — no data is ever sent to any server.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            Which types of business does this work for?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">Any local business with a physical location or service area in India — restaurants, salons, clinics, kirana stores, gyms, coaching centres, plumbers, electricians, hotels, and more. We have specific guides for 25+ business types.</div>
+        </div>
+
+        <div class="faq-item" role="listitem">
+          <button class="faq-q" aria-expanded="false">
+            Which cities does LocalBoost support?
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-a">We have dedicated guides for Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune, Ahmedabad, Jaipur, Lucknow, Indore, and Chandigarh — with content tailored to local search trends in each market. General tools work for any Indian city.</div>
+        </div>
+
       </div>
     </div>
   </section>
 
 </main>
 
-<!-- ============ FOOTER ============ -->
-<section class="faq-section" style="padding: 40px 20px; background: #f9fafb; margin-top: 40px; border-top: 1px solid #e5e7eb;">
-<div class="container" style="max-width: 800px; margin: 0 auto;">
-<h2 style="font-size: 24px; font-weight: bold; margin-bottom: 24px; color: #1f2937;">Frequently Asked Questions (FAQs) about Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers</h2>
-<div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
-
-        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Why should I use RankMe for Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers?</h3>
-            <p style="color: #4b5563; line-height: 1.6; margin: 0;">For Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers, RankMe provides the most advanced tools and strategies to help you achieve top rankings on Google Maps and Search. Our proven techniques scale your business rapidly and effectively.</p>
-        </div>
-
-        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Is business growth guaranteed with Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers?</h3>
-            <p style="color: #4b5563; line-height: 1.6; margin: 0;">Yes, if you follow our Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers strategies correctly, you will see a significant increase in visibility and customer engagement. We ensure 100% compliance for high-quality traffic and rankings.</p>
-        </div>
-
-        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">How much does it cost to implement Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers?</h3>
-            <p style="color: #4b5563; line-height: 1.6; margin: 0;">RankMe offers fundamental information and tools related to Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers for free. For advanced features and personalized support, you can explore our premium plans designed for high ROI.</p>
-        </div>
-
-        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Is Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers compliant with Google AdSense and policies?</h3>
-            <p style="color: #4b5563; line-height: 1.6; margin: 0;">Absolutely! Our entire platform, including everything related to Local Business Growth Platform — Get Found on Google, Turn Visibility Into Customers, is built with strict adherence to Google AdSense guidelines, SEO best practices, and superior user experience standards.</p>
-        </div>
-</div></div></section>
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
-    <div class="disclaimer-box">
-      <strong>A note on results:</strong> Google search and Maps rankings are controlled by Google and cannot be guaranteed by us or anyone else. Audit results reflect the information available at the time of the check and are meant to guide improvements, not promise specific rankings. We use official Google APIs only and never scrape Google Search or Maps.
-    </div>
-
     <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#top" class="logo">
-          <span class="logo-mark">LB</span>
-          <span>LocalBoost</span>
-        </a>
-        <p>Helping Indian local businesses get discovered on Google and turn visibility into customers — one plain-language fix at a time.</p>
-      </div>
       <div class="footer-col">
-        <h4>Product</h4>
+        <div class="footer-logo">
+          <span style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--primary-600),var(--primary-500));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:13px;" aria-hidden="true">LB</span>
+          LocalBoost
+        </div>
+        <p class="footer-tagline">Free local SEO tools and guides for Indian small businesses.</p>
         <ul>
-          <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#free-tools">Free tools</a></li>
-          <li><a href="#guides">Guides</a></li>
-          <li><a href="#pro">Pro (coming soon)</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms of Service</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4>Free Tools</h4>
         <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Careers</a></li>
+          <li><a href="/check/">Visibility Check</a></li>
+          <li><a href="/audit/">Business Audit</a></li>
+          <li><a href="/tools/local-seo-checklist/">SEO Checklist</a></li>
+          <li><a href="/tools/review-reply-generator/">Review Reply</a></li>
+          <li><a href="/tools/review-request-generator/">Review Request</a></li>
+          <li><a href="/tools/description-generator/">Description</a></li>
+          <li><a href="/tools/qr-generator/">QR Generator</a></li>
+          <li><a href="/tools/">All Tools →</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Legal</h4>
+        <h4>Guides</h4>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Data &amp; Google API Usage</a></li>
+          <li><a href="/google-business-profile/">Google Business Profile</a></li>
+          <li><a href="/google-maps-seo/">Google Maps SEO</a></li>
+          <li><a href="/google-reviews/">Google Reviews</a></li>
+          <li><a href="/local-seo/">Local SEO</a></li>
+          <li><a href="/business-growth/">Business Growth</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>By City</h4>
+        <ul>
+          <li><a href="/cities/delhi/">Delhi</a></li>
+          <li><a href="/cities/mumbai/">Mumbai</a></li>
+          <li><a href="/cities/bengaluru/">Bengaluru</a></li>
+          <li><a href="/cities/hyderabad/">Hyderabad</a></li>
+          <li><a href="/cities/chennai/">Chennai</a></li>
+          <li><a href="/cities/pune/">Pune</a></li>
+          <li><a href="/cities/">All Cities →</a></li>
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>© 2026 LocalBoost. Not affiliated with or endorsed by Google.</p>
-      <a class="lang-switch" href="/hi/" aria-label="हिंदी में देखें">EN · हिंदी</a>
+      <span>© 2026 LocalBoost. Not affiliated with or endorsed by Google LLC.</span>
+      <span>Built for Indian small businesses 🇮🇳</span>
     </div>
   </div>
 </footer>
 
+<script src="/assets/consent.js" defer></script>
+
 <script>
-  // Mobile nav toggle (progressive enhancement only — no audit/API logic)
-  const navToggle = document.getElementById('navToggle');
-  const mainNav = document.querySelector('.main-nav');
-  if (navToggle && mainNav) {
-    navToggle.addEventListener('click', () => {
-      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', String(!expanded));
-      mainNav.style.display = expanded ? 'none' : 'flex';
-      mainNav.style.cssText += expanded ? '' : 'position:absolute; top:100%; left:0; right:0; background:var(--bg-surface); flex-direction:column; padding:16px 24px; border-bottom:1px solid var(--border); align-items:flex-start; gap:16px;';
+(function(){
+  // ===== MOBILE NAV TOGGLE =====
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('mainNav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function() {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
     });
   }
 
-  // Hero form: navigates to the real Check tool, passing the business name along
-  const heroForm = document.getElementById('hero-form');
+  // ===== HERO FORM: pass business name to check page =====
+  const heroForm = document.getElementById('heroForm');
   if (heroForm) {
-    heroForm.addEventListener('submit', (e) => {
+    heroForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const bizInput = document.getElementById('biz-input');
-      const biz = bizInput ? bizInput.value.trim() : '';
+      const biz = document.getElementById('bizInput').value.trim();
       const url = biz ? '/check/?biz=' + encodeURIComponent(biz) : '/check/';
       window.location.href = url;
     });
   }
+
+  // ===== FAQ ACCORDION =====
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+})();
 </script>
 
-<script src="/assets/consent.js" defer></script>
 </body>
 </html>
