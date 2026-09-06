@@ -5,4 +5,4 @@ Disallow: /hi/dashboard/
 Disallow: /checkout/
 Disallow: /hi/checkout/
 
-Sitemap: https://akhairkar.github.io/Rankme/sitemap.xml
+Sitemap: https://rankme.khairkar92.workers.dev/sitemap.xml
