@@ -82,3 +82,23 @@ export async function listReviews(env, userId, businessId) {
   ).bind(businessId,userId).all();
   return results || [];
 }
+
+
+export async function listGoogleLocations(env, userId) {
+  if (!env.DB) return [];
+  const { results } = await env.DB.prepare(
+    "SELECT resource_name,account_name,location_name,raw_json,synced_at FROM google_locations WHERE user_id=? ORDER BY synced_at DESC"
+  ).bind(userId).all();
+  return results || [];
+}
+
+export async function linkBusinessLocation(env, userId, businessId, input) {
+  if (!env.DB) throw new Error("Database unavailable");
+  const business = await getUserBusiness(env, userId, businessId);
+  if (!business || !input?.name) return null;
+  const locationId=id("loc"), now=Date.now();
+  await env.DB.prepare(
+    "INSERT INTO business_locations (id,business_id,google_resource_name,name,address_json,latitude,longitude,sync_status,last_synced_at,created_at,updated_at) VALUES (?,?,?,?,?,?,?,'synced',?,?,?)"
+  ).bind(locationId,businessId,input.google_resource_name||null,input.name,input.address_json||null,input.latitude??null,input.longitude??null,input.last_synced_at||now,now,now).run();
+  return env.DB.prepare("SELECT * FROM business_locations WHERE id=?").bind(locationId).first();
+}
