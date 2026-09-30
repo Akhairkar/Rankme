@@ -3,158 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Overview | LocalBoost Dashboard</title>
-<meta name="description" content="Real-time performance metrics and diagnostics for your connected Google listing.">
+<title>Dashboard | LocalBoost</title>
+<meta name="description" content="LocalBoost business visibility dashboard.">
 <link rel="canonical" href="https://www.localboost.in/dashboard/">
 <meta name="robots" content="noindex, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg-base:#F8FAFC; --bg-surface:#FFFFFF; --bg-sidebar:#0F172A;
-    --text-primary:#0F172A; --text-secondary:#64748B; --border:#E2E8F0;
-    --primary-600:#0F766E; --primary-500:#14968C; --primary-100:#E0F5F2;
-    --accent-600:#E8722C; --accent-100:#FCE8D9;
-    --success:#10B981; --warning:#F59E0B; --danger:#EF4444;
-    --font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif;
-  }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:var(--font); background:var(--bg-base); color:var(--text-primary); line-height:1.6; display:flex; min-height:100vh; }
-  a { color:inherit; text-decoration:none; }
-  
-  /* Sidebar */
-  aside { width:260px; background:var(--bg-sidebar); color:#fff; display:flex; flex-direction:column; padding:24px 16px; flex-shrink:0; }
-  .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px; margin-bottom:32px; padding:0 8px; }
-  .logo-mark { width:32px; height:32px; border-radius:8px; background:linear-gradient(135deg,var(--primary-500),var(--primary-600)); display:flex; align-items:center; justify-content:center; font-weight:800; }
-  nav.side-nav { display:flex; flex-direction:column; gap:6px; flex-grow:1; }
-  nav.side-nav a { display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:8px; font-size:14.5px; font-weight:600; color:#94A3B8; transition:all .15s ease; }
-  nav.side-nav a:hover, nav.side-nav a.active { background:#1E293B; color:#fff; }
-  nav.side-nav a.active { color:#38BDF8; font-weight:700; }
-  
-  /* Main Content */
-  main { flex-grow:1; padding:32px 40px; overflow-y:auto; }
-  .top-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; padding-bottom:16px; border-bottom:1px solid var(--border); }
-  .user-badge { display:flex; align-items:center; gap:10px; font-size:14px; font-weight:700; }
-  .user-avatar { width:36px; height:36px; border-radius:50%; background:var(--primary-100); color:var(--primary-600); display:flex; align-items:center; justify-content:center; font-weight:800; }
-  
-  .card { background:var(--bg-surface); border:1px solid var(--border); border-radius:12px; padding:24px; box-shadow:0 1px 3px rgba(0,0,0,0.02); margin-bottom:24px; }
-  .grid-4 { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:24px; }
-  .stat-card { background:var(--bg-surface); border:1px solid var(--border); border-radius:12px; padding:20px; }
-  .stat-label { font-size:12.5px; font-weight:700; color:var(--text-secondary); text-transform:uppercase; }
-  .stat-val { font-size:28px; font-weight:800; color:var(--text-primary); margin:6px 0 2px; }
-  .stat-sub { font-size:12.5px; color:var(--success); font-weight:600; }
-
-  .btn { display:inline-block; padding:10px 20px; font-size:14px; font-weight:700; border-radius:8px; border:none; cursor:pointer; text-align:center; }
-  .btn-primary { background:var(--primary-600); color:#fff; }
-  .btn-primary:hover { background:var(--primary-500); }
-  .btn-outline { background:#fff; border:1px solid var(--border); color:var(--text-primary); }
-
-  @media (max-width:850px) {
-    body { flex-direction:column; }
-    aside { width:100%; }
-    main { padding:20px; }
-  }
+:root{--bg:#f8fafc;--surface:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--brand:#0f766e;--brand2:#14968c;--side:#0f172a;--soft:#e0f5f2;--warn:#f59e0b;--font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font);background:var(--bg);color:var(--ink);display:flex;min-height:100vh;line-height:1.55}a{text-decoration:none;color:inherit}
+aside{width:250px;background:var(--side);color:#fff;padding:24px 16px;flex-shrink:0}.logo{display:flex;gap:10px;align-items:center;font-weight:800;font-size:18px;margin-bottom:32px;padding:0 8px}.logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--brand2),var(--brand));display:grid;place-items:center}.side-nav{display:flex;flex-direction:column;gap:5px}.side-nav a{padding:11px 13px;border-radius:8px;color:#94a3b8;font-weight:650;font-size:14px}.side-nav a:hover,.side-nav a.active{background:#1e293b;color:#fff}.side-nav .back{margin-top:24px}
+main{flex:1;padding:32px 40px;max-width:1300px;margin:auto;width:100%}.top-bar{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;padding-bottom:22px;border-bottom:1px solid var(--line);margin-bottom:24px}.eyebrow{font-size:11px;letter-spacing:.08em;font-weight:800;color:var(--brand);margin-bottom:5px}.top-bar h1{font-size:28px;line-height:1.2}.muted{color:var(--muted)}.small{font-size:13px}.account{display:flex;align-items:center;gap:9px;font-weight:650;font-size:14px}.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--brand);font-weight:800}
+.card,.stat-card{background:var(--surface);border:1px solid var(--line);border-radius:14px}.card{padding:25px;margin-bottom:22px}.onboarding{display:flex;gap:20px;align-items:flex-start}.status-icon{width:48px;height:48px;border-radius:12px;background:var(--soft);color:var(--brand);display:grid;place-items:center;font-weight:900;font-size:22px;flex-shrink:0}.onboarding h2{font-size:20px;margin-bottom:7px}.onboarding-copy>p:not(.eyebrow):not(.small){max-width:720px;color:var(--muted)}.actions{display:flex;gap:10px;margin:18px 0 12px;flex-wrap:wrap}.btn{display:inline-block;border-radius:8px;padding:10px 17px;font-size:14px;font-weight:750}.btn-primary{background:var(--brand);color:#fff}.btn-outline{border:1px solid var(--line);background:#fff}.btn[aria-disabled=true]{opacity:.55;cursor:not-allowed}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}.stat-card{padding:19px}.stat-card span{display:block;color:var(--muted);font-size:12px;font-weight:750;text-transform:uppercase}.stat-card strong{display:block;font-size:27px;margin:5px 0}.stat-card small{color:var(--muted);font-size:12px}.section-head{margin-bottom:18px}.section-head h2{font-size:19px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.steps>div{display:flex;gap:11px;padding:15px;border:1px solid var(--line);border-radius:10px}.steps b{width:28px;height:28px;border-radius:50%;background:var(--soft);color:var(--brand);display:grid;place-items:center;flex-shrink:0}.steps strong,.steps small{display:block}.steps small{color:var(--muted);font-size:12px;margin-top:3px}.error-card{border-color:#fecaca;background:#fff7f7}.error-card h2{font-size:17px;margin-bottom:4px}
+@media(max-width:900px){body{display:block}aside{width:100%;padding:14px}.logo{margin-bottom:12px}.side-nav{flex-direction:row;overflow:auto}.side-nav a{white-space:nowrap}.side-nav .back{margin-top:0}main{padding:22px 16px}.grid-4,.steps{grid-template-columns:1fr 1fr}.top-bar{flex-direction:column}.onboarding{flex-direction:column}}
+@media(max-width:520px){.grid-4,.steps{grid-template-columns:1fr}.card{padding:19px}}
 </style>
-
 </head>
 <body>
-
-<aside>
-  <div class="logo">
-    <span class="logo-mark">LB</span>
-    <span>LocalBoost Pro</span>
-  </div>
-  <nav class="side-nav">
-    <a href="../dashboard/index.html" class="active">Overview</a>
-    <a href="../dashboard/reviews/index.html" class="">Review Manager</a>
-    <a href="../dashboard/auto-reply/index.html" class="">Auto-Reply Rules</a>
-    <a href="../dashboard/growth-plan/index.html" class="">30-Day Growth Plan</a>
-    <a href="../dashboard/reports/index.html" class="">Monthly Reports</a>
-    <a href="../pro/index.html">Pro Plan Details</a>
-    <a href="../index.html" style="margin-top:auto; color:#64748B;">&larr; Back to Website</a>
-  </nav>
-</aside>
-
+<aside><div class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></div><nav class="side-nav">
+<a href="./index.html" class="active">Overview</a><a href="./reviews/index.html">Reviews</a><a href="./auto-reply/index.html">Review Replies</a><a href="./growth-plan/index.html">Action Plan</a><a href="./reports/index.html">Reports</a><a href="../pricing/index.html">Plans</a><a href="../index.html" class="back">← Website</a>
+</nav></aside>
 <main>
-  <div class="top-bar">
-    <div>
-      <h1 style="font-size:24px; font-weight:800;">Business Visibility Overview</h1>
-      <p style="font-size:14.5px; color:var(--text-secondary);">Real-time performance metrics and diagnostics for your connected Google listing.</p>
-    </div>
-    <div class="user-badge">
-      <div class="user-avatar">LB</div>
-      <div>No business connected <span style="display:block; font-size:12px; color:var(--text-secondary); font-weight:600;">Connect Google Business Profile to load live data</span></div>
-    </div>
-  </div>
-
-
-  <div class="grid-4">
-    <div class="stat-card">
-      <div class="stat-label">Google Maps Health</div>
-      <div class="stat-val" style="color:var(--primary-600);">—</div>
-      <div class="stat-sub">No live data</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Total Verified Reviews</div>
-      <div class="stat-val">—</div>
-      <div class="stat-sub">No live data</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Average Star Rating</div>
-      <div class="stat-val">—</div>
-      <div class="stat-sub">No live data</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">Unanswered Reviews</div>
-      <div class="stat-val" style="color:var(--accent-600);">—</div>
-      <div class="stat-sub" style="color:var(--accent-600);">No live data</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h2 style="font-size:18px; margin-bottom:16px;">AI Recommendations &amp; High-Priority Action Items</h2>
-    <div style="display:flex; flex-direction:column; gap:12px;">
-      <div style="display:flex; align-items:flex-start; justify-content:space-between; background:var(--bg-base); padding:16px; border-radius:8px; border-left:4px solid var(--warning);">
-        <div>
-          <strong style="font-size:15px;">Connect Google Business Profile</strong>
-          <p style="font-size:14px; color:var(--text-secondary); margin-top:2px;">Connect your profile to load review data and identify actions from your actual business.</p>
-        </div>
-        <a href="../google-business-profile/index.html" class="btn btn-primary" style="padding:8px 16px; font-size:13px;">Connection Guide</a>
-      </div>
-      <div style="display:flex; align-items:flex-start; justify-content:space-between; background:var(--bg-base); padding:16px; border-radius:8px; border-left:4px solid var(--primary-600);">
-        <div>
-          <strong style="font-size:15px;">Review your Google Business Profile completeness</strong>
-          <p style="font-size:14px; color:var(--text-secondary); margin-top:2px;">LocalBoost will evaluate profile completeness and identify missing or outdated information after connection.</p>
-        </div>
-        <a href="../google-business-profile/index.html" class="btn btn-outline" style="padding:8px 16px; font-size:13px;">Photo Guide</a>
-      </div>
-      <div style="display:flex; align-items:flex-start; justify-content:space-between; background:var(--bg-base); padding:16px; border-radius:8px; border-left:4px solid var(--success);">
-        <div>
-          <strong style="font-size:15px;">Connect your profile to review monitoring</strong>
-          <p style="font-size:14px; color:var(--text-secondary); margin-top:2px;">Review monitoring will be based on your connected profile data.</p>
-        </div>
-        <a href="../google-reviews/index.html" class="btn btn-outline" style="padding:8px 16px; font-size:13px;">Review Guide</a>
-      </div>
-    </div>
-  </div>
-
-
+<header class="top-bar"><div><p class="eyebrow">LOCAL SEARCH PLATFORM</p><h1>Business Visibility</h1><p class="muted">Connect your business and turn real data into clear local SEO actions.</p></div><div class="account"><span class="avatar">LB</span><span id="accountText">Not connected</span></div></header>
+<section class="card onboarding"><div id="statusIcon" class="status-icon">G</div><div class="onboarding-copy"><p class="eyebrow">STEP 1 OF 4</p><h2>Connect your Google Business Profile</h2><p>LocalBoost needs an authorized Google connection before it can show your profile, reviews, performance data or business-specific recommendations.</p><div class="actions"><a id="connect" class="btn btn-primary" href="#" aria-disabled="true">Connect Google</a><a class="btn btn-outline" href="../google-business-profile/index.html">How it works</a></div><p id="statusMessage" class="small muted">The production API is not enabled yet, so no Google data is being displayed.</p></div></section>
+<section class="grid-4"><div class="stat-card"><span>Visibility score</span><strong>—</strong><small>Awaiting business data</small></div><div class="stat-card"><span>Google reviews</span><strong>—</strong><small>Awaiting connection</small></div><div class="stat-card"><span>Search visibility</span><strong>—</strong><small>Awaiting rank data</small></div><div class="stat-card"><span>Open actions</span><strong>—</strong><small>Audit required</small></div></section>
+<section class="card"><div class="section-head"><p class="eyebrow">LOCALBOOST WORKFLOW</p><h2>From connection to measurable local visibility</h2></div><div class="steps"><div><b>1</b><span><strong>Verify business</strong><small>Find authorized Google Business Profile locations.</small></span></div><div><b>2</b><span><strong>Audit visibility</strong><small>Check profile, website and local SEO signals.</small></span></div><div><b>3</b><span><strong>Fix priorities</strong><small>Turn evidence into practical actions.</small></span></div><div><b>4</b><span><strong>Track progress</strong><small>Monitor visibility, reviews and completed work.</small></span></div></div></section>
+<section id="error" class="card error-card" hidden><h2>Connection unavailable</h2><p id="errorText" class="muted">The LocalBoost API could not be reached.</p></section>
 </main>
-
-<script src="../assets/localboost-api-config.js" defer></script>
+<script src="../assets/localboost-api-config.js"></script>
 <script>
 (function(){
-  const cfg=window.LOCALBOOST_API;
-  if(!cfg || !cfg.enabled) return;
-  const box=document.querySelector(".user-badge");
-  if(!box) return;
-  const action=document.createElement("a");
-  action.href=cfg.baseUrl+"/auth/google/start";
-  action.textContent="Connect Google Business Profile";
-  action.className="btn btn-primary";
-  action.style.marginLeft="12px";
-  box.appendChild(action);
+ const cfg=window.LOCALBOOST_API||{}, base=(cfg.baseUrl||"").replace(/\/$/,""), connect=document.getElementById("connect"), msg=document.getElementById("statusMessage"), account=document.getElementById("accountText");
+ if(!cfg.enabled||!base){connect.addEventListener("click",e=>{e.preventDefault();msg.textContent="Google connection is being prepared. The production API is not enabled yet.";});return}
+ connect.href=base+"/auth/google/start";connect.removeAttribute("aria-disabled");
+ fetch(base+"/api/me",{credentials:"include",headers:{Accept:"application/json"}}).then(r=>{if(!r.ok)throw new Error("not-authenticated");return r.json()}).then(data=>{if(data&&data.user){account.textContent=data.user.name||data.user.email||"Connected account";document.getElementById("statusIcon").textContent="✓";msg.textContent="Google account connected. Business data can now be loaded."}}).catch(()=>{account.textContent="Not connected";});
 })();
 </script>
 <script src="../assets/consent.js" defer></script>
