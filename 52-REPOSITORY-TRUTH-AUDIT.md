@@ -1,73 +1,78 @@
-# Rankme — Repository Truth Audit
+# LocalBoost — Repository Truth Audit
 
 Date: 2026-09-30
 Repository: `Akhairkar/Rankme`
-Default branch: `main`
+Customer-facing website/product: **LocalBoost**
 
-## Audit scope
+## Naming rule
 
-This pass compares the current implementation against `51-MASTER-PAID-SAAS-API-ROADMAP.md`. The repository documentation is not treated as proof of working functionality.
+- `Rankme` = GitHub repository/project identifier.
+- `LocalBoost` = public website/product brand.
+- `localboost.in` = intended production domain and is **not** a branding error.
+- LocalBoost branding and domain must be preserved.
 
-## Confirmed findings
+## Confirmed findings from the inspected implementation
 
-| Area | Current truth | Status | Required action |
-|---|---|---|---|
-| Product branding | Many current pages still display **LocalBoost** / **LocalBoost Pro** instead of Rankme | BLOCKER | Replace product branding consistently |
-| Canonical/domain | Key pages still canonicalize to `https://www.localboost.in/` | BLOCKER | Confirm Rankme production domain, then update canonical/OG/hreflang/schema/sitemap references |
-| FAQ contamination | Multiple pages contain generated FAQ text referring to RankMe while the visible product is LocalBoost; some answers contain unsupported ranking/growth claims | HIGH | Remove generic generated FAQ blocks and replace with page-specific factual FAQs |
-| AdSense references | Checkout, dashboard, tools, pro and guide pages contain explicit Google AdSense references | HIGH | Remove AdSense positioning; Rankme is a paid SaaS product |
-| Demo/mock payment | Checkout contains `Payment Simulated Successfully` and redirects to the dashboard demo | BLOCKER | Replace simulated checkout with real payment verification before selling |
-| Demo dashboard data | Dashboard visibly contains a sample business, location, review count, rating and score | HIGH | Keep only as clearly labelled demo UI or replace with real authenticated data |
-| Google API claims | UI/docs refer to Google Profile API access, but no production OAuth/API backend was verified in this audit pass | BLOCKER for live integration | Build and verify backend OAuth/API integration before presenting it as connected functionality |
-| Authentication | No production customer authentication flow was verified in the inspected pages | BLOCKER for SaaS | Implement secure account/session architecture before customer data is stored |
-| Search Console | Roadmap supports Search Console, but no verified production OAuth/data flow was found in this pass | NOT BUILT | Implement after auth/backend foundation |
-| Rank tracking | Roadmap specifies real rank tracking, but no verified provider-backed production tracking flow was found in this pass | NOT BUILT | Select provider and implement cost-controlled backend |
-| Reviews | Static review-management UI/content exists, but live customer-specific review sync was not verified | NOT BUILT | Connect to supported Google Business Profile API flow |
-| Monitoring | Dashboard/report concepts exist, but recurring production jobs/queues were not verified | NOT BUILT | Add scheduler, queue, retry and idempotency layer |
-| Billing | Pricing UI exists, but checkout is simulated | NOT BUILT | Implement real billing, webhook verification and subscription state |
-| AI | UI/content references AI recommendations, but no verified production AI backend/data pipeline was found in this pass | NOT BUILT | Add evidence-based AI service after data layer exists |
+| Area | Current truth | Priority | Action |
+|---|---|---:|---|
+| Branding/domain | LocalBoost branding and `localboost.in` appear consistently on the inspected core pages | OK | Preserve |
+| Generated FAQ content | Several pages contain generic generated FAQ blocks that mention RankMe, generic “top rankings” language, business-growth claims, and AdSense-policy questions unrelated to the actual page intent | HIGH | Replace with factual LocalBoost-specific FAQs |
+| Checkout | Checkout contains a client-side simulated success flow: `Payment Simulated Successfully` | BLOCKER | Do not treat as real payment; build verified payment flow before accepting customers |
+| Demo business data | Checkout/audit UI contains sample business placeholders such as `Royal Sweets & Bakery` | HIGH | Clearly label demo data or replace with user-entered/customer data |
+| Google API presentation | Pages advertise Google Profile API access, but a production OAuth/API backend was not verified in this audit pass | BLOCKER for live integration | Implement and test real OAuth/backend before showing a connected state |
+| Authentication | No production customer account/session architecture was verified in the inspected static pages | BLOCKER for SaaS | Add secure auth/session layer before persistent customer data |
+| Search Console | Roadmap includes Search Console, but production OAuth/data retrieval was not verified in this pass | NOT BUILT | Implement after auth foundation |
+| Rank tracking | Roadmap requires real local rank tracking, but a verified provider-backed production implementation was not found in this pass | NOT BUILT | Select provider and implement server-side tracking |
+| Review sync | Review UI/content exists, but live customer-specific Google review synchronization was not verified | NOT BUILT | Connect through supported GBP API |
+| Monitoring/jobs | Recurring production sync/report jobs were not verified | NOT BUILT | Add scheduler, retries and idempotency |
+| Billing state | Pricing UI exists, but the inspected checkout is simulated | NOT BUILT | Add real payment gateway + webhook verification + subscription state |
+| AI layer | AI-related product concepts exist, but a verified production data pipeline was not found in this pass | NOT BUILT | Build AI on top of verified customer evidence |
 
-## Important architectural conclusion
+## Important correction
 
-The repository currently contains a substantial **static product shell/demo**, but it is not yet a production SaaS implementation.
+The previous version of this audit incorrectly classified **LocalBoost branding** and **localboost.in** as blockers. That was wrong because LocalBoost is the actual website/product name and Rankme is the repository name.
 
-The correct build order is therefore:
+Those findings are now explicitly corrected.
 
-1. Product/domain/branding cleanup
-2. Backend + database + authentication foundation
-3. Real Google OAuth connection
-4. Real Business Profile data sync
-5. Real website audit pipeline
-6. Search Console integration
-7. Real rank-tracking provider
-8. Reviews/monitoring
-9. Action Center + score
-10. Reports
-11. Real billing
-12. AI layer using verified customer data
-13. Production QA/security/cost audit
+## Product architecture conclusion
 
-## Google API constraint
+The repository currently has a substantial static product/UI layer, but the inspected implementation does not yet prove a complete production SaaS backend.
 
-Google Business Profile access uses OAuth and the `business.manage` scope for protected business data. Google also documents eligibility/approval requirements for Business Profile API access. Rankme must not expose a fake "connected" state or promise API functionality until the OAuth/API backend is actually configured and tested.
+The build sequence should therefore be:
 
-Google Search Console provides programmatic access to Search Analytics, Sitemaps, Sites and URL Inspection APIs. This should be implemented server-side after customer authentication and consent are established.
+1. Clean generated/irrelevant FAQ and claim content.
+2. Build backend + database + authentication.
+3. Implement real Google OAuth and Business Profile connection.
+4. Sync verified Business Profile data.
+5. Build website/local SEO audit pipeline.
+6. Connect Search Console.
+7. Add real local rank tracking.
+8. Add review monitoring.
+9. Build Action Center + evidence-based score.
+10. Add recurring monitoring and reports.
+11. Replace simulated checkout with verified billing.
+12. Add AI recommendations using verified customer data.
+13. Run security, privacy, cost and end-to-end QA.
 
-## Immediate next change set
+## Google integration requirement
 
-Do **not** rewrite the whole repository yet.
+Google documents `https://www.googleapis.com/auth/business.manage` as the Business Profile API OAuth scope. Business Profile API operations on protected business data require user authorization. Google also documents server-side OAuth flows for securely storing authorization state/tokens. citeturn0search0turn0search4
 
-First change only the confirmed product-contamination layer:
+Google's Business Profile Performance API can provide metrics such as website clicks, call clicks, direction requests and search-keyword impressions, which fits the LocalBoost monitoring product. citeturn0search2
 
-- Rankme branding
-- remove AdSense positioning
-- remove unsupported generated FAQ claims
-- remove simulated-payment success behavior
-- clearly label demo data
-- preserve existing layouts and working static content
+LocalBoost must never show a fake “Google connected” state or claim live synchronization until the backend has actually completed OAuth and successfully retrieved the customer's authorized data.
 
-Then run another repository-wide truth audit before adding new SaaS functionality.
+## Immediate implementation rule
 
-## Rule
+Do not rewrite the entire repository.
+
+Next change set should be limited to:
+
+- remove irrelevant/generated FAQ claims;
+- remove AdSense positioning from customer-facing SaaS pages;
+- remove/disable simulated payment success;
+- make demo/sample data unmistakably demo-only;
+- preserve LocalBoost branding and `localboost.in`;
+- then re-audit the changed files.
 
 **Inspect → Change only confirmed issues → Test → Self-audit → Verify diff → Deploy.**
