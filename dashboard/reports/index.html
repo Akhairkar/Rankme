@@ -56,7 +56,7 @@
     main { padding:20px; }
   }
 </style>
-</head>
+<script src="../../assets/localboost-api-config.js"></script></head>
 <body>
 
 <aside>
@@ -78,5 +78,7 @@
 <main><div class="top-bar"><div><h1 style="font-size:24px;font-weight:800">Monthly Performance Reports</h1><p style="font-size:14.5px;color:var(--text-secondary)">Verified Google and ranking data, summarized for your business.</p></div><div class="user-badge"><div class="user-avatar">LB</div><div id="account">Not connected</div></div></div><div class="card" style="text-align:center;padding:48px 24px"><div style="width:52px;height:52px;border-radius:14px;background:var(--primary-100);color:var(--primary-600);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:800;font-size:20px">LB</div><h2 style="font-size:20px;margin-bottom:8px">Your first report starts with verified data</h2><p style="max-width:650px;margin:0 auto 20px;color:var(--text-secondary);font-size:14.5px">Connect Google Business Profile and configure local rank tracking. LocalBoost will generate reports from measured visibility, performance, review and ranking signals.</p><a href="../../google-business-profile/index.html" class="btn btn-primary">Connect Google Business Profile</a></div><div class="grid-4"><div class="stat-card"><div class="stat-label">Visibility</div><div class="stat-val">—</div><div class="stat-sub">Awaiting data</div></div><div class="stat-card"><div class="stat-label">Search impressions</div><div class="stat-val">—</div><div class="stat-sub">Awaiting data</div></div><div class="stat-card"><div class="stat-label">Calls & directions</div><div class="stat-val">—</div><div class="stat-sub">Awaiting data</div></div><div class="stat-card"><div class="stat-label">Rank movement</div><div class="stat-val">—</div><div class="stat-sub">Awaiting provider</div></div></div></main>
 
 <script src="../../assets/consent.js" defer></script>
-</body>
+<script>
+(async()=>{const cfg=window.LOCALBOOST_API||{},base=(cfg.baseUrl||"").replace(/\/$/,""),bid=sessionStorage.getItem("localboost_business_id");if(!cfg.enabled||!base||!bid)return;try{const r=await fetch(base+"/api/reports/overview?business_id="+encodeURIComponent(bid),{credentials:"include"});if(!r.ok)return;const d=await r.json();const text=document.querySelector("main")?.innerText||"";const nums=document.querySelectorAll("[data-report-value]");if(nums[0])nums[0].textContent=d.reviews?.count??"—";if(nums[1])nums[1].textContent=d.keywords?.length??"—";if(nums[2])nums[2].textContent=d.rank_snapshots?.length??"—";}catch(_){} })();
+</script></body>
 </html>
