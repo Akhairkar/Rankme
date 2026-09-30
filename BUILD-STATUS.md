@@ -40,7 +40,9 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Review monitoring UI connected to stored verified-data API
 - [x] Verified review summary API foundation
 - [ ] Review reply workflow
-- [ ] Google Business Profile Performance API
+- [x] Google Business Profile Performance API contract/state foundation
+- [x] Rank history read API foundation
+- [x] Competitor visibility read API foundation
 - [ ] Search Console OAuth/data integration
 - [ ] Keyword/rank provider integration
 - [x] Rank snapshot storage/API foundation
