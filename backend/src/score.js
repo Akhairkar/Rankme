@@ -29,3 +29,18 @@ export function calculateProfileAuditSignals(profile = {}) {
   const score = checks.length ? Math.round((completed / checks.length) * 100) : null;
   return { score, checks, state: score === null ? "awaiting_verified_data" : "verified_data" };
 }
+
+
+export function buildAuditActions(signals = {}) {
+  const actions = [];
+  for (const item of signals.checks || []) {
+    if (item.present) continue;
+    actions.push({
+      code: item.code,
+      priority: item.severity === "critical" ? "high" : item.severity,
+      title: item.label + " needs attention",
+      instructions: "Complete or verify this Google Business Profile signal, then refresh the audit."
+    });
+  }
+  return actions;
+}
