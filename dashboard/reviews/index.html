@@ -49,7 +49,7 @@
     main { padding:20px; }
   }
 </style>
-</head>
+<script src="../../assets/localboost-api-config.js"></script></head>
 <body>
 
 <aside>
@@ -81,7 +81,10 @@
   </div>
 
 
-<div class="card" style="text-align:center;padding:48px 24px"><div style="width:52px;height:52px;border-radius:14px;background:var(--primary-100);color:var(--primary-600);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:800;font-size:20px">LB</div><h2 style="font-size:20px;margin-bottom:8px">Connect Google Business Profile</h2><p style="max-width:620px;margin:0 auto 20px;color:var(--text-secondary);font-size:14.5px">Verified reviews will appear here after your Google Business Profile is connected. No sample reviews or sentiment metrics are displayed.</p><a href="../../google-business-profile/index.html" class="btn btn-primary">Connect Google Business Profile</a><p style="max-width:620px;margin:16px auto 0;color:var(--text-secondary);font-size:12.5px">Reply tools and review analysis will activate from live business data.</p></div></main>
+<div id="review-state" class="card" style="text-align:center;padding:48px 24px"><div style="width:52px;height:52px;border-radius:14px;background:var(--primary-100);color:var(--primary-600);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:800;font-size:20px">LB</div><h2 id="review-title" style="font-size:20px;margin-bottom:8px">Connect Google Business Profile</h2><p id="review-copy" style="max-width:620px;margin:0 auto 20px;color:var(--text-secondary);font-size:14.5px">Verified reviews will appear here after your Google Business Profile is connected. No sample reviews or sentiment metrics are displayed.</p><a href="../../google-business-profile/index.html" class="btn btn-primary">Connect Google Business Profile</a><div id="review-list" style="max-width:760px;margin:24px auto 0;text-align:left"></div></div>
+<script>
+(async()=>{const cfg=window.LOCALBOOST_API||{};const bid=sessionStorage.getItem("localboost_business_id");if(!cfg.enabled||!cfg.baseUrl||!bid)return;try{const r=await fetch(cfg.baseUrl.replace(/\/$/,"")+"/api/reviews?business_id="+encodeURIComponent(bid),{credentials:"include"});if(!r.ok)return;const d=await r.json();if(d.reviews?.length){document.querySelector("#review-title").textContent="Verified Google reviews";document.querySelector("#review-copy").textContent=d.reviews.length+" verified review"+(d.reviews.length===1?"":"s")+" loaded from connected business data.";document.querySelector("#review-list").innerHTML=d.reviews.map(x=>'<div style="padding:15px 0;border-top:1px solid var(--border)"><strong>'+String(x.reviewer_display_name||"Google reviewer").replace(/[&<>]/g,"")+'</strong><div>Rating: '+String(x.rating??"—")+'</div><p style="color:var(--text-secondary);margin:5px 0">'+String(x.review_text||"No review text").replace(/[&<>]/g,"")+'</p></div>').join("")}}catch(_){}})();
+</script></main>
 
 <script src="../../assets/consent.js" defer></script>
 </body>
