@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Business Audit | LocalBoost</title>
+<meta name="description" content="Start a LocalBoost local SEO visibility audit for your business.">
+<meta name="robots" content="noindex,follow">
+<style>
+:root{--bg:#f8fafc;--surface:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--brand:#0f766e;--soft:#e0f5f2;--danger:#b91c1c}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}a{text-decoration:none;color:inherit}.wrap{max-width:900px;margin:auto;padding:24px 18px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:42px}.brand{font-weight:850;font-size:19px;display:flex;gap:9px;align-items:center}.mark{width:34px;height:34px;border-radius:9px;background:var(--brand);color:#fff;display:grid;place-items:center}.back{color:var(--muted);font-size:14px}.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;box-shadow:0 2px 10px rgba(15,23,42,.03)}.eyebrow{font-size:11px;font-weight:850;letter-spacing:.08em;color:var(--brand)}h1{font-size:32px;line-height:1.18;margin:8px 0}.lead,.muted{color:var(--muted)}form{display:grid;gap:17px;margin-top:25px}label{font-size:13px;font-weight:750}input,select{width:100%;margin-top:7px;padding:13px 14px;border:1px solid var(--line);border-radius:9px;font:inherit;background:#fff}button{border:0;border-radius:9px;background:var(--brand);color:#fff;padding:13px 18px;font:inherit;font-weight:800;cursor:pointer}.hint{font-size:12px;color:var(--muted)}.result{margin-top:20px;padding:16px;border-radius:10px;background:var(--soft);color:#134e4a}.error{background:#fef2f2;color:var(--danger)}.checks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}.check{border:1px solid var(--line);border-radius:10px;padding:14px}.check strong,.check span{display:block}.check span{font-size:12px;color:var(--muted);margin-top:4px}@media(max-width:650px){h1{font-size:27px}.card{padding:21px}.checks{grid-template-columns:1fr}.top{margin-bottom:25px}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><a class="brand" href="../index.html"><span class="mark">LB</span>LocalBoost</a><a class="back" href="../dashboard/">Dashboard →</a></header>
+<main class="card">
+<p class="eyebrow">LOCAL VISIBILITY AUDIT</p>
+<h1>Check how ready your business is for local search</h1>
+<p class="lead">Enter your real business details. LocalBoost will use them as the starting point for a business-specific audit. No fabricated score or ranking is shown.</p>
+<form id="auditForm">
+<div><label for="business">Business name</label><input id="business" name="business" required maxlength="120" autocomplete="organization" placeholder="e.g. Your Shop Name"></div>
+<div><label for="website">Website URL</label><input id="website" name="website" type="url" maxlength="500" autocomplete="url" placeholder="https://example.com"></div>
+<div><label for="city">City / service area</label><input id="city" name="city" required maxlength="100" autocomplete="address-level2" placeholder="e.g. Nagpur"></div>
+<div><label for="category">Business category</label><input id="category" name="category" required maxlength="100" placeholder="e.g. Restaurant"></div>
+<button type="submit">Start Audit</button>
+</form>
+<div id="result" class="result" hidden></div>
+<div class="checks"><div class="check"><strong>Profile</strong><span>Business information and local signals</span></div><div class="check"><strong>Website</strong><span>Technical and on-page signals</span></div><div class="check"><strong>Visibility</strong><span>Keyword and local ranking inputs</span></div></div>
+</main></div>
+<script>
+const form=document.getElementById("auditForm"),result=document.getElementById("result");
+form.addEventListener("submit",e=>{e.preventDefault();const data=Object.fromEntries(new FormData(form));if(data.website&&!/^https?:\/\//i.test(data.website))return show("Please enter a complete website URL starting with https:// or http://.",true);const payload={...data,createdAt:new Date().toISOString()};sessionStorage.setItem("localboost_audit_intake",JSON.stringify(payload));show("Audit intake saved for this browser. Connect your Google Business Profile in the dashboard to add verified business data.");});
+function show(t,error){result.hidden=false;result.className="result"+(error?" error":"");result.textContent=t}
+</script>
+</body></html>
