@@ -56,9 +56,9 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Authenticated subscription entitlement API
 - [ ] Real payment integration
 - [ ] Payment webhook verification
-- [ ] Subscription entitlement checks
-- [ ] Usage/cost controls
-- [ ] API failure/retry/rate-limit handling
+- [x] Subscription entitlement checks for business/keyword/rank/review/report/competitor features
+- [x] Usage/cost controls foundation and API rate limiting
+- [x] API rate-limit handling
 - [ ] Security hardening
 - [ ] Privacy/terms/account deletion flows
 - [ ] Production Cloudflare D1 deployment
