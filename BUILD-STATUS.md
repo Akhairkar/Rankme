@@ -74,6 +74,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Final fake/demo-content audit
 - [ ] Final production readiness audit
 
+- Connected the rank-tracking dashboard to authenticated keyword reads and verified rank-history reads; the UI now shows real stored measurements only and keeps an explicit provider-pending state.
+
 ## Current blockers
 
 1. Secure OAuth callback/token persistence cannot currently be written through the available GitHub write path because the code operation is being blocked by a security safeguard.
