@@ -37,10 +37,15 @@ export async function createKeyword(env, userId, businessId, input) {
   if (!env.DB) throw new Error("Database unavailable");
   const business = await getUserBusiness(env,userId,businessId);
   if (!business) return null;
-  const now=Date.now(), keywordId=id("kw");
+  const now=Date.now(), device=input.device||"desktop";
+  const existing=await env.DB.prepare(
+    "SELECT * FROM keywords WHERE business_id=? AND keyword=? AND location_name=? AND device=? AND active=1 LIMIT 1"
+  ).bind(businessId,input.keyword,input.location_name,device).first();
+  if(existing) return existing;
+  const keywordId=id("kw");
   await env.DB.prepare(
     "INSERT INTO keywords (id,business_id,keyword,location_name,device,active,created_at,updated_at) VALUES (?,?,?,?,?,1,?,?)"
-  ).bind(keywordId,businessId,input.keyword,input.location_name,input.device||"desktop",now,now).run();
+  ).bind(keywordId,businessId,input.keyword,input.location_name,device,now,now).run();
   return env.DB.prepare("SELECT * FROM keywords WHERE id=?").bind(keywordId).first();
 }
 
