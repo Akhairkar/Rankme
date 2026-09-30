@@ -37,7 +37,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Evidence-based visibility score API foundation
 - [ ] Action Center generation from verified signals
 - [ ] Google Reviews ingestion
-- [ ] Review monitoring UI connected to live data
+- [x] Review monitoring UI connected to stored verified-data API
+- [x] Verified review summary API foundation
 - [ ] Review reply workflow
 - [ ] Google Business Profile Performance API
 - [ ] Search Console OAuth/data integration
