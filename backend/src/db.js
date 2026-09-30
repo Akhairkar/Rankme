@@ -148,3 +148,19 @@ export async function createAudit(env, userId, businessId, input={}) {
   ).bind(auditId,businessId,input.audit_type||"google_business_profile", "pending", null, input.source_url||null, now, now).run();
   return env.DB.prepare("SELECT * FROM audits WHERE id=?").bind(auditId).first();
 }
+
+
+export async function getReportOverview(env, userId, businessId) {
+  if (!env.DB) return null;
+  const business = await getUserBusiness(env, userId, businessId);
+  if (!business) return null;
+  const reviews = await getReviewSummary(env, userId, businessId);
+  const keywords = await listKeywords(env, userId, businessId);
+  let rankSnapshots = [];
+  for (const keyword of keywords.slice(0, 100)) {
+    const rows = await listRankSnapshots(env, userId, businessId, keyword.id);
+    rankSnapshots.push(...rows.map(r => ({ ...r, keyword: keyword.keyword, location_name: keyword.location_name })));
+  }
+  rankSnapshots.sort((a,b)=>(b.checked_at||0)-(a.checked_at||0));
+  return { business, reviews, keywords, rank_snapshots: rankSnapshots.slice(0,200) };
+}
