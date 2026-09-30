@@ -1,39 +1,17 @@
+import { listBusinesses, createBusiness } from "./db.js";
+
 const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
-
-function corsHeaders(request, env) {
-  const origin = request.headers.get("Origin") || "";
-  const allowed = (env.ALLOWED_ORIGINS || "https://localboost.in,https://www.localboost.in").split(",").map(s => s.trim()).filter(Boolean);
-  return { "access-control-allow-origin": allowed.includes(origin) ? origin : allowed[0], "access-control-allow-credentials": "true", "access-control-allow-headers": "content-type", "access-control-allow-methods": "GET,POST,OPTIONS" };
-}
-
-function withCors(response, request, env) {
-  const h = new Headers(response.headers);
-  Object.entries(corsHeaders(request, env)).forEach(([k,v]) => h.set(k,v));
-  return new Response(response.body, { status: response.status, headers: h });
-}
-
-async function health(env) {
-  let db = "unavailable";
-  if (env.DB) {
-    try { await env.DB.prepare("SELECT 1").first(); db = "ok"; } catch (_) { db = "error"; }
-  }
-  return json({ ok: true, service: "localboost-api", database: db });
-}
-
-export default {
-  async fetch(request, env) {
-    if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders(request, env) });
-    const url = new URL(request.url);
-    try {
-      if (url.pathname === "/health" && request.method === "GET") return withCors(await health(env), request, env);
-      if (url.pathname === "/api/me" && request.method === "GET") return withCors(json({ authenticated: false, user: null, message: "Google account connection is required." }), request, env);
-      if (url.pathname === "/api/businesses" && request.method === "GET") return withCors(json({ businesses: [] }), request, env);
-      if (url.pathname === "/api/keywords" && request.method === "GET") return withCors(json({ keywords: [] }), request, env);
-      if (url.pathname === "/api/action-center" && request.method === "GET") return withCors(json({ score: null, actions: [], state: "awaiting_verified_data" }), request, env);
-      if (url.pathname === "/auth/google/start" && request.method === "GET") return withCors(json({ error: "Google OAuth is not configured for production yet." }, 503), request, env);
-      return withCors(json({ error: "Not found" }, 404), request, env);
-    } catch (error) {
-      return withCors(json({ error: "Internal server error" }, 500), request, env);
-    }
-  }
-};
+function corsHeaders(request, env) { const origin=request.headers.get("Origin")||""; const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean); return {"access-control-allow-origin":allowed.includes(origin)?origin:allowed[0],"access-control-allow-credentials":"true","access-control-allow-headers":"content-type","access-control-allow-methods":"GET,POST,OPTIONS"}; }
+function withCors(response,request,env){const h=new Headers(response.headers);Object.entries(corsHeaders(request,env)).forEach(([k,v])=>h.set(k,v));return new Response(response.body,{status:response.status,headers:h});}
+async function health(env){let database="unavailable";if(env.DB){try{await env.DB.prepare("SELECT 1").first();database="ok"}catch(_){database="error"}}return json({ok:true,service:"localboost-api",database});}
+function requestUser(request){return request.headers.get("x-localboost-user-id")||null;}
+function validBusiness(x){return x&&typeof x.name==="string"&&x.name.trim()&&typeof x.category==="string"&&x.category.trim()&&typeof x.city==="string"&&x.city.trim();}
+export default {async fetch(request,env){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders(request,env)});const url=new URL(request.url);try{
+if(url.pathname==="/health"&&request.method==="GET")return withCors(await health(env),request,env);
+if(url.pathname==="/api/me"&&request.method==="GET")return withCors(json({authenticated:false,user:null,message:"Google account connection is required."}),request,env);
+if(url.pathname==="/api/businesses"&&request.method==="GET"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);return withCors(json({businesses:await listBusinesses(env,uid)}),request,env);}
+if(url.pathname==="/api/businesses"&&request.method==="POST"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const body=await request.json().catch(()=>null);if(!validBusiness(body))return withCors(json({error:"name, category and city are required"},400),request,env);const business=await createBusiness(env,uid,{name:body.name.trim(),category:body.category.trim(),city:body.city.trim(),phone:body.phone,website_url:body.website_url});return withCors(json({business},201),request,env);}
+if(url.pathname==="/api/action-center"&&request.method==="GET")return withCors(json({score:null,actions:[],state:"awaiting_verified_data"}),request,env);
+if(url.pathname==="/auth/google/start"&&request.method==="GET")return withCors(json({error:"Google OAuth is not configured for production yet."},503),request,env);
+return withCors(json({error:"Not found"},404),request,env);
+}catch(_){return withCors(json({error:"Internal server error"},500),request,env)}}};
