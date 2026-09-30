@@ -75,10 +75,22 @@ export async function listActionItems(env, userId, businessId) {
   return results || [];
 }
 
+export async function getReviewSummary(env, userId, businessId) {
+  if (!env.DB) return { count: 0, unanswered: 0, average_rating: null };
+  const row = await env.DB.prepare(
+    "SELECT COUNT(*) AS count, SUM(CASE WHEN r.reply_status IN ('unanswered','unknown') THEN 1 ELSE 0 END) AS unanswered, AVG(r.rating) AS average_rating FROM reviews r JOIN business_locations bl ON bl.id=r.business_location_id JOIN businesses b ON b.id=bl.business_id WHERE bl.business_id=? AND b.user_id=?"
+  ).bind(businessId,userId).first();
+  return {
+    count: Number(row?.count || 0),
+    unanswered: Number(row?.unanswered || 0),
+    average_rating: row?.average_rating == null ? null : Number(row.average_rating)
+  };
+}
+
 export async function listReviews(env, userId, businessId) {
   if (!env.DB) return [];
   const { results } = await env.DB.prepare(
-    "SELECT r.* FROM reviews r JOIN business_locations bl ON bl.id=r.business_location_id JOIN businesses b ON b.id=bl.business_id WHERE bl.business_id=? AND b.user_id=? ORDER BY r.review_time DESC LIMIT 100"
+    "SELECT r.id,r.google_review_name,r.reviewer_display_name,r.rating,r.review_text,r.review_time,r.reply_status,r.synced_at FROM reviews r JOIN business_locations bl ON bl.id=r.business_location_id JOIN businesses b ON b.id=bl.business_id WHERE bl.business_id=? AND b.user_id=? ORDER BY r.review_time DESC LIMIT 100"
   ).bind(businessId,userId).all();
   return results || [];
 }
