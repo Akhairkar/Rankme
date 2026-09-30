@@ -50,7 +50,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Keyword/rank provider integration
 - [x] Rank snapshot storage/API foundation
 - [ ] Competitor visibility discovery/tracking (provider/discovery integration pending)
-- [ ] Reports data pipeline
+- [x] Reports data aggregation pipeline foundation
 - [ ] Report generation/download
 - [ ] Monitoring jobs and alerts
 - [ ] AI recommendations based only on verified data
@@ -126,3 +126,10 @@ If a capability is unavailable because an external API, credential, quota, appro
 - Disabled browser/customer-created rank snapshots; rank data must come from the configured provider.
 - Enforced plan location limits and prevented one verified Google location from being linked to multiple businesses under the same account.
 - Kept production API disabled until Cloudflare/Google credentials are actually configured.
+
+## Latest build pass — 2026-09-30 (continued)
+
+- Added verified Google Business Profile Performance metric storage and read helpers.
+- Added D1 schema/indexes for performance metrics.
+- Added a guarded performance sync endpoint that cannot be activated without the server-side Google provider implementation.
+- Dashboard performance remains honest: verified metrics are shown when present; otherwise the UI stays in the pending state.
