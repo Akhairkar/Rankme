@@ -62,6 +62,27 @@ Google's Business Profile Performance API can provide metrics such as website cl
 
 LocalBoost must never show a fake “Google connected” state or claim live synchronization until the backend has actually completed OAuth and successfully retrieved the customer's authorized data.
 
+## Dashboard cleanup completed — 2026-09-30
+
+The following customer-dashboard pages were audited and cleaned:
+
+- `dashboard/reviews/index.html`
+- `dashboard/auto-reply/index.html`
+- `dashboard/growth-plan/index.html`
+- `dashboard/reports/index.html`
+
+Removed from these pages:
+- fabricated business identity and location data;
+- sample customer/review records;
+- fabricated review counts and performance metrics;
+- static “completed” customer actions presented as live state;
+- generated FAQPage schema and visible generated FAQ blocks;
+- AdSense-related claims and generic ranking guarantees.
+
+The pages now use an honest **No business connected** state and do not display customer metrics until verified data is available.
+
+Google's current Business Profile Performance API documentation confirms that real authorized data can later supply metrics such as Maps/Search impressions, calls, website clicks, direction requests and monthly search-keyword impressions. citeturn0search0
+
 ## Immediate implementation rule
 
 Do not rewrite the entire repository.
