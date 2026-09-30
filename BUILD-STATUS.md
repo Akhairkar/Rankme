@@ -25,7 +25,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Backend Worker foundation
 - [x] Session lookup foundation
 - [x] Google OAuth authorization-start foundation
-- [ ] Fix keyword API session lookup bug
+- [x] Fix keyword API session lookup bug
 - [ ] Secure Google OAuth callback/token exchange
 - [ ] Encrypted refresh-token persistence
 - [ ] Production Google OAuth credentials/configuration
@@ -34,7 +34,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Business/location synchronization
 - [ ] Real GBP profile data ingestion
 - [ ] Real GBP audit engine
-- [ ] Evidence-based visibility score API
+- [x] Evidence-based visibility score API foundation
 - [ ] Action Center generation from verified signals
 - [ ] Google Reviews ingestion
 - [ ] Review monitoring UI connected to live data
@@ -42,7 +42,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Google Business Profile Performance API
 - [ ] Search Console OAuth/data integration
 - [ ] Keyword/rank provider integration
-- [ ] Rank snapshot ingestion and history
+- [x] Rank snapshot storage/API foundation
 - [ ] Competitor visibility discovery/tracking
 - [ ] Reports data pipeline
 - [ ] Report generation/download
@@ -76,21 +76,21 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 
 ## Next execution order
 
-1. Fix backend session lookup and strengthen API data endpoints.
-2. Build verified business/location data model and API routes.
-3. Complete GBP account/location integration through the approved secure OAuth path.
-4. Connect dashboard to real business/location state.
-5. Build real profile audit + visibility score + Action Center.
-6. Add Reviews + Performance API.
-7. Add Search Console.
-8. Add rank provider + rank history.
-9. Add competitors.
-10. Add reports and monitoring.
-11. Add AI recommendations.
-12. Add billing/subscriptions/webhooks/entitlements.
-13. Harden security, privacy, usage controls and error handling.
-14. Deploy and verify production infrastructure.
-15. Run complete mobile/desktop/end-to-end audit.
+1. Build verified business/location data model and API routes.
+2. Complete GBP account/location integration through the approved secure OAuth path.
+3. Connect dashboard to real business/location state.
+4. Build real profile audit + visibility score + Action Center.
+5. Add Reviews + Performance API.
+6. Add Search Console.
+7. Add rank provider + rank history.
+8. Add competitors.
+9. Add reports and monitoring.
+10. Add AI recommendations.
+11. Add billing/subscriptions/webhooks/entitlements.
+12. Harden security, privacy, usage controls and error handling.
+13. Deploy and verify production infrastructure.
+14. Run complete mobile/desktop/end-to-end audit.
+
 
 ## Definition of complete
 
