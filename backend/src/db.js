@@ -108,10 +108,22 @@ export async function linkBusinessLocation(env, userId, businessId, input) {
   if (!env.DB) throw new Error("Database unavailable");
   const business = await getUserBusiness(env, userId, businessId);
   if (!business || !input?.name) return null;
-  const locationId=id("loc"), now=Date.now();
+  const now=Date.now(), resource=input.google_resource_name||null;
+  if (resource) {
+    const existing=await env.DB.prepare(
+      "SELECT id FROM business_locations WHERE business_id=? AND google_resource_name=? LIMIT 1"
+    ).bind(businessId,resource).first();
+    if (existing) {
+      await env.DB.prepare(
+        "UPDATE business_locations SET name=?,address_json=?,latitude=?,longitude=?,sync_status='synced',last_synced_at=?,updated_at=? WHERE id=?"
+      ).bind(input.name,input.address_json||null,input.latitude??null,input.longitude??null,input.last_synced_at||now,now,existing.id).run();
+      return env.DB.prepare("SELECT * FROM business_locations WHERE id=?").bind(existing.id).first();
+    }
+  }
+  const locationId=id("loc");
   await env.DB.prepare(
     "INSERT INTO business_locations (id,business_id,google_resource_name,name,address_json,latitude,longitude,sync_status,last_synced_at,created_at,updated_at) VALUES (?,?,?,?,?,?,?,'synced',?,?,?)"
-  ).bind(locationId,businessId,input.google_resource_name||null,input.name,input.address_json||null,input.latitude??null,input.longitude??null,input.last_synced_at||now,now,now).run();
+  ).bind(locationId,businessId,resource,input.name,input.address_json||null,input.latitude??null,input.longitude??null,input.last_synced_at||now,now,now).run();
   return env.DB.prepare("SELECT * FROM business_locations WHERE id=?").bind(locationId).first();
 }
 
