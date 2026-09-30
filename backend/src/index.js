@@ -24,6 +24,18 @@ if(url.pathname==="/api/businesses"&&request.method==="POST"){const uid=await re
 if(url.pathname==="/api/keywords"&&request.method==="GET"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const businessId=url.searchParams.get("business_id");if(!businessId)return withCors(json({error:"business_id is required"},400),request,env);return withCors(json({keywords:await listKeywords(env,uid,businessId)}),request,env);}
 if(url.pathname==="/api/keywords"&&request.method==="POST"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const body=await request.json().catch(()=>null);if(!body||typeof body.keyword!=="string"||typeof body.location_name!=="string")return withCors(json({error:"keyword and location_name are required"},400),request,env);const keyword=await createKeyword(env,uid,body.business_id,{keyword:body.keyword.trim(),location_name:body.location_name.trim(),device:body.device});if(!keyword)return withCors(json({error:"Business not found"},404),request,env);return withCors(json({keyword},201),request,env);}
 if(url.pathname==="/api/action-center"&&request.method==="GET")return withCors(json({score:null,actions:[],state:"awaiting_verified_data"}),request,env);
-if(url.pathname==="/auth/google/start"&&request.method==="GET")return withCors(json({error:"Google OAuth is not configured for production yet."},503),request,env);
+if(url.pathname==="/auth/google/start"&&request.method==="GET"){
+ if(!env.GOOGLE_CLIENT_ID||!env.GOOGLE_REDIRECT_URI)return withCors(json({error:"Google OAuth is not configured for production."},503),request,env);
+ const state=crypto.randomUUID()+crypto.randomUUID();
+ const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(state));
+ const hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");
+ if(!env.DB)return withCors(json({error:"Database unavailable"},503),request,env);
+ await env.DB.prepare("INSERT INTO oauth_states(state_hash,created_at) VALUES(?,?)").bind(hash,Date.now()).run();
+ const p=new URLSearchParams({client_id:env.GOOGLE_CLIENT_ID,redirect_uri:env.GOOGLE_REDIRECT_URI,response_type:"code",scope:"openid email profile https://www.googleapis.com/auth/business.manage",access_type:"offline",prompt:"consent",state});
+ return Response.redirect("https://accounts.google.com/o/oauth2/v2/auth?"+p.toString(),302);
+}
+if(url.pathname==="/auth/google/callback"&&request.method==="GET"){
+ return withCors(json({error:"Google OAuth callback exchange requires production Google credentials and secure token persistence configuration."},503),request,env);
+}
 return withCors(json({error:"Not found"},404),request,env);
 }catch(_){return withCors(json({error:"Internal server error"},500),request,env)}}};
