@@ -45,6 +45,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Rank history read API foundation
 - [x] Competitor visibility read API foundation
 - [x] Authenticated competitor tracking input foundation
+- [x] Competitor visibility customer dashboard UI
 - [x] Search Console integration architecture/contract
 - [x] Keyword/rank provider adapter contract
 - [ ] Search Console OAuth/data integration
