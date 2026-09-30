@@ -1,4 +1,5 @@
-import { listBusinesses, createBusiness, listKeywords, createKeyword, getUserBusiness, listRankSnapshots, createRankSnapshot, listActionItems, listReviews } from "./db.js";\nimport { calculateVisibilityScore } from "./score.js";
+import { listBusinesses, createBusiness, listKeywords, createKeyword, getUserBusiness, listRankSnapshots, createRankSnapshot, listActionItems, listReviews } from "./db.js";
+import { calculateVisibilityScore } from "./score.js";
 
 const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
 function corsHeaders(request, env) { const origin=request.headers.get("Origin")||""; const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean); return {"access-control-allow-origin":allowed.includes(origin)?origin:allowed[0],"access-control-allow-credentials":"true","access-control-allow-headers":"content-type","access-control-allow-methods":"GET,POST,OPTIONS"}; }
