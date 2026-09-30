@@ -30,6 +30,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Encrypted refresh-token persistence
 - [ ] Production Google OAuth credentials/configuration
 - [ ] Google Business Profile account discovery
+- [x] Verified GBP integration contract documented
 - [ ] Google Business Profile location discovery
 - [ ] Business/location synchronization
 - [ ] Real GBP profile data ingestion
@@ -80,7 +81,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 
 ## Next execution order
 
-1. Build verified business/location data model and API routes.
+1. Complete secure Google OAuth callback and token persistence when production credentials are configured.
 2. Complete GBP account/location integration through the approved secure OAuth path.
 3. Connect dashboard to real business/location state.
 4. Build real profile audit + visibility score + Action Center.
