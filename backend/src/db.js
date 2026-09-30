@@ -169,6 +169,25 @@ export async function getBusinessLocationSummary(env, userId, businessId) {
   ).bind(businessId,userId).first();
 }
 
+export async function getLatestVerifiedMetrics(env, userId, businessId) {
+  if (!env.DB) return null;
+  return env.DB.prepare(
+    "SELECT * FROM performance_metrics WHERE business_id=? AND user_id=? ORDER BY checked_at DESC LIMIT 1"
+  ).bind(businessId,userId).first();
+}
+
+export async function upsertPerformanceMetrics(env, userId, businessId, metrics={}) {
+  if (!env.DB) throw new Error("Database unavailable");
+  const business = await getUserBusiness(env,userId,businessId);
+  if (!business) return null;
+  const now=Number(metrics.checked_at||Date.now());
+  const metricId=id("perf");
+  await env.DB.prepare(
+    "INSERT INTO performance_metrics (id,user_id,business_id,checked_at,impressions,website_clicks,call_clicks,direction_requests,search_keyword_impressions,raw_reference_json) VALUES (?,?,?,?,?,?,?,?,?,?)"
+  ).bind(metricId,userId,businessId,now,metrics.impressions??null,metrics.website_clicks??null,metrics.call_clicks??null,metrics.direction_requests??null,metrics.search_keyword_impressions??null,metrics.raw_reference_json||null).run();
+  return env.DB.prepare("SELECT * FROM performance_metrics WHERE id=?").bind(metricId).first();
+}
+
 export async function getLatestAudit(env, userId, businessId) {
   if (!env.DB) return null;
   return env.DB.prepare(
