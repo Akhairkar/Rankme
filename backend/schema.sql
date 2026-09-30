@@ -206,6 +206,7 @@ CREATE TABLE IF NOT EXISTS usage_events (
 CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);
 CREATE INDEX IF NOT EXISTS idx_sessions_expiry ON sessions(expires_at);
 CREATE INDEX IF NOT EXISTS idx_oauth_states_created ON oauth_states(created_at);
+CREATE INDEX IF NOT EXISTS idx_google_locations_user_sync ON google_locations(user_id, synced_at);
 CREATE INDEX IF NOT EXISTS idx_businesses_user ON businesses(user_id);
 CREATE INDEX IF NOT EXISTS idx_business_locations_business ON business_locations(business_id);
 CREATE INDEX IF NOT EXISTS idx_audits_business ON audits(business_id);
