@@ -220,3 +220,26 @@ CREATE INDEX IF NOT EXISTS idx_reports_business ON reports(business_id);
 CREATE INDEX IF NOT EXISTS idx_subscriptions_user ON subscriptions(user_id);
 CREATE INDEX IF NOT EXISTS idx_payments_user ON payments(user_id);
 CREATE INDEX IF NOT EXISTS idx_usage_events_user_time ON usage_events(user_id, created_at);
+
+
+CREATE TABLE IF NOT EXISTS plan_entitlements (
+  plan_code TEXT PRIMARY KEY,
+  max_businesses INTEGER NOT NULL,
+  max_locations INTEGER NOT NULL,
+  max_keywords INTEGER NOT NULL,
+  rank_tracking_enabled INTEGER NOT NULL DEFAULT 0,
+  review_monitoring_enabled INTEGER NOT NULL DEFAULT 0,
+  reports_enabled INTEGER NOT NULL DEFAULT 0,
+  competitor_tracking_enabled INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS subscription_events (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  subscription_id TEXT REFERENCES subscriptions(id) ON DELETE SET NULL,
+  event_type TEXT NOT NULL,
+  provider_event_id TEXT,
+  created_at INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events(user_id, created_at);
