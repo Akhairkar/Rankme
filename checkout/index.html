@@ -135,15 +135,7 @@ if (urlParams.get('plan') === 'agency') {
   document.getElementById('totalAmount').textContent = '₹3,538.82';
 }
 
-function simulatePayment() {
-  const btn = document.querySelector('.btn-pay');
-  btn.textContent = 'Processing with Bank Gateway...';
-  btn.disabled = true;
-  setTimeout(() => {
-    alert('Payment Simulated Successfully! Redirecting to your active LocalBoost Pro Dashboard.');
-    window.location.href = '/dashboard/';
-  }, 1500);
-}
+/* Live payment is disabled until a verified gateway and webhook flow are connected. */
 </script>
 
 <script src="../assets/consent.js" defer></script>
