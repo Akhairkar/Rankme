@@ -51,7 +51,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Report generation/download
 - [ ] Monitoring jobs and alerts
 - [ ] AI recommendations based only on verified data
-- [ ] Subscription model
+- [x] Subscription/plan entitlement schema foundation
+- [x] Authenticated subscription entitlement API
 - [ ] Real payment integration
 - [ ] Payment webhook verification
 - [ ] Subscription entitlement checks
