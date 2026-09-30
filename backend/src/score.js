@@ -22,7 +22,10 @@ export function calculateProfileAuditSignals(profile = {}) {
   };
   check("profile_name", "Business name verified", profile.name);
   check("profile_category", "Primary category verified", profile.category);
-  check("profile_address", "Address/location verified", profile.address);
+  const addressPresent = profile.address && typeof profile.address === "object"
+    ? Object.values(profile.address).some(v => typeof v === "string" ? v.trim().length > 0 : Number.isFinite(v))
+    : typeof profile.address === "string" && profile.address.trim().length > 0;
+  check("profile_address", "Address/location verified", addressPresent);
   check("profile_phone", "Phone verified", profile.phone);
   check("profile_website", "Website verified", profile.website);
   const completed = checks.filter(x => x.present).length;
