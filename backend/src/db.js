@@ -80,6 +80,28 @@ export async function listActionItems(env, userId, businessId) {
   return results || [];
 }
 
+export async function upsertGoogleReviews(env, userId, businessId, reviews = []) {
+  if (!env.DB) throw new Error("Database unavailable");
+  const location = await getGoogleLocationForBusiness(env,userId,businessId);
+  if (!location || !Array.isArray(reviews)) return { synced: 0, state: "awaiting_google_location" };
+  let synced = 0;
+  for (const review of reviews) {
+    if (!review?.google_review_name) continue;
+    const now=Date.now();
+    const existing=await env.DB.prepare("SELECT id FROM reviews WHERE google_review_name=? LIMIT 1").bind(review.google_review_name).first();
+    if(existing){
+      await env.DB.prepare("UPDATE reviews SET reviewer_display_name=?,rating=?,review_text=?,review_time=?,reply_status=?,raw_reference_json=?,synced_at=? WHERE id=?")
+        .bind(review.reviewer_display_name,review.rating,review.review_text,review.review_time,review.reply_status,review.raw_reference_json,now,existing.id).run();
+    } else {
+      const reviewId=id("review");
+      await env.DB.prepare("INSERT INTO reviews (id,business_location_id,google_review_name,reviewer_display_name,rating,review_text,review_time,reply_status,raw_reference_json,synced_at) VALUES (?,?,?,?,?,?,?,?,?,?)")
+        .bind(reviewId,location.id,review.google_review_name,review.reviewer_display_name,review.rating,review.review_text,review.review_time,review.reply_status,review.raw_reference_json,now).run();
+    }
+    synced++;
+  }
+  return { synced, state: "verified_data", location_id: location.id };
+}
+
 export async function getReviewSummary(env, userId, businessId) {
   if (!env.DB) return { count: 0, unanswered: 0, average_rating: null };
   const row = await env.DB.prepare(
