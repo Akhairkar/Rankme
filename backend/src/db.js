@@ -43,3 +43,42 @@ export async function createKeyword(env, userId, businessId, input) {
   ).bind(keywordId,businessId,input.keyword,input.location_name,input.device||"desktop",now,now).run();
   return env.DB.prepare("SELECT * FROM keywords WHERE id=?").bind(keywordId).first();
 }
+
+
+export async function listRankSnapshots(env, userId, businessId, keywordId) {
+  if (!env.DB) return [];
+  const { results } = await env.DB.prepare(
+    "SELECT r.id,r.keyword_id,r.checked_at,r.position,r.visibility,r.ranking_url,r.provider FROM rank_snapshots r JOIN keywords k ON k.id=r.keyword_id JOIN businesses b ON b.id=k.business_id WHERE b.user_id=? AND b.id=? AND k.id=? ORDER BY r.checked_at DESC LIMIT 100"
+  ).bind(userId,businessId,keywordId).all();
+  return results || [];
+}
+
+export async function createRankSnapshot(env, userId, businessId, keywordId, input) {
+  if (!env.DB) throw new Error("Database unavailable");
+  const keyword = await env.DB.prepare(
+    "SELECT k.id FROM keywords k JOIN businesses b ON b.id=k.business_id WHERE k.id=? AND k.business_id=? AND b.user_id=? LIMIT 1"
+  ).bind(keywordId,businessId,userId).first();
+  if (!keyword) return null;
+  const snapshotId = id("rank");
+  const now = Date.now();
+  await env.DB.prepare(
+    "INSERT INTO rank_snapshots (id,keyword_id,checked_at,position,visibility,ranking_url,provider,raw_reference_json) VALUES (?,?,?,?,?,?,?,?)"
+  ).bind(snapshotId,keywordId,input.checked_at||now,input.position??null,input.visibility??null,input.ranking_url||null,input.provider||null,input.raw_reference_json||null).run();
+  return env.DB.prepare("SELECT * FROM rank_snapshots WHERE id=?").bind(snapshotId).first();
+}
+
+export async function listActionItems(env, userId, businessId) {
+  if (!env.DB) return [];
+  const { results } = await env.DB.prepare(
+    "SELECT a.* FROM action_items a JOIN businesses b ON b.id=a.business_id WHERE a.business_id=? AND b.user_id=? ORDER BY CASE a.priority WHEN 'high' THEN 1 WHEN 'medium' THEN 2 ELSE 3 END, a.created_at DESC"
+  ).bind(businessId,userId).all();
+  return results || [];
+}
+
+export async function listReviews(env, userId, businessId) {
+  if (!env.DB) return [];
+  const { results } = await env.DB.prepare(
+    "SELECT r.* FROM reviews r JOIN business_locations bl ON bl.id=r.business_location_id JOIN businesses b ON b.id=bl.business_id WHERE bl.business_id=? AND b.user_id=? ORDER BY r.review_time DESC LIMIT 100"
+  ).bind(businessId,userId).all();
+  return results || [];
+}
