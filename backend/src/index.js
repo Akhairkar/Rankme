@@ -4,12 +4,21 @@ const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(d
 function corsHeaders(request, env) { const origin=request.headers.get("Origin")||""; const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean); return {"access-control-allow-origin":allowed.includes(origin)?origin:allowed[0],"access-control-allow-credentials":"true","access-control-allow-headers":"content-type","access-control-allow-methods":"GET,POST,OPTIONS"}; }
 function withCors(response,request,env){const h=new Headers(response.headers);Object.entries(corsHeaders(request,env)).forEach(([k,v])=>h.set(k,v));return new Response(response.body,{status:response.status,headers:h});}
 async function health(env){let database="unavailable";if(env.DB){try{await env.DB.prepare("SELECT 1").first();database="ok"}catch(_){database="error"}}return json({ok:true,service:"localboost-api",database});}
-function requestUser(request){return request.headers.get("x-localboost-user-id")||null;}
+async function requestUser(request, env){
+  const cookie=request.headers.get("Cookie")||"";
+  const m=cookie.match(/(?:^|;\\s*)lb_session=([^;]+)/);
+  if(!m||!env.DB)return null;
+  const raw=decodeURIComponent(m[1]);
+  const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(raw));
+  const idHash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");
+  const row=await env.DB.prepare("SELECT user_id FROM sessions WHERE id_hash=? AND expires_at>? LIMIT 1").bind(idHash,Date.now()).first();
+  return row?.user_id||null;
+}
 function validBusiness(x){return x&&typeof x.name==="string"&&x.name.trim()&&typeof x.category==="string"&&x.category.trim()&&typeof x.city==="string"&&x.city.trim();}
 export default {async fetch(request,env){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders(request,env)});const url=new URL(request.url);try{
 if(url.pathname==="/health"&&request.method==="GET")return withCors(await health(env),request,env);
 if(url.pathname==="/api/me"&&request.method==="GET")return withCors(json({authenticated:false,user:null,message:"Google account connection is required."}),request,env);
-if(url.pathname==="/api/businesses"&&request.method==="GET"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);return withCors(json({businesses:await listBusinesses(env,uid)}),request,env);}
+if(url.pathname==="/api/businesses"&&request.method==="GET"){const uid=requestUser(request,env);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);return withCors(json({businesses:await listBusinesses(env,uid)}),request,env);}
 if(url.pathname==="/api/businesses"&&request.method==="POST"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const body=await request.json().catch(()=>null);if(!validBusiness(body))return withCors(json({error:"name, category and city are required"},400),request,env);const business=await createBusiness(env,uid,{name:body.name.trim(),category:body.category.trim(),city:body.city.trim(),phone:body.phone,website_url:body.website_url});return withCors(json({business},201),request,env);}
 if(url.pathname==="/api/keywords"&&request.method==="GET"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const businessId=url.searchParams.get("business_id");if(!businessId)return withCors(json({error:"business_id is required"},400),request,env);return withCors(json({keywords:await listKeywords(env,uid,businessId)}),request,env);}
 if(url.pathname==="/api/keywords"&&request.method==="POST"){const uid=requestUser(request);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const body=await request.json().catch(()=>null);if(!body||typeof body.keyword!=="string"||typeof body.location_name!=="string")return withCors(json({error:"keyword and location_name are required"},400),request,env);const keyword=await createKeyword(env,uid,body.business_id,{keyword:body.keyword.trim(),location_name:body.location_name.trim(),device:body.device});if(!keyword)return withCors(json({error:"Business not found"},404),request,env);return withCors(json({keyword},201),request,env);}
