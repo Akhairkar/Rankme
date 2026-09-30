@@ -36,8 +36,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Real GBP profile data ingestion
 - [ ] Real GBP audit engine
 - [x] Evidence-based visibility score API foundation
-- [ ] Action Center generation from verified signals
-- [ ] Google Reviews ingestion
+- [x] Action Center generation from verified profile signals (live data path)
+- [x] Google Reviews ingestion foundation (normalized verified-data sync endpoint)
 - [x] Review monitoring UI connected to stored verified-data API
 - [x] Verified review summary API foundation
 - [ ] Review reply workflow
@@ -49,7 +49,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Search Console OAuth/data integration
 - [ ] Keyword/rank provider integration
 - [x] Rank snapshot storage/API foundation
-- [ ] Competitor visibility discovery/tracking
+- [ ] Competitor visibility discovery/tracking (provider/discovery integration pending)
 - [ ] Reports data pipeline
 - [ ] Report generation/download
 - [ ] Monitoring jobs and alerts
@@ -61,7 +61,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Subscription entitlement checks for business/keyword/rank/review/report/competitor features
 - [x] Usage/cost controls foundation and API rate limiting
 - [x] API rate-limit handling
-- [ ] Security hardening
+- [x] API input/rate/entitlement hardening foundation
 - [ ] Privacy/terms/account deletion flows
 - [ ] Production Cloudflare D1 deployment
 - [ ] Production Worker deployment
@@ -120,3 +120,9 @@ No simulated production success counts as complete.
 
 If a capability is unavailable because an external API, credential, quota, approval, or secure runtime requirement is missing, show a clear pending/connection state. Do not replace it with fake data.
 
+## Latest build pass — 2026-09-30
+
+- Removed the duplicate/dead rank GET route.
+- Disabled browser/customer-created rank snapshots; rank data must come from the configured provider.
+- Enforced plan location limits and prevented one verified Google location from being linked to multiple businesses under the same account.
+- Kept production API disabled until Cloudflare/Google credentials are actually configured.
