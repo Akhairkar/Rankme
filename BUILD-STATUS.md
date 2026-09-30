@@ -44,6 +44,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Google Business Profile Performance API contract/state foundation
 - [x] Rank history read API foundation
 - [x] Competitor visibility read API foundation
+- [x] Authenticated competitor tracking input foundation
 - [x] Search Console integration architecture/contract
 - [x] Keyword/rank provider adapter contract
 - [ ] Search Console OAuth/data integration
@@ -133,3 +134,5 @@ If a capability is unavailable because an external API, credential, quota, appro
 - Added D1 schema/indexes for performance metrics.
 - Added a guarded performance sync endpoint that cannot be activated without the server-side Google provider implementation.
 - Dashboard performance remains honest: verified metrics are shown when present; otherwise the UI stays in the pending state.
+
+- Added authenticated competitor tracking input with plan gating, ownership checks, duplicate protection, rate limiting, and explicit awaiting-verified-data state.
