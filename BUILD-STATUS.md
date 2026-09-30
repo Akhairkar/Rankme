@@ -44,6 +44,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Google Business Profile Performance API contract/state foundation
 - [x] Rank history read API foundation
 - [x] Competitor visibility read API foundation
+- [x] Search Console integration architecture/contract
+- [x] Keyword/rank provider adapter contract
 - [ ] Search Console OAuth/data integration
 - [ ] Keyword/rank provider integration
 - [x] Rank snapshot storage/API foundation
@@ -86,8 +88,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 3. Connect dashboard to real business/location state.
 4. Build real profile audit + visibility score + Action Center.
 5. Add Reviews + Performance API.
-6. Add Search Console.
-7. Add rank provider + rank history.
+6. Activate Search Console after secure OAuth/property access.
+7. Activate configured rank provider + rank history.
 8. Add competitors.
 9. Add reports and monitoring.
 10. Add AI recommendations.
