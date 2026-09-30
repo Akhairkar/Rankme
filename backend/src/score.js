@@ -13,3 +13,19 @@ export function calculateVisibilityScore(signals = {}) {
   const score = Math.round(parts.reduce((sum, p) => sum + p.value, 0) / parts.length);
   return { score, components: parts, state: "verified_data" };
 }
+
+
+export function calculateProfileAuditSignals(profile = {}) {
+  const checks = [];
+  const check = (code, label, present, severity = "medium") => {
+    checks.push({ code, label, present: !!present, severity });
+  };
+  check("profile_name", "Business name verified", profile.name);
+  check("profile_category", "Primary category verified", profile.category);
+  check("profile_address", "Address/location verified", profile.address);
+  check("profile_phone", "Phone verified", profile.phone);
+  check("profile_website", "Website verified", profile.website);
+  const completed = checks.filter(x => x.present).length;
+  const score = checks.length ? Math.round((completed / checks.length) * 100) : null;
+  return { score, checks, state: score === null ? "awaiting_verified_data" : "verified_data" };
+}
