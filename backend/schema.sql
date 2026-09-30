@@ -243,3 +243,19 @@ CREATE TABLE IF NOT EXISTS subscription_events (
 );
 
 CREATE INDEX IF NOT EXISTS idx_subscription_events_user ON subscription_events(user_id, created_at);
+
+CREATE TABLE IF NOT EXISTS performance_metrics (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  checked_at INTEGER NOT NULL,
+  impressions INTEGER,
+  website_clicks INTEGER,
+  call_clicks INTEGER,
+  direction_requests INTEGER,
+  search_keyword_impressions INTEGER,
+  raw_reference_json TEXT
+);
+
+CREATE INDEX IF NOT EXISTS idx_performance_business_time ON performance_metrics(business_id, checked_at);
+CREATE INDEX IF NOT EXISTS idx_performance_user_time ON performance_metrics(user_id, checked_at);
