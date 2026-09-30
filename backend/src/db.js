@@ -192,6 +192,22 @@ export async function getSubscriptionEntitlements(env, userId) {
   return { plan_code: plan, status: active ? sub.status : "free", current_period_end: active ? sub.current_period_end : null, ...PLAN_DEFAULTS[plan] };
 }
 
+export async function countBusinessKeywords(env, userId, businessId) {
+  if (!env.DB) return 0;
+  const row = await env.DB.prepare(
+    "SELECT COUNT(*) AS count FROM keywords k JOIN businesses b ON b.id=k.business_id WHERE k.business_id=? AND b.user_id=? AND k.active=1"
+  ).bind(businessId,userId).first();
+  return Number(row?.count || 0);
+}
+
+export async function countBusinessLocations(env, userId, businessId) {
+  if (!env.DB) return 0;
+  const row = await env.DB.prepare(
+    "SELECT COUNT(*) AS count FROM business_locations bl JOIN businesses b ON b.id=bl.business_id WHERE bl.business_id=? AND b.user_id=?"
+  ).bind(businessId,userId).first();
+  return Number(row?.count || 0);
+}
+
 export async function countUserBusinesses(env, userId) {
   if (!env.DB) return 0;
   const row = await env.DB.prepare("SELECT COUNT(*) AS count FROM businesses WHERE user_id=? AND status='active'").bind(userId).first();
