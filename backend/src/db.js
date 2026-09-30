@@ -164,3 +164,24 @@ export async function getReportOverview(env, userId, businessId) {
   rankSnapshots.sort((a,b)=>(b.checked_at||0)-(a.checked_at||0));
   return { business, reviews, keywords, rank_snapshots: rankSnapshots.slice(0,200) };
 }
+
+
+const PLAN_DEFAULTS = {
+  free: { max_businesses: 1, max_locations: 1, max_keywords: 5, rank_tracking_enabled: 0, review_monitoring_enabled: 0, reports_enabled: 0, competitor_tracking_enabled: 0 },
+  pro: { max_businesses: 1, max_locations: 3, max_keywords: 50, rank_tracking_enabled: 1, review_monitoring_enabled: 1, reports_enabled: 1, competitor_tracking_enabled: 1 },
+  agency: { max_businesses: 10, max_locations: 10, max_keywords: 500, rank_tracking_enabled: 1, review_monitoring_enabled: 1, reports_enabled: 1, competitor_tracking_enabled: 1 }
+};
+
+export async function getSubscriptionEntitlements(env, userId) {
+  if (!env.DB) return { plan_code: "free", status: "unavailable", ...PLAN_DEFAULTS.free };
+  const sub = await env.DB.prepare("SELECT plan_code,status,current_period_end FROM subscriptions WHERE user_id=? ORDER BY updated_at DESC LIMIT 1").bind(userId).first();
+  const active = sub && ["active","trialing"].includes(sub.status);
+  const plan = active && PLAN_DEFAULTS[sub.plan_code] ? sub.plan_code : "free";
+  return { plan_code: plan, status: active ? sub.status : "free", current_period_end: active ? sub.current_period_end : null, ...PLAN_DEFAULTS[plan] };
+}
+
+export async function countUserBusinesses(env, userId) {
+  if (!env.DB) return 0;
+  const row = await env.DB.prepare("SELECT COUNT(*) AS count FROM businesses WHERE user_id=? AND status='active'").bind(userId).first();
+  return Number(row?.count || 0);
+}
