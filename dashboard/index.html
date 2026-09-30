@@ -142,6 +142,21 @@
 
 </main>
 
+<script src="../assets/localboost-api-config.js" defer></script>
+<script>
+(function(){
+  const cfg=window.LOCALBOOST_API;
+  if(!cfg || !cfg.enabled) return;
+  const box=document.querySelector(".user-badge");
+  if(!box) return;
+  const action=document.createElement("a");
+  action.href=cfg.baseUrl+"/auth/google/start";
+  action.textContent="Connect Google Business Profile";
+  action.className="btn btn-primary";
+  action.style.marginLeft="12px";
+  box.appendChild(action);
+})();
+</script>
 <script src="../assets/consent.js" defer></script>
 </body>
 </html>
