@@ -11,8 +11,8 @@
 
   const isHindi = document.documentElement.lang === 'hi';
   const text = isHindi
-    ? 'हम अपनी साइट की कार्यक्षमता और विज्ञापन प्रासंगिकता को बेहतर बनाने के लिए कुकीज का उपयोग करते हैं। अधिक जानकारी के लिए हमारी <a href="/hi/privacy/" style="color:#38BDF8; text-decoration:underline;">प्राइवेसी पॉलिसी</a> पढ़ें।'
-    : 'We use cookies and authorized partners (such as Google AdSense) to deliver relevant content and analyze traffic. View our <a href="/privacy/" style="color:#38BDF8; text-decoration:underline;">Privacy Policy</a>.';
+    ? 'हम अपनी साइट की कार्यक्षमता और उपयोग अनुभव को बेहतर बनाने के लिए कुकीज का उपयोग करते हैं। अधिक जानकारी के लिए हमारी <a href="/hi/privacy/" style="color:#38BDF8; text-decoration:underline;">प्राइवेसी पॉलिसी</a> पढ़ें।'
+    : 'We use cookies to support site functionality and improve the user experience. View our <a href="/privacy/" style="color:#38BDF8; text-decoration:underline;">Privacy Policy</a>.';
 
   const btnAccept = isHindi ? 'स्वीकार करें' : 'Accept All';
   const btnDecline = isHindi ? 'अस्वीकार करें' : 'Decline';
