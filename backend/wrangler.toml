@@ -1,0 +1,14 @@
+name = "localboost-api"
+main = "src/index.js"
+compatibility_date = "2026-09-30"
+
+[vars]
+ALLOWED_ORIGINS = "https://localboost.in,https://www.localboost.in"
+GOOGLE_REDIRECT_URI = "https://api.localboost.in/auth/google/callback"
+
+# Create the D1 database first, then replace this placeholder with its real ID.
+# Never put OAuth client secrets in this file.
+[[d1_databases]]
+binding = "DB"
+database_name = "localboost"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
