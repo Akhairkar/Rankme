@@ -102,3 +102,37 @@ export async function linkBusinessLocation(env, userId, businessId, input) {
   ).bind(locationId,businessId,input.google_resource_name||null,input.name,input.address_json||null,input.latitude??null,input.longitude??null,input.last_synced_at||now,now,now).run();
   return env.DB.prepare("SELECT * FROM business_locations WHERE id=?").bind(locationId).first();
 }
+
+
+export async function getBusinessLocationSummary(env, userId, businessId) {
+  if (!env.DB) return null;
+  return env.DB.prepare(
+    "SELECT bl.id,bl.google_resource_name,bl.name,bl.address_json,bl.latitude,bl.longitude,bl.sync_status,bl.last_synced_at FROM business_locations bl JOIN businesses b ON b.id=bl.business_id WHERE bl.business_id=? AND b.user_id=? ORDER BY bl.updated_at DESC LIMIT 1"
+  ).bind(businessId,userId).first();
+}
+
+export async function getLatestAudit(env, userId, businessId) {
+  if (!env.DB) return null;
+  return env.DB.prepare(
+    "SELECT a.* FROM audits a JOIN businesses b ON b.id=a.business_id WHERE a.business_id=? AND b.user_id=? ORDER BY a.created_at DESC LIMIT 1"
+  ).bind(businessId,userId).first();
+}
+
+export async function listAuditIssues(env, userId, businessId, auditId) {
+  if (!env.DB) return [];
+  const { results } = await env.DB.prepare(
+    "SELECT i.* FROM audit_issues i JOIN audits a ON a.id=i.audit_id JOIN businesses b ON b.id=a.business_id WHERE i.audit_id=? AND a.business_id=? AND b.user_id=? ORDER BY CASE i.severity WHEN 'critical' THEN 1 WHEN 'high' THEN 2 WHEN 'medium' THEN 3 ELSE 4 END, i.created_at DESC"
+  ).bind(auditId,businessId,userId).all();
+  return results || [];
+}
+
+export async function createAudit(env, userId, businessId, input={}) {
+  if (!env.DB) throw new Error("Database unavailable");
+  const business = await getUserBusiness(env,userId,businessId);
+  if (!business) return null;
+  const auditId=id("audit"), now=Date.now();
+  await env.DB.prepare(
+    "INSERT INTO audits (id,business_id,audit_type,status,score,source_url,started_at,created_at) VALUES (?,?,?,?,?,?,?,?)"
+  ).bind(auditId,businessId,input.audit_type||"google_business_profile", "pending", null, input.source_url||null, now, now).run();
+  return env.DB.prepare("SELECT * FROM audits WHERE id=?").bind(auditId).first();
+}
