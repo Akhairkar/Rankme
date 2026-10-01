@@ -40,6 +40,7 @@ button{padding:11px 15px;border:0;border-radius:10px;background:#e2e8f0;color:#3
 <button disabled>Delete account — coming with production account controls</button>
 </section>
 </main>
+<script src="../assets/localboost-api-config.js"></script>
 <script>
 const cfg=window.LOCALBOOST_API||null;
 const status=document.getElementById("accountStatus");
@@ -52,6 +53,5 @@ if(cfg?.enabled){
  status.textContent="Production account service is not enabled yet.";
 }
 </script>
-<script src="../assets/localboost-api-config.js"></script>
 </body>
 </html>
