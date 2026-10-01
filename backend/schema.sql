@@ -279,3 +279,36 @@ CREATE INDEX IF NOT EXISTS idx_monitoring_business_time ON monitoring_events(bus
 CREATE INDEX IF NOT EXISTS idx_subscriptions_user_status ON subscriptions(user_id,status);
 CREATE INDEX IF NOT EXISTS idx_payments_user_created ON payments(user_id,created_at);
 CREATE INDEX IF NOT EXISTS idx_subscription_events_subscription ON subscription_events(subscription_id,created_at);
+
+
+CREATE TABLE IF NOT EXISTS search_console_properties (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  property_url TEXT NOT NULL,
+  property_type TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pending',
+  last_synced_at INTEGER,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_gsc_properties_business ON search_console_properties(business_id,user_id);
+
+CREATE TABLE IF NOT EXISTS search_console_metrics (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  property_id TEXT NOT NULL REFERENCES search_console_properties(id) ON DELETE CASCADE,
+  date TEXT NOT NULL,
+  clicks REAL,
+  impressions REAL,
+  ctr REAL,
+  position REAL,
+  query_text TEXT,
+  page_url TEXT,
+  device TEXT,
+  country TEXT,
+  raw_reference_json TEXT,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_gsc_metrics_business_date ON search_console_metrics(business_id,date);
