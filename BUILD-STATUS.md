@@ -68,7 +68,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Usage/cost controls foundation and API rate limiting
 - [x] API rate-limit handling
 - [x] API input/rate/entitlement hardening foundation
-- [ ] Privacy/terms/account deletion flows
+- [x] Privacy/terms baseline + account settings UI foundation
+- [ ] Production account deletion/revocation flow
 - [ ] Production Cloudflare D1 deployment
 - [ ] Production Worker deployment
 - [ ] api.localboost.in verification
