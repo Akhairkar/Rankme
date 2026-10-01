@@ -259,3 +259,18 @@ CREATE TABLE IF NOT EXISTS performance_metrics (
 
 CREATE INDEX IF NOT EXISTS idx_performance_business_time ON performance_metrics(business_id, checked_at);
 CREATE INDEX IF NOT EXISTS idx_performance_user_time ON performance_metrics(user_id, checked_at);
+
+
+CREATE TABLE IF NOT EXISTS monitoring_events (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  event_type TEXT NOT NULL,
+  severity TEXT NOT NULL DEFAULT 'info',
+  title TEXT NOT NULL,
+  detail TEXT,
+  reference_json TEXT,
+  detected_at INTEGER NOT NULL,
+  status TEXT NOT NULL DEFAULT 'open'
+);
+CREATE INDEX IF NOT EXISTS idx_monitoring_business_time ON monitoring_events(business_id, detected_at);
