@@ -34,3 +34,8 @@ Production prerequisites remain secure OAuth callback/token persistence, API acc
 - Live Google authorization, property discovery, and metric ingestion remain gated on secure OAuth token handling and production Google configuration.
 
 Google Search Analytics requires authorization and exposes clicks, impressions, CTR and average position; LocalBoost will request these only for a property selected from the customer's Google-authorized account. citeturn0search0turn0search3
+
+
+## Sync endpoint foundation
+
+`POST /api/search-console/sync?business_id=...` is now a guarded server-side contract. Production sync remains disabled until secure Google OAuth token exchange/persistence and Search Console API access are configured. The endpoint returns an explicit pending/provider-not-ready state and never fabricates Search Console metrics.
