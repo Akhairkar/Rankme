@@ -58,7 +58,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Competitor visibility discovery/tracking (provider/discovery integration pending)
 - [x] Reports data aggregation pipeline foundation
 - [ ] Report generation/download
-- [ ] Monitoring jobs and alerts
+- [x] Monitoring scheduled-entry architecture foundation
+- [ ] Monitoring jobs and alerts (live provider change detection pending)
 - [ ] AI recommendations based only on verified data
 - [x] Subscription/plan entitlement schema foundation
 - [x] Authenticated subscription entitlement API
