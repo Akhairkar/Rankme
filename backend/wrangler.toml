@@ -11,7 +11,7 @@ GOOGLE_REDIRECT_URI = "https://api.localboost.in/auth/google/callback"
 [[d1_databases]]
 binding = "DB"
 database_name = "localboost"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "REPLACE_WITH_D1_DATABASE_ID" # REQUIRED: replace before production deploy
 
 
 [triggers]
