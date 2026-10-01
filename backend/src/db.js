@@ -158,7 +158,7 @@ export async function linkBusinessLocation(env, userId, businessId, input) {
 export async function getGoogleLocationForBusiness(env,userId,businessId){
   if(!env.DB)return null;
   return env.DB.prepare(
-    "SELECT bl.id,bl.google_resource_name,bl.name,bl.address_json,bl.latitude,bl.longitude,bl.sync_status,bl.last_synced_at,gl.raw_json FROM business_locations bl LEFT JOIN google_locations gl ON gl.user_id=b.user_id AND gl.resource_name=bl.google_resource_name JOIN businesses b ON b.id=bl.business_id WHERE bl.business_id=? AND b.user_id=? ORDER BY bl.updated_at DESC LIMIT 1"
+    "SELECT bl.id,bl.google_resource_name,bl.name,bl.address_json,bl.latitude,bl.longitude,bl.sync_status,bl.last_synced_at,gl.raw_json FROM business_locations bl JOIN businesses b ON b.id=bl.business_id LEFT JOIN google_locations gl ON gl.user_id=b.user_id AND gl.resource_name=bl.google_resource_name WHERE bl.business_id=? AND b.user_id=? ORDER BY bl.updated_at DESC LIMIT 1"
   ).bind(businessId,userId).first();
 }
 
