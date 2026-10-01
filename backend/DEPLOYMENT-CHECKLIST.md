@@ -1,6 +1,6 @@
 # LocalBoost Backend Deployment Checklist
 
-Status: **Build-ready deployment package; production infrastructure still pending.**
+Status: **Build-ready deployment package; external production infrastructure and credentials still pending.**
 
 ## 0. Build-ready package
 - [x] Worker entry point includes scheduled monitoring hook.
@@ -55,7 +55,16 @@ Do not display a connected Google state until all succeed:
 - [ ] Existing demo/sample metrics remain removed.
 - [ ] API client remains disabled until production API verification.
 
-## 6. Next implementation sequence
+## 6. Pre-production verification commands
+
+Run after Cloudflare D1/Worker and Google configuration are provisioned:
+- `npx wrangler d1 execute localboost --remote --file=backend/schema.sql`
+- `npx wrangler deploy --config backend/wrangler.toml`
+- `curl -i https://api.localboost.in/health`
+- Verify OAuth start redirects to Google and callback is tested only with real configured credentials.
+- Keep `assets/localboost-api-config.js` `enabled:false` until these checks pass.
+
+## 7. Next implementation sequence
 1. Finish secure Worker runtime implementation.
 2. Run local OAuth integration test.
 3. Test account discovery.
