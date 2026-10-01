@@ -368,3 +368,14 @@ export async function getCompetitorRankSummary(env,userId,businessId){
   ).bind(businessId,userId).all();
   return (results||[]).map(x=>({...x,average_position:x.average_position==null?null:Number(x.average_position),state:Number(x.measurements||0)>0?"verified_data":"awaiting_verified_data"}));
 }
+
+
+export async function listMonitoredBusinesses(env){
+  if(!env.DB)return [];
+  const {results}=await env.DB.prepare("SELECT b.id,b.user_id,b.name FROM businesses b WHERE b.id IN (SELECT DISTINCT business_id FROM keywords WHERE active=1) ORDER BY b.updated_at DESC").all();
+  return results||[];
+}
+export async function getLatestRankForKeyword(env,userId,businessId,keywordId){
+  if(!env.DB)return null;
+  return await env.DB.prepare("SELECT position,visibility,provider,checked_at FROM rank_snapshots WHERE user_id=? AND business_id=? AND keyword_id=? ORDER BY checked_at DESC LIMIT 1").bind(userId,businessId,keywordId).first();
+}
