@@ -57,3 +57,9 @@ Selected location → `business_locations`:
 The repository currently has the schema and OAuth authorization-start foundation. The secure OAuth callback/token exchange and real Google account/location synchronization remain pending because they require production credentials and secure token persistence.
 
 No demo Google location, review, performance metric or connection should be inserted.
+
+
+## Reviews sync contract
+Google's Business Profile review APIs support listing reviews for a location and batch retrieval across locations. LocalBoost will call these APIs server-side only after OAuth credentials/token handling is production-ready, normalize returned review fields, upsert them into D1, and expose only user-scoped verified data.
+
+The provider sync endpoint is guarded by GOOGLE_REVIEWS_SYNC_ENABLED; when disabled it returns an explicit pending state rather than generating review data. Review reply functionality remains a separate server-side action and requires the corresponding Google API authorization.
