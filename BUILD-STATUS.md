@@ -54,6 +54,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Keyword/rank provider adapter contract
 - [x] Search Console property/metrics schema + authenticated read foundation
 - [ ] Search Console OAuth/data integration
+- [x] Rank provider adapter boundary + guarded provider-backed measurement route
 - [ ] Keyword/rank provider integration
 - [x] Rank snapshot storage/API foundation
 - [ ] Competitor visibility discovery/tracking (provider/discovery integration pending)
