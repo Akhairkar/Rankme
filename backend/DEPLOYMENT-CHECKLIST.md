@@ -1,13 +1,19 @@
 # LocalBoost Backend Deployment Checklist
 
-Status: **Phase 1 build in progress.**
+Status: **Build-ready deployment package; production infrastructure still pending.**
+
+## 0. Build-ready package
+- [x] Worker entry point includes scheduled monitoring hook.
+- [x] Wrangler configuration documents D1 binding and production hostname.
+- [x] Production frontend API flag remains disabled until `/health` and authenticated flows are verified.
+- [x] No secrets are committed to the repository.
 
 ## 1. Cloudflare infrastructure
-- [ ] Create a D1 database named `localboost`.
+- [ ] Create a D1 database named `localboost` (required before deployment).
 - [ ] Apply `backend/schema.sql` and verify foreign keys/indexes.
-- [ ] Create the Worker from `backend/wrangler.toml`.
+- [ ] Create/deploy the Worker from `backend/wrangler.toml`.
 - [ ] Attach D1 binding as `DB`.
-- [ ] Configure custom hostname `api.localboost.in`.
+- [ ] Configure custom hostname `api.localboost.in` and verify DNS/TLS.
 - [ ] Verify `GET /health` after runtime deployment.
 
 ## 2. Worker secrets
