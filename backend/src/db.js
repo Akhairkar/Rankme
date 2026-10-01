@@ -352,3 +352,12 @@ export async function listSearchConsoleMetrics(env,userId,businessId,limit=90){
   const {results}=await env.DB.prepare("SELECT date,clicks,impressions,ctr,position,query_text,page_url,device,country FROM search_console_metrics WHERE user_id=? AND business_id=? ORDER BY date DESC LIMIT "+safe).bind(userId,businessId).all();
   return results||[];
 }
+
+
+export async function getCompetitorRankSummary(env,userId,businessId){
+  if(!env.DB)return [];
+  const {results}=await env.DB.prepare(
+    "SELECT c.id,c.name,c.website_url,c.place_reference,COUNT(rs.id) AS measurements,AVG(rs.position) AS average_position,MAX(rs.checked_at) AS last_checked_at FROM competitors c LEFT JOIN rank_snapshots rs ON rs.provider IS NOT NULL AND rs.ranking_url=c.website_url JOIN businesses b ON b.id=c.business_id WHERE c.business_id=? AND b.user_id=? AND c.active=1 GROUP BY c.id ORDER BY c.created_at DESC"
+  ).bind(businessId,userId).all();
+  return (results||[]).map(x=>({...x,average_position:x.average_position==null?null:Number(x.average_position),state:Number(x.measurements||0)>0?"verified_data":"awaiting_verified_data"}));
+}
