@@ -79,6 +79,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Production Cloudflare D1 deployment
 - [ ] Production Worker deployment
 - [ ] api.localboost.in verification
+- [x] Google connection onboarding success/pending/error states hardened
 - [ ] Frontend-to-production API integration
 - [ ] End-to-end test: signup → Google connect → business → data → score → actions
 - [ ] Mobile QA
