@@ -16,4 +16,4 @@ database_id = "REPLACE_WITH_D1_DATABASE_ID"
 
 [triggers]
 # Enable after production Worker + D1 verification.
-# crons = ["0 * * * *"]
+crons = ["0 * * * *"]
