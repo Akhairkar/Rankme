@@ -268,7 +268,14 @@ export async function getReportOverview(env, userId, businessId) {
     rankSnapshots.push(...rows.map(r => ({ ...r, keyword: keyword.keyword, location_name: keyword.location_name })));
   }
   rankSnapshots.sort((a,b)=>(b.checked_at||0)-(a.checked_at||0));
-  return { business, reviews, keywords, rank_snapshots: rankSnapshots.slice(0,200) };
+  const performance=await getLatestVerifiedMetrics(env,userId,businessId);
+  const performanceHistory=await listPerformanceMetrics(env,userId,businessId,90);
+  const competitors=await getCompetitorRankSummary(env,userId,businessId);
+  const audit=await getLatestAudit(env,userId,businessId);
+  const issues=audit?await listAuditIssues(env,userId,businessId,audit.id):[];
+  const properties=await listSearchConsoleProperties(env,userId,businessId);
+  const searchMetrics=await listSearchConsoleMetrics(env,userId,businessId,90);
+  return { business, reviews, keywords, rank_snapshots: rankSnapshots.slice(0,200), performance, performance_history:performanceHistory, competitors, audit, issues, search_console:{properties,metrics:searchMetrics} };
 }
 
 
