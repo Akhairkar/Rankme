@@ -63,3 +63,8 @@ No demo Google location, review, performance metric or connection should be inse
 Google's Business Profile review APIs support listing reviews for a location and batch retrieval across locations. LocalBoost will call these APIs server-side only after OAuth credentials/token handling is production-ready, normalize returned review fields, upsert them into D1, and expose only user-scoped verified data.
 
 The provider sync endpoint is guarded by GOOGLE_REVIEWS_SYNC_ENABLED; when disabled it returns an explicit pending state rather than generating review data. Review reply functionality remains a separate server-side action and requires the corresponding Google API authorization.
+
+
+## Performance sync foundation
+
+`POST /api/performance/sync?business_id=...` is the guarded server-side ingestion contract. Production ingestion remains disabled until secure Google OAuth token handling and the Google Business Profile Performance API are configured. The route must only persist metrics returned by Google, scoped to the authenticated business/location, and must preserve an explicit pending/provider error state when unavailable.
