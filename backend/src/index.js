@@ -91,3 +91,17 @@ if(url.pathname==="/api/monitoring/events"&&request.method==="POST"){const uid=a
 if(url.pathname==="/api/recommendations"&&request.method==="GET"){const uid=await requestUser(request,env);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const businessId=url.searchParams.get("business_id");if(!businessId)return withCors(json({error:"business_id is required"},400),request,env);const gate=await requireFeature(env,uid,"reports_enabled");if(!gate.ok)return withCors(entitlementDenied("reports_enabled",gate.entitlements),request,env);const data=await getRecommendationData(env,uid,businessId);if(!data)return withCors(json({error:"Business not found"},404),request,env);const recs=[];for(const issue of data.issues||[]){if(issue.status==="resolved")continue;recs.push({code:"issue:"+issue.code,priority:issue.severity,title:issue.title,instructions:issue.recommended_fix||issue.explanation||"Review this verified profile issue and update the Google Business Profile.",source:"verified_profile_audit"});}if(data.reviews?.unanswered>0)recs.push({code:"reviews:unanswered",priority:"medium",title:data.reviews.unanswered+" review"+(data.reviews.unanswered===1?"":"s")+" need a reply",instructions:"Review and respond to unanswered customer reviews in the Google Business Profile.",source:"verified_reviews"});const aiRecommendations=generateSafeRecommendations(data);return withCors(json({business:data.business,recommendations:aiRecommendations.length?aiRecommendations:recs,context:buildAiContext(data),state:(aiRecommendations.length||recs.length)?"verified_data":"awaiting_verified_data",provider:"deterministic_fallback",ai_enabled:false}),request,env);}
 return withCors(json({error:"Not found"},404),request,env);
 }catch(_){return withCors(json({error:"Internal server error"},500),request,env)}}};
+
+// Scheduled monitoring entry point.
+// The Worker must only create events from verified provider data; unavailable providers
+// remain in an explicit pending state. Production cron configuration is added after
+// the Worker/D1 deployment is verified.
+export async function scheduled(event, env, ctx) {
+  if (!env.DB) return;
+  // Keep this handler intentionally conservative until real Google/rank providers are configured.
+  // No synthetic ranking, review, performance, or alert data is generated here.
+  try {
+    await env.DB.prepare("INSERT INTO usage_events (id,user_id,event_type,created_at) VALUES (?,?,?,?)")
+      .bind(id("cron"), "system", "monitoring:scheduled_check", Date.now()).run();
+  } catch {}
+}
