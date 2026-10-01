@@ -25,3 +25,12 @@ verified_data
 provider_error
 
 Production prerequisites remain secure OAuth callback/token persistence, API access, credentials and scheduled ingestion.
+
+
+## Implemented foundation
+- Search Console property and metric D1 tables are defined.
+- Authenticated read path exposes user-scoped properties and verified metrics.
+- States are `awaiting_search_console_connection`, `connected`, and `verified_data`.
+- Live Google authorization, property discovery, and metric ingestion remain gated on secure OAuth token handling and production Google configuration.
+
+Google Search Analytics requires authorization and exposes clicks, impressions, CTR and average position; LocalBoost will request these only for a property selected from the customer's Google-authorized account. citeturn0search0turn0search3
