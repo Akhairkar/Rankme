@@ -388,3 +388,11 @@ export async function getPerformanceSyncState(env,userId,businessId){
   const latest=await getLatestVerifiedMetrics(env,userId,businessId);
   return latest?{state:"verified_data",checked_at:latest.checked_at}:{state:"awaiting_google_performance_api"};
 }
+
+
+export async function deleteUserAccount(env,userId){
+  if(!env.DB) throw new Error("database_unavailable");
+  const tables=["subscription_events","payments","subscriptions","monitoring_events","reports","reviews","rank_snapshots","keywords","audit_issues","audits","action_items","business_locations","google_locations","businesses","search_console_metrics","search_console_properties","google_connections","oauth_states","sessions","usage_events","users"];
+  for(const table of tables){ await env.DB.prepare("DELETE FROM "+table+" WHERE user_id=?").bind(userId).run(); }
+  return {deleted:true};
+}
