@@ -188,6 +188,15 @@ export async function upsertPerformanceMetrics(env, userId, businessId, metrics=
   return env.DB.prepare("SELECT * FROM performance_metrics WHERE id=?").bind(metricId).first();
 }
 
+export async function listPerformanceMetrics(env, userId, businessId, limit=90) {
+  if (!env.DB) return [];
+  const safeLimit=Math.min(Math.max(Number(limit)||90,1),365);
+  const { results }=await env.DB.prepare(
+    "SELECT checked_at,impressions,website_clicks,call_clicks,direction_requests,search_keyword_impressions,raw_reference_json FROM performance_metrics WHERE business_id=? AND user_id=? ORDER BY checked_at DESC LIMIT "+safeLimit
+  ).bind(businessId,userId).all();
+  return results||[];
+}
+
 export async function getLatestAudit(env, userId, businessId) {
   if (!env.DB) return null;
   return env.DB.prepare(
