@@ -49,6 +49,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Customer-facing verified performance report dashboard
 - [x] Monitoring event storage/API + customer dashboard foundation
 - [x] Verified-data recommendation API + Action Center integration
+- [x] AI recommendation provider boundary + verified-data fallback
 - [x] Search Console integration architecture/contract
 - [x] Keyword/rank provider adapter contract
 - [ ] Search Console OAuth/data integration
