@@ -53,6 +53,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Search Console integration architecture/contract
 - [x] Keyword/rank provider adapter contract
 - [x] Search Console property/metrics schema + authenticated read foundation
+- [x] Guarded Search Console server-side sync endpoint
 - [ ] Search Console OAuth/data integration
 - [x] Rank provider adapter boundary + guarded provider-backed measurement route
 - [ ] Keyword/rank provider integration
