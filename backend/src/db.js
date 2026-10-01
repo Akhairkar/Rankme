@@ -285,3 +285,15 @@ export async function addMonitoringEvent(env, userId, businessId, event={}) {
     .bind(eventId,userId,businessId,event.event_type||"system",event.severity||"info",event.title||"Monitoring event",event.detail||null,event.reference_json||null,Number(event.detected_at||Date.now()),event.status||"open").run();
   return env.DB.prepare("SELECT * FROM monitoring_events WHERE id=?").bind(eventId).first();
 }
+
+
+export async function getRecommendationData(env, userId, businessId) {
+  if (!env.DB) return null;
+  const business = await getUserBusiness(env,userId,businessId);
+  if (!business) return null;
+  const audit = await getLatestAudit(env,userId,businessId);
+  const issues = audit ? await listAuditIssues(env,userId,businessId,audit.id) : [];
+  const reviews = await getReviewSummary(env,userId,businessId);
+  const keywords = await listKeywords(env,userId,businessId);
+  return {business,audit,issues,reviews,keywords};
+}
