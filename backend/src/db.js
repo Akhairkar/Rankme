@@ -207,10 +207,42 @@ export async function createAudit(env, userId, businessId, input={}) {
   if (!env.DB) throw new Error("Database unavailable");
   const business = await getUserBusiness(env,userId,businessId);
   if (!business) return null;
-  const auditId=id("audit"), now=Date.now();
-  await env.DB.prepare(
-    "INSERT INTO audits (id,business_id,audit_type,status,score,source_url,started_at,created_at) VALUES (?,?,?,?,?,?,?,?)"
-  ).bind(auditId,businessId,input.audit_type||"google_business_profile", "pending", null, input.source_url||null, now, now).run();
+  const location = await getGoogleLocationForBusiness(env,userId,businessId);
+  if (!location) {
+    const auditId=id("audit"), now=Date.now();
+    await env.DB.prepare("INSERT INTO audits (id,business_id,audit_type,status,score,source_url,started_at,created_at) VALUES (?,?,?,?,?,?,?,?)")
+      .bind(auditId,businessId,input.audit_type||"google_business_profile","pending",null,input.source_url||null,now,now).run();
+    return env.DB.prepare("SELECT * FROM audits WHERE id=?").bind(auditId).first();
+  }
+
+  const now=Date.now(), auditId=id("audit");
+  let raw={}; try { raw=JSON.parse(location.raw_json||"{}"); } catch (_) {}
+  let address={}; try { address=JSON.parse(location.address_json||"{}"); } catch (_) {}
+  const has = {
+    profile_name: Boolean(raw.title||raw.name||location.name),
+    profile_category: Boolean(raw.categories?.primaryCategory?.displayName||raw.primaryCategory?.displayName||raw.category),
+    profile_address: Boolean(address && typeof address==="object" && Object.values(address).some(v=>typeof v==="string"&&v.trim())),
+    profile_phone: Boolean(raw.phoneNumbers?.primaryPhone||raw.primaryPhone||raw.phone),
+    profile_website: Boolean(raw.websiteUri||raw.website_url||raw.website)
+  };
+  const checks=[
+    ["profile_name","profile","Business name verified",has.profile_name,"medium","Verify the Google Business Profile business name."],
+    ["profile_category","profile","Primary category verified",has.profile_category,"high","Set or verify the primary Google Business Profile category."],
+    ["profile_address","profile","Address/location verified",has.profile_address,"high","Verify the business address or service-area location in Google Business Profile."],
+    ["profile_phone","profile","Phone verified",has.profile_phone,"medium","Add or verify the primary business phone number."],
+    ["profile_website","profile","Website verified",has.profile_website,"low","Add or verify the business website URL."]
+  ];
+  const score=Math.round(checks.filter(x=>x[3]).length/checks.length*100);
+  await env.DB.prepare("INSERT INTO audits (id,business_id,audit_type,status,score,source_url,started_at,completed_at,created_at) VALUES (?,?,?,?,?,?,?,?,?)")
+    .bind(auditId,businessId,input.audit_type||"google_business_profile","completed",score,input.source_url||null,now,now,now).run();
+  for(const [code,category,title,present,severity,fix] of checks){
+    if(present) continue;
+    const issueId=id("issue");
+    await env.DB.prepare("INSERT INTO audit_issues (id,audit_id,code,category,severity,title,explanation,evidence_json,recommended_fix,status,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?)")
+      .bind(issueId,auditId,code,category,severity,title,"This signal was not found in the verified Google location data.",JSON.stringify({source:"google_business_profile",field:code}),fix,"open",now).run();
+    await env.DB.prepare("INSERT INTO action_items (id,business_id,issue_id,priority,title,instructions,status,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?)")
+      .bind(id("action"),businessId,issueId,severity==="high"?"high":severity,title,fix,"pending",now,now).run();
+  }
   return env.DB.prepare("SELECT * FROM audits WHERE id=?").bind(auditId).first();
 }
 
