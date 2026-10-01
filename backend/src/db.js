@@ -338,3 +338,17 @@ export async function getRecommendationData(env, userId, businessId) {
   const keywords = await listKeywords(env,userId,businessId);
   return {business,audit,issues,reviews,keywords};
 }
+
+
+export async function listSearchConsoleProperties(env,userId,businessId){
+  if(!env.DB)return [];
+  const {results}=await env.DB.prepare("SELECT id,property_url,property_type,status,last_synced_at,created_at,updated_at FROM search_console_properties WHERE user_id=? AND business_id=? ORDER BY updated_at DESC").bind(userId,businessId).all();
+  return results||[];
+}
+
+export async function listSearchConsoleMetrics(env,userId,businessId,limit=90){
+  if(!env.DB)return [];
+  const safe=Math.min(Math.max(Number(limit)||90,1),365);
+  const {results}=await env.DB.prepare("SELECT date,clicks,impressions,ctr,position,query_text,page_url,device,country FROM search_console_metrics WHERE user_id=? AND business_id=? ORDER BY date DESC LIMIT "+safe).bind(userId,businessId).all();
+  return results||[];
+}
