@@ -65,6 +65,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] AI recommendations based only on verified data
 - [x] Subscription/plan entitlement schema foundation
 - [x] Authenticated subscription entitlement API
+- [x] Guarded billing status and checkout API contracts
 - [ ] Real payment integration
 - [ ] Payment webhook verification
 - [x] Subscription entitlement checks for business/keyword/rank/review/report/competitor features
