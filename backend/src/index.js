@@ -1,4 +1,4 @@
-import { listBusinesses, createBusiness, listKeywords, createKeyword, getUserBusiness, listRankSnapshots, createRankSnapshot, listActionItems, listReviews, getReviewSummary, getReportOverview, getSubscriptionEntitlements, countUserBusinesses, countBusinessKeywords, countBusinessLocations, getBusinessLocationSummary, getGoogleLocationForBusiness, linkBusinessLocation, getLatestVerifiedMetrics, listPerformanceMetrics, upsertPerformanceMetrics, getLatestAudit, listAuditIssues, createAudit, upsertGoogleReviews, getMonitoringData, addMonitoringEvent, getRecommendationData, listSearchConsoleProperties, listSearchConsoleMetrics, getCompetitorRankSummary } from "./db.js";
+import { listBusinesses, createBusiness, listKeywords, createKeyword, getUserBusiness, listRankSnapshots, createRankSnapshot, listActionItems, listReviews, getReviewSummary, getReportOverview, getSubscriptionEntitlements, countUserBusinesses, countBusinessKeywords, countBusinessLocations, getBusinessLocationSummary, getGoogleLocationForBusiness, linkBusinessLocation, getLatestVerifiedMetrics, listPerformanceMetrics, upsertPerformanceMetrics, getLatestAudit, listAuditIssues, createAudit, upsertGoogleReviews, getMonitoringData, addMonitoringEvent, getRecommendationData, listSearchConsoleProperties, listSearchConsoleMetrics, listMonitoredBusinesses, getLatestRankForKeyword, getCompetitorRankSummary } from "./db.js";
 import { calculateVisibilityScore, calculateProfileAuditSignals, buildAuditActions } from "./score.js";
 import { normalizeGoogleReview } from "./reviews.js";
 import { buildAiContext, generateSafeRecommendations } from "./ai.js";
@@ -124,10 +124,28 @@ return withCors(json({error:"Not found"},404),request,env);
 // the Worker/D1 deployment is verified.
 export async function scheduled(event, env, ctx) {
   if (!env.DB) return;
-  // Keep this handler intentionally conservative until real Google/rank providers are configured.
-  // No synthetic ranking, review, performance, or alert data is generated here.
+  const now=Date.now();
   try {
-    await env.DB.prepare("INSERT INTO usage_events (id,user_id,event_type,created_at) VALUES (?,?,?,?)")
-      .bind(id("cron"), "system", "monitoring:scheduled_check", Date.now()).run();
+    const businesses=await listMonitoredBusinesses(env);
+    for(const business of businesses){
+      const ent=await getSubscriptionEntitlements(env,business.user_id);
+      if(!ent.reports_enabled) continue;
+      const keywords=await listKeywords(env,business.user_id,business.id);
+      if(env.RANK_PROVIDER_ENABLED==="true"&&env.RANK_PROVIDER_URL&&ent.rank_tracking_enabled){
+        for(const keyword of keywords.slice(0,20)){
+          const previous=await getLatestRankForKeyword(env,business.user_id,business.id,keyword.id);
+          const result=await queryRankProvider(env,{keyword:keyword.keyword,location:keyword.location_name,device:keyword.device,business_id:business.id});
+          if(result.state!=="verified_data") continue;
+          const row=result.results.find(x=>x.position!==null);
+          if(!row) continue;
+          const snapshot=await createRankSnapshot(env,business.user_id,business.id,keyword.id,row);
+          if(previous&&Number.isFinite(Number(previous.position))&&Number.isFinite(Number(row.position))&&Number(previous.position)!==Number(row.position)){
+            const delta=Number(row.position)-Number(previous.position);
+            await addMonitoringEvent(env,business.user_id,business.id,{event_type:"rank_change",severity:Math.abs(delta)>=5?"high":"info",title:"Keyword ranking changed",detail:keyword.keyword+" changed from position "+previous.position+" to "+row.position,reference_json:JSON.stringify({keyword_id:keyword.id,previous,current:row,snapshot_id:snapshot?.id})});
+          }
+        }
+      }
+      await env.DB.prepare("INSERT INTO usage_events (id,user_id,event_type,created_at) VALUES (?,?,?,?)").bind(id("cron"),business.user_id,"monitoring:checked:"+business.id,now).run();
+    }
   } catch {}
 }
