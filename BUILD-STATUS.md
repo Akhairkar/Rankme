@@ -40,7 +40,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Google Reviews ingestion foundation (normalized verified-data sync endpoint)
 - [x] Review monitoring UI connected to stored verified-data API
 - [x] Verified review summary API foundation
-- [ ] Review reply workflow
+- [x] Review reply workflow endpoint and customer UI (provider-gated)
 - [x] Google Business Profile Performance API contract/state foundation
 - [x] Rank history read API foundation
 - [x] Competitor visibility read API foundation
