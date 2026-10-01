@@ -76,6 +76,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] API input/rate/entitlement hardening foundation
 - [x] Privacy/terms baseline + account settings UI foundation
 - [x] Authenticated account deletion endpoint and schema-safe cleanup
+- [x] Review reply UI aligned with approval-only provider workflow
+- [x] Review reply entitlement error identifier hardened
 - [x] Account deletion UI wired with production API guard
 - [ ] Production Cloudflare D1 deployment
 - [ ] Production Worker deployment
