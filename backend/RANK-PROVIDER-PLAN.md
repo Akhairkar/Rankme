@@ -23,3 +23,15 @@ Provider credentials, quota, pricing, terms and test results must be verified be
 ## States
 awaiting_rank_provider → provider_configured → measuring → verified_data
 Provider failures use provider_error.
+
+
+## Implemented adapter boundary
+- Provider calls are server-side only.
+- `RANK_PROVIDER_ENABLED` and `RANK_PROVIDER_URL` gate activation.
+- Optional `RANK_PROVIDER_TOKEN` is read only as a Worker secret/variable and never sent to the browser.
+- Requests have an 8-second timeout and bounded result storage.
+- Provider responses are normalized to position, ranking URL, visibility, provider and timestamp.
+- `/api/ranks/run` stores snapshots only after a provider returns numeric positions.
+- Missing provider data remains an explicit pending/error state.
+
+Google Places API (New) can discover places and supports Text Search/Nearby Search, but its returned ordering is not treated by LocalBoost as a definitive organic Google ranking measurement. A dedicated rank provider remains required for compliant rank tracking. citeturn0search0turn0search2turn0search3
