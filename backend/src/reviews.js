@@ -19,3 +19,8 @@ export function parseGoogleLocationResource(resource = "") {
   const m = String(resource).match(/^accounts\/([^/]+)\/locations\/([^/]+)$/);
   return m ? { accountId: m[1], locationId: m[2] } : null;
 }
+
+
+export async function reviewFingerprint(review = {}){
+  const source=[review.google_review_name||"",review.review_time||"",review.reviewer_display_name||"",review.review_text||"",review.rating??""]; const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(source.join("|"))); return [...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");
+}
