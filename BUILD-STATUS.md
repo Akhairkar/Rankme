@@ -77,9 +77,16 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Mobile QA
 - [ ] Desktop QA
 - [ ] Final fake/demo-content audit
+- [x] Automated repository QA pass (routes/config/fake-content checks)
 - [ ] Final production readiness audit
 
 - Connected the rank-tracking dashboard to authenticated keyword reads and verified rank-history reads; the UI now shows real stored measurements only and keeps an explicit provider-pending state.
+
+## QA findings
+
+- Automated scans found no matches for the checked demo/fake-data terms, localhost/TODO markers, or exposed URL/config patterns in the repository search.
+- Backend route/config sanity checks passed for OAuth pending-state handling, rate limiting, CORS configuration, monitoring, and recommendation endpoints.
+- Production remains blocked intentionally by the D1 placeholder, Google OAuth credentials/API access, rank provider, and disabled frontend API flag.
 
 ## Current blockers
 
