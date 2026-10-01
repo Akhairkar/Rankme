@@ -40,7 +40,9 @@ button{padding:11px 15px;border:0;border-radius:10px;background:#e2e8f0;color:#3
 <button disabled>Delete account — coming with production account controls</button>
 </section>
 </main>
-<script src="../assets/localboost-api-config.js"></script>
+<script src="../assets/localboost-api-config.js">
+const deleteButton=document.getElementById("deleteAccount");
+if(deleteButton){deleteButton.addEventListener("click",async()=>{if(!window.LOCALBOOST_API?.enabled){return;}if(!confirm("Delete your LocalBoost account and stored data? This cannot be undone."))return;deleteButton.disabled=true;try{const response=await fetch(window.LOCALBOOST_API.baseUrl+"/api/account/delete",{method:"POST",credentials:"include"});if(!response.ok)throw new Error("delete_failed");location.href="../index.html";}catch{deleteButton.disabled=false;alert("Account deletion is currently unavailable. Please try again later.");}});}</script>
 <script>
 const cfg=window.LOCALBOOST_API||null;
 const status=document.getElementById("accountStatus");
