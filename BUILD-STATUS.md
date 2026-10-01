@@ -52,6 +52,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] AI recommendation provider boundary + verified-data fallback
 - [x] Search Console integration architecture/contract
 - [x] Keyword/rank provider adapter contract
+- [x] Search Console property/metrics schema + authenticated read foundation
 - [ ] Search Console OAuth/data integration
 - [ ] Keyword/rank provider integration
 - [x] Rank snapshot storage/API foundation
