@@ -68,3 +68,8 @@ The provider sync endpoint is guarded by GOOGLE_REVIEWS_SYNC_ENABLED; when disab
 ## Performance sync foundation
 
 `POST /api/performance/sync?business_id=...` is the guarded server-side ingestion contract. Production ingestion remains disabled until secure Google OAuth token handling and the Google Business Profile Performance API are configured. The route must only persist metrics returned by Google, scoped to the authenticated business/location, and must preserve an explicit pending/provider error state when unavailable.
+
+
+## Reviews sync hardening
+
+The review fetch route now requires an authenticated business, an owned verified Google location, feature entitlement, and a 10/minute rate limit before any provider call. Disabled production configuration returns an explicit pending state. Review normalization/upsert remains the only persistence path, and a deterministic fingerprint helper is available for duplicate/replay handling.
