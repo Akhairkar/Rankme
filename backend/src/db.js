@@ -266,3 +266,22 @@ export async function countUserBusinesses(env, userId) {
   const row = await env.DB.prepare("SELECT COUNT(*) AS count FROM businesses WHERE user_id=? AND status='active'").bind(userId).first();
   return Number(row?.count || 0);
 }
+
+
+export async function getMonitoringData(env, userId, businessId) {
+  if (!env.DB) return null;
+  const business = await getUserBusiness(env, userId, businessId);
+  if (!business) return null;
+  const events = await env.DB.prepare("SELECT id,event_type,severity,title,detail,reference_json,detected_at,status FROM monitoring_events WHERE user_id=? AND business_id=? ORDER BY detected_at DESC LIMIT 50").bind(userId,businessId).all();
+  return { business, events: events.results || [] };
+}
+
+export async function addMonitoringEvent(env, userId, businessId, event={}) {
+  if (!env.DB) throw new Error("Database unavailable");
+  const business = await getUserBusiness(env, userId, businessId);
+  if (!business) return null;
+  const eventId=id("mon");
+  await env.DB.prepare("INSERT INTO monitoring_events (id,user_id,business_id,event_type,severity,title,detail,reference_json,detected_at,status) VALUES (?,?,?,?,?,?,?,?,?,?)")
+    .bind(eventId,userId,businessId,event.event_type||"system",event.severity||"info",event.title||"Monitoring event",event.detail||null,event.reference_json||null,Number(event.detected_at||Date.now()),event.status||"open").run();
+  return env.DB.prepare("SELECT * FROM monitoring_events WHERE id=?").bind(eventId).first();
+}
