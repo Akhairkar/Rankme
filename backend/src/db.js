@@ -379,3 +379,12 @@ export async function getLatestRankForKeyword(env,userId,businessId,keywordId){
   if(!env.DB)return null;
   return await env.DB.prepare("SELECT position,visibility,provider,checked_at FROM rank_snapshots WHERE user_id=? AND business_id=? AND keyword_id=? ORDER BY checked_at DESC LIMIT 1").bind(userId,businessId,keywordId).first();
 }
+
+
+export async function getPerformanceSyncState(env,userId,businessId){
+  if(!env.DB)return {state:"database_unavailable"};
+  const location=await getBusinessLocationSummary(env,userId,businessId);
+  if(!location)return {state:"awaiting_google_location"};
+  const latest=await getLatestVerifiedMetrics(env,userId,businessId);
+  return latest?{state:"verified_data",checked_at:latest.checked_at}:{state:"awaiting_google_performance_api"};
+}
