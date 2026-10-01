@@ -274,3 +274,8 @@ CREATE TABLE IF NOT EXISTS monitoring_events (
   status TEXT NOT NULL DEFAULT 'open'
 );
 CREATE INDEX IF NOT EXISTS idx_monitoring_business_time ON monitoring_events(business_id, detected_at);
+
+
+CREATE INDEX IF NOT EXISTS idx_subscriptions_user_status ON subscriptions(user_id,status);
+CREATE INDEX IF NOT EXISTS idx_payments_user_created ON payments(user_id,created_at);
+CREATE INDEX IF NOT EXISTS idx_subscription_events_subscription ON subscription_events(subscription_id,created_at);
