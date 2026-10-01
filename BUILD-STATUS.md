@@ -34,7 +34,7 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [ ] Google Business Profile location discovery
 - [ ] Business/location synchronization
 - [ ] Real GBP profile data ingestion
-- [ ] Real GBP audit engine
+- [x] Real GBP profile audit engine (verified-location data)
 - [x] Evidence-based visibility score API foundation
 - [x] Action Center generation from verified profile signals (live data path)
 - [x] Google Reviews ingestion foundation (normalized verified-data sync endpoint)
