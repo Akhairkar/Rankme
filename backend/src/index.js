@@ -37,7 +37,26 @@ function validLocation(value){return typeof value==="string"&&value.trim().lengt
 function entitlementDenied(feature, entitlements){return json({error:"Upgrade required",code:"upgrade_required",feature,plan:entitlements.plan_code,required:"pro"},403);}
 async function requireFeature(env,userId,feature){const e=await getSubscriptionEntitlements(env,userId);return e[feature]===1?{ok:true,entitlements:e}:{ok:false,entitlements:e};}
 function validBusiness(x){return x&&typeof x.name==="string"&&x.name.trim()&&typeof x.category==="string"&&x.category.trim()&&typeof x.city==="string"&&x.city.trim();}
-export default {async fetch(request,env){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders(request,env)});const url=new URL(request.url);try{
+
+
+function rankProviderState(env){
+  return env.RANK_PROVIDER_ENABLED === "true" && !!env.RANK_PROVIDER_URL ? "configured" : "awaiting_rank_provider";
+}
+
+async function queryRankProvider(env, input){
+  if(rankProviderState(env)!=="configured") return {state:"awaiting_rank_provider",results:[]};
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),8000);
+  try{
+    const response=await fetch(env.RANK_PROVIDER_URL,{method:"POST",headers:{"content-type":"application/json","authorization:env.RANK_PROVIDER_TOKEN?"Bearer "+env.RANK_PROVIDER_TOKEN:""},body:JSON.stringify(input),signal:controller.signal});
+    if(!response.ok)return {state:"provider_error",results:[],status:response.status};
+    const data=await response.json();
+    const results=Array.isArray(data.results)?data.results:[];
+    return {state:"verified_data",results:results.map(x=>({position:Number.isFinite(Number(x.position))?Number(x.position):null,ranking_url:typeof x.ranking_url==="string"?x.ranking_url:null,visibility:Number.isFinite(Number(x.visibility))?Number(x.visibility):null,provider:typeof x.provider==="string"?x.provider:"configured_provider",checked_at:Number(x.checked_at||Date.now())}))};
+  }catch(error){return {state:"provider_error",results:[],error:error?.name==="AbortError"?"timeout":"provider_request_failed"};}
+  finally{clearTimeout(timer);}
+}
+\nexport default {async fetch(request,env){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders(request,env)});const url=new URL(request.url);try{
 if(url.pathname==="/health"&&request.method==="GET")return withCors(await health(env),request,env);if(url.pathname==="/api/overview"&&request.method==="GET"){const uid=await requestUser(request,env);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const businessId=url.searchParams.get("business_id");if(!businessId)return withCors(json({error:"business_id is required"},400),request,env);const business=await getUserBusiness(env,uid,businessId);if(!business)return withCors(json({error:"Business not found"},404),request,env);const location=await getBusinessLocationSummary(env,uid,businessId);const reviews=await getReviewSummary(env,uid,businessId);let profile=null;if(location){let address={};try{address=JSON.parse(location.address_json||"{}")}catch(_){}profile=calculateProfileAuditSignals({name:business.name,category:business.category,address,phone:business.phone,website:business.website_url});}return withCors(json({business,connection:location?{state:"verified_data",location:location.name}: {state:"awaiting_google_connection"},reviews,profile}),request,env);}
 if(url.pathname==="/api/me"&&request.method==="GET"){const uid=await requestUser(request,env);if(!uid)return withCors(json({authenticated:false,user:null}),request,env);const user=env.DB?await env.DB.prepare("SELECT id,email,name,picture_url FROM users WHERE id=? LIMIT 1").bind(uid).first():null;return withCors(json({authenticated:!!user,user:user||null}),request,env);}
 if(url.pathname==="/auth/logout"&&request.method==="POST"){const cookie=request.headers.get("Cookie")||"";const m=cookie.match(/(?:^|;\s*)lb_session=([^;]+)/);if(m&&env.DB){const raw=decodeURIComponent(m[1]);const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(raw));const h=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");await env.DB.prepare("DELETE FROM sessions WHERE id_hash=?").bind(h).run();}return withCors(new Response(null,{status:204,headers:{"Set-Cookie":"lb_session=; Max-Age=0; Path=/; HttpOnly; Secure; SameSite=Lax"}}),request,env);}
