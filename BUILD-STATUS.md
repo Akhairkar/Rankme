@@ -61,7 +61,8 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Reports data aggregation pipeline foundation
 - [ ] Report generation/download
 - [x] Monitoring scheduled-entry architecture foundation
-- [ ] Monitoring jobs and alerts (live provider change detection pending)
+- [x] Scheduled monitoring worker with verified rank-change detection
+- [ ] Production monitoring jobs and alerts activation
 - [ ] AI recommendations based only on verified data
 - [x] Subscription/plan entitlement schema foundation
 - [x] Authenticated subscription entitlement API
