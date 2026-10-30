@@ -1,12 +1,14 @@
 import { listBusinesses, createBusiness, listKeywords, createKeyword, getUserBusiness, listRankSnapshots, createRankSnapshot, listActionItems, listReviews, getReviewSummary, getReportOverview, getSubscriptionEntitlements, countUserBusinesses, countBusinessKeywords, countBusinessLocations, getBusinessLocationSummary, getGoogleLocationForBusiness, linkBusinessLocation, getLatestVerifiedMetrics, listPerformanceMetrics, upsertPerformanceMetrics, getLatestAudit, listAuditIssues, createAudit, upsertGoogleReviews, getMonitoringData, addMonitoringEvent, getRecommendationData, listSearchConsoleProperties, listSearchConsoleMetrics, listMonitoredBusinesses, getLatestRankForKeyword, getPerformanceSyncState, getCompetitorRankSummary } from "./db.js";
 import { calculateVisibilityScore, calculateProfileAuditSignals, buildAuditActions } from "./score.js";
 import { normalizeGoogleReview } from "./reviews.js";
+import { routeModules } from "./router.js";
+import { jobs } from "./routes.js";
 import { handleWaitlist } from "./waitlist.js";
 import { handleGoogleCallback, handleLogout, syncGoogleLocations } from "./oauth.js";
 import { buildAiContext, generateSafeRecommendations } from "./ai.js";
 
 const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
-function corsHeaders(request, env) { const origin=request.headers.get("Origin")||""; const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean); return {"access-control-allow-origin":allowed.includes(origin)?origin:allowed[0],"access-control-allow-credentials":"true","access-control-allow-headers":"content-type","access-control-allow-methods":"GET,POST,OPTIONS"}; }
+function corsHeaders(request, env) { const origin=request.headers.get("Origin")||""; const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean); return {"access-control-allow-origin":allowed.includes(origin)?origin:allowed[0],"access-control-allow-credentials":"true","access-control-allow-headers":"content-type,authorization","access-control-allow-methods":"GET,POST,PUT,PATCH,DELETE,OPTIONS","vary":"Origin"}; }
 function withCors(response,request,env){const h=new Headers(response.headers);Object.entries(corsHeaders(request,env)).forEach(([k,v])=>h.set(k,v));return new Response(response.body,{status:response.status,headers:h});}
 async function health(env){let database="unavailable";if(env.DB){try{await env.DB.prepare("SELECT 1").first();database="ok"}catch(_){database="error"}}return json({ok:true,service:"localboost-api",database});}
 async function requestUser(request, env){
@@ -59,6 +61,8 @@ async function queryRankProvider(env, input){
   finally{clearTimeout(timer);}
 }
 export default {async scheduled(event,env,ctx){return scheduled(event,env,ctx)},async fetch(request,env){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders(request,env)});const url=new URL(request.url);try{
+if(request.method!=="GET"&&request.method!=="HEAD"&&url.pathname!=="/api/billing/webhook"){const o=request.headers.get("Origin");const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean);if(o&&!allowed.includes(o))return withCors(json({error:"Origin not allowed",code:"bad_origin"},403),request,env);}
+{const mr=await routeModules(request,env,url,{json,requestUser,getUserBusiness,requireFeature});if(mr)return withCors(mr,request,env);}
 if(url.pathname==="/health"&&request.method==="GET")return withCors(await health(env),request,env);if(url.pathname==="/api/overview"&&request.method==="GET"){const uid=await requestUser(request,env);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const businessId=url.searchParams.get("business_id");if(!businessId)return withCors(json({error:"business_id is required"},400),request,env);const business=await getUserBusiness(env,uid,businessId);if(!business)return withCors(json({error:"Business not found"},404),request,env);const location=await getBusinessLocationSummary(env,uid,businessId);const reviews=await getReviewSummary(env,uid,businessId);let profile=null;if(location){let address={};try{address=JSON.parse(location.address_json||"{}")}catch(_){}profile=calculateProfileAuditSignals({name:business.name,category:business.category,address,phone:business.phone,website:business.website_url});}return withCors(json({business,connection:location?{state:"verified_data",location:location.name}: {state:"awaiting_google_connection"},reviews,profile}),request,env);}
 if(url.pathname==="/api/me"&&request.method==="GET"){const uid=await requestUser(request,env);if(!uid)return withCors(json({authenticated:false,user:null}),request,env);const user=env.DB?await env.DB.prepare("SELECT id,email,name,picture_url FROM users WHERE id=? LIMIT 1").bind(uid).first():null;return withCors(json({authenticated:!!user,user:user||null}),request,env);}
 if(url.pathname==="/api/account/delete"&&request.method==="POST"){const uid=await requestUser(request,env);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);if(!env.DB)return withCors(json({error:"Database unavailable"},503),request,env);try{await deleteUserAccount(env,uid);return withCors(new Response(null,{status:204,headers:{"Set-Cookie":"lb_session=; Max-Age=0; Path=/; HttpOnly; Secure; SameSite=Lax"}}),request,env);}catch{return withCors(json({error:"Account deletion failed"},500),request,env);}}if(url.pathname==="/api/waitlist"&&request.method==="POST")return withCors(await handleWaitlist(request,env,json),request,env);
@@ -131,6 +135,7 @@ return withCors(json({error:"Not found"},404),request,env);
 // the Worker/D1 deployment is verified.
 export async function scheduled(event, env, ctx) {
   if (!env.DB) return;
+  for (const job of jobs) { try { await job.run(env); } catch {} }
   const now=Date.now();
   try {
     const businesses=await listMonitoredBusinesses(env);
