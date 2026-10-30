@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Audit for Local Businesses | LocalBoost</title>
+<meta name="description" content="See what LocalBoost checks on your website for local search: titles, headings, canonical tags, schema, speed and broken links, each with evidence.">
+<link rel="canonical" href="https://www.localboost.in/features/website-audit/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/features/website-audit/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/features/website-audit/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/features/website-audit/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.localboost.in/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Features",
+   "item": "https://www.localboost.in/features/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Website audit",
+   "item": "https://www.localboost.in/features/website-audit/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "Website audit: what we check, how, and what we cannot know",
+ "description": "See what LocalBoost checks on your website for local search: titles, headings, canonical tags, schema, speed and broken links, each with evidence.",
+ "inLanguage": "en",
+ "url": "https://www.localboost.in/features/website-audit/",
+ "isPartOf": {
+  "@type": "WebSite",
+  "name": "LocalBoost",
+  "url": "https://www.localboost.in/"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Does the audit change anything on my website?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. The crawler only reads public pages. It never logs in, submits forms or edits your site."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can the audit promise better rankings?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. It lists problems and how to fix them. Rankings depend on many things we cannot control, so we never guarantee a position."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does my audit show no score?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "If too few checks could be run, for example because the site blocked our crawler, we show the findings we have and leave the score empty instead of guessing."
+   }
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--warn-bg:#FFF4E5;--warn-bd:#F2C48D;--warn-tx:#7A4A0E;--font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}}
+:root[data-theme="dark"]{--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg-base,#FAF9F6);color:var(--text-primary,#1E1E1E);line-height:1.7;overflow-x:hidden;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 56px}
+.crumbs{font-size:13px;color:var(--text-secondary,#5A5A54);padding:22px 0 4px}
+.crumbs a{text-decoration:underline;text-underline-offset:2px}
+.kicker{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-600,#0F766E);background:var(--primary-100,#E0F5F2);padding:4px 12px;border-radius:999px;margin-top:10px}
+h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.2;margin:12px 0 10px}
+h2{font-size:clamp(20px,3.6vw,25px);font-weight:800;line-height:1.3;margin:36px 0 10px}
+h3{font-size:17px;font-weight:800;margin:20px 0 6px}
+.lede{font-size:18px;color:var(--text-secondary,#5A5A54);margin-bottom:14px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:6px}
+main p a,main li a,.faq a,main td a{color:var(--primary-600,#0F766E);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+code{background:var(--bg-muted,#F0EEE9);padding:1px 6px;border-radius:5px;font-size:.92em}
+.status{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx);border-radius:12px;padding:14px 16px;margin:16px 0;font-size:15px}
+.status strong{display:block;margin-bottom:2px}
+.status.ok{background:var(--primary-100,#E0F5F2);border-color:var(--primary-500,#14968C);color:var(--text-primary)}
+.fig{margin:22px 0;background:#fff;color:#1E1E1E;border:1px solid var(--border,#E2E0D9);border-radius:14px;padding:14px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.fig figcaption{font-size:13px;color:#5A5A54;margin-top:6px}
+.tbl{overflow-x:auto;margin:14px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px;background:var(--bg-surface,#fff);font-size:14.5px}
+th,td{border:1px solid var(--border,#E2E0D9);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--bg-muted,#F0EEE9);font-weight:700}
+.faq-item,.box,.card{background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px}
+.faq-item{padding:16px 18px;margin-bottom:10px}
+.faq-q{font-size:16px;font-weight:700;margin-bottom:4px}
+.faq-a{font-size:15px;color:var(--text-secondary,#5A5A54)}
+.faq-a p{margin:0}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:10px 0 20px}
+.rel a{display:block;background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;color:var(--primary-600,#0F766E)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.card{padding:16px 18px;border-radius:14px}
+.card h3{margin-top:0}
+.card p{font-size:14.5px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.card a.go{font-weight:700;color:var(--primary-600,#0F766E);font-size:14.5px}
+.tag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--bg-muted,#F0EEE9);color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.tag.live{background:var(--primary-100,#E0F5F2);color:var(--primary-600,#0F766E)}
+.tag.soon{background:var(--warn-bg);color:var(--warn-tx)}
+.btn{display:inline-block;background:var(--primary-600,#0F766E);color:var(--text-on-primary,#fff)!important;font-weight:700;padding:11px 20px;border-radius:9px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none!important}
+.btn.alt{background:transparent;color:var(--primary-600,#0F766E)!important;border:1px solid var(--primary-600,#0F766E)}
+input,textarea,select{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--border-strong,#85837B);border-radius:9px;background:var(--bg-surface,#fff);color:var(--text-primary,#1E1E1E)}
+label{display:block;font-weight:700;font-size:14.5px;margin:12px 0 4px}
+label.chk{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+label.chk input{width:auto;margin-top:5px}
+.note{font-size:13.5px;color:var(--text-secondary,#5A5A54)}
+.updated{font-size:13px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.box{padding:18px 20px;margin:16px 0}
+.sec{margin:40px 0}
+@media print{header,footer,.noprint{display:none!important}body{background:#fff;color:#000}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Website Audit for Local Businesses | LocalBoost">
+<meta property="og:description" content="See what LocalBoost checks on your website for local search: titles, headings, canonical tags, schema, speed and broken links, each with evidence.">
+<meta property="og:url" content="https://www.localboost.in/features/website-audit/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/lb-tokens.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/theme.js"></script>
+<link rel="stylesheet" href="../../assets/public-shell.css">
+</head>
+<body>
+
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="../../index.html" class="logo" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../../tools/index.html">Tools</a>
+      <a href="../../businesses/index.html">Industries</a>
+      <a href="../../cities/index.html">Cities</a>
+      <a href="../../google-business-profile/index.html">Guides</a>
+      <a href="../../blog/index.html">Blog</a>
+      <a href="../../pricing/index.html">Pricing</a>
+      <a href="../../search/index.html" class="lb-nav-search" aria-label="Search website"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../hi/features/website-audit/index.html" hreflang="hi" lang="hi" aria-label="View this page in Hindi">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="Toggle dark mode" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../check/index.html" class="nav-cta">Free Audit</a>
+    </div>
+  </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
+</header>
+<!-- /lb:header -->
+
+<main class="wrap" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../features/index.html">Features</a> &rsaquo; Website audit</nav>
+<span class="kicker">Feature</span><h1>Website audit: what we check, how, and what we cannot know</h1><p class="lede">A website audit reads your public pages the way a visitor and a search crawler would, then lists specific problems with the evidence we found. It does not predict where you will rank.</p>
+<div class="status"><strong>Availability</strong>A one-page check is the free tier. Multi-page crawling is part of the Pro plan, which is launching: join the waitlist at the bottom of this page. The production API that runs the crawler is not connected to this website yet.</div><figure class="fig"><svg role="img" aria-label="How a website audit runs" viewBox="0 0 340 384" width="340" xmlns="http://www.w3.org/2000/svg" font-family="Manrope,Noto Sans Devanagari,system-ui,sans-serif"><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#5A5A54"/></marker></defs><rect x="4" y="4" width="332" height="76" rx="10" fill="#ECECFA" stroke="#3F3F9E" stroke-width="1.5"/><text x="16" y="27" font-size="14" font-weight="800" fill="#1E1E1E">You enter your website URL</text><text x="16" y="47" font-size="11.5" fill="#5A5A54">Public pages only</text><text x="16" y="67" font-size="10.5" font-weight="800" fill="#3F3F9E">YOU PROVIDE</text><line x1="170" y1="82" x2="170" y2="101" stroke="#5A5A54" stroke-width="1.8" marker-end="url(#ar)"/><rect x="4" y="104" width="332" height="76" rx="10" fill="#E0F5F2" stroke="#0F766E" stroke-width="1.5"/><text x="16" y="127" font-size="14" font-weight="800" fill="#1E1E1E">Safe crawler fetches the page</text><text x="16" y="147" font-size="11.5" fill="#5A5A54">Checks robots.txt, blocks private addresses</text><text x="16" y="167" font-size="10.5" font-weight="800" fill="#0F766E">MEASURED</text><line x1="170" y1="182" x2="170" y2="201" stroke="#5A5A54" stroke-width="1.8" marker-end="url(#ar)"/><rect x="4" y="204" width="332" height="76" rx="10" fill="#E0F5F2" stroke="#0F766E" stroke-width="1.5"/><text x="16" y="227" font-size="14" font-weight="800" fill="#1E1E1E">Rules check what it read</text><text x="16" y="247" font-size="11.5" fill="#5A5A54">Title, H1, canonical, schema, links</text><text x="16" y="267" font-size="10.5" font-weight="800" fill="#0F766E">MEASURED</text><line x1="170" y1="282" x2="170" y2="301" stroke="#5A5A54" stroke-width="1.8" marker-end="url(#ar)"/><rect x="4" y="304" width="332" height="76" rx="10" fill="#FFF4E5" stroke="#9A5B12" stroke-width="1.5"/><text x="16" y="327" font-size="14" font-weight="800" fill="#1E1E1E">Findings and score</text><text x="16" y="347" font-size="11.5" fill="#5A5A54">Evidence and a fix for each item</text><text x="16" y="367" font-size="10.5" font-weight="800" fill="#9A5B12">ESTIMATED</text></svg><figcaption>Boxes marked Measured come directly from the page; the score is a summary of those checks, not a ranking forecast.</figcaption></figure><h2>What the audit looks at</h2>
+<p>The crawler requests the page you give it and reads the HTML that comes back. For each page it records the HTTP status, the title tag, the meta description, how many H1 headings there are, the canonical link, robots directives, whether the page is indexable, the visible word count, images that have no alt text, internal and broken links, structured data types such as LocalBusiness, and whether a mobile viewport tag exists. These are plain facts about the page, so they are marked as measured.</p>
+<p>On a paid plan the crawler follows internal links up to a page limit that depends on the plan, and reads your robots.txt and sitemap first so it respects what you have asked crawlers to skip. The free tier checks a single page.</p>
+<h2>What is measured and what is estimated</h2>
+<div class="tbl"><table><thead><tr><th>Item</th><th>Type</th><th>How it is produced</th></tr></thead><tbody><tr><td>---</td><td>---</td><td>---</td></tr><tr><td>Title, description, H1, canonical, robots, schema types</td><td>Measured</td><td>Read from the HTML we fetched</td></tr><tr><td>Broken links on the page</td><td>Measured</td><td>We request each link and record the status</td></tr><tr><td>Loading speed (LCP, INP, CLS)</td><td>Measured, optional</td><td>Comes from Google PageSpeed Insights when the operator has configured it; otherwise shown as unavailable</td></tr><tr><td>Audit score</td><td>Estimated</td><td>A documented weighted summary of the checks that could be run</td></tr><tr><td>Time needed per fix</td><td>Estimated</td><td>A planning estimate used to order the 30-day plan</td></tr></tbody></table></div>
+<h2>How the score works</h2>
+<p>Each check has a weight. Checks are grouped into sections. A check can pass, fail, or be unavailable when the data could not be read. Unavailable checks are left out of the calculation rather than counted as failures, and if too little could be checked the audit shows no score at all instead of inventing one. The score describes the health and completeness of the things we inspected. It is not a prediction of Google rankings, and we do not claim that any single check is a confirmed ranking factor. Read <a href="../../help/understanding-your-audit-score/index.html">understanding your audit score</a> for the full method.</p>
+<h2>What a finding contains</h2>
+<p>Every finding has a severity, a short title, the evidence we saw (for example the exact title text, or the URL that returned a 404), the source of that evidence, why it matters to a customer or a crawler, a recommended action and plain instructions. Findings can be marked open, fixed or ignored, and two audits can be compared to show what is new and what you fixed. An audit can be exported as CSV.</p>
+<h2>Safety of the crawler</h2>
+<p>The crawler is designed to be safe to expose publicly. It refuses private, loopback and internal network addresses, limits redirects and response sizes, and applies a rate limit per visitor. You can only audit URLs that are reachable from the public internet, which also means pages behind a login or a firewall cannot be checked.</p>
+<h2>Limitations</h2>
+<ul><li>We read the HTML the server returns. Content that appears only after heavy JavaScript runs may not be seen.</li><li>A pass on every check does not mean you will rank well; competition, distance and relevance matter and are outside what a website audit can see.</li><li>We do not read your Search Console data in the audit unless you connect it separately and grant permission.</li><li>Speed numbers are only shown when a PageSpeed key is configured on the server; otherwise you will see that they are unavailable.</li></ul>
+<h2>Where to start</h2>
+<p>If you just want a quick look, use the free <a href="../../tools/website-seo-checker/index.html">website SEO checker</a> or the <a href="../../check/index.html">free business audit</a>. When you want repeated audits, comparisons between runs, and a prioritised plan, see the <a href="../../pricing/index.html">Pro plan on the pricing page</a> and join the waitlist.</p><section class="sec faq"><h2>Frequently asked questions</h2><div class="faq-item"><div class="faq-q">Does the audit change anything on my website?</div><div class="faq-a">No. The crawler only reads public pages. It never logs in, submits forms or edits your site.</div></div><div class="faq-item"><div class="faq-q">Can the audit promise better rankings?</div><div class="faq-a">No. It lists problems and how to fix them. Rankings depend on many things we cannot control, so we never guarantee a position.</div></div><div class="faq-item"><div class="faq-q">Why does my audit show no score?</div><div class="faq-a">If too few checks could be run, for example because the site blocked our crawler, we show the findings we have and leave the score empty instead of guessing.</div></div></section><section class="sec"><h2>Related</h2><div class="rel"><a href="../../help/website-audit-guide/index.html">Website audit guide</a><a href="../../help/understanding-your-audit-score/index.html">Understanding your audit score</a><a href="../../tools/website-seo-checker/index.html">Free website SEO checker</a><a href="../../pricing/index.html">Pricing</a></div></section>
+<section class="sec noprint"><h2>Get the full website audit when Pro opens</h2><p>Join the waitlist and we will email you once multi-page audits are live.</p><div data-lb-waitlist data-source="feature-website-audit"></div></section>
+</main>
+
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../index.html" class="lb-footer-brand" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">Honest local SEO for Indian businesses: real data, clear fixes, no ranking promises.</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="../../how-it-works/index.html">How it works</a></li>
+          <li><a href="../../pricing/index.html">Pricing</a></li>
+          <li><a href="../../pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../waitlist/index.html">Join the waitlist</a></li>
+          <li><a href="../../check/index.html">Free visibility check</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="../../audit/index.html">Business audit</a></li>
+          <li><a href="../../tools/local-seo-checklist/index.html">Local SEO checklist</a></li>
+          <li><a href="../../tools/review-reply-generator/index.html">Review reply generator</a></li>
+          <li><a href="../../tools/review-request-generator/index.html">Review request generator</a></li>
+          <li><a href="../../tools/description-generator/index.html">Description generator</a></li>
+          <li><a href="../../tools/qr-generator/index.html">Review QR generator</a></li>
+          <li><a href="../../tools/rank-grid-simulator/index.html">Rank grid simulator</a></li>
+          <li><a href="../../tools/index.html">All free tools</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../../google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../google-reviews/index.html">Google reviews</a></li>
+          <li><a href="../../local-seo/index.html">Local SEO</a></li>
+          <li><a href="../../business-growth/index.html">Business growth</a></li>
+          <li><a href="../../businesses/index.html">Industries</a></li>
+          <li><a href="../../cities/index.html">Cities</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/index.html">About</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../help/index.html">Help Center</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+          <li><a href="../../status/index.html">System status</a></li>
+          <li><a href="../../security/index.html">Security</a></li>
+          <li><a href="../../bug-report/index.html">Report a bug</a></li>
+          <li><a href="../../search/index.html">Search</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../../privacy/index.html">Privacy policy</a></li>
+          <li><a href="../../terms/index.html">Terms of service</a></li>
+          <li><a href="../../disclaimer/index.html">Disclaimer</a></li>
+          <li><a href="../../compliance/index.html">Google compliance</a></li>
+          <li><a href="../../refund-policy/index.html">Refund policy</a></li>
+          <li><a href="../../cookie-policy/index.html">Cookie policy</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">Cookie settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost is an independent product and is not affiliated with, endorsed by or sponsored by Google LLC. Google, Google Maps and Google Business Profile are trademarks of Google LLC.</p>
+      <p>&copy; 2026 LocalBoost. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- /lb:footer -->
+
+<script src="../../assets/localboost-api-config.js"></script>
+<script src="../../assets/waitlist.js" defer></script>
+<script src="../../assets/consent.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

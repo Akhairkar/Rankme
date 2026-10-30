@@ -50,7 +50,7 @@ window.LB_SEARCH_DATA = {
    "desc": "How franchises, dental clinic chains, and multi-branch retail stores dominate Google Maps across multiple pin codes without keyword cannibalization."
   },
   {
-   "title": "Connecting WhatsApp Business with Google Maps for 3x Lead Conversion | LocalBoost Blog",
+   "title": "Connecting WhatsApp Business with Google Maps for More Enquiries | LocalBoost Blog",
    "url": "/blog/whatsapp-business-google-maps-integration/",
    "cat": "blog",
    "desc": "Convert Google Maps visitors into instant paying leads. Setting up direct WhatsApp chat links, automated consultation booking, and quick catalog responses."
@@ -326,6 +326,66 @@ window.LB_SEARCH_DATA = {
    "desc": "Dominate local Google Maps search in Pune. Local ranking factors, top market hubs, bilingual search patterns, and review strategies for local businesses."
   },
   {
+   "title": "LocalBoost for Agencies and Multi-Location Brands",
+   "url": "/features/agency/",
+   "cat": "guides",
+   "desc": "What the LocalBoost Agency plan is designed to cover: several businesses, team roles with read-only clients and branded report links. What is built."
+  },
+  {
+   "title": "Evidence-Based Local SEO Recommendations",
+   "url": "/features/ai-recommendations/",
+   "cat": "guides",
+   "desc": "How LocalBoost builds recommendations from stored evidence: rule-based by default, an optional checked language model, no invented facts, no ranking promises."
+  },
+  {
+   "title": "Competitor Analysis for Local Search",
+   "url": "/features/competitor-analysis/",
+   "cat": "guides",
+   "desc": "Compare your business with nearby competitors using data you can verify: reviews, categories, profile completeness and website basics. What is live."
+  },
+  {
+   "title": "Google Business Profile Audit Checklist",
+   "url": "/features/google-business-profile-audit/",
+   "cat": "guides",
+   "desc": "A Google Business Profile audit checks name, categories, hours, phone, website, description and reviews. See what is measured, what you enter, and the limits."
+  },
+  {
+   "title": "LocalBoost Features: Audit, Rank, Reviews, Reports",
+   "url": "/features/",
+   "cat": "guides",
+   "desc": "Every LocalBoost feature with honest status: website audit, rank tracking, competitors, reviews, recommendations, profile audit, reports and agency use."
+  },
+  {
+   "title": "Local Rank Tracking on a Map Grid",
+   "url": "/features/local-rank-tracking/",
+   "cat": "guides",
+   "desc": "How LocalBoost local rank tracking works: grid scans around your business, what the positions mean, which data provider is needed and why it is not live yet."
+  },
+  {
+   "title": "Local SEO Reports and Monitoring",
+   "url": "/features/reports-and-monitoring/",
+   "cat": "guides",
+   "desc": "Monthly local SEO reports and change monitoring from LocalBoost: what sections they contain, where data comes from, shareable links, and what is not live yet."
+  },
+  {
+   "title": "Google Review Management for Local Business",
+   "url": "/features/review-management/",
+   "cat": "guides",
+   "desc": "Fetch Google reviews, see which are unanswered, draft replies and post them only after you confirm. Honest status, limits and what needs Google approval."
+  },
+  {
+   "title": "Website Audit for Local Businesses",
+   "url": "/features/website-audit/",
+   "cat": "guides",
+   "desc": "See what LocalBoost checks on your website for local search: titles, headings, canonical tags, schema, speed and broken links, each with evidence."
+  },
+  {
+   "title": "Business Profile Audit: 40-Point Checklist",
+   "url": "/google-business-profile/google-business-profile-audit-checklist/",
+   "cat": "guides",
+   "desc": "A step-by-step audit of your Google Business Profile for Indian businesses: verification, categories, services, photos, reviews, hours, attributes and policy risks."
+  },
+  {
    "title": "Google Business Profile Setup & Optimization Guide",
    "url": "/google-business-profile/",
    "cat": "guides",
@@ -380,16 +440,130 @@ window.LB_SEARCH_DATA = {
    "desc": "Compliant ways to ask for genuine Google reviews and how to respond to both positive and negative reviews without breaking Google's policies."
   },
   {
+   "title": "Billing and GST FAQ | LocalBoost Help",
+   "url": "/help/billing-and-gst-faq/",
+   "cat": "guides",
+   "desc": "LocalBoost billing questions answered: Razorpay payments, GST on invoices, monthly and annual plans, cancelling, refunds and what is not live yet."
+  },
+  {
+   "title": "Connect Your Google Business Profile | LocalBoost Help",
+   "url": "/help/connect-google-business-profile/",
+   "cat": "guides",
+   "desc": "How LocalBoost connects to your Google Business Profile: what permission you grant, what is read, how to choose a location and how to disconnect any time."
+  },
+  {
+   "title": "Export or Delete Your LocalBoost Data | Help",
+   "url": "/help/data-export-and-deletion/",
+   "cat": "guides",
+   "desc": "How to export all your data as a file, disconnect Google, delete a business or your whole account, what is kept and for how long, and how to ask for help."
+  },
+  {
+   "title": "Getting Started with LocalBoost | Help Center",
+   "url": "/help/getting-started/",
+   "cat": "guides",
+   "desc": "Start using LocalBoost: run the free audit without an account, then know what happens when Pro opens, how sign-in works and what to do first."
+  },
+  {
+   "title": "LocalBoost Help Center: Guides and FAQs",
+   "url": "/help/",
+   "cat": "guides",
+   "desc": "Search LocalBoost help: getting started, connecting Google, audits, rank tracking, billing and GST, privacy, troubleshooting, teams and data deletion."
+  },
+  {
+   "title": "Privacy FAQ: Your Data and LocalBoost | Help",
+   "url": "/help/privacy-faq/",
+   "cat": "guides",
+   "desc": "Plain answers on what data LocalBoost collects, how analytics works only after consent, what we do not do, how Google data is handled and your rights."
+  },
+  {
+   "title": "Local Rank Tracking Guide: Grid Scans | LocalBoost Help",
+   "url": "/help/rank-tracking-guide/",
+   "cat": "guides",
+   "desc": "Set up and read local rank grid scans: pick keywords, grid size and radius, understand empty points, averages and history, and learn the limits of rank data."
+  },
+  {
+   "title": "Team Members and Permissions | LocalBoost Help",
+   "url": "/help/team-and-permissions/",
+   "cat": "guides",
+   "desc": "How access works in LocalBoost: Google sign-in, workspace roles from owner to client, seat limits by plan, invitations, and what is not available yet."
+  },
+  {
+   "title": "Troubleshoot Google Connection Problems",
+   "url": "/help/troubleshooting-google-connection/",
+   "cat": "guides",
+   "desc": "Fix common problems connecting Google to LocalBoost: blocked sign-in, no locations found, expired connection, wrong account, missing permission and sync errors."
+  },
+  {
+   "title": "Understanding Your Audit Score | LocalBoost Help",
+   "url": "/help/understanding-your-audit-score/",
+   "cat": "guides",
+   "desc": "How the LocalBoost audit score is calculated: sections and weights, why unavailable checks are excluded, when no score is shown, and what the score is not."
+  },
+  {
+   "title": "How to Run and Read a Website Audit | LocalBoost Help",
+   "url": "/help/website-audit-guide/",
+   "cat": "guides",
+   "desc": "Run a LocalBoost website audit and read the results: what is crawled, severity, evidence, marking findings fixed, comparing audits and exporting CSV."
+  },
+  {
+   "title": "Competitor Analysis on Google Maps: A Guide",
+   "url": "/local-seo/competitor-analysis-google-maps/",
+   "cat": "guides",
+   "desc": "A fair, repeatable method to study local competitors on Google Maps: who they really are, what they do better, and which gaps you can fill honestly."
+  },
+  {
    "title": "Local SEO for Small Businesses: The Basics",
    "url": "/local-seo/",
    "cat": "guides",
    "desc": "What local SEO actually means for a small business in India, how it differs from regular SEO, and the basics worth getting right first."
   },
   {
+   "title": "Local Citations and NAP Consistency Guide",
+   "url": "/local-seo/local-citations-nap-consistency/",
+   "cat": "guides",
+   "desc": "What local citations are, why your business name, address and phone must match everywhere, which Indian directories matter, and how to audit and fix them."
+  },
+  {
+   "title": "Local Keyword Research for Indian Businesses",
+   "url": "/local-seo/local-keyword-research-india/",
+   "cat": "guides",
+   "desc": "How to find the words Indian customers actually search for: Hinglish phrases, area names, services and questions, with a free method and a simple keyword sheet."
+  },
+  {
+   "title": "Local Rank Tracking Guide for Maps Rankings",
+   "url": "/local-seo/local-rank-tracking-guide/",
+   "cat": "guides",
+   "desc": "What a local grid scan measures, why your Google Maps position changes from street to street, how it differs from Search Console, and how to read results."
+  },
+  {
+   "title": "Local SEO Reporting for Business Owners",
+   "url": "/local-seo/local-seo-reporting-for-owners/",
+   "cat": "guides",
+   "desc": "A simple monthly local SEO report an owner can read in ten minutes: which numbers matter, where to find them, how to explain changes and avoid vanity metrics."
+  },
+  {
+   "title": "Multi-Location Local SEO: A Practical Guide",
+   "url": "/local-seo/multi-location-local-seo/",
+   "cat": "guides",
+   "desc": "How to manage Google Business Profiles for several branches: when each location needs its own listing, naming, categories, pages, reviews and ownership."
+  },
+  {
+   "title": "Website SEO for a Local Business",
+   "url": "/local-seo/website-seo-for-local-business/",
+   "cat": "guides",
+   "desc": "What a local business website needs to be found and trusted: service pages, location details, titles, speed, schema, reviews and links, with a practical checklist."
+  },
+  {
    "title": "Indian Local Citation Builder & NAP Formatter",
    "url": "/tools/citation-checker/",
    "cat": "tools",
    "desc": "Format standardized Name, Address, and Phone data for submission across Justdial, IndiaMART, Sulekha, TradeIndia, and Bing."
+  },
+  {
+   "title": "Competitor Website Comparison Tool",
+   "url": "/tools/competitor-comparison/",
+   "cat": "tools",
+   "desc": "Compare your website with a local competitor, side by side: title, description, headings, schema, local signals and speed. Public page elements only."
   },
   {
    "title": "Business Description Generator",
@@ -402,6 +576,12 @@ window.LB_SEARCH_DATA = {
    "url": "/tools/",
    "cat": "tools",
    "desc": "11 free, lightweight tools for Indian small businesses: Description generators, review reply drafters, local rank simulators, and acrylic QR standees."
+  },
+  {
+   "title": "Local Keyword Ideas Generator",
+   "url": "/tools/local-keyword-research/",
+   "cat": "tools",
+   "desc": "Generate local keyword ideas from your services, city and neighbourhoods: near me, locality, question and Hinglish forms. Export CSV. Not search volume."
   },
   {
    "title": "Local SEO Interactive Checklist",
@@ -456,6 +636,12 @@ window.LB_SEARCH_DATA = {
    "url": "/tools/services-generator/",
    "cat": "tools",
    "desc": "Free Business Services Generator. Create optimized service lists for salons, clinics, restaurants, plumbers, and mechanics."
+  },
+  {
+   "title": "Website SEO Checker for Local Businesses",
+   "url": "/tools/website-seo-checker/",
+   "cat": "tools",
+   "desc": "Check a public web page for SEO issues: title, headings, links, schema and local signals. Each issue has evidence and a fix. Report, CSV and print."
   }
  ],
  "hi": [
@@ -508,7 +694,7 @@ window.LB_SEARCH_DATA = {
    "desc": "मल्टी-ब्रांच क्लिनिक, सैलून और रिटेल स्टोर्स के लिए लोकल SEO। बिना पेनाल्टी कई लोकेशन कैसे रैंक करें।"
   },
   {
-   "title": "Google Maps को WhatsApp Business से जोड़कर ग्राहक और लीड्स 3x बढ़ाएं | LocalBoost Blog",
+   "title": "Google Maps को WhatsApp Business से जोड़कर ग्राहक और पूछताछ बढ़ाने के तरीक़े | LocalBoost Blog",
    "url": "/hi/blog/whatsapp-business-google-maps-integration/",
    "cat": "blog",
    "desc": "गूगल मैप्स सर्च करने वालों को तुरंत व्हाट्सएप ग्राहक बनाएं। डायरेक्ट चैट लिंक और ऑटोमेटेड बुकिंग सेटअप।"
@@ -784,6 +970,66 @@ window.LB_SEARCH_DATA = {
    "desc": "Dominate local Google Maps search in Pune. Local ranking factors, top market hubs, bilingual search patterns, and review strategies for local businesses."
   },
   {
+   "title": "एजेंसी और मल्टी-लोकेशन ब्रांड के लिए LocalBoost",
+   "url": "/hi/features/agency/",
+   "cat": "guides",
+   "desc": "LocalBoost Agency प्लान किसके लिए है: कई बिज़नेस, सिर्फ़-पढ़ने वाले क्लाइंट के साथ टीम रोल, और अपने ब्रांड वाले रिपोर्ट लिंक। क्या बना है और क्या नहीं।"
+  },
+  {
+   "title": "सबूत पर आधारित लोकल SEO सुझाव",
+   "url": "/hi/features/ai-recommendations/",
+   "cat": "guides",
+   "desc": "LocalBoost सहेजे गए सबूत से सुझाव कैसे बनाता है: डिफ़ॉल्ट रूप से नियम-आधारित, वैकल्पिक भाषा-मॉडल जाँच के साथ, गढ़े तथ्य नहीं, रैंकिंग का वादा नहीं।"
+  },
+  {
+   "title": "लोकल सर्च के लिए प्रतिस्पर्धी विश्लेषण",
+   "url": "/hi/features/competitor-analysis/",
+   "cat": "guides",
+   "desc": "रिव्यू, कैटेगरी, प्रोफ़ाइल की पूर्णता और वेबसाइट की बुनियादी बातों पर पास के प्रतिस्पर्धियों से तुलना करें। क्या लाइव है और क्या नहीं, ईमानदारी से।"
+  },
+  {
+   "title": "Google Business Profile ऑडिट चेकलिस्ट",
+   "url": "/hi/features/google-business-profile-audit/",
+   "cat": "guides",
+   "desc": "Google Business Profile ऑडिट नाम, कैटेगरी, समय, फ़ोन, वेबसाइट, विवरण और रिव्यू जाँचता है। जानिए क्या मापा जाता है, क्या आप खुद भरते हैं और सीमाएँ।"
+  },
+  {
+   "title": "LocalBoost फ़ीचर: ऑडिट, रैंक, रिव्यू, रिपोर्ट",
+   "url": "/hi/features/",
+   "cat": "guides",
+   "desc": "LocalBoost के हर फ़ीचर की ईमानदार स्थिति: वेबसाइट ऑडिट, रैंक ट्रैकिंग, प्रतिस्पर्धी, रिव्यू, सुझाव, प्रोफ़ाइल ऑडिट, रिपोर्ट और एजेंसी इस्तेमाल।"
+  },
+  {
+   "title": "मैप ग्रिड पर लोकल रैंक ट्रैकिंग",
+   "url": "/hi/features/local-rank-tracking/",
+   "cat": "guides",
+   "desc": "LocalBoost की लोकल रैंक ट्रैकिंग कैसे काम करती है: आपके बिज़नेस के आसपास ग्रिड स्कैन, पोज़िशन का मतलब, ज़रूरी डेटा प्रोवाइडर और यह अभी लाइव क्यों नहीं।"
+  },
+  {
+   "title": "लोकल SEO रिपोर्ट और मॉनिटरिंग",
+   "url": "/hi/features/reports-and-monitoring/",
+   "cat": "guides",
+   "desc": "LocalBoost की मासिक लोकल SEO रिपोर्ट और बदलाव की मॉनिटरिंग: खंड क्या हैं, डेटा कहाँ से आता है, शेयर लिंक और क्या अभी लाइव नहीं है।"
+  },
+  {
+   "title": "Google रिव्यू मैनेजमेंट लोकल बिज़नेस के लिए",
+   "url": "/hi/features/review-management/",
+   "cat": "guides",
+   "desc": "Google रिव्यू लाएँ, बिना जवाब वाले देखें, जवाब का ड्राफ़्ट बनाएँ और पुष्टि के बाद ही पोस्ट करें। ईमानदार स्थिति, सीमाएँ और Google अनुमति की शर्त।"
+  },
+  {
+   "title": "लोकल बिज़नेस के लिए वेबसाइट ऑडिट",
+   "url": "/hi/features/website-audit/",
+   "cat": "guides",
+   "desc": "जानिए LocalBoost लोकल सर्च के लिए आपकी वेबसाइट पर क्या जाँचता है: टाइटल, हेडिंग, canonical, schema, स्पीड, टूटे लिंक और हर नतीजे का सबूत।"
+  },
+  {
+   "title": "Business Profile ऑडिट: 40 बातों की चेकलिस्ट",
+   "url": "/hi/google-business-profile/gbp-audit-checklist-kaise-kare/",
+   "cat": "guides",
+   "desc": "भारतीय बिज़नेस के लिए Google Business Profile का चरण-दर-चरण ऑडिट: वेरिफ़िकेशन, कैटेगरी, सेवाएँ, फ़ोटो, रिव्यू, समय, एट्रिब्यूट और नीति के जोखिम।"
+  },
+  {
    "title": "Google Business Profile सेटअप और ऑप्टिमाइज़ेशन गाइड",
    "url": "/hi/google-business-profile/",
    "cat": "guides",
@@ -838,16 +1084,130 @@ window.LB_SEARCH_DATA = {
    "desc": "Kharab Google reviews ka shaanti se samadhan kaise karein. 1-star review ka professional reply, galti sudharna aur rating recover karne ke niyam."
   },
   {
+   "title": "बिलिंग और GST FAQ | LocalBoost हेल्प",
+   "url": "/hi/help/billing-and-gst-faq/",
+   "cat": "guides",
+   "desc": "LocalBoost बिलिंग के सवालों के जवाब: Razorpay पेमेंट, इनवॉइस पर GST, मासिक और सालाना प्लान, रद्द करना, रिफ़ंड और जो अभी लाइव नहीं है।"
+  },
+  {
+   "title": "अपनी Google Business Profile जोड़ें | LocalBoost हेल्प",
+   "url": "/hi/help/connect-google-business-profile/",
+   "cat": "guides",
+   "desc": "LocalBoost आपकी Google Business Profile से कैसे जुड़ता है: कौन सी अनुमति दी जाती है, क्या पढ़ा जाता है, लोकेशन कैसे चुनें और कभी भी डिस्कनेक्ट कैसे करें।"
+  },
+  {
+   "title": "अपना LocalBoost डेटा निर्यात या हटाएँ | हेल्प",
+   "url": "/hi/help/data-export-and-deletion/",
+   "cat": "guides",
+   "desc": "अपना सारा डेटा फ़ाइल में कैसे निर्यात करें, Google डिस्कनेक्ट करें, बिज़नेस या पूरा अकाउंट हटाएँ, क्या कब तक रखा जाता है, और मदद कैसे माँगें।"
+  },
+  {
+   "title": "LocalBoost के साथ शुरुआत कैसे करें | हेल्प सेंटर",
+   "url": "/hi/help/getting-started/",
+   "cat": "guides",
+   "desc": "LocalBoost शुरू करें: बिना अकाउंट फ्री ऑडिट चलाएँ, जानें Pro खुलने पर क्या होगा, साइन-इन कैसे काम करता है और सबसे पहले क्या करना है।"
+  },
+  {
+   "title": "LocalBoost हेल्प सेंटर: गाइड और FAQ",
+   "url": "/hi/help/",
+   "cat": "guides",
+   "desc": "LocalBoost हेल्प में खोजें: शुरुआत, Google जोड़ना, ऑडिट, रैंक ट्रैकिंग, बिलिंग और GST, प्राइवेसी, समस्या निवारण, टीम और डेटा हटाना।"
+  },
+  {
+   "title": "प्राइवेसी FAQ: आपका डेटा और LocalBoost | हेल्प",
+   "url": "/hi/help/privacy-faq/",
+   "cat": "guides",
+   "desc": "सरल जवाब: LocalBoost क्या डेटा इकट्ठा करता है, एनालिटिक्स सहमति के बाद ही कैसे चलता है, हम क्या नहीं करते, Google डेटा कैसे संभलता है और आपके अधिकार।"
+  },
+  {
+   "title": "लोकल रैंक ट्रैकिंग गाइड: ग्रिड स्कैन | LocalBoost हेल्प",
+   "url": "/hi/help/rank-tracking-guide/",
+   "cat": "guides",
+   "desc": "लोकल रैंक ग्रिड स्कैन सेट करें और पढ़ें: कीवर्ड, ग्रिड आकार और दायरा चुनें, खाली बिंदु, औसत और इतिहास समझें, और रैंक डेटा की सीमाएँ जानें।"
+  },
+  {
+   "title": "टीम सदस्य और अनुमतियाँ | LocalBoost हेल्प",
+   "url": "/hi/help/team-and-permissions/",
+   "cat": "guides",
+   "desc": "LocalBoost में पहुँच कैसे काम करती है: Google साइन-इन, मालिक से क्लाइंट तक वर्कस्पेस रोल, प्लान के हिसाब से सीट सीमा, आमंत्रण और जो अभी उपलब्ध नहीं है।"
+  },
+  {
+   "title": "Google कनेक्शन की समस्याएँ ठीक करें",
+   "url": "/hi/help/troubleshooting-google-connection/",
+   "cat": "guides",
+   "desc": "LocalBoost में Google जोड़ने की आम समस्याएँ ठीक करें: ब्लॉक साइन-इन, लोकेशन न मिलना, समाप्त कनेक्शन, ग़लत अकाउंट, अनुमति की कमी और सिंक त्रुटियाँ।"
+  },
+  {
+   "title": "अपना ऑडिट स्कोर समझें | LocalBoost हेल्प",
+   "url": "/hi/help/understanding-your-audit-score/",
+   "cat": "guides",
+   "desc": "LocalBoost ऑडिट स्कोर कैसे बनता है: खंड और वज़न, उपलब्ध नहीं जाँचें क्यों बाहर रहती हैं, स्कोर कब नहीं दिखता, और स्कोर क्या नहीं है।"
+  },
+  {
+   "title": "वेबसाइट ऑडिट कैसे चलाएँ और पढ़ें | LocalBoost हेल्प",
+   "url": "/hi/help/website-audit-guide/",
+   "cat": "guides",
+   "desc": "LocalBoost वेबसाइट ऑडिट चलाएँ और नतीजे पढ़ें: क्या क्रॉल होता है, गंभीरता, सबूत, नतीजे को ठीक चिह्नित करना, ऑडिट की तुलना और CSV निर्यात।"
+  },
+  {
+   "title": "Google Maps पर कॉम्पिटिटर एनालिसिस गाइड",
+   "url": "/hi/local-seo/google-maps-competitor-analysis-kaise-kare/",
+   "cat": "guides",
+   "desc": "Google Maps पर लोकल प्रतिस्पर्धियों को परखने का निष्पक्ष, दोहराने लायक तरीक़ा: वे असल में कौन हैं, क्या बेहतर करते हैं और आप कौन-सी कमी ईमानदारी से भर सकते हैं।"
+  },
+  {
    "title": "छोटे बिज़नेस के लिए लोकल SEO की बुनियादी बातें",
    "url": "/hi/local-seo/",
    "cat": "guides",
    "desc": "भारत में एक छोटे बिज़नेस के लिए लोकल SEO का असल मतलब क्या है, यह आम SEO से कैसे अलग है, और पहले किन बुनियादी बातों पर ध्यान दें।"
   },
   {
+   "title": "लोकल बिज़नेस के लिए वेबसाइट SEO गाइड",
+   "url": "/hi/local-seo/local-business-website-seo-kaise-kare/",
+   "cat": "guides",
+   "desc": "लोकल बिज़नेस की वेबसाइट को खोजे जाने और भरोसे के लिए क्या चाहिए: सर्विस पेज, लोकेशन विवरण, टाइटल, स्पीड, स्कीमा, रिव्यू और लिंक, व्यावहारिक चेकलिस्ट के साथ।"
+  },
+  {
+   "title": "लोकल सिटेशन और NAP कंसिस्टेंसी गाइड",
+   "url": "/hi/local-seo/local-citations-aur-nap-consistency/",
+   "cat": "guides",
+   "desc": "लोकल सिटेशन क्या हैं, आपके बिज़नेस का नाम, पता और फ़ोन हर जगह एक जैसा क्यों होना चाहिए, कौन-सी भारतीय डायरेक्टरी मायने रखती हैं और उन्हें कैसे सुधारें।"
+  },
+  {
+   "title": "भारत में लोकल कीवर्ड रिसर्च कैसे करें",
+   "url": "/hi/local-seo/local-keyword-research-kaise-kare/",
+   "cat": "guides",
+   "desc": "भारतीय ग्राहक असल में क्या खोजते हैं, यह कैसे पता करें: Hinglish वाक्य, इलाक़ों के नाम, सेवाएँ और सवाल, मुफ़्त तरीक़े और सरल कीवर्ड शीट के साथ।"
+  },
+  {
+   "title": "लोकल रैंक ट्रैकिंग गाइड: Maps रैंकिंग समझें",
+   "url": "/hi/local-seo/local-rank-tracking-guide-hindi/",
+   "cat": "guides",
+   "desc": "लोकल ग्रिड स्कैन क्या नापता है, Google Maps पर पोज़ीशन हर गली में क्यों बदलती है, Search Console से यह कैसे अलग है और नतीजे कैसे पढ़ें।"
+  },
+  {
+   "title": "मल्टी-लोकेशन लोकल SEO: व्यावहारिक गाइड",
+   "url": "/hi/local-seo/multi-location-business-ka-local-seo/",
+   "cat": "guides",
+   "desc": "कई शाखाओं के लिए Google Business Profile कैसे सँभालें: कब हर लोकेशन को अलग लिस्टिंग चाहिए, नाम, कैटेगरी, पेज, रिव्यू और मालिकाना हक़।"
+  },
+  {
+   "title": "मालिकों के लिए लोकल SEO रिपोर्टिंग गाइड",
+   "url": "/hi/local-seo/owners-ke-liye-local-seo-reporting/",
+   "cat": "guides",
+   "desc": "बिज़नेस मालिक के लिए दस मिनट में पढ़ी जाने वाली सरल मासिक लोकल SEO रिपोर्ट: कौन-से आँकड़े मायने रखते हैं, कहाँ मिलते हैं और बदलावों को ईमानदारी से कैसे समझें।"
+  },
+  {
    "title": "भारतीय लोकल साइटेशन व NAP फॉर्मेटर",
    "url": "/hi/tools/citation-checker/",
    "cat": "tools",
    "desc": "जस्टडायल, इंडियामार्ट, सुलेखा और बिंग पर लिस्टिंग के लिए मानकीकृत नाम, पता व फोन नंबर तैयार करें।"
+  },
+  {
+   "title": "प्रतिस्पर्धी वेबसाइट तुलना टूल",
+   "url": "/hi/tools/competitor-comparison/",
+   "cat": "tools",
+   "desc": "अपनी वेबसाइट की स्थानीय प्रतिस्पर्धी से आमने-सामने तुलना करें: टाइटल, विवरण, हेडिंग, स्कीमा, लोकल संकेत और स्पीड। सिर्फ़ सार्वजनिक पेज तत्व।"
   },
   {
    "title": "बिज़नेस डिस्क्रिप्शन जनरेटर (GBP)",
@@ -860,6 +1220,12 @@ window.LB_SEARCH_DATA = {
    "url": "/hi/tools/",
    "cat": "tools",
    "desc": "भारतीय छोटे व्यवसायों के लिए 11 फ्री टूल्स: विवरण जनरेटर, रिव्यू रिप्लाई, रैंक सिमुलेटर व QR स्टैंडी।"
+  },
+  {
+   "title": "लोकल कीवर्ड आइडिया जनरेटर",
+   "url": "/hi/tools/local-keyword-research/",
+   "cat": "tools",
+   "desc": "अपनी सर्विस, शहर और इलाकों से लोकल कीवर्ड आइडिया बनाएँ: near me, इलाका, सवाल और हिंग्लिश रूप। CSV एक्सपोर्ट करें। यह सर्च वॉल्यूम नहीं है।"
   },
   {
    "title": "लोकल SEO इंटरैक्टिव चेकलिस्ट",
@@ -914,6 +1280,12 @@ window.LB_SEARCH_DATA = {
    "url": "/hi/tools/services-generator/",
    "cat": "tools",
    "desc": "Dukan aur clinic ke liye free Services Generator. Sahi categories aur services ki list taiyar karein."
+  },
+  {
+   "title": "लोकल बिज़नेस के लिए वेबसाइट SEO चेकर",
+   "url": "/hi/tools/website-seo-checker/",
+   "cat": "tools",
+   "desc": "किसी सार्वजनिक वेब पेज की SEO जाँच करें: टाइटल, हेडिंग, लिंक, स्कीमा और लोकल संकेत। हर समस्या के साथ सबूत और सुधार। रिपोर्ट, CSV और प्रिंट।"
   }
  ]
 };

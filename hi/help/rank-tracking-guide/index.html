@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>लोकल रैंक ट्रैकिंग गाइड: ग्रिड स्कैन | LocalBoost हेल्प</title>
+<meta name="description" content="लोकल रैंक ग्रिड स्कैन सेट करें और पढ़ें: कीवर्ड, ग्रिड आकार और दायरा चुनें, खाली बिंदु, औसत और इतिहास समझें, और रैंक डेटा की सीमाएँ जानें।">
+<link rel="canonical" href="https://www.localboost.in/hi/help/rank-tracking-guide/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/help/rank-tracking-guide/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/help/rank-tracking-guide/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/help/rank-tracking-guide/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "होम",
+   "item": "https://www.localboost.in/hi/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "हेल्प सेंटर",
+   "item": "https://www.localboost.in/hi/help/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "रैंक ट्रैकिंग गाइड",
+   "item": "https://www.localboost.in/hi/help/rank-tracking-guide/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "रैंक ट्रैकिंग गाइड",
+ "description": "लोकल रैंक ग्रिड स्कैन सेट करें और पढ़ें: कीवर्ड, ग्रिड आकार और दायरा चुनें, खाली बिंदु, औसत और इतिहास समझें, और रैंक डेटा की सीमाएँ जानें।",
+ "inLanguage": "hi",
+ "datePublished": "2026-10-30",
+ "dateModified": "2026-10-30",
+ "mainEntityOfPage": "https://www.localboost.in/hi/help/rank-tracking-guide/",
+ "image": "https://www.localboost.in/assets/og-image.png",
+ "author": {
+  "@type": "Organization",
+  "name": "LocalBoost",
+  "url": "https://www.localboost.in/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "LocalBoost",
+  "url": "https://www.localboost.in/"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "खाली ग्रिड बिंदु का क्या मतलब है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "लौटाए गए नतीजों में आपका बिज़नेस उस जगह नहीं आया। इसे खाली ही सहेजा जाता है, अंदाज़े से नहीं भरा जाता।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "मेरे फ़ोन पर दिखती रैंक अलग क्यों है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "नतीजे जगह, डिवाइस, समय और पर्सनलाइज़ेशन पर निर्भर हैं। स्कैन एक नमूना है, हर ग्राहक जो देखता है वह नहीं।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "कितनी बार स्कैन करूँ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ज़्यादातर छोटे बिज़नेस के लिए साप्ताहिक या मासिक काफ़ी है। ज़्यादा बार स्कैन अधिकतर शोर बढ़ाते हैं और कोटा खर्च करते हैं।"
+   }
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--warn-bg:#FFF4E5;--warn-bd:#F2C48D;--warn-tx:#7A4A0E;--font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}}
+:root[data-theme="dark"]{--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg-base,#FAF9F6);color:var(--text-primary,#1E1E1E);line-height:1.7;overflow-x:hidden;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 56px}
+.crumbs{font-size:13px;color:var(--text-secondary,#5A5A54);padding:22px 0 4px}
+.crumbs a{text-decoration:underline;text-underline-offset:2px}
+.kicker{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-600,#0F766E);background:var(--primary-100,#E0F5F2);padding:4px 12px;border-radius:999px;margin-top:10px}
+h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.2;margin:12px 0 10px}
+h2{font-size:clamp(20px,3.6vw,25px);font-weight:800;line-height:1.3;margin:36px 0 10px}
+h3{font-size:17px;font-weight:800;margin:20px 0 6px}
+.lede{font-size:18px;color:var(--text-secondary,#5A5A54);margin-bottom:14px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:6px}
+main p a,main li a,.faq a,main td a{color:var(--primary-600,#0F766E);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+code{background:var(--bg-muted,#F0EEE9);padding:1px 6px;border-radius:5px;font-size:.92em}
+.status{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx);border-radius:12px;padding:14px 16px;margin:16px 0;font-size:15px}
+.status strong{display:block;margin-bottom:2px}
+.status.ok{background:var(--primary-100,#E0F5F2);border-color:var(--primary-500,#14968C);color:var(--text-primary)}
+.fig{margin:22px 0;background:#fff;color:#1E1E1E;border:1px solid var(--border,#E2E0D9);border-radius:14px;padding:14px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.fig figcaption{font-size:13px;color:#5A5A54;margin-top:6px}
+.tbl{overflow-x:auto;margin:14px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px;background:var(--bg-surface,#fff);font-size:14.5px}
+th,td{border:1px solid var(--border,#E2E0D9);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--bg-muted,#F0EEE9);font-weight:700}
+.faq-item,.box,.card{background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px}
+.faq-item{padding:16px 18px;margin-bottom:10px}
+.faq-q{font-size:16px;font-weight:700;margin-bottom:4px}
+.faq-a{font-size:15px;color:var(--text-secondary,#5A5A54)}
+.faq-a p{margin:0}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:10px 0 20px}
+.rel a{display:block;background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;color:var(--primary-600,#0F766E)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.card{padding:16px 18px;border-radius:14px}
+.card h3{margin-top:0}
+.card p{font-size:14.5px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.card a.go{font-weight:700;color:var(--primary-600,#0F766E);font-size:14.5px}
+.tag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--bg-muted,#F0EEE9);color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.tag.live{background:var(--primary-100,#E0F5F2);color:var(--primary-600,#0F766E)}
+.tag.soon{background:var(--warn-bg);color:var(--warn-tx)}
+.btn{display:inline-block;background:var(--primary-600,#0F766E);color:var(--text-on-primary,#fff)!important;font-weight:700;padding:11px 20px;border-radius:9px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none!important}
+.btn.alt{background:transparent;color:var(--primary-600,#0F766E)!important;border:1px solid var(--primary-600,#0F766E)}
+input,textarea,select{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--border-strong,#85837B);border-radius:9px;background:var(--bg-surface,#fff);color:var(--text-primary,#1E1E1E)}
+label{display:block;font-weight:700;font-size:14.5px;margin:12px 0 4px}
+label.chk{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+label.chk input{width:auto;margin-top:5px}
+.note{font-size:13.5px;color:var(--text-secondary,#5A5A54)}
+.updated{font-size:13px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.box{padding:18px 20px;margin:16px 0}
+.sec{margin:40px 0}
+@media print{header,footer,.noprint{display:none!important}body{background:#fff;color:#000}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="लोकल रैंक ट्रैकिंग गाइड: ग्रिड स्कैन | LocalBoost हेल्प">
+<meta property="og:description" content="लोकल रैंक ग्रिड स्कैन सेट करें और पढ़ें: कीवर्ड, ग्रिड आकार और दायरा चुनें, खाली बिंदु, औसत और इतिहास समझें, और रैंक डेटा की सीमाएँ जानें।">
+<meta property="og:url" content="https://www.localboost.in/hi/help/rank-tracking-guide/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../../assets/lb-tokens.css">
+<link rel="stylesheet" href="../../../assets/site.css">
+<script src="../../../assets/theme.js"></script>
+<link rel="stylesheet" href="../../../assets/public-shell.css">
+</head>
+<body>
+
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="../../../hi/index.html" class="logo" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="मुख्य नेविगेशन">
+      <a href="../../../hi/tools/index.html">टूल्स</a>
+      <a href="../../../hi/businesses/index.html">उद्योग</a>
+      <a href="../../../hi/cities/index.html">शहर</a>
+      <a href="../../../hi/google-business-profile/index.html">गाइड्स</a>
+      <a href="../../../hi/blog/index.html">ब्लॉग</a>
+      <a href="../../../hi/pricing/index.html">मूल्य</a>
+      <a href="../../../hi/search/index.html" class="lb-nav-search" aria-label="वेबसाइट में खोजें"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>खोजें</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../../help/rank-tracking-guide/index.html" hreflang="en" lang="en" aria-label="View this page in English">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="डार्क मोड बदलें" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../../hi/check/index.html" class="nav-cta">फ्री ऑडिट</a>
+    </div>
+  </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
+</header>
+<!-- /lb:header -->
+
+<main class="wrap" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../../hi/index.html">होम</a> &rsaquo; <a href="../../../hi/help/index.html">हेल्प सेंटर</a> &rsaquo; रैंक ट्रैकिंग गाइड</nav>
+<span class="kicker">हेल्प सेंटर</span><h1>रैंक ट्रैकिंग गाइड</h1><p class="lede">कीवर्ड, ग्रिड स्कैन, पोज़िशन पढ़ना, सीमाएँ।</p>
+<p class="updated">आखिरी अपडेट 30 अक्टूबर 2026</p><div class="status"><strong>उपलब्धता</strong>इस गाइड के कुछ हिस्से साइन-इन वाले प्रोडक्ट के बारे में हैं। वे तब उपलब्ध होंगे जब प्रोडक्शन API ऑनलाइन होगा। वह API अभी इस वेबसाइट से जुड़ा नहीं है, इसलिए आज बिना अकाउंट सिर्फ़ फ्री टूल चलते हैं। रैंक स्कैन के लिए लाइसेंस वाला रैंक-डेटा प्रोवाइडर भी चाहिए, जो अभी जुड़ा नहीं है। तब तक स्कैन साफ़ "प्रोवाइडर का इंतज़ार" स्थिति लौटाता है।</div><h2>स्कैन क्या है</h2>
+<p>स्कैन रैंक-डेटा प्रोवाइडर से पूछता है कि एक कीवर्ड के लिए आपके बिज़नेस के चारों ओर ग्रिड के कई बिंदुओं पर आपका बिज़नेस लोकल नतीजों में कहाँ आता है। हर बिंदु पर एक पोज़िशन मिलती है। इससे पता चलता है कि दूरी के साथ आपकी विज़िबिलिटी कैसे बदलती है, जो एक संख्या नहीं बता सकती।</p>
+<h2>कीवर्ड चुनना</h2>
+<p>वे वाक्यांश चुनें जो असली ग्राहक टाइप करेगा, सेवा और कभी-कभी जगह के साथ, जैसे "dentist near me" या "हेयर सैलून इंदिरानगर"। तीन से पाँच से शुरू करें। प्लान ट्रैक किए कीवर्ड की संख्या सीमित करते हैं। पचास कीवर्ड की नई सूची से बचें; अगर आप उन पर काम नहीं कर सकते तो ज़्यादा डेटा ज़्यादा समझ नहीं देता।</p>
+<h2>ग्रिड आकार और दायरा चुनना</h2>
+<ul><li><strong>3 x 3</strong> तेज़ है और सबसे कम स्कैन खर्च करता है। पहली झलक के लिए ठीक।</li><li><strong>5 x 5</strong> मध्यम इलाके का ज़्यादा ब्योरा देता है।</li><li><strong>7 x 7</strong> सबसे बारीक है और सबसे ज़्यादा स्कैन लेता है।</li></ul>
+<p>दायरा केंद्र से किनारे तक की दूरी मीटर में है। घने इलाके में पैदल आने वाले ग्राहकों वाले बिज़नेस के लिए छोटा दायरा, और ग्राहकों के पास जाने वाले बिज़नेस के लिए बड़ा दायरा रखें। प्लान में मासिक स्कैन कोटा है, इसलिए पहले स्कैन सोचकर चलाएँ।</p>
+<h2>नतीजा पढ़ना</h2>
+<ul><li>संख्या उस बिंदु पर आपकी पोज़िशन है। कम बेहतर है।</li><li><strong>खाली बिंदु</strong> का मतलब है कि उस बिंदु के नतीजों में आप नहीं मिले। यह शून्य नहीं है और अंदाज़ा भी नहीं।</li><li><strong>औसत पोज़िशन</strong> उन बिंदुओं का औसत है जहाँ आप मिले, साथ में दिखता है कि वे कितने बिंदु थे।</li><li><strong>विज़िबिलिटी</strong> बताती है कि ग्रिड के कितने हिस्से में आप दिखते हैं।</li><li>अगर कुछ बिंदुओं पर प्रोवाइडर विफल रहा तो स्कैन आंशिक चिह्नित होता है और ऐसा कहता है।</li></ul>
+<p>औसत खाली जगहें छिपा देते हैं, इसलिए पहले नक्शा देखें और फिर औसत।</p>
+<h2>शेड्यूल और इतिहास</h2>
+<p>स्कैन को शेड्यूल पर दोहराया जा सकता है ताकि हफ़्तों में बदलाव दिखे। तुलना सिर्फ़ उन्हीं स्कैन की करें जिनमें कीवर्ड, ग्रिड आकार और दायरा एक जैसे हों। इनमें से कुछ भी बदलने पर तुलना बेमानी हो जाती है। स्कैन CSV में निर्यात हो सकते हैं।</p>
+<h2>लोकल नतीजों को आमतौर पर क्या हिलाता है</h2>
+<p>ये सामान्य अभ्यास हैं, गारंटी नहीं: सही प्राइमरी कैटेगरी के साथ पूरी और सटीक प्रोफ़ाइल, वेब पर एकरूप नाम, पता और फ़ोन, असली रिव्यू का लगातार आना और उनके जवाब, ऐसी वेबसाइट जो आपकी सेवा और इलाका साफ़ बताए, और खोजने वाले से असली नज़दीकी। प्रतिस्पर्धियों के बदलने से भी रैंकिंग बदल सकती है। कैसे करें, इसके लिए <a href="../../../hi/google-maps-seo/index.html">Google Maps SEO गाइड</a> पढ़ें।</p>
+<h2>सीमाएँ जो आपको पता होनी चाहिए</h2>
+<ul><li>प्रोवाइडर का डेटा एक पल और एक तरह के डिवाइस से लिया नमूना है। ग्राहक कुछ और देख सकते हैं, क्योंकि Google नतीजे पर्सनलाइज़ करता है।</li><li>स्कैन यह नहीं बताता कि पोज़िशन क्यों बदली।</li><li>ग्रिड हर गली नहीं छूते।</li><li>कोई भी टूल, यह भी, किसी पोज़िशन की गारंटी नहीं दे सकता।</li></ul>
+<h2>अगर स्कैन न चले</h2>
+<p>देखें कि इस महीने स्कैन कोटा बचा है या नहीं, आपके प्लान में रैंक ट्रैकिंग है या नहीं, और स्कैन की स्थिति "प्रोवाइडर का इंतज़ार" या "प्रोवाइडर त्रुटि" है या नहीं। अगर प्रोवाइडर का इंतज़ार है तो सेवा अभी किसी डेटा स्रोत से जुड़ी नहीं है। इंतज़ार में <a href="../../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a> दिखाता है कि ग्रिड कैसा लगता है; उसका डेटा उदाहरण के लिए है।</p><section class="sec faq"><h2>अक्सर पूछे जाने वाले सवाल</h2><div class="faq-item"><div class="faq-q">खाली ग्रिड बिंदु का क्या मतलब है?</div><div class="faq-a">लौटाए गए नतीजों में आपका बिज़नेस उस जगह नहीं आया। इसे खाली ही सहेजा जाता है, अंदाज़े से नहीं भरा जाता।</div></div><div class="faq-item"><div class="faq-q">मेरे फ़ोन पर दिखती रैंक अलग क्यों है?</div><div class="faq-a">नतीजे जगह, डिवाइस, समय और पर्सनलाइज़ेशन पर निर्भर हैं। स्कैन एक नमूना है, हर ग्राहक जो देखता है वह नहीं।</div></div><div class="faq-item"><div class="faq-q">कितनी बार स्कैन करूँ?</div><div class="faq-a">ज़्यादातर छोटे बिज़नेस के लिए साप्ताहिक या मासिक काफ़ी है। ज़्यादा बार स्कैन अधिकतर शोर बढ़ाते हैं और कोटा खर्च करते हैं।</div></div></section><section class="sec"><h2>संबंधित</h2><div class="rel"><a href="../../../hi/features/local-rank-tracking/index.html">लोकल रैंक ट्रैकिंग फ़ीचर</a><a href="../../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a><a href="../../../hi/google-maps-seo/index.html">Google Maps SEO गाइड</a></div></section><p class="note">अभी भी अटके हैं? पेज का URL और आपने क्या सोचा था, यह लिखकर support@localboost.in पर ईमेल करें।</p>
+
+</main>
+
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../../hi/index.html" class="lb-footer-brand" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">भारतीय कारोबारों के लिए ईमानदार लोकल SEO: असली डेटा, साफ़ सुझाव, रैंकिंग का कोई वादा नहीं।</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>प्रोडक्ट</h4>
+        <ul>
+          <li><a href="../../../hi/how-it-works/index.html">यह कैसे काम करता है</a></li>
+          <li><a href="../../../hi/pricing/index.html">मूल्य</a></li>
+          <li><a href="../../../hi/pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../../hi/waitlist/index.html">वेटलिस्ट में जुड़ें</a></li>
+          <li><a href="../../../hi/check/index.html">फ्री विज़िबिलिटी चेक</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>फ्री टूल्स</h4>
+        <ul>
+          <li><a href="../../../hi/audit/index.html">बिज़नेस ऑडिट</a></li>
+          <li><a href="../../../hi/tools/local-seo-checklist/index.html">लोकल SEO चेकलिस्ट</a></li>
+          <li><a href="../../../hi/tools/review-reply-generator/index.html">रिव्यू रिप्लाई जेनरेटर</a></li>
+          <li><a href="../../../hi/tools/review-request-generator/index.html">रिव्यू रिक्वेस्ट जेनरेटर</a></li>
+          <li><a href="../../../hi/tools/description-generator/index.html">डिस्क्रिप्शन जेनरेटर</a></li>
+          <li><a href="../../../hi/tools/qr-generator/index.html">रिव्यू QR जेनरेटर</a></li>
+          <li><a href="../../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a></li>
+          <li><a href="../../../hi/tools/index.html">सभी फ्री टूल्स</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>गाइड्स</h4>
+        <ul>
+          <li><a href="../../../hi/google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../../hi/google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../../hi/google-reviews/index.html">Google रिव्यू</a></li>
+          <li><a href="../../../hi/local-seo/index.html">लोकल SEO</a></li>
+          <li><a href="../../../hi/business-growth/index.html">बिज़नेस ग्रोथ</a></li>
+          <li><a href="../../../hi/businesses/index.html">उद्योग</a></li>
+          <li><a href="../../../hi/cities/index.html">शहर</a></li>
+          <li><a href="../../../hi/blog/index.html">ब्लॉग</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="../../../hi/about/index.html">हमारे बारे में</a></li>
+          <li><a href="../../../hi/contact/index.html">संपर्क</a></li>
+          <li><a href="../../../hi/features/index.html">फ़ीचर्स</a></li>
+          <li><a href="../../../hi/help/index.html">हेल्प सेंटर</a></li>
+          <li><a href="../../../hi/changelog/index.html">चेंजलॉग</a></li>
+          <li><a href="../../../hi/status/index.html">सिस्टम स्टेटस</a></li>
+          <li><a href="../../../hi/security/index.html">सुरक्षा</a></li>
+          <li><a href="../../../hi/bug-report/index.html">बग रिपोर्ट करें</a></li>
+          <li><a href="../../../hi/search/index.html">खोजें</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कानूनी</h4>
+        <ul>
+          <li><a href="../../../hi/privacy/index.html">प्राइवेसी पॉलिसी</a></li>
+          <li><a href="../../../hi/terms/index.html">सेवा की शर्तें</a></li>
+          <li><a href="../../../hi/disclaimer/index.html">डिस्क्लेमर</a></li>
+          <li><a href="../../../hi/compliance/index.html">Google अनुपालन</a></li>
+          <li><a href="../../../hi/refund-policy/index.html">रिफ़ंड पॉलिसी</a></li>
+          <li><a href="../../../hi/cookie-policy/index.html">कुकी पॉलिसी</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">कुकी सेटिंग्स</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost एक स्वतंत्र प्रोडक्ट है। इसका Google LLC से कोई संबंध नहीं है और Google ने इसे न प्रायोजित किया है, न समर्थन दिया है। Google, Google Maps और Google Business Profile, Google LLC के ट्रेडमार्क हैं।</p>
+      <p>&copy; 2026 LocalBoost. सर्वाधिकार सुरक्षित।</p>
+    </div>
+  </div>
+</footer>
+<!-- /lb:footer -->
+
+<script src="../../../assets/localboost-api-config.js"></script>
+<script src="../../../assets/consent.js" defer></script>
+<script src="../../../assets/site.js" defer></script>
+</body>
+</html>

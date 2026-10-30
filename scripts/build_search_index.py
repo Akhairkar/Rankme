@@ -5,7 +5,8 @@ from site_lib import *
 
 CATS = [("tools/", "tools"), ("businesses/", "businesses"), ("cities/", "cities"), ("blog/", "blog"),
         ("google-business-profile/", "guides"), ("google-maps-seo/", "guides"), ("google-reviews/", "guides"),
-        ("local-seo/", "guides"), ("business-growth/", "guides")]
+        ("local-seo/", "guides"), ("business-growth/", "guides"),
+        ("features/", "guides"), ("help/", "guides")]
 
 def category(f):
     p = f[3:] if f.startswith("hi/") else f

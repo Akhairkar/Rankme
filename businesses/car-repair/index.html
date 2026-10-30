@@ -130,18 +130,33 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta property="og:site_name" content="LocalBoost">
 <link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/public-shell.css">
+<script src="../../assets/theme.js"></script>
 </head>
 <body>
 
-<header>
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
   <div class="nav-inner">
-    <a href="../../index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
-    <div class="nav-right">
-      <a class="lang-switch" href="../../hi/businesses/car-repair/index.html" aria-label="हिंदी में देखें">EN · हिं</a>
-      <a href="../../check/index.html" class="nav-cta">Free Visibility Audit</a>
+    <a href="../../index.html" class="logo" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../../tools/index.html">Tools</a>
+      <a href="../../businesses/index.html">Industries</a>
+      <a href="../../cities/index.html">Cities</a>
+      <a href="../../google-business-profile/index.html">Guides</a>
+      <a href="../../blog/index.html">Blog</a>
+      <a href="../../pricing/index.html">Pricing</a>
+      <a href="../../search/index.html" class="lb-nav-search" aria-label="Search website"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../hi/businesses/car-repair/index.html" hreflang="hi" lang="hi" aria-label="View this page in Hindi">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="Toggle dark mode" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../check/index.html" class="nav-cta">Free Audit</a>
     </div>
   </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
 </header>
+<!-- /lb:header -->
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="../../index.html">Home</a><span>/</span>
@@ -228,12 +243,85 @@
   </div>
 </main>
 
-<footer>
-  <div class="disclaimer-box">
-    <strong>Educational Notice:</strong> LocalBoost provides independent local SEO best practices for small businesses across India. We are not affiliated with Google LLC.
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../index.html" class="lb-footer-brand" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">Honest local SEO for Indian businesses: real data, clear fixes, no ranking promises.</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="../../how-it-works/index.html">How it works</a></li>
+          <li><a href="../../pricing/index.html">Pricing</a></li>
+          <li><a href="../../pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../waitlist/index.html">Join the waitlist</a></li>
+          <li><a href="../../check/index.html">Free visibility check</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="../../audit/index.html">Business audit</a></li>
+          <li><a href="../../tools/local-seo-checklist/index.html">Local SEO checklist</a></li>
+          <li><a href="../../tools/review-reply-generator/index.html">Review reply generator</a></li>
+          <li><a href="../../tools/review-request-generator/index.html">Review request generator</a></li>
+          <li><a href="../../tools/description-generator/index.html">Description generator</a></li>
+          <li><a href="../../tools/qr-generator/index.html">Review QR generator</a></li>
+          <li><a href="../../tools/rank-grid-simulator/index.html">Rank grid simulator</a></li>
+          <li><a href="../../tools/index.html">All free tools</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../../google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../google-reviews/index.html">Google reviews</a></li>
+          <li><a href="../../local-seo/index.html">Local SEO</a></li>
+          <li><a href="../../business-growth/index.html">Business growth</a></li>
+          <li><a href="../../businesses/index.html">Industries</a></li>
+          <li><a href="../../cities/index.html">Cities</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/index.html">About</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../help/index.html">Help Center</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+          <li><a href="../../status/index.html">System status</a></li>
+          <li><a href="../../security/index.html">Security</a></li>
+          <li><a href="../../bug-report/index.html">Report a bug</a></li>
+          <li><a href="../../search/index.html">Search</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../../privacy/index.html">Privacy policy</a></li>
+          <li><a href="../../terms/index.html">Terms of service</a></li>
+          <li><a href="../../disclaimer/index.html">Disclaimer</a></li>
+          <li><a href="../../compliance/index.html">Google compliance</a></li>
+          <li><a href="../../refund-policy/index.html">Refund policy</a></li>
+          <li><a href="../../cookie-policy/index.html">Cookie policy</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">Cookie settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost is an independent product and is not affiliated with, endorsed by or sponsored by Google LLC. Google, Google Maps and Google Business Profile are trademarks of Google LLC.</p>
+      <p>&copy; 2026 LocalBoost. All rights reserved.</p>
+    </div>
   </div>
-  <div class="footer-bottom">© 2026 LocalBoost. All rights reserved.</div>
 </footer>
+<!-- /lb:footer -->
 
 <script src="../../assets/consent.js" defer></script>
 <script src="../../assets/site.js" defer></script>

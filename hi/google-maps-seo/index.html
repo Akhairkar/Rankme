@@ -137,18 +137,33 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:site_name" content="LocalBoost">
 <link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/public-shell.css">
+<script src="../../assets/theme.js"></script>
 </head>
 <body>
 
-<header>
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
   <div class="nav-inner">
-    <a href="../../hi/index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
-    <div class="nav-right">
-      <a class="lang-switch" href="../../google-maps-seo/index.html" aria-label="View in English">हिं · EN</a>
-      <a href="../../hi/index.html#hero-form" class="nav-cta">मुफ़्त ऑडिट शुरू करें</a>
+    <a href="../../hi/index.html" class="logo" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="मुख्य नेविगेशन">
+      <a href="../../hi/tools/index.html">टूल्स</a>
+      <a href="../../hi/businesses/index.html">उद्योग</a>
+      <a href="../../hi/cities/index.html">शहर</a>
+      <a href="../../hi/google-business-profile/index.html">गाइड्स</a>
+      <a href="../../hi/blog/index.html">ब्लॉग</a>
+      <a href="../../hi/pricing/index.html">मूल्य</a>
+      <a href="../../hi/search/index.html" class="lb-nav-search" aria-label="वेबसाइट में खोजें"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>खोजें</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../google-maps-seo/index.html" hreflang="en" lang="en" aria-label="View this page in English">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="डार्क मोड बदलें" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../hi/check/index.html" class="nav-cta">फ्री ऑडिट</a>
     </div>
   </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
 </header>
+<!-- /lb:header -->
 
 <nav class="breadcrumb" aria-label="Breadcrumb">
   <a href="../../hi/index.html">होम</a><span>/</span>
@@ -231,12 +246,85 @@
 </div>
 </div>
 </section>
-<footer>
-  <div class="disclaimer-box">
-    <strong>रिज़ल्ट के बारे में एक बात:</strong> Google Maps रैंकिंग कई कारकों पर निर्भर करती है जो Google तय करता है और समय के साथ बदल सकते हैं। यह गाइड किसी नतीजे की गारंटी नहीं देती और Google से संबद्ध या समर्थित नहीं है।
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../hi/index.html" class="lb-footer-brand" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">भारतीय कारोबारों के लिए ईमानदार लोकल SEO: असली डेटा, साफ़ सुझाव, रैंकिंग का कोई वादा नहीं।</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>प्रोडक्ट</h4>
+        <ul>
+          <li><a href="../../hi/how-it-works/index.html">यह कैसे काम करता है</a></li>
+          <li><a href="../../hi/pricing/index.html">मूल्य</a></li>
+          <li><a href="../../hi/pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../hi/waitlist/index.html">वेटलिस्ट में जुड़ें</a></li>
+          <li><a href="../../hi/check/index.html">फ्री विज़िबिलिटी चेक</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>फ्री टूल्स</h4>
+        <ul>
+          <li><a href="../../hi/audit/index.html">बिज़नेस ऑडिट</a></li>
+          <li><a href="../../hi/tools/local-seo-checklist/index.html">लोकल SEO चेकलिस्ट</a></li>
+          <li><a href="../../hi/tools/review-reply-generator/index.html">रिव्यू रिप्लाई जेनरेटर</a></li>
+          <li><a href="../../hi/tools/review-request-generator/index.html">रिव्यू रिक्वेस्ट जेनरेटर</a></li>
+          <li><a href="../../hi/tools/description-generator/index.html">डिस्क्रिप्शन जेनरेटर</a></li>
+          <li><a href="../../hi/tools/qr-generator/index.html">रिव्यू QR जेनरेटर</a></li>
+          <li><a href="../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a></li>
+          <li><a href="../../hi/tools/index.html">सभी फ्री टूल्स</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>गाइड्स</h4>
+        <ul>
+          <li><a href="../../hi/google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../hi/google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../hi/google-reviews/index.html">Google रिव्यू</a></li>
+          <li><a href="../../hi/local-seo/index.html">लोकल SEO</a></li>
+          <li><a href="../../hi/business-growth/index.html">बिज़नेस ग्रोथ</a></li>
+          <li><a href="../../hi/businesses/index.html">उद्योग</a></li>
+          <li><a href="../../hi/cities/index.html">शहर</a></li>
+          <li><a href="../../hi/blog/index.html">ब्लॉग</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="../../hi/about/index.html">हमारे बारे में</a></li>
+          <li><a href="../../hi/contact/index.html">संपर्क</a></li>
+          <li><a href="../../hi/features/index.html">फ़ीचर्स</a></li>
+          <li><a href="../../hi/help/index.html">हेल्प सेंटर</a></li>
+          <li><a href="../../hi/changelog/index.html">चेंजलॉग</a></li>
+          <li><a href="../../hi/status/index.html">सिस्टम स्टेटस</a></li>
+          <li><a href="../../hi/security/index.html">सुरक्षा</a></li>
+          <li><a href="../../hi/bug-report/index.html">बग रिपोर्ट करें</a></li>
+          <li><a href="../../hi/search/index.html">खोजें</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कानूनी</h4>
+        <ul>
+          <li><a href="../../hi/privacy/index.html">प्राइवेसी पॉलिसी</a></li>
+          <li><a href="../../hi/terms/index.html">सेवा की शर्तें</a></li>
+          <li><a href="../../hi/disclaimer/index.html">डिस्क्लेमर</a></li>
+          <li><a href="../../hi/compliance/index.html">Google अनुपालन</a></li>
+          <li><a href="../../hi/refund-policy/index.html">रिफ़ंड पॉलिसी</a></li>
+          <li><a href="../../hi/cookie-policy/index.html">कुकी पॉलिसी</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">कुकी सेटिंग्स</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost एक स्वतंत्र प्रोडक्ट है। इसका Google LLC से कोई संबंध नहीं है और Google ने इसे न प्रायोजित किया है, न समर्थन दिया है। Google, Google Maps और Google Business Profile, Google LLC के ट्रेडमार्क हैं।</p>
+      <p>&copy; 2026 LocalBoost. सर्वाधिकार सुरक्षित।</p>
+    </div>
   </div>
-  <div class="footer-bottom">© 2026 LocalBoost.</div>
 </footer>
+<!-- /lb:footer -->
 
 <script src="../../assets/consent.js" defer></script>
 <script src="../../assets/site.js" defer></script>

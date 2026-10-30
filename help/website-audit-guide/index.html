@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Run and Read a Website Audit | LocalBoost Help</title>
+<meta name="description" content="Run a LocalBoost website audit and read the results: what is crawled, severity, evidence, marking findings fixed, comparing audits and exporting CSV.">
+<link rel="canonical" href="https://www.localboost.in/help/website-audit-guide/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/help/website-audit-guide/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/help/website-audit-guide/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/help/website-audit-guide/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.localboost.in/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Help Center",
+   "item": "https://www.localboost.in/help/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Website audit guide",
+   "item": "https://www.localboost.in/help/website-audit-guide/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Website audit guide",
+ "description": "Run a LocalBoost website audit and read the results: what is crawled, severity, evidence, marking findings fixed, comparing audits and exporting CSV.",
+ "inLanguage": "en",
+ "datePublished": "2026-10-30",
+ "dateModified": "2026-10-30",
+ "mainEntityOfPage": "https://www.localboost.in/help/website-audit-guide/",
+ "image": "https://www.localboost.in/assets/og-image.png",
+ "author": {
+  "@type": "Organization",
+  "name": "LocalBoost",
+  "url": "https://www.localboost.in/"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "LocalBoost",
+  "url": "https://www.localboost.in/"
+ }
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How many pages does the audit check?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The free checker reads one page. Paid plans crawl more, up to a plan limit and a hard maximum set by the service."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why did my audit say partial?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Some checks could not be read, for example because a page was blocked. Those are excluded from the score."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I audit a competitor?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Only public pages can be read, but the tool is designed for your own website and we do not recommend scanning sites you do not manage."
+   }
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--warn-bg:#FFF4E5;--warn-bd:#F2C48D;--warn-tx:#7A4A0E;--font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}}
+:root[data-theme="dark"]{--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg-base,#FAF9F6);color:var(--text-primary,#1E1E1E);line-height:1.7;overflow-x:hidden;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 56px}
+.crumbs{font-size:13px;color:var(--text-secondary,#5A5A54);padding:22px 0 4px}
+.crumbs a{text-decoration:underline;text-underline-offset:2px}
+.kicker{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-600,#0F766E);background:var(--primary-100,#E0F5F2);padding:4px 12px;border-radius:999px;margin-top:10px}
+h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.2;margin:12px 0 10px}
+h2{font-size:clamp(20px,3.6vw,25px);font-weight:800;line-height:1.3;margin:36px 0 10px}
+h3{font-size:17px;font-weight:800;margin:20px 0 6px}
+.lede{font-size:18px;color:var(--text-secondary,#5A5A54);margin-bottom:14px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:6px}
+main p a,main li a,.faq a,main td a{color:var(--primary-600,#0F766E);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+code{background:var(--bg-muted,#F0EEE9);padding:1px 6px;border-radius:5px;font-size:.92em}
+.status{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx);border-radius:12px;padding:14px 16px;margin:16px 0;font-size:15px}
+.status strong{display:block;margin-bottom:2px}
+.status.ok{background:var(--primary-100,#E0F5F2);border-color:var(--primary-500,#14968C);color:var(--text-primary)}
+.fig{margin:22px 0;background:#fff;color:#1E1E1E;border:1px solid var(--border,#E2E0D9);border-radius:14px;padding:14px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.fig figcaption{font-size:13px;color:#5A5A54;margin-top:6px}
+.tbl{overflow-x:auto;margin:14px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px;background:var(--bg-surface,#fff);font-size:14.5px}
+th,td{border:1px solid var(--border,#E2E0D9);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--bg-muted,#F0EEE9);font-weight:700}
+.faq-item,.box,.card{background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px}
+.faq-item{padding:16px 18px;margin-bottom:10px}
+.faq-q{font-size:16px;font-weight:700;margin-bottom:4px}
+.faq-a{font-size:15px;color:var(--text-secondary,#5A5A54)}
+.faq-a p{margin:0}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:10px 0 20px}
+.rel a{display:block;background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;color:var(--primary-600,#0F766E)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.card{padding:16px 18px;border-radius:14px}
+.card h3{margin-top:0}
+.card p{font-size:14.5px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.card a.go{font-weight:700;color:var(--primary-600,#0F766E);font-size:14.5px}
+.tag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--bg-muted,#F0EEE9);color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.tag.live{background:var(--primary-100,#E0F5F2);color:var(--primary-600,#0F766E)}
+.tag.soon{background:var(--warn-bg);color:var(--warn-tx)}
+.btn{display:inline-block;background:var(--primary-600,#0F766E);color:var(--text-on-primary,#fff)!important;font-weight:700;padding:11px 20px;border-radius:9px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none!important}
+.btn.alt{background:transparent;color:var(--primary-600,#0F766E)!important;border:1px solid var(--primary-600,#0F766E)}
+input,textarea,select{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--border-strong,#85837B);border-radius:9px;background:var(--bg-surface,#fff);color:var(--text-primary,#1E1E1E)}
+label{display:block;font-weight:700;font-size:14.5px;margin:12px 0 4px}
+label.chk{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+label.chk input{width:auto;margin-top:5px}
+.note{font-size:13.5px;color:var(--text-secondary,#5A5A54)}
+.updated{font-size:13px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.box{padding:18px 20px;margin:16px 0}
+.sec{margin:40px 0}
+@media print{header,footer,.noprint{display:none!important}body{background:#fff;color:#000}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How to Run and Read a Website Audit | LocalBoost Help">
+<meta property="og:description" content="Run a LocalBoost website audit and read the results: what is crawled, severity, evidence, marking findings fixed, comparing audits and exporting CSV.">
+<meta property="og:url" content="https://www.localboost.in/help/website-audit-guide/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/lb-tokens.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/theme.js"></script>
+<link rel="stylesheet" href="../../assets/public-shell.css">
+</head>
+<body>
+
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="../../index.html" class="logo" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../../tools/index.html">Tools</a>
+      <a href="../../businesses/index.html">Industries</a>
+      <a href="../../cities/index.html">Cities</a>
+      <a href="../../google-business-profile/index.html">Guides</a>
+      <a href="../../blog/index.html">Blog</a>
+      <a href="../../pricing/index.html">Pricing</a>
+      <a href="../../search/index.html" class="lb-nav-search" aria-label="Search website"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../hi/help/website-audit-guide/index.html" hreflang="hi" lang="hi" aria-label="View this page in Hindi">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="Toggle dark mode" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../check/index.html" class="nav-cta">Free Audit</a>
+    </div>
+  </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
+</header>
+<!-- /lb:header -->
+
+<main class="wrap" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Home</a> &rsaquo; <a href="../../help/index.html">Help Center</a> &rsaquo; Website audit guide</nav>
+<span class="kicker">Help Center</span><h1>Website audit guide</h1><p class="lede">Run an audit, read findings, track fixes, compare runs.</p>
+<p class="updated">Last updated 30 October 2026</p><div class="status"><strong>Availability</strong>Parts of this guide describe the signed-in product. They become available when the production API is online. That API is not connected to this website yet, so today only the free tools work without an account. The free single-page checker works today.</div><h2>Before you start</h2>
+<p>You need the full address of your website, including https. The crawler only reads public pages. It cannot see pages behind a login, pages blocked to crawlers, or content that exists only after heavy scripts run. If your site is under construction, finish the basics first.</p>
+<h2>Running an audit</h2>
+<p><strong>Free:</strong> open the <a href="../../tools/website-seo-checker/index.html">website SEO checker</a>, enter your address and start. One page is checked and you see the findings straight away. The checker is limited to a few runs per hour per visitor to protect the service.</p>
+<p><strong>Pro and Agency:</strong> from the dashboard, choose your business and run an audit. Paid plans can crawl several pages up to a plan limit, starting with the home page and following internal links. The crawler reads your robots.txt and sitemap and stays on your site. You can run a limited number of audits each month; the allowance depends on your plan.</p>
+<h2>What the crawler records per page</h2>
+<p>HTTP status, final address after redirects, title, meta description, number of H1 headings, canonical link, robots directive, whether the page can be indexed, word count, images without alt text, internal links, broken links, structured data types and whether a viewport tag exists. Page speed numbers come from Google PageSpeed Insights when it is configured; otherwise speed shows as unavailable.</p>
+<h2>Reading a finding</h2>
+<p>Each finding shows:</p>
+<ul><li><strong>Severity:</strong> high, medium or low, set by documented rules.</li><li><strong>Evidence:</strong> the exact value we saw, for example the title text or the link that returned 404.</li><li><strong>Source:</strong> the page address or data source behind the evidence.</li><li><strong>Why it matters:</strong> the practical impact on visitors or crawlers. We do not claim a finding is a confirmed ranking factor.</li><li><strong>Recommended action and instructions:</strong> steps you can follow or send to your web developer.</li><li><strong>Verification:</strong> verified, provided by you, or unavailable.</li></ul>
+<h2>Working through the list</h2>
+<ol><li>Start with high severity items, such as a page blocked from indexing or a site served without HTTPS.</li><li>Do quick wins next. Each check has a rough effort estimate: about fifteen minutes, about an hour, or half a day or more.</li><li>Mark a finding as <strong>fixed</strong> after you change it, or <strong>ignored</strong> if it does not apply. Ignored items stay visible in the history.</li><li>Re-run the audit. Fixed items should disappear and you can compare the two runs.</li></ol>
+<h2>Comparing audits</h2>
+<p>The compare view lists findings that are new, findings that were fixed and how many are unchanged, with the score change. If either audit had no score, the change is shown as unavailable instead of zero.</p>
+<h2>The 30-day plan and exports</h2>
+<p>The 30-day plan orders open findings by severity and effort so that the first weeks contain the highest-value, lowest-effort work. You can export an audit as CSV to share with a developer. Effort figures are planning estimates, not measurements.</p>
+<h2>When the audit cannot finish</h2>
+<p>The result state can be completed, partial, blocked or unreachable. Blocked means the address was not allowed, for example a private network address. Unreachable means we could not connect. Partial means some checks could not be run; those are left out of the score. Try again later, and check that your site does not block automated visitors.</p>
+<h2>Good practice</h2>
+<ul><li>Fix issues on the live site, not only in a staging copy.</li><li>Change one thing at a time when you can, so you know what helped.</li><li>Remember rankings depend on more than the website: proximity, relevance, reviews and competition.</li></ul><section class="sec faq"><h2>Frequently asked questions</h2><div class="faq-item"><div class="faq-q">How many pages does the audit check?</div><div class="faq-a">The free checker reads one page. Paid plans crawl more, up to a plan limit and a hard maximum set by the service.</div></div><div class="faq-item"><div class="faq-q">Why did my audit say partial?</div><div class="faq-a">Some checks could not be read, for example because a page was blocked. Those are excluded from the score.</div></div><div class="faq-item"><div class="faq-q">Can I audit a competitor?</div><div class="faq-a">Only public pages can be read, but the tool is designed for your own website and we do not recommend scanning sites you do not manage.</div></div></section><section class="sec"><h2>Related</h2><div class="rel"><a href="../../help/understanding-your-audit-score/index.html">Understanding your audit score</a><a href="../../features/website-audit/index.html">Website audit feature</a><a href="../../tools/website-seo-checker/index.html">Free website SEO checker</a></div></section><p class="note">Still stuck? Email support@localboost.in with the page URL and what you expected.</p>
+
+</main>
+
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../index.html" class="lb-footer-brand" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">Honest local SEO for Indian businesses: real data, clear fixes, no ranking promises.</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="../../how-it-works/index.html">How it works</a></li>
+          <li><a href="../../pricing/index.html">Pricing</a></li>
+          <li><a href="../../pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../waitlist/index.html">Join the waitlist</a></li>
+          <li><a href="../../check/index.html">Free visibility check</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="../../audit/index.html">Business audit</a></li>
+          <li><a href="../../tools/local-seo-checklist/index.html">Local SEO checklist</a></li>
+          <li><a href="../../tools/review-reply-generator/index.html">Review reply generator</a></li>
+          <li><a href="../../tools/review-request-generator/index.html">Review request generator</a></li>
+          <li><a href="../../tools/description-generator/index.html">Description generator</a></li>
+          <li><a href="../../tools/qr-generator/index.html">Review QR generator</a></li>
+          <li><a href="../../tools/rank-grid-simulator/index.html">Rank grid simulator</a></li>
+          <li><a href="../../tools/index.html">All free tools</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../../google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../google-reviews/index.html">Google reviews</a></li>
+          <li><a href="../../local-seo/index.html">Local SEO</a></li>
+          <li><a href="../../business-growth/index.html">Business growth</a></li>
+          <li><a href="../../businesses/index.html">Industries</a></li>
+          <li><a href="../../cities/index.html">Cities</a></li>
+          <li><a href="../../blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../about/index.html">About</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+          <li><a href="../../features/index.html">Features</a></li>
+          <li><a href="../../help/index.html">Help Center</a></li>
+          <li><a href="../../changelog/index.html">Changelog</a></li>
+          <li><a href="../../status/index.html">System status</a></li>
+          <li><a href="../../security/index.html">Security</a></li>
+          <li><a href="../../bug-report/index.html">Report a bug</a></li>
+          <li><a href="../../search/index.html">Search</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../../privacy/index.html">Privacy policy</a></li>
+          <li><a href="../../terms/index.html">Terms of service</a></li>
+          <li><a href="../../disclaimer/index.html">Disclaimer</a></li>
+          <li><a href="../../compliance/index.html">Google compliance</a></li>
+          <li><a href="../../refund-policy/index.html">Refund policy</a></li>
+          <li><a href="../../cookie-policy/index.html">Cookie policy</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">Cookie settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost is an independent product and is not affiliated with, endorsed by or sponsored by Google LLC. Google, Google Maps and Google Business Profile are trademarks of Google LLC.</p>
+      <p>&copy; 2026 LocalBoost. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- /lb:footer -->
+
+<script src="../../assets/localboost-api-config.js"></script>
+<script src="../../assets/consent.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

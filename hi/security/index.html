@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सुरक्षा और भरोसा | LocalBoost</title>
+<meta name="description" content="LocalBoost अकाउंट और डेटा कैसे सुरक्षित रखता है, आज कोड में कौन से नियंत्रण मौजूद हैं, हमने क्या नहीं किया है, और कमज़ोरी की ज़िम्मेदारी से रिपोर्ट कैसे करें।">
+<link rel="canonical" href="https://www.localboost.in/hi/security/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/security/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/security/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/security/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "होम",
+   "item": "https://www.localboost.in/hi/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "सुरक्षा",
+   "item": "https://www.localboost.in/hi/security/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "सुरक्षा और भरोसा",
+ "description": "LocalBoost अकाउंट और डेटा कैसे सुरक्षित रखता है, आज कोड में कौन से नियंत्रण मौजूद हैं, हमने क्या नहीं किया है, और कमज़ोरी की ज़िम्मेदारी से रिपोर्ट कैसे करें।",
+ "inLanguage": "hi",
+ "url": "https://www.localboost.in/hi/security/",
+ "dateModified": "2026-10-30"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "क्या LocalBoost SOC 2 या ISO प्रमाणित है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "नहीं। हमारे पास ऐसा कोई प्रमाणपत्र नहीं है और हम ऐसा दावा नहीं करते। यह पेज वे नियंत्रण बताता है जो हमारे कोड में हैं।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या आप मेरा Google पासवर्ड सहेजते हैं?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "नहीं। साइन-इन Google से होता है, इसलिए हम आपका पासवर्ड कभी नहीं देखते।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "कमज़ोरी की रिपोर्ट कहाँ करूँ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "विषय Security के साथ support@localboost.in पर ईमेल करें। ऊपर के खुलासे के नियम देखें।"
+   }
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--warn-bg:#FFF4E5;--warn-bd:#F2C48D;--warn-tx:#7A4A0E;--font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}}
+:root[data-theme="dark"]{--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg-base,#FAF9F6);color:var(--text-primary,#1E1E1E);line-height:1.7;overflow-x:hidden;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 56px}
+.crumbs{font-size:13px;color:var(--text-secondary,#5A5A54);padding:22px 0 4px}
+.crumbs a{text-decoration:underline;text-underline-offset:2px}
+.kicker{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-600,#0F766E);background:var(--primary-100,#E0F5F2);padding:4px 12px;border-radius:999px;margin-top:10px}
+h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.2;margin:12px 0 10px}
+h2{font-size:clamp(20px,3.6vw,25px);font-weight:800;line-height:1.3;margin:36px 0 10px}
+h3{font-size:17px;font-weight:800;margin:20px 0 6px}
+.lede{font-size:18px;color:var(--text-secondary,#5A5A54);margin-bottom:14px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:6px}
+main p a,main li a,.faq a,main td a{color:var(--primary-600,#0F766E);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+code{background:var(--bg-muted,#F0EEE9);padding:1px 6px;border-radius:5px;font-size:.92em}
+.status{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx);border-radius:12px;padding:14px 16px;margin:16px 0;font-size:15px}
+.status strong{display:block;margin-bottom:2px}
+.status.ok{background:var(--primary-100,#E0F5F2);border-color:var(--primary-500,#14968C);color:var(--text-primary)}
+.fig{margin:22px 0;background:#fff;color:#1E1E1E;border:1px solid var(--border,#E2E0D9);border-radius:14px;padding:14px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.fig figcaption{font-size:13px;color:#5A5A54;margin-top:6px}
+.tbl{overflow-x:auto;margin:14px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px;background:var(--bg-surface,#fff);font-size:14.5px}
+th,td{border:1px solid var(--border,#E2E0D9);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--bg-muted,#F0EEE9);font-weight:700}
+.faq-item,.box,.card{background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px}
+.faq-item{padding:16px 18px;margin-bottom:10px}
+.faq-q{font-size:16px;font-weight:700;margin-bottom:4px}
+.faq-a{font-size:15px;color:var(--text-secondary,#5A5A54)}
+.faq-a p{margin:0}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:10px 0 20px}
+.rel a{display:block;background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;color:var(--primary-600,#0F766E)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.card{padding:16px 18px;border-radius:14px}
+.card h3{margin-top:0}
+.card p{font-size:14.5px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.card a.go{font-weight:700;color:var(--primary-600,#0F766E);font-size:14.5px}
+.tag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--bg-muted,#F0EEE9);color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.tag.live{background:var(--primary-100,#E0F5F2);color:var(--primary-600,#0F766E)}
+.tag.soon{background:var(--warn-bg);color:var(--warn-tx)}
+.btn{display:inline-block;background:var(--primary-600,#0F766E);color:var(--text-on-primary,#fff)!important;font-weight:700;padding:11px 20px;border-radius:9px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none!important}
+.btn.alt{background:transparent;color:var(--primary-600,#0F766E)!important;border:1px solid var(--primary-600,#0F766E)}
+input,textarea,select{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--border-strong,#85837B);border-radius:9px;background:var(--bg-surface,#fff);color:var(--text-primary,#1E1E1E)}
+label{display:block;font-weight:700;font-size:14.5px;margin:12px 0 4px}
+label.chk{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+label.chk input{width:auto;margin-top:5px}
+.note{font-size:13.5px;color:var(--text-secondary,#5A5A54)}
+.updated{font-size:13px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.box{padding:18px 20px;margin:16px 0}
+.sec{margin:40px 0}
+@media print{header,footer,.noprint{display:none!important}body{background:#fff;color:#000}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="सुरक्षा और भरोसा | LocalBoost">
+<meta property="og:description" content="LocalBoost अकाउंट और डेटा कैसे सुरक्षित रखता है, आज कोड में कौन से नियंत्रण मौजूद हैं, हमने क्या नहीं किया है, और कमज़ोरी की ज़िम्मेदारी से रिपोर्ट कैसे करें।">
+<meta property="og:url" content="https://www.localboost.in/hi/security/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/lb-tokens.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/theme.js"></script>
+<link rel="stylesheet" href="../../assets/public-shell.css">
+</head>
+<body>
+
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="../../hi/index.html" class="logo" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="मुख्य नेविगेशन">
+      <a href="../../hi/tools/index.html">टूल्स</a>
+      <a href="../../hi/businesses/index.html">उद्योग</a>
+      <a href="../../hi/cities/index.html">शहर</a>
+      <a href="../../hi/google-business-profile/index.html">गाइड्स</a>
+      <a href="../../hi/blog/index.html">ब्लॉग</a>
+      <a href="../../hi/pricing/index.html">मूल्य</a>
+      <a href="../../hi/search/index.html" class="lb-nav-search" aria-label="वेबसाइट में खोजें"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>खोजें</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../security/index.html" hreflang="en" lang="en" aria-label="View this page in English">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="डार्क मोड बदलें" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../hi/check/index.html" class="nav-cta">फ्री ऑडिट</a>
+    </div>
+  </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
+</header>
+<!-- /lb:header -->
+
+<main class="wrap" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../hi/index.html">होम</a> &rsaquo; सुरक्षा</nav>
+<span class="kicker">सुरक्षा</span><h1>सुरक्षा और भरोसा</h1><p class="lede">हम सिर्फ़ वे नियंत्रण बताते हैं जो हमारे कोड और कॉन्फ़िगरेशन में हैं, और साफ़ कहते हैं कि क्या अभी नहीं हुआ। यह पेज कोई प्रमाणपत्र नहीं है और ऐसा कोई दावा नहीं करता।</p>
+<p class="updated">आखिरी अपडेट 30 अक्टूबर 2026</p><div class="status"><strong>स्थिति</strong>साइन-इन वाला प्रोडक्ट बना और लोकल जाँचा गया है, पर इस वेबसाइट से अभी जुड़ा नहीं है। नीचे के नियंत्रण बैकएंड कोड के बारे में हैं। किसी स्वतंत्र पक्ष ने इनका ऑडिट नहीं किया है।</div><h2>साइन-इन कैसे काम करता है</h2>
+<p>LocalBoost सिर्फ़ Google साइन-इन इस्तेमाल करता है। अंदाज़ा लगाने, दोबारा इस्तेमाल करने या लीक होने वाला कोई LocalBoost पासवर्ड नहीं है। साइन-इन के बाद सर्वर <code>lb_session</code> नाम की कुकी में एक यादृच्छिक सेशन पहचान देता है जो <strong>HttpOnly</strong>, <strong>Secure</strong> और <strong>SameSite=Lax</strong> है, यानी पेज की स्क्रिप्ट उसे पढ़ नहीं सकती और ब्राउज़र उसे क्रॉस-साइट अनुरोधों पर नहीं भेजते। सर्वर पहचान का सिर्फ़ SHA-256 हैश रखता है, इसलिए डेटाबेस की कॉपी में काम के सेशन मान नहीं होते। सेशन सर्वर द्वारा तय समय पर समाप्त होते हैं, समाप्त पंक्तियाँ हर घंटे हटाई जाती हैं, और आप सारे सेशन एक साथ रद्द कर सकते हैं। अकाउंट हटाने या टीम सदस्य हटाने जैसी संवेदनशील कार्रवाइयों के लिए हाल का साइन-इन ज़रूरी है।</p>
+<h2>Google पहुँच की सुरक्षा</h2>
+<ul><li><strong>एन्क्रिप्टेड रिफ़्रेश टोकन।</strong> Google का लंबे समय वाला रिफ़्रेश टोकन सहेजने से पहले सर्वर सीक्रेट में रखी कुंजी से AES-GCM में एन्क्रिप्ट होता है। सिफ़रटेक्स्ट हर API जवाब और आपके डेटा निर्यात से बाहर रहता है।</li><li><strong>डिफ़ॉल्ट रूप से सिर्फ़-पढ़ना।</strong> आपकी प्रोफ़ाइल का डेटा पढ़ना डिफ़ॉल्ट है। Google में कुछ लिखने वाली कोई भी कार्रवाई, जैसे रिव्यू जवाब पोस्ट करना, तभी चलती है जब अनुरोध में साफ़ पुष्टि हो; वरना सर्वर मना कर देता है।</li><li><strong>क्रमिक अनुमतियाँ।</strong> Search Console अलग से माँगा जाता है, सिर्फ़-पढ़ने वाला, और तभी जब आप उसे जोड़ना चुनें।</li><li><strong>रद्द करना।</strong> डिस्कनेक्ट करने पर Google पर टोकन रद्द होता है और सहेजा कनेक्शन हट जाता है।</li></ul>
+<h2>अनुरोधों की सुरक्षा</h2>
+<ul><li><strong>Origin जाँच।</strong> स्थिति बदलने वाले अनुरोध अनुमत origin से आने चाहिए, वरना अस्वीकार होते हैं। SameSite कुकी के साथ यह क्रॉस-साइट अनुरोध जालसाज़ी रोकता है। बदलाव JSON POST होते हैं, कभी GET नहीं।</li><li><strong>CORS अनुमति-सूची।</strong> क्रॉस-ओरिजिन पहुँच सिर्फ़ LocalBoost के origin को, क्रेडेंशियल के साथ, दी जाती है।</li><li><strong>रेट लिमिट जो बंद होकर फ़ेल होती हैं।</strong> सार्वजनिक और साइन-इन रूट पर प्रति IP या प्रति उपयोगकर्ता सीमाएँ हैं। अगर लिमिटर या उसका डेटाबेस उपलब्ध न हो, तो अनुरोध बिना सीमा के जाने देने की जगह अस्वीकार होता है।</li><li><strong>बॉडी आकार की सीमा और अनुरोध पहचान।</strong> बहुत बड़ी बॉडी अस्वीकार होती हैं, और हर अनुरोध को पहचान मिलती है ताकि हम निजी सामग्री लॉग किए बिना गड़बड़ी खोज सकें।</li><li><strong>बाउंड पैरामीटर।</strong> डेटाबेस क्वेरी बाउंड पैरामीटर इस्तेमाल करती हैं। स्प्रेडशीट निर्यात फ़ॉर्मूला अक्षर से शुरू होने वाले सेल को निष्क्रिय करते हैं, और सहेजा टेक्स्ट डेटा के रूप में लौटता है जिसे पेज को एस्केप करना होता है।</li><li><strong>सुरक्षा हेडर।</strong> साइट की हेडर कॉन्फ़िगरेशन <code>X-Content-Type-Options: nosniff</code>, <code>X-Frame-Options: SAMEORIGIN</code>, सख़्त रेफ़रर नीति और HTTP Strict Transport Security तय करती है, जो साइट डिप्लॉय होने पर लागू होती है।</li></ul>
+<h2>वेबसाइट क्रॉलर की सुरक्षा</h2>
+<p>ऑडिट क्रॉलर विज़िटर द्वारा डाले पते खोलता है, जो एक जाना-माना जोखिम है। वह निजी, लूपबैक, लिंक-लोकल और अन्य आरक्षित पता सीमाएँ रोकता है, दशमलव या हेक्स रूप जैसी तरकीबों समेत, हर रीडायरेक्ट और हर जाँचे लिंक को दोबारा जाँचता है, रीडायरेक्ट, गहराई, पेज और रिस्पॉन्स का आकार सीमित रखता है, robots.txt मानता है और प्रति विज़िटर रेट लिमिट रखता है। आंतरिक पतों तक पहुँचने की कोशिश करने वाले टेस्ट भी इन्हीं नियमों पर चलते हैं।</p>
+<h2>आपका डेटा आपका रहता है</h2>
+<ul><li><strong>टेनेंट अलगाव।</strong> साइन-इन रूट की हर क्वेरी की शर्त में मालिक शामिल होता है। दूसरे ग्राहक का रिकॉर्ड "forbidden" की जगह "नहीं मिला" लौटाता है, ताकि पहचान की जाँच न हो सके। टेस्ट जाँचते हैं कि एक उपयोगकर्ता दूसरे का डेटा पढ़ या बदल नहीं सकता।</li><li><strong>टीम रोल।</strong> वर्कस्पेस में मालिक, एडमिन, मैनेजर, एनालिस्ट और क्लाइंट रोल सर्वर पर जाँचे जाते हैं, और टीम बदलावों का लॉग रखा जाता है।</li><li><strong>निर्यात और हटाना।</strong> आप अपना डेटा डाउनलोड कर सकते हैं और अकाउंट हटा सकते हैं; देखें <a href="../../hi/help/data-export-and-deletion/index.html">डेटा निर्यात और हटाना</a>।</li><li><strong>थोड़े समय वाली Google सामग्री।</strong> कैश किया Google रिव्यू टेक्स्ट और प्रोफ़ाइल ब्योरा तय समय पर समाप्त होता है और डिस्कनेक्ट पर हट जाता है।</li></ul>
+<h2>पेमेंट</h2>
+<p>पेमेंट Razorpay संभालता है। हमें कार्ड नंबर नहीं मिलते और हम उन्हें सहेजते नहीं। प्लान चालू करने से पहले हम सर्वर पर पेमेंट सिग्नेचर जाँचते हैं, वेबहुक सिग्नेचर constant-time तुलना से जाँचते हैं और हर इवेंट सिर्फ़ एक बार प्रोसेस करते हैं। पेड प्लान अभी लाइव नहीं हैं।</p>
+<h2>एनालिटिक्स और प्राइवेसी</h2>
+<p>एनालिटिक्स फर्स्ट-पार्टी हैं, कुकी बैनर स्वीकार करने के बाद ही चलते हैं, तय इवेंट सूची इस्तेमाल करते हैं और IP पता, यूज़र एजेंट या खुला टेक्स्ट नहीं सहेजते। देखें <a href="../../hi/cookie-policy/index.html">कुकी पॉलिसी</a> और <a href="../../hi/help/privacy-faq/index.html">प्राइवेसी FAQ</a>।</p>
+<h2>सीक्रेट और संचालन</h2>
+<p>सीक्रेट सर्वर सीक्रेट के रूप में रखे जाते हैं, रिपॉज़िटरी, लॉग या API जवाबों में नहीं। एडमिन टोकन constant-time में तुलना होता है और सेट न होने पर एडमिन रूट "नहीं मिला" कहते हैं। स्वचालित टेस्ट बैकएंड के सुरक्षा नियम जाँचते हैं। होस्टिंग Cloudflare Pages और Workers पर SQLite-संगत डेटाबेस के साथ है।</p>
+<h2>जो हमने नहीं किया</h2>
+<ul><li>कोई स्वतंत्र पेनिट्रेशन टेस्ट या कोड ऑडिट नहीं हुआ।</li><li>हमारे पास SOC 2, ISO 27001 या ऐसा कोई प्रमाणपत्र नहीं है, और हम किसी ऐसे मानक के अनुपालन का दावा नहीं करते।</li><li>हमारा कोई बग बाउंटी कार्यक्रम नहीं है।</li><li>बैकएंड लोकल टेस्ट डेटाबेस और नकली (mock) सेवाओं पर चला है, असली प्रोडक्शन Google या पेमेंट अकाउंट पर नहीं।</li><li>हमने ब्राउज़र-साइड हर नियंत्रण की औपचारिक समीक्षा नहीं की है। साइट थर्ड-पार्टी Google Fonts और, पेमेंट के लिए, Razorpay का चेकआउट इस्तेमाल करती है।</li></ul>
+<h2>कमज़ोरी की रिपोर्ट करें</h2>
+<p>अगर आपको लगे कि कोई सुरक्षा समस्या मिली है, तो विषय "Security" के साथ <strong>support@localboost.in</strong> पर ईमेल करें। क्या मिला, उसे दोहराने के चरण और प्रभावित पता लिखें। हम पाँच कार्य-दिवस में पावती देने का प्रयास करते हैं और बताएँगे कि हमने क्या तय किया। ब्योरा हमारी <a href="../../.well-known/security.txt">security.txt</a> फ़ाइल में भी है।</p>
+<p>कृपया ये नियम मानें:</p>
+<ol><li>जो डेटा आपका नहीं है उसे न खोलें, बदलें या हटाएँ, और समस्या दिखाते ही रुक जाएँ।</li><li>हम पर या हमारे उपयोगकर्ताओं पर डिनायल-ऑफ़-सर्विस टेस्ट, बड़े पैमाने के स्कैन या सोशल इंजीनियरिंग न करें।</li><li>सार्वजनिक करने से पहले हमें ठीक करने के लिए उचित समय दें।</li></ol>
+<p>इन नियमों का पालन करने वाले नेक-नीयत शोध पर हम कार्रवाई करने का इरादा नहीं रखते। हम रिपोर्ट के लिए भुगतान नहीं दे सकते।</p>
+<h2>अन्य समस्याएँ</h2>
+<p>सामान्य बग के लिए <a href="../../hi/bug-report/index.html">बग रिपोर्ट फ़ॉर्म</a> इस्तेमाल करें। किसी भी रिपोर्ट में सीक्रेट, पासवर्ड या व्यक्तिगत डेटा न भेजें।</p><section class="sec faq"><h2>अक्सर पूछे जाने वाले सवाल</h2><div class="faq-item"><div class="faq-q">क्या LocalBoost SOC 2 या ISO प्रमाणित है?</div><div class="faq-a">नहीं। हमारे पास ऐसा कोई प्रमाणपत्र नहीं है और हम ऐसा दावा नहीं करते। यह पेज वे नियंत्रण बताता है जो हमारे कोड में हैं।</div></div><div class="faq-item"><div class="faq-q">क्या आप मेरा Google पासवर्ड सहेजते हैं?</div><div class="faq-a">नहीं। साइन-इन Google से होता है, इसलिए हम आपका पासवर्ड कभी नहीं देखते।</div></div><div class="faq-item"><div class="faq-q">कमज़ोरी की रिपोर्ट कहाँ करूँ?</div><div class="faq-a">विषय Security के साथ support@localboost.in पर ईमेल करें। ऊपर के खुलासे के नियम देखें।</div></div></section><section class="sec"><h2>संबंधित</h2><div class="rel"><a href="../../hi/help/privacy-faq/index.html">प्राइवेसी FAQ</a><a href="../../hi/cookie-policy/index.html">कुकी पॉलिसी</a><a href="../../hi/status/index.html">सिस्टम स्थिति</a></div></section>
+
+</main>
+
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../hi/index.html" class="lb-footer-brand" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">भारतीय कारोबारों के लिए ईमानदार लोकल SEO: असली डेटा, साफ़ सुझाव, रैंकिंग का कोई वादा नहीं।</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>प्रोडक्ट</h4>
+        <ul>
+          <li><a href="../../hi/how-it-works/index.html">यह कैसे काम करता है</a></li>
+          <li><a href="../../hi/pricing/index.html">मूल्य</a></li>
+          <li><a href="../../hi/pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../hi/waitlist/index.html">वेटलिस्ट में जुड़ें</a></li>
+          <li><a href="../../hi/check/index.html">फ्री विज़िबिलिटी चेक</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>फ्री टूल्स</h4>
+        <ul>
+          <li><a href="../../hi/audit/index.html">बिज़नेस ऑडिट</a></li>
+          <li><a href="../../hi/tools/local-seo-checklist/index.html">लोकल SEO चेकलिस्ट</a></li>
+          <li><a href="../../hi/tools/review-reply-generator/index.html">रिव्यू रिप्लाई जेनरेटर</a></li>
+          <li><a href="../../hi/tools/review-request-generator/index.html">रिव्यू रिक्वेस्ट जेनरेटर</a></li>
+          <li><a href="../../hi/tools/description-generator/index.html">डिस्क्रिप्शन जेनरेटर</a></li>
+          <li><a href="../../hi/tools/qr-generator/index.html">रिव्यू QR जेनरेटर</a></li>
+          <li><a href="../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a></li>
+          <li><a href="../../hi/tools/index.html">सभी फ्री टूल्स</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>गाइड्स</h4>
+        <ul>
+          <li><a href="../../hi/google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../hi/google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../hi/google-reviews/index.html">Google रिव्यू</a></li>
+          <li><a href="../../hi/local-seo/index.html">लोकल SEO</a></li>
+          <li><a href="../../hi/business-growth/index.html">बिज़नेस ग्रोथ</a></li>
+          <li><a href="../../hi/businesses/index.html">उद्योग</a></li>
+          <li><a href="../../hi/cities/index.html">शहर</a></li>
+          <li><a href="../../hi/blog/index.html">ब्लॉग</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="../../hi/about/index.html">हमारे बारे में</a></li>
+          <li><a href="../../hi/contact/index.html">संपर्क</a></li>
+          <li><a href="../../hi/features/index.html">फ़ीचर्स</a></li>
+          <li><a href="../../hi/help/index.html">हेल्प सेंटर</a></li>
+          <li><a href="../../hi/changelog/index.html">चेंजलॉग</a></li>
+          <li><a href="../../hi/status/index.html">सिस्टम स्टेटस</a></li>
+          <li><a href="../../hi/security/index.html">सुरक्षा</a></li>
+          <li><a href="../../hi/bug-report/index.html">बग रिपोर्ट करें</a></li>
+          <li><a href="../../hi/search/index.html">खोजें</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कानूनी</h4>
+        <ul>
+          <li><a href="../../hi/privacy/index.html">प्राइवेसी पॉलिसी</a></li>
+          <li><a href="../../hi/terms/index.html">सेवा की शर्तें</a></li>
+          <li><a href="../../hi/disclaimer/index.html">डिस्क्लेमर</a></li>
+          <li><a href="../../hi/compliance/index.html">Google अनुपालन</a></li>
+          <li><a href="../../hi/refund-policy/index.html">रिफ़ंड पॉलिसी</a></li>
+          <li><a href="../../hi/cookie-policy/index.html">कुकी पॉलिसी</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">कुकी सेटिंग्स</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost एक स्वतंत्र प्रोडक्ट है। इसका Google LLC से कोई संबंध नहीं है और Google ने इसे न प्रायोजित किया है, न समर्थन दिया है। Google, Google Maps और Google Business Profile, Google LLC के ट्रेडमार्क हैं।</p>
+      <p>&copy; 2026 LocalBoost. सर्वाधिकार सुरक्षित।</p>
+    </div>
+  </div>
+</footer>
+<!-- /lb:footer -->
+
+<script src="../../assets/localboost-api-config.js"></script>
+<script src="../../assets/consent.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

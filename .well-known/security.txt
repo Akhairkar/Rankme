@@ -1,0 +1,5 @@
+Contact: mailto:support@localboost.in
+Expires: 2027-10-30T00:00:00.000Z
+Preferred-Languages: en, hi
+Canonical: https://www.localboost.in/.well-known/security.txt
+Policy: https://www.localboost.in/security/

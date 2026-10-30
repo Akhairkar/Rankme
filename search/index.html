@@ -77,29 +77,33 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/public-shell.css">
+<script src="../assets/theme.js"></script>
 </head>
 <body>
 
-<header>
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
   <div class="nav-inner">
-    <a href="../index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
-    <nav class="nav-links" style="display:flex; align-items:center; gap:20px;">
-      <a href="../tools/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Tools</a>
-      <a href="../businesses/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Industries</a>
-      <a href="../cities/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Cities</a>
-      <a href="../blog/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Blog</a>
-      <a href="../pricing/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Pricing</a>
-      <a href="../search/index.html" style="font-size:14px; font-weight:600; color:var(--text-secondary); display:flex; align-items:center; gap:4px;" aria-label="Search website">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span>Search</span>
-      </a>
+    <a href="../index.html" class="logo" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../tools/index.html">Tools</a>
+      <a href="../businesses/index.html">Industries</a>
+      <a href="../cities/index.html">Cities</a>
+      <a href="../google-business-profile/index.html">Guides</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../pricing/index.html">Pricing</a>
+      <a href="../search/index.html" class="lb-nav-search" aria-label="Search website"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search</span></a>
     </nav>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a class="lang-switch" href="../hi/search/index.html" aria-label="हिंदी में देखें">EN · हिं</a>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../hi/search/index.html" hreflang="hi" lang="hi" aria-label="View this page in Hindi">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="Toggle dark mode" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
       <a href="../check/index.html" class="nav-cta">Free Audit</a>
     </div>
   </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
 </header>
+<!-- /lb:header -->
 
 
 <main class="wrap">
@@ -127,53 +131,85 @@
 </main>
 
 
-<footer>
-  <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:32px; text-align:left; margin-bottom:40px;">
-      <div>
-        <div style="font-weight:800; font-size:16px; margin-bottom:12px; color:var(--text-primary);">LocalBoost</div>
-        <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">The definitive local SEO and Google Maps ranking intelligence platform for Indian businesses.</p>
-        <a href="../contact/index.html" style="font-size:13px; font-weight:700; color:var(--primary-600);">Contact & Support &rarr;</a>
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../index.html" class="lb-footer-brand" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">Honest local SEO for Indian businesses: real data, clear fixes, no ranking promises.</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">Diagnostic Tools</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../tools/index.html">Tools Overview</a></li>
-          <li><a href="../check/index.html">Free Business Audit</a></li>
-          <li><a href="../tools/local-seo-checklist/index.html">Local SEO Checklist</a></li>
-          <li><a href="../tools/description-generator/index.html">Description Generator</a></li>
-          <li><a href="../tools/review-reply-generator/index.html">Review Reply Tool</a></li>
+      <div class="lb-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="../how-it-works/index.html">How it works</a></li>
+          <li><a href="../pricing/index.html">Pricing</a></li>
+          <li><a href="../pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../waitlist/index.html">Join the waitlist</a></li>
+          <li><a href="../check/index.html">Free visibility check</a></li>
         </ul>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">Guides & Metros</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../businesses/index.html">All 18 Industries</a></li>
-          <li><a href="../businesses/salon/index.html">Salon SEO Guide</a></li>
-          <li><a href="../businesses/restaurant/index.html">Restaurant SEO Guide</a></li>
-          <li><a href="../businesses/doctor/index.html">Doctor Clinic SEO</a></li>
-          <li><a href="../cities/index.html">City SEO Hub</a></li>
+      <div class="lb-footer-col">
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="../audit/index.html">Business audit</a></li>
+          <li><a href="../tools/local-seo-checklist/index.html">Local SEO checklist</a></li>
+          <li><a href="../tools/review-reply-generator/index.html">Review reply generator</a></li>
+          <li><a href="../tools/review-request-generator/index.html">Review request generator</a></li>
+          <li><a href="../tools/description-generator/index.html">Description generator</a></li>
+          <li><a href="../tools/qr-generator/index.html">Review QR generator</a></li>
+          <li><a href="../tools/rank-grid-simulator/index.html">Rank grid simulator</a></li>
+          <li><a href="../tools/index.html">All free tools</a></li>
         </ul>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">Platform</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../pricing/index.html">Pricing &amp; Plans</a></li>
-          <li><a href="../blog/index.html">Knowledge Blog</a></li>
-          <li><a href="../compliance/index.html">Google Compliance</a></li>
-          <li><a href="../about/index.html">About Us</a></li>
+      <div class="lb-footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../google-reviews/index.html">Google reviews</a></li>
+          <li><a href="../local-seo/index.html">Local SEO</a></li>
+          <li><a href="../business-growth/index.html">Business growth</a></li>
+          <li><a href="../businesses/index.html">Industries</a></li>
+          <li><a href="../cities/index.html">Cities</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
+          <li><a href="../features/index.html">Features</a></li>
+          <li><a href="../help/index.html">Help Center</a></li>
+          <li><a href="../changelog/index.html">Changelog</a></li>
+          <li><a href="../status/index.html">System status</a></li>
+          <li><a href="../security/index.html">Security</a></li>
+          <li><a href="../bug-report/index.html">Report a bug</a></li>
+          <li><a href="../search/index.html">Search</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy/index.html">Privacy policy</a></li>
+          <li><a href="../terms/index.html">Terms of service</a></li>
           <li><a href="../disclaimer/index.html">Disclaimer</a></li>
-          <li><a href="../privacy/index.html">Privacy Policy</a></li>
-          <li><a href="../terms/index.html">Terms of Service</a></li>
+          <li><a href="../compliance/index.html">Google compliance</a></li>
+          <li><a href="../refund-policy/index.html">Refund policy</a></li>
+          <li><a href="../cookie-policy/index.html">Cookie policy</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">Cookie settings</button></li>
         </ul>
       </div>
     </div>
-    <div style="border-top:1px solid var(--border); padding-top:24px; font-size:12.5px; color:var(--text-secondary); text-align:center;">
-      <p style="margin-bottom:8px;"><strong>Disclaimer:</strong> LocalBoost is an independent local SEO tool. We are not affiliated with or endorsed by Google LLC. Google Maps and Google Business Profile are registered trademarks of Google LLC.</p>
-      <p>© 2026 LocalBoost. All rights reserved.</p>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost is an independent product and is not affiliated with, endorsed by or sponsored by Google LLC. Google, Google Maps and Google Business Profile are trademarks of Google LLC.</p>
+      <p>&copy; 2026 LocalBoost. All rights reserved.</p>
     </div>
   </div>
 </footer>
+<!-- /lb:footer -->
 
 
 <script src="../assets/search-data.js"></script>

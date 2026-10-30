@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>बग रिपोर्ट करें | LocalBoost</title>
+<meta name="description" content="LocalBoost वेबसाइट पर समस्या बताएँ: क्या हुआ, कौन सा पेज, कौन से चरण और आपका ब्राउज़र। हम रिपोर्ट तैयार करके आपका ईमेल ऐप खोलते हैं।">
+<link rel="canonical" href="https://www.localboost.in/hi/bug-report/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/bug-report/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/bug-report/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/bug-report/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "होम",
+   "item": "https://www.localboost.in/hi/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "बग रिपोर्ट",
+   "item": "https://www.localboost.in/hi/bug-report/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "name": "बग रिपोर्ट करें",
+ "description": "LocalBoost वेबसाइट पर समस्या बताएँ: क्या हुआ, कौन सा पेज, कौन से चरण और आपका ब्राउज़र। हम रिपोर्ट तैयार करके आपका ईमेल ऐप खोलते हैं।",
+ "inLanguage": "hi",
+ "url": "https://www.localboost.in/hi/bug-report/",
+ "dateModified": "2026-10-30"
+}
+</script>
+<script type="application/ld+json">
+null
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--warn-bg:#FFF4E5;--warn-bd:#F2C48D;--warn-tx:#7A4A0E;--font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}}
+:root[data-theme="dark"]{--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg-base,#FAF9F6);color:var(--text-primary,#1E1E1E);line-height:1.7;overflow-x:hidden;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 56px}
+.crumbs{font-size:13px;color:var(--text-secondary,#5A5A54);padding:22px 0 4px}
+.crumbs a{text-decoration:underline;text-underline-offset:2px}
+.kicker{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-600,#0F766E);background:var(--primary-100,#E0F5F2);padding:4px 12px;border-radius:999px;margin-top:10px}
+h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.2;margin:12px 0 10px}
+h2{font-size:clamp(20px,3.6vw,25px);font-weight:800;line-height:1.3;margin:36px 0 10px}
+h3{font-size:17px;font-weight:800;margin:20px 0 6px}
+.lede{font-size:18px;color:var(--text-secondary,#5A5A54);margin-bottom:14px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:6px}
+main p a,main li a,.faq a,main td a{color:var(--primary-600,#0F766E);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+code{background:var(--bg-muted,#F0EEE9);padding:1px 6px;border-radius:5px;font-size:.92em}
+.status{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx);border-radius:12px;padding:14px 16px;margin:16px 0;font-size:15px}
+.status strong{display:block;margin-bottom:2px}
+.status.ok{background:var(--primary-100,#E0F5F2);border-color:var(--primary-500,#14968C);color:var(--text-primary)}
+.fig{margin:22px 0;background:#fff;color:#1E1E1E;border:1px solid var(--border,#E2E0D9);border-radius:14px;padding:14px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.fig figcaption{font-size:13px;color:#5A5A54;margin-top:6px}
+.tbl{overflow-x:auto;margin:14px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px;background:var(--bg-surface,#fff);font-size:14.5px}
+th,td{border:1px solid var(--border,#E2E0D9);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--bg-muted,#F0EEE9);font-weight:700}
+.faq-item,.box,.card{background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px}
+.faq-item{padding:16px 18px;margin-bottom:10px}
+.faq-q{font-size:16px;font-weight:700;margin-bottom:4px}
+.faq-a{font-size:15px;color:var(--text-secondary,#5A5A54)}
+.faq-a p{margin:0}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:10px 0 20px}
+.rel a{display:block;background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;color:var(--primary-600,#0F766E)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.card{padding:16px 18px;border-radius:14px}
+.card h3{margin-top:0}
+.card p{font-size:14.5px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.card a.go{font-weight:700;color:var(--primary-600,#0F766E);font-size:14.5px}
+.tag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--bg-muted,#F0EEE9);color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.tag.live{background:var(--primary-100,#E0F5F2);color:var(--primary-600,#0F766E)}
+.tag.soon{background:var(--warn-bg);color:var(--warn-tx)}
+.btn{display:inline-block;background:var(--primary-600,#0F766E);color:var(--text-on-primary,#fff)!important;font-weight:700;padding:11px 20px;border-radius:9px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none!important}
+.btn.alt{background:transparent;color:var(--primary-600,#0F766E)!important;border:1px solid var(--primary-600,#0F766E)}
+input,textarea,select{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--border-strong,#85837B);border-radius:9px;background:var(--bg-surface,#fff);color:var(--text-primary,#1E1E1E)}
+label{display:block;font-weight:700;font-size:14.5px;margin:12px 0 4px}
+label.chk{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+label.chk input{width:auto;margin-top:5px}
+.note{font-size:13.5px;color:var(--text-secondary,#5A5A54)}
+.updated{font-size:13px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.box{padding:18px 20px;margin:16px 0}
+.sec{margin:40px 0}
+@media print{header,footer,.noprint{display:none!important}body{background:#fff;color:#000}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="बग रिपोर्ट करें | LocalBoost">
+<meta property="og:description" content="LocalBoost वेबसाइट पर समस्या बताएँ: क्या हुआ, कौन सा पेज, कौन से चरण और आपका ब्राउज़र। हम रिपोर्ट तैयार करके आपका ईमेल ऐप खोलते हैं।">
+<meta property="og:url" content="https://www.localboost.in/hi/bug-report/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/lb-tokens.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/theme.js"></script>
+<link rel="stylesheet" href="../../assets/public-shell.css">
+</head>
+<body>
+
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="../../hi/index.html" class="logo" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="मुख्य नेविगेशन">
+      <a href="../../hi/tools/index.html">टूल्स</a>
+      <a href="../../hi/businesses/index.html">उद्योग</a>
+      <a href="../../hi/cities/index.html">शहर</a>
+      <a href="../../hi/google-business-profile/index.html">गाइड्स</a>
+      <a href="../../hi/blog/index.html">ब्लॉग</a>
+      <a href="../../hi/pricing/index.html">मूल्य</a>
+      <a href="../../hi/search/index.html" class="lb-nav-search" aria-label="वेबसाइट में खोजें"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>खोजें</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../bug-report/index.html" hreflang="en" lang="en" aria-label="View this page in English">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="डार्क मोड बदलें" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../hi/check/index.html" class="nav-cta">फ्री ऑडिट</a>
+    </div>
+  </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
+</header>
+<!-- /lb:header -->
+
+<main class="wrap" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../hi/index.html">होम</a> &rsaquo; बग रिपोर्ट</nav>
+<span class="kicker">सहायता</span><h1>बग रिपोर्ट करें</h1><p class="lede">वेबसाइट पर कुछ टूटा या ग़लत मिला? हमें बताएँ। नीचे का फ़ॉर्म आपके भेजने के लिए रिपोर्ट तैयार करता है; आपके ईमेल ऐप में "भेजें" दबाने तक कुछ नहीं भेजा जाता।</p>
+<p class="updated">आखिरी अपडेट 30 अक्टूबर 2026</p><form id="bugform" class="box" novalidate><h2 style="margin-top:0">समस्या बताएँ</h2>
+<label for="what">क्या हुआ</label><textarea id="what" name="what" rows="5" maxlength="2000" placeholder="आपने क्या देखा, और आप क्या होने की उम्मीद कर रहे थे?" required></textarea>
+<label for="url">पेज का पता (URL)</label><input id="url" name="url" type="text" maxlength="300" autocomplete="off">
+<label for="steps">दोहराने के चरण</label><textarea id="steps" name="steps" rows="5" maxlength="2000" placeholder="1. मैंने खोला...
+2. मैंने क्लिक किया...
+3. फिर..."></textarea>
+<label for="browser">ब्राउज़र और डिवाइस</label><input id="browser" name="browser" type="text" maxlength="200" autocomplete="off">
+<div id="srvbox"><label for="email">आपका ईमेल (वैकल्पिक)</label><input id="email" name="email" type="email" maxlength="254" autocomplete="email"><p class="note">वैकल्पिक: मेरा ईमेल और छोटा सार सर्वर पर भी भेजें</p><label class="chk"><input type="checkbox" name="consent"><span>मैं सहमत हूँ कि LocalBoost इस रिपोर्ट पर आगे बात करने के लिए मेरा ईमेल और छोटा सार सहेजे। यह वही संपर्क सूची है जो वेटलिस्ट इस्तेमाल करती है।</span></label></div>
+<p style="margin-top:16px"><button class="btn" type="submit">मेरी रिपोर्ट तैयार करें</button></p></form><div id="bugout" class="box" role="status" aria-live="polite" hidden></div><h2>रिपोर्ट करने से पहले</h2>
+<ol><li><a href="../../hi/status/index.html">सिस्टम स्थिति</a> देखें, कहीं सेवा के बंद होने की जानकारी तो नहीं।</li><li>अपनी समस्या के लिए <a href="../../hi/help/index.html">हेल्प सेंटर</a> देखें; कई सवालों के जवाब वहीं हैं।</li><li>पेज एक बार रीलोड करें, और हो सके तो दूसरा ब्राउज़र आज़माएँ।</li></ol>
+<h2>ठीक करने में हमारी क्या मदद होती है</h2>
+<ul><li><strong>क्या हुआ</strong>, आपके अपने शब्दों में, और आप क्या उम्मीद कर रहे थे।</li><li><strong>पेज का पता</strong>, ताकि हम वही पेज खोल सकें। किसी पेज से आने पर यह अपने-आप भर जाता है।</li><li><strong>दोहराने के चरण</strong>: सही क्लिक और जो आपने टाइप किया, क्रम से।</li><li><strong>आपका ब्राउज़र और डिवाइस।</strong> हम आपके ब्राउज़र का विवरण भर देते हैं; आप उसे बदल सकते हैं।</li></ul>
+<p>स्क्रीनशॉट से मदद मिलती है। उसे ईमेल में अटैच करें, निजी जानकारी छिपाकर।</p>
+<h2>क्या न भेजें</h2>
+<p>पासवर्ड, एक बार वाले कोड, कार्ड नंबर, Google टोकन या दूसरों का निजी डेटा कभी न लिखें। सुरक्षा समस्याएँ यहाँ नहीं, <a href="../../hi/security/index.html">सुरक्षा पेज</a> के ज़रिये बताएँ।</p>
+<h2>यह फ़ॉर्म कैसे काम करता है</h2>
+<p>इस पेज के पास बग रिपोर्ट के लिए कोई सर्वर नहीं है। बटन दबाने पर यह रिपोर्ट का टेक्स्ट बनाता है और support@localboost.in के लिए ईमेल लिंक तथा कॉपी बटन देता है। ईमेल आप खुद भेजते हैं, और हमें वह तभी मिलता है जब आप भेजें। उससे पहले हम आपकी रिपोर्ट नहीं देख सकते, और पेज कभी यह नहीं कहेगा कि मिल गई जब ऐसा न हुआ हो।</p>
+<p>अगर LocalBoost API वेबसाइट से जुड़ा हो और आप ईमेल व सहमति भी दें, तो पेज वेटलिस्ट वाले ही एंडपॉइंट से आपका ईमेल और विवरण के पहले 120 अक्षर हमारी संपर्क सूची में सहेज सकता है। वह एंडपॉइंट वेटलिस्ट साइन-अप के लिए बना है, इसलिए आपके चरण, पेज का पता या ब्राउज़र का ब्योरा नहीं रख सकता। ईमेल को ही असली रिपोर्ट मानें।</p>
+<h2>आगे क्या होता है</h2>
+<p>हम हर रिपोर्ट पढ़ते हैं। जवाब देने या ठीक करने की कोई समय-सीमा हम नहीं बता सकते। और ब्योरा चाहिए तो हम उसी ईमेल पर जवाब देते हैं जिससे आपने भेजा। उपयोगकर्ताओं के लिए अहम सुधार <a href="../../hi/changelog/index.html">चेंजलॉग</a> में लिखे जाते हैं।</p>
+<h2>हम तक पहुँचने के और तरीके</h2>
+<p>support@localboost.in पर ईमेल करें। हमारे पास फ़ोन नंबर या चैट नहीं है। फ़ीचर के सवालों के लिए <a href="../../hi/features/index.html">फ़ीचर</a> और बिलिंग के लिए <a href="../../hi/help/billing-and-gst-faq/index.html">बिलिंग FAQ</a> देखें।</p><section class="sec"><h2>संबंधित</h2><div class="rel"><a href="../../hi/status/index.html">सिस्टम स्थिति</a><a href="../../hi/help/index.html">हेल्प सेंटर</a><a href="../../hi/security/index.html">सुरक्षा</a></div></section>
+
+</main>
+
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../hi/index.html" class="lb-footer-brand" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">भारतीय कारोबारों के लिए ईमानदार लोकल SEO: असली डेटा, साफ़ सुझाव, रैंकिंग का कोई वादा नहीं।</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>प्रोडक्ट</h4>
+        <ul>
+          <li><a href="../../hi/how-it-works/index.html">यह कैसे काम करता है</a></li>
+          <li><a href="../../hi/pricing/index.html">मूल्य</a></li>
+          <li><a href="../../hi/pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../hi/waitlist/index.html">वेटलिस्ट में जुड़ें</a></li>
+          <li><a href="../../hi/check/index.html">फ्री विज़िबिलिटी चेक</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>फ्री टूल्स</h4>
+        <ul>
+          <li><a href="../../hi/audit/index.html">बिज़नेस ऑडिट</a></li>
+          <li><a href="../../hi/tools/local-seo-checklist/index.html">लोकल SEO चेकलिस्ट</a></li>
+          <li><a href="../../hi/tools/review-reply-generator/index.html">रिव्यू रिप्लाई जेनरेटर</a></li>
+          <li><a href="../../hi/tools/review-request-generator/index.html">रिव्यू रिक्वेस्ट जेनरेटर</a></li>
+          <li><a href="../../hi/tools/description-generator/index.html">डिस्क्रिप्शन जेनरेटर</a></li>
+          <li><a href="../../hi/tools/qr-generator/index.html">रिव्यू QR जेनरेटर</a></li>
+          <li><a href="../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a></li>
+          <li><a href="../../hi/tools/index.html">सभी फ्री टूल्स</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>गाइड्स</h4>
+        <ul>
+          <li><a href="../../hi/google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../hi/google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../hi/google-reviews/index.html">Google रिव्यू</a></li>
+          <li><a href="../../hi/local-seo/index.html">लोकल SEO</a></li>
+          <li><a href="../../hi/business-growth/index.html">बिज़नेस ग्रोथ</a></li>
+          <li><a href="../../hi/businesses/index.html">उद्योग</a></li>
+          <li><a href="../../hi/cities/index.html">शहर</a></li>
+          <li><a href="../../hi/blog/index.html">ब्लॉग</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="../../hi/about/index.html">हमारे बारे में</a></li>
+          <li><a href="../../hi/contact/index.html">संपर्क</a></li>
+          <li><a href="../../hi/features/index.html">फ़ीचर्स</a></li>
+          <li><a href="../../hi/help/index.html">हेल्प सेंटर</a></li>
+          <li><a href="../../hi/changelog/index.html">चेंजलॉग</a></li>
+          <li><a href="../../hi/status/index.html">सिस्टम स्टेटस</a></li>
+          <li><a href="../../hi/security/index.html">सुरक्षा</a></li>
+          <li><a href="../../hi/bug-report/index.html">बग रिपोर्ट करें</a></li>
+          <li><a href="../../hi/search/index.html">खोजें</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कानूनी</h4>
+        <ul>
+          <li><a href="../../hi/privacy/index.html">प्राइवेसी पॉलिसी</a></li>
+          <li><a href="../../hi/terms/index.html">सेवा की शर्तें</a></li>
+          <li><a href="../../hi/disclaimer/index.html">डिस्क्लेमर</a></li>
+          <li><a href="../../hi/compliance/index.html">Google अनुपालन</a></li>
+          <li><a href="../../hi/refund-policy/index.html">रिफ़ंड पॉलिसी</a></li>
+          <li><a href="../../hi/cookie-policy/index.html">कुकी पॉलिसी</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">कुकी सेटिंग्स</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost एक स्वतंत्र प्रोडक्ट है। इसका Google LLC से कोई संबंध नहीं है और Google ने इसे न प्रायोजित किया है, न समर्थन दिया है। Google, Google Maps और Google Business Profile, Google LLC के ट्रेडमार्क हैं।</p>
+      <p>&copy; 2026 LocalBoost. सर्वाधिकार सुरक्षित।</p>
+    </div>
+  </div>
+</footer>
+<!-- /lb:footer -->
+
+<script src="../../assets/localboost-api-config.js"></script>
+<script src="../../assets/consent.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+<script>
+(function(){
+  var hi=document.documentElement.lang==='hi';
+  var T=hi?{need:'कृपया बताएँ कि क्या हुआ।',mail:'ईमेल ऐप खोलें',copy:'रिपोर्ट का टेक्स्ट कॉपी करें',copied:'कॉपी हो गया।',copyfail:'कॉपी नहीं हो सका। नीचे का टेक्स्ट चुनकर खुद कॉपी करें।',openmsg:'आपका ईमेल ऐप खुलना चाहिए। जब तक आप वहाँ "भेजें" न दबाएँ, हमें कुछ नहीं मिला है। अगर ऐप नहीं खुला तो टेक्स्ट कॉपी करके support@localboost.in पर भेजें।',apiok:'आपका ईमेल और छोटा सार हमारी संपर्क सूची में जुड़ गया। इसमें पूरे चरण शामिल नहीं हैं, इसलिए पूरी रिपोर्ट के लिए ऊपर का ईमेल भी भेजें।',apierr:'सर्वर पर भेजना सफल नहीं हुआ। कृपया ईमेल से भेजें।',need2:'सर्वर पर भेजने के लिए ईमेल लिखें और सहमति दें।',sending:'भेजा जा रहा है...',sub:'बग रिपोर्ट'}
+  :{need:'Please tell us what happened.',mail:'Open email app',copy:'Copy report text',copied:'Copied.',copyfail:'Could not copy. Select the text below and copy it yourself.',openmsg:'Your email app should open. We have received nothing until you press send there. If it did not open, copy the text and send it to support@localboost.in.',apiok:'Your email and a short summary were added to our contact list. The steps are not included, so please also send the email above for the full report.',apierr:'Sending to the server did not work. Please use email instead.',need2:'To send to the server, enter an email and give consent.',sending:'Sending...',sub:'Bug report'};
+  var f=document.getElementById('bugform'),out=document.getElementById('bugout'),srv=document.getElementById('srvbox');
+  var cfg=window.LOCALBOOST_API||{},api=cfg.enabled===true&&cfg.baseUrl?String(cfg.baseUrl).replace(/\/$/,''):null;
+  if(!api)srv.hidden=true;
+  try{var q=new URLSearchParams(location.search).get('page');if(q&&/^[\/A-Za-z0-9._~:?#@!$&()*+,;=%-]{1,300}$/.test(q))f.url.value=q;else if(document.referrer&&document.referrer.indexOf(location.origin)===0)f.url.value=document.referrer}catch(e){}
+  f.browser.value=navigator.userAgent.slice(0,200);
+  function text(){return ['What happened:',f.what.value.trim(),'','Page URL: '+f.url.value.trim(),'','Steps to reproduce:',f.steps.value.trim(),'','Browser: '+f.browser.value.trim(),'Screen: '+screen.width+'x'+screen.height].join('\n')}
+  function msg(c,t){out.className='box '+c;out.textContent=t;out.hidden=false}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.what.value.trim()){msg('warn',T.need);f.what.focus();return}
+    var body=text(),href='mailto:support@localboost.in?subject='+encodeURIComponent('LocalBoost '+T.sub)+'&body='+encodeURIComponent(body.slice(0,1500));
+    out.textContent='';out.hidden=false;out.className='box';
+    var p=document.createElement('p');p.textContent=T.openmsg;out.appendChild(p);
+    var a=document.createElement('a');a.className='btn';a.href=href;a.textContent=T.mail;out.appendChild(a);
+    var b=document.createElement('button');b.type='button';b.className='btn alt';b.style.marginLeft='8px';b.textContent=T.copy;
+    var ta=document.createElement('textarea');ta.readOnly=true;ta.rows=9;ta.value=body;ta.style.marginTop='12px';
+    b.addEventListener('click',function(){try{navigator.clipboard.writeText(body).then(function(){b.textContent=T.copied},function(){ta.select();b.textContent=T.copyfail})}catch(x){ta.select();b.textContent=T.copyfail}});
+    out.appendChild(b);out.appendChild(ta);
+    if(api&&f.email.value.trim()){
+      if(!f.consent.checked){var w=document.createElement('p');w.textContent=T.need2;out.appendChild(w);return}
+      var s=document.createElement('p');s.textContent=T.sending;out.appendChild(s);
+      fetch(api+'/api/waitlist',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:f.email.value.trim(),consent:true,source:'bug-report',business_name:f.what.value.trim().slice(0,120),website:'',lang:hi?'hi':'en'})})
+        .then(function(r){s.textContent=r.ok?T.apiok:T.apierr}).catch(function(){s.textContent=T.apierr});
+    }
+  });
+})();
+</script></body>
+</html>

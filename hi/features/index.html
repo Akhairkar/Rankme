@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalBoost फ़ीचर: ऑडिट, रैंक, रिव्यू, रिपोर्ट</title>
+<meta name="description" content="LocalBoost के हर फ़ीचर की ईमानदार स्थिति: वेबसाइट ऑडिट, रैंक ट्रैकिंग, प्रतिस्पर्धी, रिव्यू, सुझाव, प्रोफ़ाइल ऑडिट, रिपोर्ट और एजेंसी इस्तेमाल।">
+<link rel="canonical" href="https://www.localboost.in/hi/features/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/features/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/features/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/features/">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "होम",
+   "item": "https://www.localboost.in/hi/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "फ़ीचर",
+   "item": "https://www.localboost.in/hi/features/"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "कौन से फ़ीचर फ्री हैं?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "ब्राउज़र टूल बिना अकाउंट फ्री हैं: ऑडिट, चेकलिस्ट, जेनरेटर और सिमुलेटर। फ्री हिस्से के लिए हर फ़ीचर पेज देखें।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "अभी कौन से फ़ीचर लाइव हैं?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "फ्री टूल लाइव हैं। पेड फ़ीचर लॉन्च हो रहे हैं और प्रोडक्शन API, Google अनुमति और रैंक-डेटा प्रोवाइडर पर निर्भर हैं।"
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "क्या कोई फ़ीचर बेहतर रैंकिंग की गारंटी देता है?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "नहीं। हम रैंकिंग या ट्रैफ़िक की गारंटी कभी नहीं देते।"
+   }
+  }
+ ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--warn-bg:#FFF4E5;--warn-bd:#F2C48D;--warn-tx:#7A4A0E;--font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}}
+:root[data-theme="dark"]{--warn-bg:#33270F;--warn-bd:#6B4E1A;--warn-tx:#F0C98A}
+*{box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg-base,#FAF9F6);color:var(--text-primary,#1E1E1E);line-height:1.7;overflow-x:hidden;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px 56px}
+.crumbs{font-size:13px;color:var(--text-secondary,#5A5A54);padding:22px 0 4px}
+.crumbs a{text-decoration:underline;text-underline-offset:2px}
+.kicker{display:inline-block;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--primary-600,#0F766E);background:var(--primary-100,#E0F5F2);padding:4px 12px;border-radius:999px;margin-top:10px}
+h1{font-size:clamp(26px,5vw,38px);font-weight:800;line-height:1.2;margin:12px 0 10px}
+h2{font-size:clamp(20px,3.6vw,25px);font-weight:800;line-height:1.3;margin:36px 0 10px}
+h3{font-size:17px;font-weight:800;margin:20px 0 6px}
+.lede{font-size:18px;color:var(--text-secondary,#5A5A54);margin-bottom:14px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px 22px}
+li{margin-bottom:6px}
+main p a,main li a,.faq a,main td a{color:var(--primary-600,#0F766E);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+code{background:var(--bg-muted,#F0EEE9);padding:1px 6px;border-radius:5px;font-size:.92em}
+.status{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx);border-radius:12px;padding:14px 16px;margin:16px 0;font-size:15px}
+.status strong{display:block;margin-bottom:2px}
+.status.ok{background:var(--primary-100,#E0F5F2);border-color:var(--primary-500,#14968C);color:var(--text-primary)}
+.fig{margin:22px 0;background:#fff;color:#1E1E1E;border:1px solid var(--border,#E2E0D9);border-radius:14px;padding:14px;text-align:center}
+.fig svg{max-width:100%;height:auto}
+.fig figcaption{font-size:13px;color:#5A5A54;margin-top:6px}
+.tbl{overflow-x:auto;margin:14px 0 18px}
+table{border-collapse:collapse;width:100%;min-width:480px;background:var(--bg-surface,#fff);font-size:14.5px}
+th,td{border:1px solid var(--border,#E2E0D9);padding:9px 11px;text-align:left;vertical-align:top}
+th{background:var(--bg-muted,#F0EEE9);font-weight:700}
+.faq-item,.box,.card{background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px}
+.faq-item{padding:16px 18px;margin-bottom:10px}
+.faq-q{font-size:16px;font-weight:700;margin-bottom:4px}
+.faq-a{font-size:15px;color:var(--text-secondary,#5A5A54)}
+.faq-a p{margin:0}
+.rel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:10px 0 20px}
+.rel a{display:block;background:var(--bg-surface,#fff);border:1px solid var(--border,#E2E0D9);border-radius:12px;padding:12px 14px;font-weight:700;font-size:15px;color:var(--primary-600,#0F766E)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.card{padding:16px 18px;border-radius:14px}
+.card h3{margin-top:0}
+.card p{font-size:14.5px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.card a.go{font-weight:700;color:var(--primary-600,#0F766E);font-size:14.5px}
+.tag{display:inline-block;font-size:11.5px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--bg-muted,#F0EEE9);color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.tag.live{background:var(--primary-100,#E0F5F2);color:var(--primary-600,#0F766E)}
+.tag.soon{background:var(--warn-bg);color:var(--warn-tx)}
+.btn{display:inline-block;background:var(--primary-600,#0F766E);color:var(--text-on-primary,#fff)!important;font-weight:700;padding:11px 20px;border-radius:9px;border:0;font:inherit;font-weight:700;cursor:pointer;text-decoration:none!important}
+.btn.alt{background:transparent;color:var(--primary-600,#0F766E)!important;border:1px solid var(--primary-600,#0F766E)}
+input,textarea,select{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--border-strong,#85837B);border-radius:9px;background:var(--bg-surface,#fff);color:var(--text-primary,#1E1E1E)}
+label{display:block;font-weight:700;font-size:14.5px;margin:12px 0 4px}
+label.chk{display:flex;gap:10px;align-items:flex-start;font-weight:500}
+label.chk input{width:auto;margin-top:5px}
+.note{font-size:13.5px;color:var(--text-secondary,#5A5A54)}
+.updated{font-size:13px;color:var(--text-secondary,#5A5A54);margin-bottom:8px}
+.box{padding:18px 20px;margin:16px 0}
+.sec{margin:40px 0}
+@media print{header,footer,.noprint{display:none!important}body{background:#fff;color:#000}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LocalBoost फ़ीचर: ऑडिट, रैंक, रिव्यू, रिपोर्ट">
+<meta property="og:description" content="LocalBoost के हर फ़ीचर की ईमानदार स्थिति: वेबसाइट ऑडिट, रैंक ट्रैकिंग, प्रतिस्पर्धी, रिव्यू, सुझाव, प्रोफ़ाइल ऑडिट, रिपोर्ट और एजेंसी इस्तेमाल।">
+<meta property="og:url" content="https://www.localboost.in/hi/features/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/lb-tokens.css">
+<link rel="stylesheet" href="../../assets/site.css">
+<script src="../../assets/theme.js"></script>
+<link rel="stylesheet" href="../../assets/public-shell.css">
+</head>
+<body>
+
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="../../hi/index.html" class="logo" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="मुख्य नेविगेशन">
+      <a href="../../hi/tools/index.html">टूल्स</a>
+      <a href="../../hi/businesses/index.html">उद्योग</a>
+      <a href="../../hi/cities/index.html">शहर</a>
+      <a href="../../hi/google-business-profile/index.html">गाइड्स</a>
+      <a href="../../hi/blog/index.html">ब्लॉग</a>
+      <a href="../../hi/pricing/index.html">मूल्य</a>
+      <a href="../../hi/search/index.html" class="lb-nav-search" aria-label="वेबसाइट में खोजें"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>खोजें</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../features/index.html" hreflang="en" lang="en" aria-label="View this page in English">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="डार्क मोड बदलें" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../../hi/check/index.html" class="nav-cta">फ्री ऑडिट</a>
+    </div>
+  </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
+</header>
+<!-- /lb:header -->
+
+<main class="wrap" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../../hi/index.html">होम</a> &rsaquo; फ़ीचर</nav>
+<span class="kicker">LocalBoost</span><h1>LocalBoost के फ़ीचर, ईमानदार स्थिति के साथ</h1><p class="lede">LocalBoost भारत के छोटे बिज़नेस को समझने में मदद करता है कि वे लोकल सर्च में कैसे दिखते हैं और कैसे सुधारें। यह पेज हर फ़ीचर, उसके डेटा और आज की स्थिति बताता है।</p>
+<h2>आज क्या इस्तेमाल कर सकते हैं और क्या लॉन्च हो रहा है</h2>
+<p>LocalBoost का कुछ हिस्सा अभी उपलब्ध है और कुछ पूरा हो रहा है। फ्री टूल बिना अकाउंट आपके ब्राउज़र में चलते हैं: <a href="../../hi/check/index.html">फ्री बिज़नेस ऑडिट</a>, <a href="../../hi/tools/local-seo-checklist/index.html">लोकल SEO चेकलिस्ट</a>, विवरण, सेवा और रिव्यू जवाब के जेनरेटर और रैंक ग्रिड सिमुलेटर। पेड प्रोडक्ट, यानी Pro और Agency, सहेजा इतिहास, लाइव Google डेटा, रैंक स्कैन, रिव्यू मॉनिटरिंग और रिपोर्ट जोड़ता है। इनके लिए प्रोडक्शन API, Business Profile एक्सेस की Google अनुमति और लाइसेंस वाला रैंक-डेटा प्रोवाइडर चाहिए। ये मंज़ूरियाँ पूरी नहीं हुईं, इसलिए हम पेड फ़ीचर को "लॉन्च हो रहा है" कहते हैं और ऐसी चीज़ बेचने की जगह वेटलिस्ट में बुलाते हैं जो अभी चलती नहीं।</p>
+<h2>फ़ीचर सूची</h2><div class="cards"><div class="card"><span class="tag live">फ्री हिस्सा उपलब्ध</span><h3>वेबसाइट ऑडिट</h3><p>आपके सार्वजनिक पेज पढ़कर सबूत के साथ ठोस समस्याएँ बताता है।</p><p><strong>एक पेज की जाँच फ्री; कई पेज Pro में (लॉन्च हो रहा है)।</strong></p><a class="go" href="website-audit/index.html">और पढ़ें &rarr;</a></div><div class="card"><span class="tag soon">लॉन्च हो रहा है</span><h3>लोकल रैंक ट्रैकिंग</h3><p>बिज़नेस के आसपास Maps पोज़िशन के ग्रिड स्कैन।</p><p><strong>लाइसेंस वाला रैंक-डेटा प्रोवाइडर चाहिए। अभी लाइव नहीं।</strong></p><a class="go" href="local-rank-tracking/index.html">और पढ़ें &rarr;</a></div><div class="card"><span class="tag live">फ्री हिस्सा उपलब्ध</span><h3>प्रतिस्पर्धी विश्लेषण</h3><p>जाँचे जा सकने वाले तथ्यों पर पास के प्रतिस्पर्धियों से तुलना।</p><p><strong>हाथ वाला टूल फ्री; अपने-आप ट्रैकिंग Pro में (लॉन्च हो रहा है)।</strong></p><a class="go" href="competitor-analysis/index.html">और पढ़ें &rarr;</a></div><div class="card"><span class="tag soon">लॉन्च हो रहा है</span><h3>रिव्यू मैनेजमेंट</h3><p>रिव्यू देखें, जवाब का ड्राफ़्ट बनाएँ, पुष्टि के बाद ही पोस्ट करें।</p><p><strong>जेनरेटर फ्री; असली रिव्यू के लिए Google अनुमति चाहिए।</strong></p><a class="go" href="review-management/index.html">और पढ़ें &rarr;</a></div><div class="card"><span class="tag live">फ्री हिस्सा उपलब्ध</span><h3>AI सुझाव</h3><p>सबूत से जुड़े सुझाव, गढ़े हुए तथ्य नहीं।</p><p><strong>डिफ़ॉल्ट रूप से नियम-आधारित; वैकल्पिक मॉडल अभी लाइव नहीं।</strong></p><a class="go" href="ai-recommendations/index.html">और पढ़ें &rarr;</a></div><div class="card"><span class="tag live">फ्री हिस्सा उपलब्ध</span><h3>Google Business Profile ऑडिट</h3><p>नाम, कैटेगरी, समय, फ़ोन, वेबसाइट और रिव्यू की जाँच।</p><p><strong>खुद भरकर ऑडिट फ्री; लाइव प्रोफ़ाइल के लिए Google अनुमति चाहिए।</strong></p><a class="go" href="google-business-profile-audit/index.html">और पढ़ें &rarr;</a></div><div class="card"><span class="tag soon">लॉन्च हो रहा है</span><h3>रिपोर्ट और मॉनिटरिंग</h3><p>स्रोत और तारीख़ के साथ स्नैपशॉट, प्रिंट या लिंक शेयर।</p><p><strong>Pro (लॉन्च हो रहा है); प्रोडक्शन API चाहिए।</strong></p><a class="go" href="reports-and-monitoring/index.html">और पढ़ें &rarr;</a></div><div class="card"><span class="tag soon">लॉन्च हो रहा है</span><h3>एजेंसी प्लान</h3><p>कई बिज़नेस और क्लाइंट रिपोर्ट के लिए ऊँची सीमाएँ।</p><p><strong>लॉन्च हो रहा है। टीम रोल बैकएंड में हैं; स्क्रीन पूरी हो रही हैं।</strong></p><a class="go" href="agency/index.html">और पढ़ें &rarr;</a></div></div><h2>लेबल कैसे पढ़ें</h2>
+<p>हर फ़ीचर पेज वही लेबल इस्तेमाल करता है ताकि आप दावों को जल्दी परख सकें।</p>
+<ul><li><strong>मापा गया</strong> यानी मान सीधे किसी पेज, Google या प्रोवाइडर से पढ़ा गया।</li><li><strong>अनुमान</strong> यानी मापे हुए मानों से हमने सार या योजना का आँकड़ा निकाला। स्कोर इसी समूह में हैं।</li><li><strong>आप देते हैं</strong> यानी जानकारी आपके टाइप किए से आई। इसे चिह्नित करते हैं ताकि कभी जाँचा हुआ डेटा न समझा जाए।</li><li><strong>अनुमति चाहिए</strong> यानी कदम किसी ऐसी चीज़ पर निर्भर है जो हमारे हाथ में नहीं, जैसे Google API एक्सेस या रैंक-डेटा लाइसेंस।</li></ul>
+<h2>हर फ़ीचर के पीछे के सिद्धांत</h2>
+<ol><li><strong>रैंकिंग की गारंटी नहीं।</strong> रैंकिंग ऐसे कारकों पर निर्भर है जो Google के बाहर कोई नहीं देखता। हम सिर्फ़ अवलोकन और सुझाव देते हैं।</li><li><strong>ग़ायब डेटा ग़ायब दिखता है।</strong> उपलब्ध नहीं जाँच फेल नहीं गिनी जाती और ग्रिड का खाली बिंदु खाली रहता है।</li><li><strong>पहले सिर्फ़ पढ़ना।</strong> Google एक्सेस जहाँ संभव हो पढ़ने की अनुमति से शुरू होता है, और प्रोफ़ाइल में कुछ लिखने के लिए साफ़ पुष्टि चाहिए।</li><li><strong>नियंत्रण आपका।</strong> आप डेटा निर्यात कर सकते हैं, Google डिस्कनेक्ट कर सकते हैं और अकाउंट हटा सकते हैं। देखें <a href="../../hi/help/data-export-and-deletion/index.html">डेटा निर्यात और हटाना</a>।</li><li><strong>स्वतंत्र प्रोडक्ट।</strong> LocalBoost का Google से कोई संबंध नहीं है।</li></ol>
+<h2>एक अनुच्छेद में प्लान</h2>
+<p>फ्री में ब्राउज़र टूल और सीमित ऑडिट हैं। Pro उस एक बिज़नेस मालिक के लिए है जो रैंक स्कैन, रिव्यू मॉनिटरिंग, रिपोर्ट और प्रतिस्पर्धी चाहता है। Agency कई बिज़नेस के लिए सीमाएँ बढ़ाता है। सटीक कीमत और सीमाएँ <a href="../../hi/pricing/index.html">प्राइसिंग पेज</a> पर हैं, जो अंतिम स्रोत है, और कीमतें GST के बिना दिखती हैं।</p>
+<h2>सवाल और सुझाव</h2>
+<p>अगर किसी फ़ीचर पेज की बात आपके अनुभव से मेल न खाए तो <a href="../../hi/bug-report/index.html">बग रिपोर्ट फ़ॉर्म</a> से बताएँ या support@localboost.in पर लिखें। <a href="../../hi/help/index.html">हेल्प सेंटर</a> हर हिस्से का तरीका समझाता है और <a href="../../hi/changelog/index.html">चेंजलॉग</a> में लिखा है कि कब क्या बदला।</p><section class="sec faq"><h2>अक्सर पूछे जाने वाले सवाल</h2><div class="faq-item"><div class="faq-q">कौन से फ़ीचर फ्री हैं?</div><div class="faq-a">ब्राउज़र टूल बिना अकाउंट फ्री हैं: ऑडिट, चेकलिस्ट, जेनरेटर और सिमुलेटर। फ्री हिस्से के लिए हर फ़ीचर पेज देखें।</div></div><div class="faq-item"><div class="faq-q">अभी कौन से फ़ीचर लाइव हैं?</div><div class="faq-a">फ्री टूल लाइव हैं। पेड फ़ीचर लॉन्च हो रहे हैं और प्रोडक्शन API, Google अनुमति और रैंक-डेटा प्रोवाइडर पर निर्भर हैं।</div></div><div class="faq-item"><div class="faq-q">क्या कोई फ़ीचर बेहतर रैंकिंग की गारंटी देता है?</div><div class="faq-a">नहीं। हम रैंकिंग या ट्रैफ़िक की गारंटी कभी नहीं देते।</div></div></section>
+<section class="sec noprint"><h2>Pro वेटलिस्ट में जुड़ें</h2><p>एक बार बताएँ, पेड फ़ीचर खुलते ही ईमेल करेंगे।</p><div data-lb-waitlist data-source="features-overview"></div></section>
+</main>
+
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../hi/index.html" class="lb-footer-brand" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">भारतीय कारोबारों के लिए ईमानदार लोकल SEO: असली डेटा, साफ़ सुझाव, रैंकिंग का कोई वादा नहीं।</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>प्रोडक्ट</h4>
+        <ul>
+          <li><a href="../../hi/how-it-works/index.html">यह कैसे काम करता है</a></li>
+          <li><a href="../../hi/pricing/index.html">मूल्य</a></li>
+          <li><a href="../../hi/pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../hi/waitlist/index.html">वेटलिस्ट में जुड़ें</a></li>
+          <li><a href="../../hi/check/index.html">फ्री विज़िबिलिटी चेक</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>फ्री टूल्स</h4>
+        <ul>
+          <li><a href="../../hi/audit/index.html">बिज़नेस ऑडिट</a></li>
+          <li><a href="../../hi/tools/local-seo-checklist/index.html">लोकल SEO चेकलिस्ट</a></li>
+          <li><a href="../../hi/tools/review-reply-generator/index.html">रिव्यू रिप्लाई जेनरेटर</a></li>
+          <li><a href="../../hi/tools/review-request-generator/index.html">रिव्यू रिक्वेस्ट जेनरेटर</a></li>
+          <li><a href="../../hi/tools/description-generator/index.html">डिस्क्रिप्शन जेनरेटर</a></li>
+          <li><a href="../../hi/tools/qr-generator/index.html">रिव्यू QR जेनरेटर</a></li>
+          <li><a href="../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a></li>
+          <li><a href="../../hi/tools/index.html">सभी फ्री टूल्स</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>गाइड्स</h4>
+        <ul>
+          <li><a href="../../hi/google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../hi/google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../hi/google-reviews/index.html">Google रिव्यू</a></li>
+          <li><a href="../../hi/local-seo/index.html">लोकल SEO</a></li>
+          <li><a href="../../hi/business-growth/index.html">बिज़नेस ग्रोथ</a></li>
+          <li><a href="../../hi/businesses/index.html">उद्योग</a></li>
+          <li><a href="../../hi/cities/index.html">शहर</a></li>
+          <li><a href="../../hi/blog/index.html">ब्लॉग</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="../../hi/about/index.html">हमारे बारे में</a></li>
+          <li><a href="../../hi/contact/index.html">संपर्क</a></li>
+          <li><a href="../../hi/features/index.html">फ़ीचर्स</a></li>
+          <li><a href="../../hi/help/index.html">हेल्प सेंटर</a></li>
+          <li><a href="../../hi/changelog/index.html">चेंजलॉग</a></li>
+          <li><a href="../../hi/status/index.html">सिस्टम स्टेटस</a></li>
+          <li><a href="../../hi/security/index.html">सुरक्षा</a></li>
+          <li><a href="../../hi/bug-report/index.html">बग रिपोर्ट करें</a></li>
+          <li><a href="../../hi/search/index.html">खोजें</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कानूनी</h4>
+        <ul>
+          <li><a href="../../hi/privacy/index.html">प्राइवेसी पॉलिसी</a></li>
+          <li><a href="../../hi/terms/index.html">सेवा की शर्तें</a></li>
+          <li><a href="../../hi/disclaimer/index.html">डिस्क्लेमर</a></li>
+          <li><a href="../../hi/compliance/index.html">Google अनुपालन</a></li>
+          <li><a href="../../hi/refund-policy/index.html">रिफ़ंड पॉलिसी</a></li>
+          <li><a href="../../hi/cookie-policy/index.html">कुकी पॉलिसी</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">कुकी सेटिंग्स</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost एक स्वतंत्र प्रोडक्ट है। इसका Google LLC से कोई संबंध नहीं है और Google ने इसे न प्रायोजित किया है, न समर्थन दिया है। Google, Google Maps और Google Business Profile, Google LLC के ट्रेडमार्क हैं।</p>
+      <p>&copy; 2026 LocalBoost. सर्वाधिकार सुरक्षित।</p>
+    </div>
+  </div>
+</footer>
+<!-- /lb:footer -->
+
+<script src="../../assets/localboost-api-config.js"></script>
+<script src="../../assets/waitlist.js" defer></script>
+<script src="../../assets/consent.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>
