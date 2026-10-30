@@ -17,26 +17,58 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is there really a free plan forever?",
+      "name": "क्या मुफ़्त प्लान सच में हमेशा रहेगा?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! All 8-question self-audits, industry vertical playbooks, and manual generators are 100% free with no credit card required."
+        "text": "मुफ़्त टूल्स (विज़िबिलिटी चेक, चेकलिस्ट, जेनरेटर और रैंक ग्रिड सिमुलेटर) के लिए क्रेडिट कार्ड या साइन-अप नहीं चाहिए। इन पर शुल्क लगाने की हमारी कोई योजना नहीं है।"
       }
     },
     {
       "@type": "Question",
-      "name": "Do you guarantee #1 ranking on Google Maps?",
+      "name": "क्या मैं Pro या Agency आज ख़रीद सकता हूँ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. In strict compliance with Google guidelines, no ethical agency or tool can guarantee ranking positions. Rankings depend on proximity, relevance, and market competition."
+        "text": "अभी नहीं। Pro और Agency जल्द शुरू हो रहे हैं और आज कुछ नहीं कटता। वेटलिस्ट में जुड़ें, शुरू होते ही हम बता देंगे।"
       }
     },
     {
       "@type": "Question",
-      "name": "Can I cancel my Pro subscription at any time?",
+      "name": "क्या आप Google Maps पर #1 रैंक की गारंटी देते हैं?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, you can cancel your subscription anytime with 1 click from your dashboard without cancellation fees."
+        "text": "नहीं। Google प्रोफ़ाइल को प्रासंगिकता, दूरी और प्रमुखता के आधार पर रैंक करता है, और इसे Google के बाहर कोई नियंत्रित नहीं करता। LocalBoost बताता है कि क्या सुधारें और क्या बदला, यह ट्रैक करता है। किसी पोज़िशन का वादा हम नहीं करते।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या मैं Pro कभी भी रद्द कर सकता हूँ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "हाँ। आप कभी भी रद्द कर सकते हैं, और जितने समय का भुगतान किया है उसके अंत तक एक्सेस बना रहता है। उसके बाद दोबारा पैसे नहीं कटते। रद्द करने का कोई शुल्क नहीं।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "रिफ़ंड पॉलिसी क्या है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "रिफ़ंड हमारी रिफ़ंड पॉलिसी के अनुसार होते हैं। सब्सक्राइब करने से पहले कृपया उसे पढ़ लें।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "क्या कीमतों में GST शामिल है?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "नहीं। इस पेज की कीमतों में GST शामिल नहीं है। चेकआउट पर 18% GST जुड़ता है और आपके इनवॉइस में दिखता है।"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "छोड़ने पर मेरे डेटा का क्या होगा?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "आप support@localboost.in पर ईमेल करके अपना अकाउंट और हमारे पास मौजूद डेटा हटाने को कह सकते हैं, और अपने Google अकाउंट से LocalBoost की पहुँच कभी भी हटा सकते हैं। हम क्या और कितने समय तक रखते हैं, यह प्राइवेसी पॉलिसी में है।"
       }
     }
   ]
@@ -47,47 +79,149 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg-base:#FAF9F6; --bg-surface:#FFFFFF; --bg-muted:#F0EEE9;
-    --text-primary:#1E1E1E; --text-secondary:#5A5A54; --border:#E2E0D9;
-    --primary-600:#0F766E; --primary-500:#14968C; --primary-100:#E0F5F2;
-    --accent-600:#E8722C;
-    --font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif;
-  }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:var(--font); background:var(--bg-base); color:var(--text-primary); line-height:1.65; }
-  a { color:inherit; text-decoration:none; }
-  .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
-  header { position:sticky; top:0; z-index:50; background:rgba(250,249,246,.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
-  .nav-inner { max-width:1180px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
-  .logo { display:flex; align-items:center; gap:8px; font-weight:800; font-size:18px; }
-  .logo-mark { width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--primary-600),var(--primary-500)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; }
-  .nav-cta { background:var(--accent-600); color:#fff; font-weight:600; font-size:14px; padding:10px 18px; border-radius:8px; }
-  .lang-switch { font-size:13px; font-weight:600; color:var(--text-secondary); border:1px solid var(--border); border-radius:999px; padding:6px 14px; background:#fff; }
+:root{--bg:#FAF9F6;--surface:#fff;--muted:#F0EEE9;--text:#1E1E1E;--text2:#5A5A54;--border:#E2E0D9;--p6:#0F766E;--p5:#14968C;--p1:#E0F5F2;--cta:#C2570F;--cta-h:#A9490B;--warn-bg:#FFF4E8;--warn:#9A4A0B;--ok-bg:#E6F6EE;--ok:#146C43;--shadow:0 1px 2px rgba(30,30,30,.04),0 8px 24px rgba(30,30,30,.05);--font:'Manrope','Noto Sans Devanagari',system-ui,-apple-system,'Segoe UI',sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1412;--surface:#161D1A;--muted:#1D2622;--text:#EEF2F0;--text2:#A9B4AF;--border:#26302C;--p6:#3CC4B6;--p5:#3CC4B6;--p1:#14302C;--warn-bg:#2A1E12;--warn:#F0B77E;--ok-bg:#12281D;--ok:#7FD6A5;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25)}}
+:root[data-theme="dark"]{--bg:#0F1412;--surface:#161D1A;--muted:#1D2622;--text:#EEF2F0;--text2:#A9B4AF;--border:#26302C;--p6:#3CC4B6;--p5:#3CC4B6;--p1:#14302C;--warn-bg:#2A1E12;--warn:#F0B77E;--ok-bg:#12281D;--ok:#7FD6A5;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+.lbp-skip{position:absolute;left:12px;top:-60px;background:var(--p6);color:#fff;padding:10px 16px;border-radius:0 0 8px 8px;font-weight:700;z-index:100;text-decoration:none}
+.lbp-skip:focus{top:0}
+.lbp-wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.lbp-narrow{max-width:760px;margin:0 auto}
+.lbp-sec{padding:84px 0}
+.lbp-sec.alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.lbp-head{max-width:680px;margin:0 0 40px}
+.lbp-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.lbp-eyebrow{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--p6);margin:0 0 12px}
+.lbp-h1{font-size:clamp(32px,4.6vw,50px);line-height:1.12;letter-spacing:-.02em;font-weight:800;margin:0 0 18px}
+.lbp-h2{font-size:clamp(26px,3.2vw,36px);line-height:1.2;letter-spacing:-.015em;font-weight:800;margin:0 0 12px}
+.lbp-h3{font-size:18px;line-height:1.35;font-weight:800;margin:0 0 8px}
+.lbp-lead{font-size:18px;color:var(--text2);margin:0}
+.lbp-p{color:var(--text2);margin:0 0 14px}
+.lbp-small{font-size:13.5px;color:var(--text2)}
+.lbp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:15.5px;line-height:1.2;padding:14px 22px;border-radius:10px;border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .05s}
+.lbp-btn:active{transform:translateY(1px)}
+.lbp-btn:focus-visible,.lbp-input:focus-visible,.lbp-faq-q:focus-visible,.lbp-card a:focus-visible,.lbp-toggle button:focus-visible{outline:2px solid var(--p5);outline-offset:3px}
+.lbp-btn-primary{background:var(--cta);color:#fff}
+.lbp-btn-primary:hover{background:var(--cta-h)}
+.lbp-btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.lbp-btn-ghost:hover{border-color:var(--p5);color:var(--p6)}
+.lbp-btn-teal{background:var(--p6);color:#fff}
+.lbp-btn-block{display:flex;width:100%}
+.lbp-link{color:var(--p6);font-weight:700;text-decoration:none}
+.lbp-link:hover{text-decoration:underline}
+.lbp-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
+.lbp-grid{display:grid;gap:20px}
+.lbp-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lbp-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lbp-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lbp-ic{width:42px;height:42px;border-radius:11px;background:var(--p1);color:var(--p6);display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex:none}
+.lbp-ic svg{width:21px;height:21px}
+.lbp-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.02em;padding:4px 10px;border-radius:999px;background:var(--p1);color:var(--p6);white-space:nowrap}
+.lbp-pill.warn{background:var(--warn-bg);color:var(--warn)}
+.lbp-pill.ok{background:var(--ok-bg);color:var(--ok)}
+.lbp-pill.mute{background:var(--muted);color:var(--text2)}
+.lbp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.lbp-list li{position:relative;padding-left:26px;font-size:15px;color:var(--text2);line-height:1.55}
+.lbp-list li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:2.5px solid var(--p5);border-bottom:2.5px solid var(--p5);transform:rotate(-45deg) scale(.9)}
+.lbp-list.x li::before{border:0;width:10px;height:2.5px;background:var(--text2);opacity:.55;top:.8em;transform:none;left:3px}
+.lbp-list strong{color:var(--text)}
+/* hero */
+.lbp-hero{padding:72px 0 76px;border-bottom:1px solid var(--border);background:radial-gradient(1100px 380px at 85% -10%,var(--p1),transparent 70%),var(--bg)}
+.lbp-hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
+.lbp-form{margin-top:30px}
+.lbp-form label{display:block;font-size:14px;font-weight:700;margin-bottom:8px}
+.lbp-row{display:flex;gap:10px}
+.lbp-input{flex:1;min-width:0;font:inherit;font-size:16px;padding:14px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text)}
+.lbp-input::placeholder{color:var(--text2);opacity:.7}
+.lbp-input:focus{border-color:var(--p5);outline:none}
+.lbp-fine{font-size:13px;color:var(--text2);margin:10px 0 0}
+.lbp-hero-links{margin-top:18px;font-size:14.5px}
+/* finding card */
+.lbp-finding{box-shadow:var(--shadow);padding:0;overflow:hidden}
+.lbp-finding-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--muted)}
+.lbp-finding-body{padding:20px}
+.lbp-finding h3{font-size:17px;margin:0 0 14px;line-height:1.35}
+.lbp-finding dl{margin:0;display:grid;grid-template-columns:104px 1fr;gap:10px 14px;font-size:14px}
+.lbp-finding dt{font-weight:800;color:var(--text);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.lbp-finding dd{margin:0;color:var(--text2)}
+.lbp-finding-foot{padding:14px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px}
+/* steps */
+.lbp-steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.lbp-step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 24px 22px}
+.lbp-step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--p6);color:#fff;font-weight:800;font-size:14px;margin-bottom:14px}
+.lbp-step p{margin:0;font-size:14.5px;color:var(--text2)}
+/* faq */
+.lbp-faq{display:flex;flex-direction:column;gap:10px;max-width:780px;margin:0 auto}
+.lbp-faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.lbp-faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;font:inherit;font-size:16px;font-weight:700;color:var(--text);background:none;border:0;padding:18px 20px;cursor:pointer}
+.lbp-faq-q svg{width:18px;height:18px;flex:none;transition:transform .2s;color:var(--text2)}
+.lbp-faq-item.open .lbp-faq-q svg{transform:rotate(180deg)}
+.lbp-faq-a{display:none;padding:0 20px 18px;color:var(--text2);font-size:15px}
+.lbp-faq-item.open .lbp-faq-a{display:block}
+.lbp-faq-a p{margin:0 0 10px}.lbp-faq-a p:last-child{margin:0}
+.lbp-faq-a a{color:var(--p6);font-weight:700}
+.lbp-cta-band{background:var(--p6);color:#fff;border-radius:20px;padding:48px 32px;text-align:center}
+:root[data-theme="dark"] .lbp-cta-band{color:#06201C}
+.lbp-cta-band h2{margin:0 0 10px;font-size:clamp(24px,3vw,32px);font-weight:800}
+.lbp-cta-band p{margin:0 auto 24px;max-width:540px;opacity:.92}
+.lbp-cta-band .lbp-btn{background:#fff;color:#0B5A53}
+.lbp-chips{display:flex;flex-wrap:wrap;gap:10px}
+.lbp-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-size:14.5px;font-weight:600;text-decoration:none}
+.lbp-chip:hover{border-color:var(--p5);color:var(--p6)}
+.lbp-crumbs{font-size:13.5px;color:var(--text2);margin:0 0 18px}.lbp-crumbs a{text-decoration:none}.lbp-crumbs a:hover{text-decoration:underline}
+/* tables */
+.lbp-tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
+.lbp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.lbp-table th,.lbp-table td{padding:14px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}
+.lbp-table tr:last-child th,.lbp-table tr:last-child td{border-bottom:0}
+.lbp-table thead th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--text2);background:var(--muted);font-weight:800}
+.lbp-table tbody th{font-weight:700;color:var(--text);width:30%}
+.lbp-table td{color:var(--text2)}
+.lbp-table .no{color:var(--text2);opacity:.6}
+.lbp-table .grp th{background:var(--muted);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text2)}
+/* forms */
+.lbp-field{margin-bottom:16px}
+.lbp-field label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.lbp-field .lbp-input{width:100%}
+select.lbp-input{appearance:auto}
+.lbp-help{font-size:12.5px;color:var(--text2);margin-top:5px}
+.lbp-err{font-size:13px;color:#B42318;margin-top:5px;display:none;font-weight:600}
+:root[data-theme="dark"] .lbp-err{color:#FF9E94}
+.lbp-field.bad .lbp-input{border-color:#B42318}.lbp-field.bad .lbp-err{display:block}
+.lbp-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.lbp-alert{border-radius:12px;padding:16px 18px;font-size:14.5px;margin-top:16px}
+.lbp-alert.ok{background:var(--ok-bg);color:var(--ok)}.lbp-alert.err{background:var(--warn-bg);color:var(--warn)}.lbp-alert.info{background:var(--p1);color:var(--p6)}
+.lbp-alert a{font-weight:800}
+@media (max-width:980px){
+  .lbp-hero-grid{grid-template-columns:1fr;gap:40px}
+  .lbp-g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lbp-g3,.lbp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .lbp-wrap{padding:0 16px}
+  .lbp-sec{padding:56px 0}
+  .lbp-hero{padding:44px 0 52px}
+  .lbp-g2,.lbp-g3,.lbp-g4,.lbp-steps{grid-template-columns:1fr}
+  .lbp-row{flex-direction:column}
+  .lbp-btn{width:100%}
+  .lbp-card{padding:22px 20px}
+  .lbp-finding dl{grid-template-columns:1fr;gap:2px 0}.lbp-finding dd{margin-bottom:10px}
+  .lbp-cta-band{padding:36px 22px}
+  .lbp-lead{font-size:16.5px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
-  .hero { text-align:center; padding:48px 0 24px; }
-  .toggle-container { display:flex; align-items:center; justify-content:center; gap:12px; margin:24px 0 40px; }
-  .toggle-btn { padding:6px 18px; font-size:14px; font-weight:700; border-radius:999px; border:1px solid var(--border); background:#fff; cursor:pointer; }
-  .toggle-btn.active { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
-
-  .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-bottom:64px; }
-  .pricing-card { background:#fff; border:1px solid var(--border); border-radius:16px; padding:32px; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 2px 8px rgba(0,0,0,0.03); }
-  .pricing-card.featured { border:2px solid var(--primary-600); box-shadow:0 8px 24px rgba(15,118,110,0.08); }
-  .badge-feat { position:absolute; top:-12px; right:24px; background:var(--primary-600); color:#fff; font-size:11px; font-weight:800; text-transform:uppercase; padding:4px 12px; border-radius:999px; }
-  
-  .price { font-size:36px; font-weight:800; margin:16px 0; }
-  .feature-list { list-style:none; margin:24px 0; display:flex; flex-direction:column; gap:10px; }
-  .feature-list li { font-size:14.5px; color:#475569; display:flex; align-items:center; gap:8px; }
-  .feature-list li::before { content:"✓"; color:var(--primary-600); font-weight:800; }
-
-  .btn-buy { display:block; width:100%; padding:13px; text-align:center; font-weight:700; font-size:15px; border-radius:8px; }
-  .btn-buy-primary { background:var(--primary-600); color:#fff; }
-  .btn-buy-outline { background:#fff; border:1px solid var(--border); color:var(--text-primary); }
-
-  .faq-section { margin:64px 0; }
-  .faq-item { background:#fff; border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:12px; }
-  .faq-q { font-size:16.5px; font-weight:700; color:var(--text-primary); margin-bottom:6px; }
-  .faq-a { font-size:14.5px; color:var(--text-secondary); line-height:1.6; }
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.lbp-tbtn{font:inherit;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;border:0;background:transparent;color:var(--text2);cursor:pointer}
+.lbp-tbtn.active{background:var(--p6);color:#fff}
+.lbp-tbtn:focus-visible{outline:2px solid var(--p5);outline-offset:2px}
+.lbp-plan{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.lbp-price{font-size:36px;font-weight:800;margin:14px 0 18px;line-height:1.1;letter-spacing:-.02em}
+.lbp-price span{font-size:14px;font-weight:500;color:var(--text2);letter-spacing:0}
 </style>
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
@@ -100,184 +234,160 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../assets/site.css">
+<link rel="stylesheet" href="../../assets/public-shell.css">
+<script src="../../assets/theme.js"></script>
 </head>
 <body>
-
-<header>
+<a class="lbp-skip" href="#main">मुख्य सामग्री पर जाएँ</a>
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
   <div class="nav-inner">
-    <a href="../../hi/index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
-    <nav class="nav-links" style="display:flex; align-items:center; gap:20px;">
-      <a href="../../hi/tools/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">टूल्स</a>
-      <a href="../../hi/businesses/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">उद्योग</a>
-      <a href="../../hi/cities/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">शहर</a>
-      <a href="../../hi/blog/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">ब्लॉग</a>
-      <a href="../../hi/pricing/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">मूल्य</a>
-      <a href="../../hi/search/index.html" style="font-size:14px; font-weight:600; color:var(--text-secondary); display:flex; align-items:center; gap:4px;" aria-label="वेबसाइट खोजें">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span>खोजें</span>
-      </a>
+    <a href="../../hi/index.html" class="logo" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="मुख्य नेविगेशन">
+      <a href="../../hi/tools/index.html">टूल्स</a>
+      <a href="../../hi/businesses/index.html">उद्योग</a>
+      <a href="../../hi/cities/index.html">शहर</a>
+      <a href="../../hi/google-business-profile/index.html">गाइड्स</a>
+      <a href="../../hi/blog/index.html">ब्लॉग</a>
+      <a href="../../hi/pricing/index.html">मूल्य</a>
+      <a href="../../hi/search/index.html" class="lb-nav-search" aria-label="वेबसाइट में खोजें"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>खोजें</span></a>
     </nav>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a class="lang-switch" href="../../pricing/index.html" aria-label="View in English">EN · हिं</a>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../../pricing/index.html" hreflang="en" lang="en" aria-label="View this page in English">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="डार्क मोड बदलें" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
       <a href="../../hi/check/index.html" class="nav-cta">फ्री ऑडिट</a>
     </div>
   </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
 </header>
-
-
-<main class="wrap">
-  <div class="hero">
-    <span style="font-size:12px; font-weight:800; text-transform:uppercase; color:var(--primary-600); background:var(--primary-100); padding:4px 12px; border-radius:999px;">पारदर्शी मूल्य</span>
-    <h1 style="font-size:38px; font-weight:800; margin-top:12px;">भारतीय छोटे व्यापारियों के लिए पारदर्शी व उचित प्लान्स</h1>
-    <p style="font-size:18px; color:var(--text-secondary); max-width:640px; margin:8px auto 0;">कोई छुपा हुआ चार्ज नहीं, कोई कॉन्ट्रैक्ट नहीं और कोई झूठी गारंटी नहीं। जब ऑटोमेशन चाहिए तभी अपग्रेड करें।</p>
-
-    <div class="toggle-container">
-      <button class="toggle-btn active" id="btnMonthly">मासिक बिलिंग</button>
-      <button class="toggle-btn" id="btnAnnual">वार्षिक बिलिंग (25% छूट)</button>
-    </div>
+<!-- /lb:header -->
+<main id="main">
+<section class="lbp-hero" style="padding-bottom:40px"><div class="lbp-wrap" style="text-align:center">
+  <span class="lbp-eyebrow">पारदर्शी मूल्य</span>
+  <h1 class="lbp-h1" style="max-width:820px;margin-left:auto;margin-right:auto">भारतीय छोटे व्यापारियों के लिए पारदर्शी व उचित प्लान्स</h1>
+  <p class="lbp-lead" style="max-width:660px;margin:0 auto">कोई छिपा सेटअप शुल्क नहीं, कोई कॉन्ट्रैक्ट नहीं और रैंकिंग की कोई गारंटी नहीं। मुफ़्त टूल्स मुफ़्त ही रहेंगे। Pro और Agency जल्द शुरू हो रहे हैं, इसलिए आज कुछ नहीं कटता।</p>
+  <div class="lbp-toggle" role="group" aria-label="Billing" style="display:inline-flex;gap:6px;margin-top:28px;padding:5px;border:1px solid var(--border);border-radius:999px;background:var(--surface)">
+    <button type="button" class="lbp-tbtn active" id="btnMonthly" aria-pressed="true">मासिक बिलिंग</button>
+    <button type="button" class="lbp-tbtn" id="btnAnnual" aria-pressed="false">वार्षिक बिलिंग (25% बचत)</button>
   </div>
-
-  <div class="pricing-grid">
-    <!-- Free Tier -->
-    <div class="pricing-card">
-      <div>
-        <h3 style="font-size:20px; font-weight:800;">स्टार्टर (फ्री)</h3>
-        <p style="font-size:14px; color:var(--text-secondary); margin-top:4px;">एकल दुकान व क्लिनिक के लिए जो खुद प्रोफाइल सुधारना चाहते हैं।</p>
-        <div class="price">₹0 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ माह</span></div>
-        <ul class="feature-list">
-          <li>पूरी 8-प्रश्नों की डायग्नोस्टिक जांच</li>
-          <li>सभी 18 इंडस्ट्री प्लेबुक्स</li>
-          <li>AI बिजनेस डिस्क्रिप्शन जनरेटर</li>
-          <li>रिव्यू रिप्लाई जनरेटर टूल</li>
-          <li>इंटरैक्टिव 40-पॉइंट SEO चेकलिस्ट</li>
-        </ul>
-      </div>
-      <a href="../../hi/check/index.html" class="btn-buy btn-buy-outline">फ्री में शुरू करें</a>
-    </div>
-
-    <!-- Pro Tier -->
-    <div class="pricing-card featured">
-      <span class="badge-feat">सर्वाधिक लोकप्रिय</span>
-      <div>
-        <h3 style="font-size:20px; font-weight:800; color:var(--primary-600);">प्रो ग्रोथ</h3>
-        <p style="font-size:14px; color:var(--text-secondary); margin-top:4px;">सक्रिय बिजनेस के लिए जिन्हें ऑटोमेटेड रिव्यू और मॉनिटरिंग चाहिए।</p>
-        <div class="price" id="proPrice">₹999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ माह</span></div>
-        <ul class="feature-list">
-          <li><strong>फ्री के सभी फीचर्स, साथ में:</strong></li>
-          <li>आधिकारिक Google Profile OAuth कनेक्शन</li>
-          <li>24/7 ऑटोमेटेड रिव्यू मॉनिटरिंग</li>
-          <li>AI ड्राफ्ट रिप्लाई और सेंटिमेंट एनालिसिस</li>
-          <li>कस्टमाइज्ड 30-दिवसीय ग्रोथ रोडमैप</li>
-          <li>मासिक प्रिंटेबल परफॉर्मेंस रिपोर्ट्स</li>
-        </ul>
-      </div>
-      <a href="../../hi/checkout/index.html?plan=pro" class="btn-buy btn-buy-primary">प्रो में अपग्रेड करें</a>
-    </div>
-
-    <!-- Agency Tier -->
-    <div class="pricing-card">
-      <div>
-        <h3 style="font-size:20px; font-weight:800;">एजेंसी व मल्टी-ब्रांच</h3>
-        <p style="font-size:14px; color:var(--text-secondary); margin-top:4px;">मल्टी-लोकेशन व्यापार या लोकल मार्केटिंग सलाहकारों के लिए।</p>
-        <div class="price" id="agencyPrice">₹2,999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ माह</span></div>
-        <ul class="feature-list">
-          <li><strong>10 बिजनेस लोकेशन्स तक सपोर्ट</strong></li>
-          <li>मल्टी-लोकेशन यूनिफाइड डैशबोर्ड</li>
-          <li>क्लाइंट PDF रिपोर्ट्स जनरेशन</li>
-          <li>1-स्टार रिव्यू पर तुरंत WhatsApp अलर्ट</li>
-          <li>समर्पित अकाउंट मैनेजर सहायता</li>
-        </ul>
-      </div>
-      <a href="../../hi/checkout/index.html?plan=agency" class="btn-buy btn-buy-outline">एजेंसी प्लान लें</a>
-    </div>
+</div></section>
+<section class="lbp-sec" style="padding-top:48px"><div class="lbp-wrap">
+  <div class="lbp-grid lbp-g3" style="align-items:stretch">
+    <div class="lbp-card lbp-plan"><div><h2 class="lbp-h3" style="font-size:20px">Free (मुफ़्त)</h2><p class="lbp-small" style="min-height:44px">एक दुकान या क्लिनिक के लिए, खुद जाँच करने के लिए।</p>
+      <div class="lbp-price">&#8377;0 <span>/ माह</span></div><ul class="lbp-list"><li>विज़िबिलिटी चेक: 8 सवाल, स्कोर और सुधार-सूची</li><li>बिज़नेस ऑडिट: महीने में 3 तक</li><li>लोकल SEO चेकलिस्ट और सभी जेनरेटर</li><li>रैंक ग्रिड सिमुलेटर (सिमुलेटेड अभ्यास)</li></ul></div>
+      <a href="../check/index.html" class="lbp-btn lbp-btn-ghost lbp-btn-block">मुफ़्त शुरू करें</a></div>
+    <div class="lbp-card lbp-plan" style="border:2px solid var(--p6)"><span class="lbp-pill" style="position:absolute;top:-13px;right:22px;background:var(--p6);color:#fff">एक बिज़नेस के लिए सबसे सही</span><div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 class="lbp-h3" style="font-size:20px;color:var(--p6);margin:0">Pro</h2><span class="lbp-pill warn">जल्द शुरू</span></div><p class="lbp-small" style="min-height:44px;margin-top:8px">एक बिज़नेस के लिए जिसे लाइव Google डेटा, ट्रैकिंग और रिपोर्ट चाहिए।</p>
+      <div class="lbp-price" id="proPrice">&#8377;999 <span>/ माह</span></div><ul class="lbp-list"><li><strong>Free की सारी सुविधाएँ, और:</strong></li><li>अपनी Google Business Profile जोड़ें (शुरुआत में सिर्फ़ पढ़ने की अनुमति)</li><li>महीने में 30 तक ऑडिट, 50 पेज तक क्रॉल</li><li>50 कीवर्ड तक रैंक ट्रैकिंग, महीने में 100 स्कैन तक</li><li>रिव्यू मॉनिटरिंग, और आपकी मंज़ूरी वाले रिप्लाई ड्राफ़्ट</li><li>5 कॉम्पटीटर तक तुलना</li><li>मासिक रिपोर्ट</li></ul></div>
+      <a href="#waitlist" class="lbp-btn lbp-btn-primary lbp-btn-block">वेटलिस्ट में जुड़ें</a></div>
+    <div class="lbp-card lbp-plan"><div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 class="lbp-h3" style="font-size:20px;margin:0">Agency</h2><span class="lbp-pill warn">जल्द शुरू</span></div><p class="lbp-small" style="min-height:44px;margin-top:8px">कई लोकेशन वाले मालिकों और ग्राहकों को सँभालने वाले कंसल्टेंट के लिए।</p>
+      <div class="lbp-price" id="agencyPrice">&#8377;2,999 <span>/ माह</span></div><ul class="lbp-list"><li><strong>Pro की सारी सुविधाएँ, और:</strong></li><li>10 बिज़नेस और 10 लोकेशन तक</li><li>500 कीवर्ड तक, महीने में 1,000 स्कैन तक</li><li>25 कॉम्पटीटर तक, महीने में 300 ऑडिट तक</li><li>आपकी ब्रांडिंग वाली व्हाइट-लेबल रिपोर्ट</li><li>टीम एक्सेस (लॉन्च के लिए प्रस्तावित)</li></ul></div>
+      <a href="#waitlist" class="lbp-btn lbp-btn-ghost lbp-btn-block">वेटलिस्ट में जुड़ें</a></div>
   </div>
-
-  <div class="faq-section">
-    <h2 style="font-size:26px; text-align:center; margin-bottom:32px;">अक्सर पूछे जाने वाले सवाल</h2>
-    <div class="faq-item">
-      <div class="faq-q">क्या वाकई हमेशा के लिए फ्री प्लान उपलब्ध है?</div>
-      <div class="faq-a">हाँ! सभी डायग्नोस्टिक टूल्स, 18 इंडस्ट्री गाइड्स, डिस्क्रिप्शन जनरेटर और चेकलिस्ट हमेशा के लिए 100% फ्री हैं।</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">क्या आप Google Maps पर #1 रैंक की गारंटी देते हैं?</div>
-      <div class="faq-a">नहीं। गूगल की गाइडलाइंस के अनुसार कोई भी वैध टूल रैंकिंग गारंटी नहीं दे सकता। रैंकिंग ग्राहक की नजदीकी, प्रोफाइल की गुणवत्ता और प्रतिस्पर्धा पर निर्भर करती है।</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">क्या मैं कभी भी प्रो सब्सक्रिप्शन रद्द कर सकता हूँ?</div>
-      <div class="faq-a">हाँ, बिल्कुल। आप बिना किसी पेनल्टी के कभी भी 1-क्लिक में अपना प्लान कैंसल कर सकते हैं।</div>
-    </div>
-  </div>
-<section style="max-width:720px;margin:0 auto 48px;"><h2 style="font-size:24px;font-weight:800;margin-bottom:6px;">अभी भुगतान के लिए तैयार नहीं? Pro वेटलिस्ट में जुड़ें</h2><p style="color:var(--text-secondary);">जब लाइव Google ऑडिट, रैंक ट्रैकिंग और मॉनिटरिंग खुलेंगे, हम आपको ईमेल करेंगे।</p><div data-lb-waitlist data-source="pricing"></div></section>
+  <p class="lbp-small" style="text-align:center;margin-top:20px">कीमतों में GST शामिल नहीं है (चेकआउट पर 18% जुड़ता है)।</p>
+</div></section>
+<section class="lbp-sec alt" id="compare"><div class="lbp-wrap">
+  <div class="lbp-head"><h2 class="lbp-h2">प्लान की तुलना</h2><p class="lbp-lead">यहाँ दी गई सीमाएँ लॉन्च के लिए प्रस्तावित हैं। लॉन्च से पहले इनमें बदलाव हो सकता है; अंतिम संख्या इसी पेज पर होगी।</p></div>
+  <div class="lbp-tablewrap"><table class="lbp-table"><caption class="sr">प्लान की तुलना</caption><thead><tr><th scope="col"><span class="sr">प्लान की तुलना</span></th><th scope="col">Free</th><th scope="col">Pro</th><th scope="col">Agency</th></tr></thead><tbody><tr class="grp"><th colspan="4" scope="colgroup">अकाउंट</th></tr><tr><th scope="row">बिज़नेस</th><td>1</td><td>1 तक</td><td>10 तक</td></tr><tr><th scope="row">लोकेशन</th><td>1</td><td>3 तक</td><td>10 तक</td></tr><tr class="grp"><th colspan="4" scope="colgroup">फ़ीचर</th></tr><tr><th scope="row">महीने में ऑडिट</th><td>3 तक</td><td>30 तक</td><td>300 तक</td></tr><tr><th scope="row">हर ऑडिट में क्रॉल होने वाले वेबसाइट पेज</th><td>1</td><td>50 तक</td><td>200 तक</td></tr><tr><th scope="row">ट्रैक किए जाने वाले कीवर्ड</th><td>5 तक सेव (अपने-आप ट्रैकिंग नहीं)</td><td>50 तक</td><td>500 तक</td></tr><tr><th scope="row">महीने में रैंक और ग्रिड स्कैन</th><td>सिर्फ़ सिमुलेटर (सिमुलेटेड)</td><td>100 तक</td><td>1,000 तक</td></tr><tr><th scope="row">तुलना के लिए कॉम्पटीटर</th><td>शामिल नहीं</td><td>5 तक</td><td>25 तक</td></tr><tr><th scope="row">रिव्यू मॉनिटरिंग और रिप्लाई ड्राफ़्ट</th><td>रिप्लाई जेनरेटर (हाथ से)</td><td>शामिल</td><td>शामिल</td></tr><tr><th scope="row">रिपोर्ट</th><td>शामिल नहीं</td><td>मासिक रिपोर्ट</td><td>मासिक रिपोर्ट</td></tr><tr><th scope="row">व्हाइट-लेबल रिपोर्ट</th><td>शामिल नहीं</td><td>शामिल नहीं</td><td>शामिल</td></tr><tr><th scope="row">टीम के सदस्य</th><td>सिर्फ़ आप</td><td>सिर्फ़ आप</td><td>लॉन्च के लिए प्रस्तावित; संख्या बाद में बताई जाएगी</td></tr><tr><th scope="row">Google कनेक्शन</th><td>ज़रूरी नहीं</td><td>शुरुआत में सिर्फ़ पढ़ने की अनुमति</td><td>शुरुआत में सिर्फ़ पढ़ने की अनुमति</td></tr></tbody></table></div>
+</div></section>
+<section class="lbp-sec" id="faq"><div class="lbp-wrap"><div class="lbp-head center"><h2 class="lbp-h2">अक्सर पूछे जाने वाले सवाल</h2></div><div class="lbp-faq"><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a0" id="faq-q0"><span>क्या मुफ़्त प्लान सच में हमेशा रहेगा?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a0" role="region" aria-labelledby="faq-q0"><p>मुफ़्त टूल्स (विज़िबिलिटी चेक, चेकलिस्ट, जेनरेटर और रैंक ग्रिड सिमुलेटर) के लिए क्रेडिट कार्ड या साइन-अप नहीं चाहिए। इन पर शुल्क लगाने की हमारी कोई योजना नहीं है।</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1"><span>क्या मैं Pro या Agency आज ख़रीद सकता हूँ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><p>अभी नहीं। Pro और Agency जल्द शुरू हो रहे हैं और आज कुछ नहीं कटता। <a href="#waitlist">वेटलिस्ट में जुड़ें</a>, शुरू होते ही हम बता देंगे।</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span>क्या आप Google Maps पर #1 रैंक की गारंटी देते हैं?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><p>नहीं। Google प्रोफ़ाइल को प्रासंगिकता, दूरी और प्रमुखता के आधार पर रैंक करता है, और इसे Google के बाहर कोई नियंत्रित नहीं करता। LocalBoost बताता है कि क्या सुधारें और क्या बदला, यह ट्रैक करता है। किसी पोज़िशन का वादा हम नहीं करते।</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span>क्या मैं Pro कभी भी रद्द कर सकता हूँ?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><p>हाँ। आप कभी भी रद्द कर सकते हैं, और जितने समय का भुगतान किया है उसके अंत तक एक्सेस बना रहता है। उसके बाद दोबारा पैसे नहीं कटते। रद्द करने का कोई शुल्क नहीं।</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span>रिफ़ंड पॉलिसी क्या है?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><p>रिफ़ंड हमारी <a href="../refund-policy/index.html">रिफ़ंड पॉलिसी</a> के अनुसार होते हैं। सब्सक्राइब करने से पहले कृपया उसे पढ़ लें।</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5"><span>क्या कीमतों में GST शामिल है?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><p>नहीं। इस पेज की कीमतों में GST शामिल नहीं है। चेकआउट पर 18% GST जुड़ता है और आपके इनवॉइस में दिखता है।</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6"><span>छोड़ने पर मेरे डेटा का क्या होगा?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><p>आप <a href="mailto:support@localboost.in">support@localboost.in</a> पर ईमेल करके अपना अकाउंट और हमारे पास मौजूद डेटा हटाने को कह सकते हैं, और अपने Google अकाउंट से LocalBoost की पहुँच कभी भी हटा सकते हैं। हम क्या और कितने समय तक रखते हैं, यह प्राइवेसी पॉलिसी में है।</p></div></div></div></div></section>
+<section class="lbp-sec alt" id="waitlist"><div class="lbp-wrap"><div class="lbp-narrow"><h2 class="lbp-h2" style="font-size:26px">अभी भुगतान के लिए तैयार नहीं? Pro वेटलिस्ट में जुड़ें</h2><p class="lbp-p">लाइव Google ऑडिट, रैंक ट्रैकिंग और मॉनिटरिंग शुरू होते ही हम आपको ईमेल करेंगे।</p><div data-lb-waitlist data-source="pricing"></div></div></div></section>
 </main>
-
-<footer>
-  <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:32px; text-align:left; margin-bottom:40px;">
-      <div>
-        <div style="font-weight:800; font-size:16px; margin-bottom:12px; color:var(--text-primary);">LocalBoost</div>
-        <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">The definitive local SEO and Google Maps ranking intelligence platform for Indian businesses.</p>
-        <a href="../../hi/contact/index.html" style="font-size:13px; font-weight:700; color:var(--primary-600);">संपर्क व सहायता &rarr;</a>
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../../hi/index.html" class="lb-footer-brand" aria-label="LocalBoost होम"><img class="lb-logo-img lb-logo-light" src="../../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">भारतीय कारोबारों के लिए ईमानदार लोकल SEO: असली डेटा, साफ़ सुझाव, रैंकिंग का कोई वादा नहीं।</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">डायग्नोस्टिक टूल्स</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../../hi/tools/index.html">Tools Overview</a></li>
-          <li><a href="../../hi/check/index.html">Free Business Audit</a></li>
-          <li><a href="../../hi/tools/local-seo-checklist/index.html">Local SEO Checklist</a></li>
-          <li><a href="../../hi/tools/description-generator/index.html">Description Generator</a></li>
-          <li><a href="../../hi/tools/review-reply-generator/index.html">Review Reply Tool</a></li>
+      <div class="lb-footer-col">
+        <h4>प्रोडक्ट</h4>
+        <ul>
+          <li><a href="../../hi/how-it-works/index.html">यह कैसे काम करता है</a></li>
+          <li><a href="../../hi/pricing/index.html">मूल्य</a></li>
+          <li><a href="../../hi/pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../../hi/waitlist/index.html">वेटलिस्ट में जुड़ें</a></li>
+          <li><a href="../../hi/check/index.html">फ्री विज़िबिलिटी चेक</a></li>
         </ul>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">गाइड्स व शहर</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../../hi/businesses/index.html">All 18 Industries</a></li>
-          <li><a href="../../hi/businesses/salon/index.html">Salon SEO Guide</a></li>
-          <li><a href="../../hi/businesses/restaurant/index.html">Restaurant SEO Guide</a></li>
-          <li><a href="../../hi/businesses/doctor/index.html">Doctor Clinic SEO</a></li>
-          <li><a href="../../hi/cities/index.html">City SEO Hub</a></li>
+      <div class="lb-footer-col">
+        <h4>फ्री टूल्स</h4>
+        <ul>
+          <li><a href="../../hi/audit/index.html">बिज़नेस ऑडिट</a></li>
+          <li><a href="../../hi/tools/local-seo-checklist/index.html">लोकल SEO चेकलिस्ट</a></li>
+          <li><a href="../../hi/tools/review-reply-generator/index.html">रिव्यू रिप्लाई जेनरेटर</a></li>
+          <li><a href="../../hi/tools/review-request-generator/index.html">रिव्यू रिक्वेस्ट जेनरेटर</a></li>
+          <li><a href="../../hi/tools/description-generator/index.html">डिस्क्रिप्शन जेनरेटर</a></li>
+          <li><a href="../../hi/tools/qr-generator/index.html">रिव्यू QR जेनरेटर</a></li>
+          <li><a href="../../hi/tools/rank-grid-simulator/index.html">रैंक ग्रिड सिमुलेटर</a></li>
+          <li><a href="../../hi/tools/index.html">सभी फ्री टूल्स</a></li>
         </ul>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">प्लेटफ़ॉर्म</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../../hi/pricing/index.html">Pricing &amp; Plans</a></li>
-          <li><a href="../../hi/blog/index.html">Knowledge Blog</a></li>
-          <li><a href="../../hi/compliance/index.html">Google Compliance</a></li>
-          <li><a href="../../hi/privacy/index.html">Privacy Policy</a></li>
-          <li><a href="../../hi/terms/index.html">Terms of Service</a></li>
+      <div class="lb-footer-col">
+        <h4>गाइड्स</h4>
+        <ul>
+          <li><a href="../../hi/google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../../hi/google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../../hi/google-reviews/index.html">Google रिव्यू</a></li>
+          <li><a href="../../hi/local-seo/index.html">लोकल SEO</a></li>
+          <li><a href="../../hi/business-growth/index.html">बिज़नेस ग्रोथ</a></li>
+          <li><a href="../../hi/businesses/index.html">उद्योग</a></li>
+          <li><a href="../../hi/cities/index.html">शहर</a></li>
+          <li><a href="../../hi/blog/index.html">ब्लॉग</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कंपनी</h4>
+        <ul>
+          <li><a href="../../hi/about/index.html">हमारे बारे में</a></li>
+          <li><a href="../../hi/contact/index.html">संपर्क</a></li>
+          <li><a href="../../hi/search/index.html">खोजें</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>कानूनी</h4>
+        <ul>
+          <li><a href="../../hi/privacy/index.html">प्राइवेसी पॉलिसी</a></li>
+          <li><a href="../../hi/terms/index.html">सेवा की शर्तें</a></li>
+          <li><a href="../../hi/disclaimer/index.html">डिस्क्लेमर</a></li>
+          <li><a href="../../hi/compliance/index.html">Google अनुपालन</a></li>
+          <li><a href="../../hi/refund-policy/index.html">रिफ़ंड पॉलिसी</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">कुकी सेटिंग्स</button></li>
         </ul>
       </div>
     </div>
-    <div style="border-top:1px solid var(--border); padding-top:24px; font-size:12.5px; color:var(--text-secondary); text-align:center;">
-      <p style="margin-bottom:8px;"><strong>Disclaimer:</strong> LocalBoost is an independent local SEO tool. We are not affiliated with or endorsed by Google LLC. Google Maps and Google Business Profile are registered trademarks of Google LLC.</p>
-      <p>© 2026 LocalBoost. All rights reserved.</p>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost एक स्वतंत्र प्रोडक्ट है। इसका Google LLC से कोई संबंध नहीं है और Google ने इसे न प्रायोजित किया है, न समर्थन दिया है। Google, Google Maps और Google Business Profile, Google LLC के ट्रेडमार्क हैं।</p>
+      <p>&copy; 2026 LocalBoost. सर्वाधिकार सुरक्षित।</p>
     </div>
   </div>
 </footer>
-
-
+<!-- /lb:footer -->
 <script>
-const btnMonthly = document.getElementById('btnMonthly');
-const btnAnnual = document.getElementById('btnAnnual');
-const proPrice = document.getElementById('proPrice');
-const agencyPrice = document.getElementById('agencyPrice');
+(function(){
+  var bm=document.getElementById('btnMonthly'),ba=document.getElementById('btnAnnual'),pp=document.getElementById('proPrice'),ap=document.getElementById('agencyPrice');
+  var MO=["&#8377;999 <span>/ \u092e\u093e\u0939</span>", "&#8377;2,999 <span>/ \u092e\u093e\u0939</span>"], YR=["&#8377;749 <span>/ \u092e\u093e\u0939 (\u0935\u093e\u0930\u094d\u0937\u093f\u0915 \u20b98,999 \u092c\u093f\u0932)</span>", "&#8377;2,249 <span>/ \u092e\u093e\u0939 (\u0935\u093e\u0930\u094d\u0937\u093f\u0915 \u20b926,999 \u092c\u093f\u0932)</span>"];
+  function set(a){
+    ba.classList.toggle('active',a);bm.classList.toggle('active',!a);
+    ba.setAttribute('aria-pressed',a);bm.setAttribute('aria-pressed',!a);
+    var d=a?YR:MO;pp.innerHTML=d[0];ap.innerHTML=d[1];
+  }
+  bm.addEventListener('click',function(){set(false)});ba.addEventListener('click',function(){set(true)});
 
-btnMonthly.addEventListener('click', () => {
-  btnMonthly.classList.add('active');
-  btnAnnual.classList.remove('active');
-  proPrice.innerHTML = '₹999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ माह</span>';
-  agencyPrice.innerHTML = '₹2,999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ माह</span>';
-});
+(function(){
+  document.querySelectorAll('.lbp-faq-q').forEach(function(b){
+    b.addEventListener('click',function(){
+      var it=b.closest('.lbp-faq-item'),o=it.classList.toggle('open');
+      b.setAttribute('aria-expanded',o?'true':'false');
+    });
+  });
+})();
 
-btnAnnual.addEventListener('click', () => {
-  btnAnnual.classList.add('active');
-  btnMonthly.classList.remove('active');
-  proPrice.innerHTML = '₹749 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ माह (billed ₹8,999/yr)</span>';
-  agencyPrice.innerHTML = '₹2,249 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ माह (billed ₹26,999/yr)</span>';
-});
+})();
 </script>
-
 <script src="../../assets/localboost-api-config.js"></script>
 <script src="../../assets/waitlist.js" defer></script>
 <script src="../../assets/consent.js" defer></script>

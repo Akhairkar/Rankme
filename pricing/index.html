@@ -20,7 +20,15 @@
       "name": "Is there really a free plan forever?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! All 8-question self-audits, industry vertical playbooks, and manual generators are 100% free with no credit card required."
+        "text": "The free tools (visibility check, checklists, generators and the rank grid simulator) are free and need no credit card or signup. We have no plan to charge for them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I buy Pro or Agency today?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. Pro and Agency are launching soon, and nothing is charged today. Join the waitlist and we will tell you when they open."
       }
     },
     {
@@ -28,7 +36,7 @@
       "name": "Do you guarantee #1 ranking on Google Maps?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. In strict compliance with Google guidelines, no ethical agency or tool can guarantee ranking positions. Rankings depend on proximity, relevance, and market competition."
+        "text": "No. Google ranks profiles algorithmically using relevance, distance and prominence, and nobody outside Google controls that. LocalBoost shows what to improve and tracks what changes. We never promise a position."
       }
     },
     {
@@ -36,7 +44,31 @@
       "name": "Can I cancel my Pro subscription at any time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, you can cancel your subscription anytime with 1 click from your dashboard without cancellation fees."
+        "text": "Yes. You can cancel at any time and you keep access until the end of the period you have paid for. After that you are not charged again. There are no cancellation fees."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your refund policy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Refunds are covered by our Refund Policy. Please read it before you subscribe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do prices include GST?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Prices on this page exclude GST. GST at 18% is added at checkout and shown on your invoice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to my data if I leave?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can ask us to delete your account and the data we hold by emailing support@localboost.in, and you can revoke LocalBoost&rsquo;s access from your Google Account at any time. See the Privacy Policy for what we keep and for how long."
       }
     }
   ]
@@ -47,47 +79,149 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg-base:#FAF9F6; --bg-surface:#FFFFFF; --bg-muted:#F0EEE9;
-    --text-primary:#1E1E1E; --text-secondary:#5A5A54; --border:#E2E0D9;
-    --primary-600:#0F766E; --primary-500:#14968C; --primary-100:#E0F5F2;
-    --accent-600:#E8722C;
-    --font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif;
-  }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:var(--font); background:var(--bg-base); color:var(--text-primary); line-height:1.65; }
-  a { color:inherit; text-decoration:none; }
-  .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
-  header { position:sticky; top:0; z-index:50; background:rgba(250,249,246,.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
-  .nav-inner { max-width:1180px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
-  .logo { display:flex; align-items:center; gap:8px; font-weight:800; font-size:18px; }
-  .logo-mark { width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--primary-600),var(--primary-500)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; }
-  .nav-cta { background:var(--accent-600); color:#fff; font-weight:600; font-size:14px; padding:10px 18px; border-radius:8px; }
-  .lang-switch { font-size:13px; font-weight:600; color:var(--text-secondary); border:1px solid var(--border); border-radius:999px; padding:6px 14px; background:#fff; }
+:root{--bg:#FAF9F6;--surface:#fff;--muted:#F0EEE9;--text:#1E1E1E;--text2:#5A5A54;--border:#E2E0D9;--p6:#0F766E;--p5:#14968C;--p1:#E0F5F2;--cta:#C2570F;--cta-h:#A9490B;--warn-bg:#FFF4E8;--warn:#9A4A0B;--ok-bg:#E6F6EE;--ok:#146C43;--shadow:0 1px 2px rgba(30,30,30,.04),0 8px 24px rgba(30,30,30,.05);--font:'Manrope','Noto Sans Devanagari',system-ui,-apple-system,'Segoe UI',sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1412;--surface:#161D1A;--muted:#1D2622;--text:#EEF2F0;--text2:#A9B4AF;--border:#26302C;--p6:#3CC4B6;--p5:#3CC4B6;--p1:#14302C;--warn-bg:#2A1E12;--warn:#F0B77E;--ok-bg:#12281D;--ok:#7FD6A5;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25)}}
+:root[data-theme="dark"]{--bg:#0F1412;--surface:#161D1A;--muted:#1D2622;--text:#EEF2F0;--text2:#A9B4AF;--border:#26302C;--p6:#3CC4B6;--p5:#3CC4B6;--p1:#14302C;--warn-bg:#2A1E12;--warn:#F0B77E;--ok-bg:#12281D;--ok:#7FD6A5;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+.lbp-skip{position:absolute;left:12px;top:-60px;background:var(--p6);color:#fff;padding:10px 16px;border-radius:0 0 8px 8px;font-weight:700;z-index:100;text-decoration:none}
+.lbp-skip:focus{top:0}
+.lbp-wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.lbp-narrow{max-width:760px;margin:0 auto}
+.lbp-sec{padding:84px 0}
+.lbp-sec.alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.lbp-head{max-width:680px;margin:0 0 40px}
+.lbp-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.lbp-eyebrow{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--p6);margin:0 0 12px}
+.lbp-h1{font-size:clamp(32px,4.6vw,50px);line-height:1.12;letter-spacing:-.02em;font-weight:800;margin:0 0 18px}
+.lbp-h2{font-size:clamp(26px,3.2vw,36px);line-height:1.2;letter-spacing:-.015em;font-weight:800;margin:0 0 12px}
+.lbp-h3{font-size:18px;line-height:1.35;font-weight:800;margin:0 0 8px}
+.lbp-lead{font-size:18px;color:var(--text2);margin:0}
+.lbp-p{color:var(--text2);margin:0 0 14px}
+.lbp-small{font-size:13.5px;color:var(--text2)}
+.lbp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:15.5px;line-height:1.2;padding:14px 22px;border-radius:10px;border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .05s}
+.lbp-btn:active{transform:translateY(1px)}
+.lbp-btn:focus-visible,.lbp-input:focus-visible,.lbp-faq-q:focus-visible,.lbp-card a:focus-visible,.lbp-toggle button:focus-visible{outline:2px solid var(--p5);outline-offset:3px}
+.lbp-btn-primary{background:var(--cta);color:#fff}
+.lbp-btn-primary:hover{background:var(--cta-h)}
+.lbp-btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.lbp-btn-ghost:hover{border-color:var(--p5);color:var(--p6)}
+.lbp-btn-teal{background:var(--p6);color:#fff}
+.lbp-btn-block{display:flex;width:100%}
+.lbp-link{color:var(--p6);font-weight:700;text-decoration:none}
+.lbp-link:hover{text-decoration:underline}
+.lbp-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
+.lbp-grid{display:grid;gap:20px}
+.lbp-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lbp-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lbp-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lbp-ic{width:42px;height:42px;border-radius:11px;background:var(--p1);color:var(--p6);display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex:none}
+.lbp-ic svg{width:21px;height:21px}
+.lbp-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.02em;padding:4px 10px;border-radius:999px;background:var(--p1);color:var(--p6);white-space:nowrap}
+.lbp-pill.warn{background:var(--warn-bg);color:var(--warn)}
+.lbp-pill.ok{background:var(--ok-bg);color:var(--ok)}
+.lbp-pill.mute{background:var(--muted);color:var(--text2)}
+.lbp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.lbp-list li{position:relative;padding-left:26px;font-size:15px;color:var(--text2);line-height:1.55}
+.lbp-list li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:2.5px solid var(--p5);border-bottom:2.5px solid var(--p5);transform:rotate(-45deg) scale(.9)}
+.lbp-list.x li::before{border:0;width:10px;height:2.5px;background:var(--text2);opacity:.55;top:.8em;transform:none;left:3px}
+.lbp-list strong{color:var(--text)}
+/* hero */
+.lbp-hero{padding:72px 0 76px;border-bottom:1px solid var(--border);background:radial-gradient(1100px 380px at 85% -10%,var(--p1),transparent 70%),var(--bg)}
+.lbp-hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
+.lbp-form{margin-top:30px}
+.lbp-form label{display:block;font-size:14px;font-weight:700;margin-bottom:8px}
+.lbp-row{display:flex;gap:10px}
+.lbp-input{flex:1;min-width:0;font:inherit;font-size:16px;padding:14px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text)}
+.lbp-input::placeholder{color:var(--text2);opacity:.7}
+.lbp-input:focus{border-color:var(--p5);outline:none}
+.lbp-fine{font-size:13px;color:var(--text2);margin:10px 0 0}
+.lbp-hero-links{margin-top:18px;font-size:14.5px}
+/* finding card */
+.lbp-finding{box-shadow:var(--shadow);padding:0;overflow:hidden}
+.lbp-finding-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--muted)}
+.lbp-finding-body{padding:20px}
+.lbp-finding h3{font-size:17px;margin:0 0 14px;line-height:1.35}
+.lbp-finding dl{margin:0;display:grid;grid-template-columns:104px 1fr;gap:10px 14px;font-size:14px}
+.lbp-finding dt{font-weight:800;color:var(--text);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.lbp-finding dd{margin:0;color:var(--text2)}
+.lbp-finding-foot{padding:14px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px}
+/* steps */
+.lbp-steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.lbp-step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 24px 22px}
+.lbp-step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--p6);color:#fff;font-weight:800;font-size:14px;margin-bottom:14px}
+.lbp-step p{margin:0;font-size:14.5px;color:var(--text2)}
+/* faq */
+.lbp-faq{display:flex;flex-direction:column;gap:10px;max-width:780px;margin:0 auto}
+.lbp-faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.lbp-faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;font:inherit;font-size:16px;font-weight:700;color:var(--text);background:none;border:0;padding:18px 20px;cursor:pointer}
+.lbp-faq-q svg{width:18px;height:18px;flex:none;transition:transform .2s;color:var(--text2)}
+.lbp-faq-item.open .lbp-faq-q svg{transform:rotate(180deg)}
+.lbp-faq-a{display:none;padding:0 20px 18px;color:var(--text2);font-size:15px}
+.lbp-faq-item.open .lbp-faq-a{display:block}
+.lbp-faq-a p{margin:0 0 10px}.lbp-faq-a p:last-child{margin:0}
+.lbp-faq-a a{color:var(--p6);font-weight:700}
+.lbp-cta-band{background:var(--p6);color:#fff;border-radius:20px;padding:48px 32px;text-align:center}
+:root[data-theme="dark"] .lbp-cta-band{color:#06201C}
+.lbp-cta-band h2{margin:0 0 10px;font-size:clamp(24px,3vw,32px);font-weight:800}
+.lbp-cta-band p{margin:0 auto 24px;max-width:540px;opacity:.92}
+.lbp-cta-band .lbp-btn{background:#fff;color:#0B5A53}
+.lbp-chips{display:flex;flex-wrap:wrap;gap:10px}
+.lbp-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-size:14.5px;font-weight:600;text-decoration:none}
+.lbp-chip:hover{border-color:var(--p5);color:var(--p6)}
+.lbp-crumbs{font-size:13.5px;color:var(--text2);margin:0 0 18px}.lbp-crumbs a{text-decoration:none}.lbp-crumbs a:hover{text-decoration:underline}
+/* tables */
+.lbp-tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
+.lbp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.lbp-table th,.lbp-table td{padding:14px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}
+.lbp-table tr:last-child th,.lbp-table tr:last-child td{border-bottom:0}
+.lbp-table thead th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--text2);background:var(--muted);font-weight:800}
+.lbp-table tbody th{font-weight:700;color:var(--text);width:30%}
+.lbp-table td{color:var(--text2)}
+.lbp-table .no{color:var(--text2);opacity:.6}
+.lbp-table .grp th{background:var(--muted);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text2)}
+/* forms */
+.lbp-field{margin-bottom:16px}
+.lbp-field label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.lbp-field .lbp-input{width:100%}
+select.lbp-input{appearance:auto}
+.lbp-help{font-size:12.5px;color:var(--text2);margin-top:5px}
+.lbp-err{font-size:13px;color:#B42318;margin-top:5px;display:none;font-weight:600}
+:root[data-theme="dark"] .lbp-err{color:#FF9E94}
+.lbp-field.bad .lbp-input{border-color:#B42318}.lbp-field.bad .lbp-err{display:block}
+.lbp-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.lbp-alert{border-radius:12px;padding:16px 18px;font-size:14.5px;margin-top:16px}
+.lbp-alert.ok{background:var(--ok-bg);color:var(--ok)}.lbp-alert.err{background:var(--warn-bg);color:var(--warn)}.lbp-alert.info{background:var(--p1);color:var(--p6)}
+.lbp-alert a{font-weight:800}
+@media (max-width:980px){
+  .lbp-hero-grid{grid-template-columns:1fr;gap:40px}
+  .lbp-g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lbp-g3,.lbp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .lbp-wrap{padding:0 16px}
+  .lbp-sec{padding:56px 0}
+  .lbp-hero{padding:44px 0 52px}
+  .lbp-g2,.lbp-g3,.lbp-g4,.lbp-steps{grid-template-columns:1fr}
+  .lbp-row{flex-direction:column}
+  .lbp-btn{width:100%}
+  .lbp-card{padding:22px 20px}
+  .lbp-finding dl{grid-template-columns:1fr;gap:2px 0}.lbp-finding dd{margin-bottom:10px}
+  .lbp-cta-band{padding:36px 22px}
+  .lbp-lead{font-size:16.5px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
-  .hero { text-align:center; padding:48px 0 24px; }
-  .toggle-container { display:flex; align-items:center; justify-content:center; gap:12px; margin:24px 0 40px; }
-  .toggle-btn { padding:6px 18px; font-size:14px; font-weight:700; border-radius:999px; border:1px solid var(--border); background:#fff; cursor:pointer; }
-  .toggle-btn.active { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
-
-  .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-bottom:64px; }
-  .pricing-card { background:#fff; border:1px solid var(--border); border-radius:16px; padding:32px; display:flex; flex-direction:column; justify-content:space-between; position:relative; box-shadow:0 2px 8px rgba(0,0,0,0.03); }
-  .pricing-card.featured { border:2px solid var(--primary-600); box-shadow:0 8px 24px rgba(15,118,110,0.08); }
-  .badge-feat { position:absolute; top:-12px; right:24px; background:var(--primary-600); color:#fff; font-size:11px; font-weight:800; text-transform:uppercase; padding:4px 12px; border-radius:999px; }
-  
-  .price { font-size:36px; font-weight:800; margin:16px 0; }
-  .feature-list { list-style:none; margin:24px 0; display:flex; flex-direction:column; gap:10px; }
-  .feature-list li { font-size:14.5px; color:#475569; display:flex; align-items:center; gap:8px; }
-  .feature-list li::before { content:"✓"; color:var(--primary-600); font-weight:800; }
-
-  .btn-buy { display:block; width:100%; padding:13px; text-align:center; font-weight:700; font-size:15px; border-radius:8px; }
-  .btn-buy-primary { background:var(--primary-600); color:#fff; }
-  .btn-buy-outline { background:#fff; border:1px solid var(--border); color:var(--text-primary); }
-
-  .faq-section { margin:64px 0; }
-  .faq-item { background:#fff; border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:12px; }
-  .faq-q { font-size:16.5px; font-weight:700; color:var(--text-primary); margin-bottom:6px; }
-  .faq-a { font-size:14.5px; color:var(--text-secondary); line-height:1.6; }
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.lbp-tbtn{font:inherit;font-weight:700;font-size:14px;padding:9px 18px;border-radius:999px;border:0;background:transparent;color:var(--text2);cursor:pointer}
+.lbp-tbtn.active{background:var(--p6);color:#fff}
+.lbp-tbtn:focus-visible{outline:2px solid var(--p5);outline-offset:2px}
+.lbp-plan{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.lbp-price{font-size:36px;font-weight:800;margin:14px 0 18px;line-height:1.1;letter-spacing:-.02em}
+.lbp-price span{font-size:14px;font-weight:500;color:var(--text2);letter-spacing:0}
 </style>
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -100,186 +234,160 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/public-shell.css">
+<script src="../assets/theme.js"></script>
 </head>
 <body>
-
-<header>
+<a class="lbp-skip" href="#main">Skip to main content</a>
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
   <div class="nav-inner">
-    <a href="../index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
-    <nav class="nav-links" style="display:flex; align-items:center; gap:20px;">
-      <a href="../tools/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Tools</a>
-      <a href="../businesses/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Industries</a>
-      <a href="../cities/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Cities</a>
-      <a href="../blog/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Blog</a>
-      <a href="../pricing/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">Pricing</a>
-      <a href="../search/index.html" style="font-size:14px; font-weight:600; color:var(--text-secondary); display:flex; align-items:center; gap:4px;" aria-label="Search website">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span>Search</span>
-      </a>
+    <a href="../index.html" class="logo" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../tools/index.html">Tools</a>
+      <a href="../businesses/index.html">Industries</a>
+      <a href="../cities/index.html">Cities</a>
+      <a href="../google-business-profile/index.html">Guides</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../pricing/index.html">Pricing</a>
+      <a href="../search/index.html" class="lb-nav-search" aria-label="Search website"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search</span></a>
     </nav>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a class="lang-switch" href="../hi/pricing/index.html" aria-label="हिंदी में देखें">EN · हिं</a>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../hi/pricing/index.html" hreflang="hi" lang="hi" aria-label="View this page in Hindi">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="Toggle dark mode" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
       <a href="../check/index.html" class="nav-cta">Free Audit</a>
     </div>
   </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
 </header>
-
-
-<main class="wrap">
-  <div class="hero">
-    <span style="font-size:12px; font-weight:800; text-transform:uppercase; color:var(--primary-600); background:var(--primary-100); padding:4px 12px; border-radius:999px;">Transparent Pricing</span>
-    <h1 style="font-size:38px; font-weight:800; margin-top:12px;">Fair, Predictable Plans for Indian Small Businesses</h1>
-    <p style="font-size:18px; color:var(--text-secondary); max-width:640px; margin:8px auto 0;">No hidden setup fees, no contracts, and strictly zero false ranking guarantees. Upgrade only when you want automated review management and monitoring.</p>
-
-    <div class="toggle-container">
-      <button class="toggle-btn active" id="btnMonthly">Monthly Billing</button>
-      <button class="toggle-btn" id="btnAnnual">Annual Billing (Save 25%)</button>
-    </div>
+<!-- /lb:header -->
+<main id="main">
+<section class="lbp-hero" style="padding-bottom:40px"><div class="lbp-wrap" style="text-align:center">
+  <span class="lbp-eyebrow">Transparent Pricing</span>
+  <h1 class="lbp-h1" style="max-width:820px;margin-left:auto;margin-right:auto">Fair, Predictable Plans for Indian Small Businesses</h1>
+  <p class="lbp-lead" style="max-width:660px;margin:0 auto">No hidden setup fees, no contracts and no ranking guarantees. The free tools stay free. Pro and Agency are launching soon, so nothing is charged today.</p>
+  <div class="lbp-toggle" role="group" aria-label="Billing" style="display:inline-flex;gap:6px;margin-top:28px;padding:5px;border:1px solid var(--border);border-radius:999px;background:var(--surface)">
+    <button type="button" class="lbp-tbtn active" id="btnMonthly" aria-pressed="true">Monthly billing</button>
+    <button type="button" class="lbp-tbtn" id="btnAnnual" aria-pressed="false">Annual billing (save 25%)</button>
   </div>
-
-  <div class="pricing-grid">
-    <!-- Free Tier -->
-    <div class="pricing-card">
-      <div>
-        <h3 style="font-size:20px; font-weight:800;">Starter (Free)</h3>
-        <p style="font-size:14px; color:var(--text-secondary); margin-top:4px;">Ideal for single shops and clinics performing self-guided audits.</p>
-        <div class="price">₹0 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ month</span></div>
-        <ul class="feature-list">
-          <li>Full 8-question self-audit & score</li>
-          <li>All 18 industry vertical playbooks</li>
-          <li>AI Business Description Generator</li>
-          <li>Review Reply Generator tool</li>
-          <li>Interactive 40-point SEO checklist</li>
-        </ul>
-      </div>
-      <a href="../check/index.html" class="btn-buy btn-buy-outline">Start Free Now</a>
-    </div>
-
-    <!-- Pro Tier -->
-    <div class="pricing-card featured">
-      <span class="badge-feat">Most Popular</span>
-      <div>
-        <h3 style="font-size:20px; font-weight:800; color:var(--primary-600);">Pro Growth</h3>
-        <p style="font-size:14px; color:var(--text-secondary); margin-top:4px;">For established businesses seeking automated reviews & active monitoring.</p>
-        <div class="price" id="proPrice">₹999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ month</span></div>
-        <ul class="feature-list">
-          <li><strong>Everything in Free Starter, plus:</strong></li>
-          <li>Official Google Profile OAuth connection</li>
-          <li>Automated 24/7 review monitoring</li>
-          <li>AI-drafted replies with sentiment analysis</li>
-          <li>Customized 30-day growth roadmap</li>
-          <li>Printable monthly performance reports</li>
-        </ul>
-      </div>
-      <a href="../checkout/index.html?plan=pro" class="btn-buy btn-buy-primary">Upgrade to Pro</a>
-    </div>
-
-    <!-- Agency Tier -->
-    <div class="pricing-card">
-      <div>
-        <h3 style="font-size:20px; font-weight:800;">Agency &amp; Multi-Branch</h3>
-        <p style="font-size:14px; color:var(--text-secondary); margin-top:4px;">For business owners with multiple locations or local marketing consultants.</p>
-        <div class="price" id="agencyPrice">₹2,999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ month</span></div>
-        <ul class="feature-list">
-          <li><strong>Up to 10 verified business locations</strong></li>
-          <li>Unified multi-location management</li>
-          <li>White-label PDF report generation</li>
-          <li>Priority WhatsApp alerts for 1-star reviews</li>
-          <li>Dedicated account manager support</li>
-        </ul>
-      </div>
-      <a href="../checkout/index.html?plan=agency" class="btn-buy btn-buy-outline">Get Agency Plan</a>
-    </div>
+</div></section>
+<section class="lbp-sec" style="padding-top:48px"><div class="lbp-wrap">
+  <div class="lbp-grid lbp-g3" style="align-items:stretch">
+    <div class="lbp-card lbp-plan"><div><h2 class="lbp-h3" style="font-size:20px">Free</h2><p class="lbp-small" style="min-height:44px">For one shop or clinic doing self-guided checks.</p>
+      <div class="lbp-price">&#8377;0 <span>/ month</span></div><ul class="lbp-list"><li>Visibility check: 8 questions, score and fix list</li><li>Business audit: up to 3 per month</li><li>Local SEO checklist and all generators</li><li>Rank grid simulator (simulated practice)</li></ul></div>
+      <a href="../check/index.html" class="lbp-btn lbp-btn-ghost lbp-btn-block">Start free</a></div>
+    <div class="lbp-card lbp-plan" style="border:2px solid var(--p6)"><span class="lbp-pill" style="position:absolute;top:-13px;right:22px;background:var(--p6);color:#fff">Best for one business</span><div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 class="lbp-h3" style="font-size:20px;color:var(--p6);margin:0">Pro</h2><span class="lbp-pill warn">Launching soon</span></div><p class="lbp-small" style="min-height:44px;margin-top:8px">For one business that wants live Google data, tracking and reports.</p>
+      <div class="lbp-price" id="proPrice">&#8377;999 <span>/ month</span></div><ul class="lbp-list"><li><strong>Everything in Free, plus:</strong></li><li>Connect your Google Business Profile (read-only to start)</li><li>Up to 30 audits per month, up to 50 pages crawled</li><li>Rank tracking for up to 50 keywords, up to 100 scans per month</li><li>Review monitoring with reply drafts you approve</li><li>Compare with up to 5 competitors</li><li>Monthly reports</li></ul></div>
+      <a href="#waitlist" class="lbp-btn lbp-btn-primary lbp-btn-block">Join the waitlist</a></div>
+    <div class="lbp-card lbp-plan"><div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><h2 class="lbp-h3" style="font-size:20px;margin:0">Agency</h2><span class="lbp-pill warn">Launching soon</span></div><p class="lbp-small" style="min-height:44px;margin-top:8px">For owners with several locations and consultants managing clients.</p>
+      <div class="lbp-price" id="agencyPrice">&#8377;2,999 <span>/ month</span></div><ul class="lbp-list"><li><strong>Everything in Pro, plus:</strong></li><li>Up to 10 businesses and 10 locations</li><li>Up to 500 keywords, up to 1,000 scans per month</li><li>Up to 25 competitors, up to 300 audits per month</li><li>White-label reports with your branding</li><li>Team access (planned for launch)</li></ul></div>
+      <a href="#waitlist" class="lbp-btn lbp-btn-ghost lbp-btn-block">Join the waitlist</a></div>
   </div>
-
-  <div class="faq-section">
-    <h2 style="font-size:26px; text-align:center; margin-bottom:32px;">Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <div class="faq-q">Is there really a free plan forever?</div>
-      <div class="faq-a">Yes! All self-audit diagnostic tools, industry playbooks, description generators, and checklists are completely free forever without requiring a credit card.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Do you guarantee #1 ranking on Google Maps?</div>
-      <div class="faq-a">No. In strict accordance with Google's webmaster guidelines, no legitimate tool can guarantee rankings. Google ranks profiles algorithmically based on relevance, proximity, and prominence.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Can I cancel my Pro subscription at any time?</div>
-      <div class="faq-a">Yes, absolutely. You can cancel your subscription at any time from your billing settings with zero lock-in or penalties.</div>
-    </div>
-  </div>
-<section style="max-width:720px;margin:0 auto 48px;"><h2 style="font-size:24px;font-weight:800;margin-bottom:6px;">Not ready to pay yet? Join the Pro waitlist</h2><p style="color:var(--text-secondary);">We will email you when live Google audits, rank tracking and monitoring open.</p><div data-lb-waitlist data-source="pricing"></div></section>
+  <p class="lbp-small" style="text-align:center;margin-top:20px">Prices exclude GST (18% is added at checkout).</p>
+</div></section>
+<section class="lbp-sec alt" id="compare"><div class="lbp-wrap">
+  <div class="lbp-head"><h2 class="lbp-h2">Compare plans</h2><p class="lbp-lead">Limits shown are the planned launch limits. We may adjust them before launch; the final numbers will be on this page.</p></div>
+  <div class="lbp-tablewrap"><table class="lbp-table"><caption class="sr">Compare plans</caption><thead><tr><th scope="col"><span class="sr">Compare plans</span></th><th scope="col">Free</th><th scope="col">Pro</th><th scope="col">Agency</th></tr></thead><tbody><tr class="grp"><th colspan="4" scope="colgroup">Account</th></tr><tr><th scope="row">Businesses</th><td>1</td><td>Up to 1</td><td>Up to 10</td></tr><tr><th scope="row">Locations</th><td>1</td><td>Up to 3</td><td>Up to 10</td></tr><tr class="grp"><th colspan="4" scope="colgroup">Features</th></tr><tr><th scope="row">Audits per month</th><td>Up to 3</td><td>Up to 30</td><td>Up to 300</td></tr><tr><th scope="row">Website pages crawled per audit</th><td>1</td><td>Up to 50</td><td>Up to 200</td></tr><tr><th scope="row">Tracked keywords</th><td>Up to 5 saved (no automated tracking)</td><td>Up to 50</td><td>Up to 500</td></tr><tr><th scope="row">Rank and grid scans per month</th><td>Simulator only (simulated)</td><td>Up to 100</td><td>Up to 1,000</td></tr><tr><th scope="row">Competitors compared</th><td>Not included</td><td>Up to 5</td><td>Up to 25</td></tr><tr><th scope="row">Review monitoring and reply drafts</th><td>Reply generator (manual)</td><td>Included</td><td>Included</td></tr><tr><th scope="row">Reports</th><td>Not included</td><td>Monthly reports</td><td>Monthly reports</td></tr><tr><th scope="row">White-label reports</th><td>Not included</td><td>Not included</td><td>Included</td></tr><tr><th scope="row">Team members</th><td>Just you</td><td>Just you</td><td>Planned for launch; seat limit to be announced</td></tr><tr><th scope="row">Google connection</th><td>Not needed</td><td>Read-only to start</td><td>Read-only to start</td></tr></tbody></table></div>
+</div></section>
+<section class="lbp-sec" id="faq"><div class="lbp-wrap"><div class="lbp-head center"><h2 class="lbp-h2">Frequently Asked Questions</h2></div><div class="lbp-faq"><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a0" id="faq-q0"><span>Is there really a free plan forever?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a0" role="region" aria-labelledby="faq-q0"><p>The free tools (visibility check, checklists, generators and the rank grid simulator) are free and need no credit card or signup. We have no plan to charge for them.</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1"><span>Can I buy Pro or Agency today?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><p>Not yet. Pro and Agency are launching soon, and nothing is charged today. <a href="#waitlist">Join the waitlist</a> and we will tell you when they open.</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span>Do you guarantee #1 ranking on Google Maps?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><p>No. Google ranks profiles algorithmically using relevance, distance and prominence, and nobody outside Google controls that. LocalBoost shows what to improve and tracks what changes. We never promise a position.</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span>Can I cancel my Pro subscription at any time?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><p>Yes. You can cancel at any time and you keep access until the end of the period you have paid for. After that you are not charged again. There are no cancellation fees.</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span>What is your refund policy?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><p>Refunds are covered by our <a href="../refund-policy/index.html">Refund Policy</a>. Please read it before you subscribe.</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5"><span>Do prices include GST?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><p>No. Prices on this page exclude GST. GST at 18% is added at checkout and shown on your invoice.</p></div></div><div class="lbp-faq-item"><h3 style="margin:0"><button class="lbp-faq-q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6"><span>What happens to my data if I leave?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button></h3><div class="lbp-faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><p>You can ask us to delete your account and the data we hold by emailing <a href="mailto:support@localboost.in">support@localboost.in</a>, and you can revoke LocalBoost&rsquo;s access from your Google Account at any time. See the Privacy Policy for what we keep and for how long.</p></div></div></div></div></section>
+<section class="lbp-sec alt" id="waitlist"><div class="lbp-wrap"><div class="lbp-narrow"><h2 class="lbp-h2" style="font-size:26px">Not ready to pay yet? Join the Pro waitlist</h2><p class="lbp-p">We will email you when live Google audits, rank tracking and monitoring open.</p><div data-lb-waitlist data-source="pricing"></div></div></div></section>
 </main>
-
-<footer>
-  <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:32px; text-align:left; margin-bottom:40px;">
-      <div>
-        <div style="font-weight:800; font-size:16px; margin-bottom:12px; color:var(--text-primary);">LocalBoost</div>
-        <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">The definitive local SEO and Google Maps ranking intelligence platform for Indian businesses.</p>
-        <a href="../contact/index.html" style="font-size:13px; font-weight:700; color:var(--primary-600);">Contact & Support &rarr;</a>
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../index.html" class="lb-footer-brand" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">Honest local SEO for Indian businesses: real data, clear fixes, no ranking promises.</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">Diagnostic Tools</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../tools/index.html">Tools Overview</a></li>
-          <li><a href="../check/index.html">Free Business Audit</a></li>
-          <li><a href="../tools/local-seo-checklist/index.html">Local SEO Checklist</a></li>
-          <li><a href="../tools/description-generator/index.html">Description Generator</a></li>
-          <li><a href="../tools/review-reply-generator/index.html">Review Reply Tool</a></li>
+      <div class="lb-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="../how-it-works/index.html">How it works</a></li>
+          <li><a href="../pricing/index.html">Pricing</a></li>
+          <li><a href="../pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../waitlist/index.html">Join the waitlist</a></li>
+          <li><a href="../check/index.html">Free visibility check</a></li>
         </ul>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">Guides & Metros</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../businesses/index.html">All 18 Industries</a></li>
-          <li><a href="../businesses/salon/index.html">Salon SEO Guide</a></li>
-          <li><a href="../businesses/restaurant/index.html">Restaurant SEO Guide</a></li>
-          <li><a href="../businesses/doctor/index.html">Doctor Clinic SEO</a></li>
-          <li><a href="../cities/index.html">City SEO Hub</a></li>
+      <div class="lb-footer-col">
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="../audit/index.html">Business audit</a></li>
+          <li><a href="../tools/local-seo-checklist/index.html">Local SEO checklist</a></li>
+          <li><a href="../tools/review-reply-generator/index.html">Review reply generator</a></li>
+          <li><a href="../tools/review-request-generator/index.html">Review request generator</a></li>
+          <li><a href="../tools/description-generator/index.html">Description generator</a></li>
+          <li><a href="../tools/qr-generator/index.html">Review QR generator</a></li>
+          <li><a href="../tools/rank-grid-simulator/index.html">Rank grid simulator</a></li>
+          <li><a href="../tools/index.html">All free tools</a></li>
         </ul>
       </div>
-      <div>
-        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">Platform</div>
-        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
-          <li><a href="../pricing/index.html">Pricing &amp; Plans</a></li>
-          <li><a href="../blog/index.html">Knowledge Blog</a></li>
-          <li><a href="../compliance/index.html">Google Compliance</a></li>
-          <li><a href="../about/index.html">About Us</a></li>
+      <div class="lb-footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../google-reviews/index.html">Google reviews</a></li>
+          <li><a href="../local-seo/index.html">Local SEO</a></li>
+          <li><a href="../business-growth/index.html">Business growth</a></li>
+          <li><a href="../businesses/index.html">Industries</a></li>
+          <li><a href="../cities/index.html">Cities</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
+          <li><a href="../search/index.html">Search</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy/index.html">Privacy policy</a></li>
+          <li><a href="../terms/index.html">Terms of service</a></li>
           <li><a href="../disclaimer/index.html">Disclaimer</a></li>
-          <li><a href="../privacy/index.html">Privacy Policy</a></li>
-          <li><a href="../terms/index.html">Terms of Service</a></li>
+          <li><a href="../compliance/index.html">Google compliance</a></li>
+          <li><a href="../refund-policy/index.html">Refund policy</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">Cookie settings</button></li>
         </ul>
       </div>
     </div>
-    <div style="border-top:1px solid var(--border); padding-top:24px; font-size:12.5px; color:var(--text-secondary); text-align:center;">
-      <p style="margin-bottom:8px;"><strong>Disclaimer:</strong> LocalBoost is an independent local SEO tool. We are not affiliated with or endorsed by Google LLC. Google Maps and Google Business Profile are registered trademarks of Google LLC.</p>
-      <p>© 2026 LocalBoost. All rights reserved.</p>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost is an independent product and is not affiliated with, endorsed by or sponsored by Google LLC. Google, Google Maps and Google Business Profile are trademarks of Google LLC.</p>
+      <p>&copy; 2026 LocalBoost. All rights reserved.</p>
     </div>
   </div>
 </footer>
-
-
+<!-- /lb:footer -->
 <script>
-const btnMonthly = document.getElementById('btnMonthly');
-const btnAnnual = document.getElementById('btnAnnual');
-const proPrice = document.getElementById('proPrice');
-const agencyPrice = document.getElementById('agencyPrice');
+(function(){
+  var bm=document.getElementById('btnMonthly'),ba=document.getElementById('btnAnnual'),pp=document.getElementById('proPrice'),ap=document.getElementById('agencyPrice');
+  var MO=["&#8377;999 <span>/ month</span>", "&#8377;2,999 <span>/ month</span>"], YR=["&#8377;749 <span>/ month (billed \u20b98,999/yr)</span>", "&#8377;2,249 <span>/ month (billed \u20b926,999/yr)</span>"];
+  function set(a){
+    ba.classList.toggle('active',a);bm.classList.toggle('active',!a);
+    ba.setAttribute('aria-pressed',a);bm.setAttribute('aria-pressed',!a);
+    var d=a?YR:MO;pp.innerHTML=d[0];ap.innerHTML=d[1];
+  }
+  bm.addEventListener('click',function(){set(false)});ba.addEventListener('click',function(){set(true)});
 
-btnMonthly.addEventListener('click', () => {
-  btnMonthly.classList.add('active');
-  btnAnnual.classList.remove('active');
-  proPrice.innerHTML = '₹999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ month</span>';
-  agencyPrice.innerHTML = '₹2,999 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ month</span>';
-});
+(function(){
+  document.querySelectorAll('.lbp-faq-q').forEach(function(b){
+    b.addEventListener('click',function(){
+      var it=b.closest('.lbp-faq-item'),o=it.classList.toggle('open');
+      b.setAttribute('aria-expanded',o?'true':'false');
+    });
+  });
+})();
 
-btnAnnual.addEventListener('click', () => {
-  btnAnnual.classList.add('active');
-  btnMonthly.classList.remove('active');
-  proPrice.innerHTML = '₹749 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ month (billed ₹8,999/yr)</span>';
-  agencyPrice.innerHTML = '₹2,249 <span style="font-size:14px; font-weight:500; color:var(--text-secondary);">/ month (billed ₹26,999/yr)</span>';
-});
+})();
 </script>
-
 <script src="../assets/localboost-api-config.js"></script>
 <script src="../assets/waitlist.js" defer></script>
 <script src="../assets/consent.js" defer></script>

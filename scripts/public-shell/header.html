@@ -16,5 +16,5 @@
       <a href="{{href:check/index.html}}" class="nav-cta">{{t:nav_cta}}</a>
     </div>
   </div>
-  <script>(function(){var h=document.currentScript.parentNode,b=h.querySelector('[data-lb-theme-toggle]');if(!b)return;function show(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false}document.addEventListener('DOMContentLoaded',show);b.addEventListener('click',function(){if(window.LBTheme&&typeof LBTheme.toggle==='function'){LBTheme.toggle();return}var r=document.documentElement,d=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',d);try{localStorage.setItem('lb-theme',d)}catch(e){}})})();</script>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
 </header>

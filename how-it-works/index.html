@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How LocalBoost Works: From Profile Audit to Report | LocalBoost</title>
+<meta name="description" content="See how LocalBoost audits a Google Business Profile, what data it reads (read-only), what is measured versus estimated, and where its limits are.">
+<link rel="canonical" href="https://www.localboost.in/how-it-works/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/how-it-works/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/how-it-works/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/how-it-works/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.localboost.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "How it works",
+      "item": "https://www.localboost.in/how-it-works/"
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF9F6;--surface:#fff;--muted:#F0EEE9;--text:#1E1E1E;--text2:#5A5A54;--border:#E2E0D9;--p6:#0F766E;--p5:#14968C;--p1:#E0F5F2;--cta:#C2570F;--cta-h:#A9490B;--warn-bg:#FFF4E8;--warn:#9A4A0B;--ok-bg:#E6F6EE;--ok:#146C43;--shadow:0 1px 2px rgba(30,30,30,.04),0 8px 24px rgba(30,30,30,.05);--font:'Manrope','Noto Sans Devanagari',system-ui,-apple-system,'Segoe UI',sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1412;--surface:#161D1A;--muted:#1D2622;--text:#EEF2F0;--text2:#A9B4AF;--border:#26302C;--p6:#3CC4B6;--p5:#3CC4B6;--p1:#14302C;--warn-bg:#2A1E12;--warn:#F0B77E;--ok-bg:#12281D;--ok:#7FD6A5;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25)}}
+:root[data-theme="dark"]{--bg:#0F1412;--surface:#161D1A;--muted:#1D2622;--text:#EEF2F0;--text2:#A9B4AF;--border:#26302C;--p6:#3CC4B6;--p5:#3CC4B6;--p1:#14302C;--warn-bg:#2A1E12;--warn:#F0B77E;--ok-bg:#12281D;--ok:#7FD6A5;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{max-width:100%}
+.lbp-skip{position:absolute;left:12px;top:-60px;background:var(--p6);color:#fff;padding:10px 16px;border-radius:0 0 8px 8px;font-weight:700;z-index:100;text-decoration:none}
+.lbp-skip:focus{top:0}
+.lbp-wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.lbp-narrow{max-width:760px;margin:0 auto}
+.lbp-sec{padding:84px 0}
+.lbp-sec.alt{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.lbp-head{max-width:680px;margin:0 0 40px}
+.lbp-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.lbp-eyebrow{display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--p6);margin:0 0 12px}
+.lbp-h1{font-size:clamp(32px,4.6vw,50px);line-height:1.12;letter-spacing:-.02em;font-weight:800;margin:0 0 18px}
+.lbp-h2{font-size:clamp(26px,3.2vw,36px);line-height:1.2;letter-spacing:-.015em;font-weight:800;margin:0 0 12px}
+.lbp-h3{font-size:18px;line-height:1.35;font-weight:800;margin:0 0 8px}
+.lbp-lead{font-size:18px;color:var(--text2);margin:0}
+.lbp-p{color:var(--text2);margin:0 0 14px}
+.lbp-small{font-size:13.5px;color:var(--text2)}
+.lbp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:15.5px;line-height:1.2;padding:14px 22px;border-radius:10px;border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,transform .05s}
+.lbp-btn:active{transform:translateY(1px)}
+.lbp-btn:focus-visible,.lbp-input:focus-visible,.lbp-faq-q:focus-visible,.lbp-card a:focus-visible,.lbp-toggle button:focus-visible{outline:2px solid var(--p5);outline-offset:3px}
+.lbp-btn-primary{background:var(--cta);color:#fff}
+.lbp-btn-primary:hover{background:var(--cta-h)}
+.lbp-btn-ghost{background:transparent;color:var(--text);border-color:var(--border)}
+.lbp-btn-ghost:hover{border-color:var(--p5);color:var(--p6)}
+.lbp-btn-teal{background:var(--p6);color:#fff}
+.lbp-btn-block{display:flex;width:100%}
+.lbp-link{color:var(--p6);font-weight:700;text-decoration:none}
+.lbp-link:hover{text-decoration:underline}
+.lbp-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
+.lbp-grid{display:grid;gap:20px}
+.lbp-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.lbp-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lbp-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.lbp-ic{width:42px;height:42px;border-radius:11px;background:var(--p1);color:var(--p6);display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex:none}
+.lbp-ic svg{width:21px;height:21px}
+.lbp-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;letter-spacing:.02em;padding:4px 10px;border-radius:999px;background:var(--p1);color:var(--p6);white-space:nowrap}
+.lbp-pill.warn{background:var(--warn-bg);color:var(--warn)}
+.lbp-pill.ok{background:var(--ok-bg);color:var(--ok)}
+.lbp-pill.mute{background:var(--muted);color:var(--text2)}
+.lbp-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.lbp-list li{position:relative;padding-left:26px;font-size:15px;color:var(--text2);line-height:1.55}
+.lbp-list li::before{content:"";position:absolute;left:2px;top:.42em;width:12px;height:7px;border-left:2.5px solid var(--p5);border-bottom:2.5px solid var(--p5);transform:rotate(-45deg) scale(.9)}
+.lbp-list.x li::before{border:0;width:10px;height:2.5px;background:var(--text2);opacity:.55;top:.8em;transform:none;left:3px}
+.lbp-list strong{color:var(--text)}
+/* hero */
+.lbp-hero{padding:72px 0 76px;border-bottom:1px solid var(--border);background:radial-gradient(1100px 380px at 85% -10%,var(--p1),transparent 70%),var(--bg)}
+.lbp-hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center}
+.lbp-form{margin-top:30px}
+.lbp-form label{display:block;font-size:14px;font-weight:700;margin-bottom:8px}
+.lbp-row{display:flex;gap:10px}
+.lbp-input{flex:1;min-width:0;font:inherit;font-size:16px;padding:14px 16px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text)}
+.lbp-input::placeholder{color:var(--text2);opacity:.7}
+.lbp-input:focus{border-color:var(--p5);outline:none}
+.lbp-fine{font-size:13px;color:var(--text2);margin:10px 0 0}
+.lbp-hero-links{margin-top:18px;font-size:14.5px}
+/* finding card */
+.lbp-finding{box-shadow:var(--shadow);padding:0;overflow:hidden}
+.lbp-finding-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid var(--border);background:var(--muted)}
+.lbp-finding-body{padding:20px}
+.lbp-finding h3{font-size:17px;margin:0 0 14px;line-height:1.35}
+.lbp-finding dl{margin:0;display:grid;grid-template-columns:104px 1fr;gap:10px 14px;font-size:14px}
+.lbp-finding dt{font-weight:800;color:var(--text);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
+.lbp-finding dd{margin:0;color:var(--text2)}
+.lbp-finding-foot{padding:14px 20px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px}
+/* steps */
+.lbp-steps{counter-reset:s;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.lbp-step{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 24px 22px}
+.lbp-step::before{counter-increment:s;content:counter(s);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--p6);color:#fff;font-weight:800;font-size:14px;margin-bottom:14px}
+.lbp-step p{margin:0;font-size:14.5px;color:var(--text2)}
+/* faq */
+.lbp-faq{display:flex;flex-direction:column;gap:10px;max-width:780px;margin:0 auto}
+.lbp-faq-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.lbp-faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;font:inherit;font-size:16px;font-weight:700;color:var(--text);background:none;border:0;padding:18px 20px;cursor:pointer}
+.lbp-faq-q svg{width:18px;height:18px;flex:none;transition:transform .2s;color:var(--text2)}
+.lbp-faq-item.open .lbp-faq-q svg{transform:rotate(180deg)}
+.lbp-faq-a{display:none;padding:0 20px 18px;color:var(--text2);font-size:15px}
+.lbp-faq-item.open .lbp-faq-a{display:block}
+.lbp-faq-a p{margin:0 0 10px}.lbp-faq-a p:last-child{margin:0}
+.lbp-faq-a a{color:var(--p6);font-weight:700}
+.lbp-cta-band{background:var(--p6);color:#fff;border-radius:20px;padding:48px 32px;text-align:center}
+:root[data-theme="dark"] .lbp-cta-band{color:#06201C}
+.lbp-cta-band h2{margin:0 0 10px;font-size:clamp(24px,3vw,32px);font-weight:800}
+.lbp-cta-band p{margin:0 auto 24px;max-width:540px;opacity:.92}
+.lbp-cta-band .lbp-btn{background:#fff;color:#0B5A53}
+.lbp-chips{display:flex;flex-wrap:wrap;gap:10px}
+.lbp-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);font-size:14.5px;font-weight:600;text-decoration:none}
+.lbp-chip:hover{border-color:var(--p5);color:var(--p6)}
+.lbp-crumbs{font-size:13.5px;color:var(--text2);margin:0 0 18px}.lbp-crumbs a{text-decoration:none}.lbp-crumbs a:hover{text-decoration:underline}
+/* tables */
+.lbp-tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:16px;background:var(--surface)}
+.lbp-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:640px}
+.lbp-table th,.lbp-table td{padding:14px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}
+.lbp-table tr:last-child th,.lbp-table tr:last-child td{border-bottom:0}
+.lbp-table thead th{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--text2);background:var(--muted);font-weight:800}
+.lbp-table tbody th{font-weight:700;color:var(--text);width:30%}
+.lbp-table td{color:var(--text2)}
+.lbp-table .no{color:var(--text2);opacity:.6}
+.lbp-table .grp th{background:var(--muted);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--text2)}
+/* forms */
+.lbp-field{margin-bottom:16px}
+.lbp-field label{display:block;font-size:14px;font-weight:700;margin-bottom:6px}
+.lbp-field .lbp-input{width:100%}
+select.lbp-input{appearance:auto}
+.lbp-help{font-size:12.5px;color:var(--text2);margin-top:5px}
+.lbp-err{font-size:13px;color:#B42318;margin-top:5px;display:none;font-weight:600}
+:root[data-theme="dark"] .lbp-err{color:#FF9E94}
+.lbp-field.bad .lbp-input{border-color:#B42318}.lbp-field.bad .lbp-err{display:block}
+.lbp-hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+.lbp-alert{border-radius:12px;padding:16px 18px;font-size:14.5px;margin-top:16px}
+.lbp-alert.ok{background:var(--ok-bg);color:var(--ok)}.lbp-alert.err{background:var(--warn-bg);color:var(--warn)}.lbp-alert.info{background:var(--p1);color:var(--p6)}
+.lbp-alert a{font-weight:800}
+@media (max-width:980px){
+  .lbp-hero-grid{grid-template-columns:1fr;gap:40px}
+  .lbp-g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lbp-g3,.lbp-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .lbp-wrap{padding:0 16px}
+  .lbp-sec{padding:56px 0}
+  .lbp-hero{padding:44px 0 52px}
+  .lbp-g2,.lbp-g3,.lbp-g4,.lbp-steps{grid-template-columns:1fr}
+  .lbp-row{flex-direction:column}
+  .lbp-btn{width:100%}
+  .lbp-card{padding:22px 20px}
+  .lbp-finding dl{grid-template-columns:1fr;gap:2px 0}.lbp-finding dd{margin-bottom:10px}
+  .lbp-cta-band{padding:36px 22px}
+  .lbp-lead{font-size:16.5px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.dg-box{fill:var(--surface);stroke:var(--border);stroke-width:1.5}
+.dg-num{fill:var(--p6)}.dg-n{fill:#fff;font:800 14px var(--font)}
+.dg-t{fill:var(--text);font:800 16px var(--font)}.dg-c{fill:var(--text2);font:500 13px var(--font)}
+.dg-arrow{fill:none;stroke:var(--p5);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lbp-dg{width:100%;height:auto;display:block}.lbp-dg-v{display:none;max-width:380px;margin:0 auto}
+@media(max-width:760px){.lbp-dg-h{display:none}.lbp-dg-v{display:block}}
+</style>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="How LocalBoost Works: From Profile Audit to Report | LocalBoost">
+<meta property="og:description" content="See how LocalBoost audits a Google Business Profile, what data it reads (read-only), what is measured versus estimated, and where its limits are.">
+<meta property="og:url" content="https://www.localboost.in/how-it-works/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/public-shell.css">
+<script src="../assets/theme.js"></script>
+</head>
+<body>
+<a class="lbp-skip" href="#main">Skip to main content</a>
+<!-- lb:header -->
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="../tools/index.html">Tools</a>
+      <a href="../businesses/index.html">Industries</a>
+      <a href="../cities/index.html">Cities</a>
+      <a href="../google-business-profile/index.html">Guides</a>
+      <a href="../blog/index.html">Blog</a>
+      <a href="../pricing/index.html">Pricing</a>
+      <a href="../search/index.html" class="lb-nav-search" aria-label="Search website"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="../hi/how-it-works/index.html" hreflang="hi" lang="hi" aria-label="View this page in Hindi">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="Toggle dark mode" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="../check/index.html" class="nav-cta">Free Audit</a>
+    </div>
+  </div>
+  <script>(function(){var b=document.currentScript.parentNode.querySelector('[data-lb-theme-toggle]');if(!b)return;document.addEventListener('DOMContentLoaded',function(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false})})();</script>
+</header>
+<!-- /lb:header -->
+<main id="main">
+<section class="lbp-hero" style="padding:56px 0 60px"><div class="lbp-wrap"><div class="lbp-narrow" style="max-width:820px;margin:0">
+ <p class="lbp-crumbs"><a href="../index.html">Home</a> / How it works</p><span class="lbp-eyebrow">How it works</span>
+ <h1 class="lbp-h1">How LocalBoost works</h1><p class="lbp-lead">From adding your business to a report you can check: the six steps, the data we read, what is measured and what is not, and where our limits are.</p><p class="lbp-small" style="margin-top:14px">Status: the free tools are live. Connected features are part of Pro and Agency, launching soon.</p></div></div></section>
+<section class="lbp-sec alt" id="flow"><div class="lbp-wrap"><div class="lbp-head"><span class="lbp-eyebrow">How it works</span><h2 class="lbp-h2">The six steps</h2></div><svg class="lbp-dg lbp-dg-h" viewBox="0 0 1000 190" role="img" aria-label="The six steps"><title>The six steps</title><g transform="translate(0.0,10)"><rect width="142" height="150" rx="14" class="dg-box"/><circle cx="26" cy="28" r="14" class="dg-num"/><text x="26" y="33" text-anchor="middle" class="dg-n">1</text><text x="14" y="76" class="dg-t">Add business</text><text x="14" y="100" class="dg-c">Name, category,</text><text x="14" y="117" class="dg-c">city, website</text></g><path d="M146.0 85 h21.6 m-6 -5 l6 5 l-6 5" class="dg-arrow"/><g transform="translate(171.6,10)"><rect width="142" height="150" rx="14" class="dg-box"/><circle cx="26" cy="28" r="14" class="dg-num"/><text x="26" y="33" text-anchor="middle" class="dg-n">2</text><text x="14" y="76" class="dg-t">Connect data</text><text x="14" y="100" class="dg-c">Google sign-in,</text><text x="14" y="117" class="dg-c">read-only</text></g><path d="M317.6 85 h21.6 m-6 -5 l6 5 l-6 5" class="dg-arrow"/><g transform="translate(343.2,10)"><rect width="142" height="150" rx="14" class="dg-box"/><circle cx="26" cy="28" r="14" class="dg-num"/><text x="26" y="33" text-anchor="middle" class="dg-n">3</text><text x="14" y="76" class="dg-t">Audit</text><text x="14" y="100" class="dg-c">Profile, site,</text><text x="14" y="117" class="dg-c">reviews</text></g><path d="M489.2 85 h21.6 m-6 -5 l6 5 l-6 5" class="dg-arrow"/><g transform="translate(514.8,10)"><rect width="142" height="150" rx="14" class="dg-box"/><circle cx="26" cy="28" r="14" class="dg-num"/><text x="26" y="33" text-anchor="middle" class="dg-n">4</text><text x="14" y="76" class="dg-t">Fix</text><text x="14" y="100" class="dg-c">Ordered action</text><text x="14" y="117" class="dg-c">list</text></g><path d="M660.8 85 h21.6 m-6 -5 l6 5 l-6 5" class="dg-arrow"/><g transform="translate(686.4,10)"><rect width="142" height="150" rx="14" class="dg-box"/><circle cx="26" cy="28" r="14" class="dg-num"/><text x="26" y="33" text-anchor="middle" class="dg-n">5</text><text x="14" y="76" class="dg-t">Track</text><text x="14" y="100" class="dg-c">Reviews, ranks,</text><text x="14" y="117" class="dg-c">rivals</text></g><path d="M832.4 85 h21.6 m-6 -5 l6 5 l-6 5" class="dg-arrow"/><g transform="translate(858.0,10)"><rect width="142" height="150" rx="14" class="dg-box"/><circle cx="26" cy="28" r="14" class="dg-num"/><text x="26" y="33" text-anchor="middle" class="dg-n">6</text><text x="14" y="76" class="dg-t">Report</text><text x="14" y="100" class="dg-c">Evidence in every</text><text x="14" y="117" class="dg-c">line</text></g></svg><svg class="lbp-dg lbp-dg-v" viewBox="0 0 340 552" role="img" aria-label="The six steps"><title>The six steps</title><g transform="translate(0,0)"><rect x="2" y="2" width="336" height="68" rx="14" class="dg-box"/><circle cx="34" cy="36" r="16" class="dg-num"/><text x="34" y="41" text-anchor="middle" class="dg-n">1</text><text x="64" y="32" class="dg-t">Add business</text><text x="64" y="52" class="dg-c">Name, category, city, website</text></g><path d="M34 74 v14 m-5 -6 l5 6 l5 -6" class="dg-arrow"/><g transform="translate(0,92)"><rect x="2" y="2" width="336" height="68" rx="14" class="dg-box"/><circle cx="34" cy="36" r="16" class="dg-num"/><text x="34" y="41" text-anchor="middle" class="dg-n">2</text><text x="64" y="32" class="dg-t">Connect data</text><text x="64" y="52" class="dg-c">Google sign-in, read-only</text></g><path d="M34 166 v14 m-5 -6 l5 6 l5 -6" class="dg-arrow"/><g transform="translate(0,184)"><rect x="2" y="2" width="336" height="68" rx="14" class="dg-box"/><circle cx="34" cy="36" r="16" class="dg-num"/><text x="34" y="41" text-anchor="middle" class="dg-n">3</text><text x="64" y="32" class="dg-t">Audit</text><text x="64" y="52" class="dg-c">Profile, site, reviews</text></g><path d="M34 258 v14 m-5 -6 l5 6 l5 -6" class="dg-arrow"/><g transform="translate(0,276)"><rect x="2" y="2" width="336" height="68" rx="14" class="dg-box"/><circle cx="34" cy="36" r="16" class="dg-num"/><text x="34" y="41" text-anchor="middle" class="dg-n">4</text><text x="64" y="32" class="dg-t">Fix</text><text x="64" y="52" class="dg-c">Ordered action list</text></g><path d="M34 350 v14 m-5 -6 l5 6 l5 -6" class="dg-arrow"/><g transform="translate(0,368)"><rect x="2" y="2" width="336" height="68" rx="14" class="dg-box"/><circle cx="34" cy="36" r="16" class="dg-num"/><text x="34" y="41" text-anchor="middle" class="dg-n">5</text><text x="64" y="32" class="dg-t">Track</text><text x="64" y="52" class="dg-c">Reviews, ranks, rivals</text></g><path d="M34 442 v14 m-5 -6 l5 6 l5 -6" class="dg-arrow"/><g transform="translate(0,460)"><rect x="2" y="2" width="336" height="68" rx="14" class="dg-box"/><circle cx="34" cy="36" r="16" class="dg-num"/><text x="34" y="41" text-anchor="middle" class="dg-n">6</text><text x="64" y="32" class="dg-t">Report</text><text x="64" y="52" class="dg-c">Evidence in every line</text></g></svg></div></section><section class="lbp-sec" id="steps"><div class="lbp-wrap"><div class="lbp-head"><h2 class="lbp-h2">Step by step</h2></div><div class="lbp-grid" style="gap:16px"><div class="lbp-card" style="display:grid;grid-template-columns:44px 1fr;gap:4px 18px"><div class="lbp-pill" style="width:34px;height:34px;justify-content:center;border-radius:50%;background:var(--p6);color:#fff;font-size:14px">1</div><div><h3 class="lbp-h3">Add your business</h3><p class="lbp-p">You give LocalBoost the basics: business name, category, city and website. On Pro you add one business; on Agency up to 10.</p><p class="lbp-small" style="margin:0"><strong>Available in:</strong> Free tools: you type the business name into the visibility check.</p></div></div><div class="lbp-card" style="display:grid;grid-template-columns:44px 1fr;gap:4px 18px"><div class="lbp-pill" style="width:34px;height:34px;justify-content:center;border-radius:50%;background:var(--p6);color:#fff;font-size:14px">2</div><div><h3 class="lbp-h3">Connect your data</h3><p class="lbp-p">You sign in with Google and approve access to your Business Profile. Access is read-only unless you confirm a specific action. You can revoke it any time from your Google Account.</p><p class="lbp-small" style="margin:0"><strong>Available in:</strong> Pro and Agency, launching soon.</p></div></div><div class="lbp-card" style="display:grid;grid-template-columns:44px 1fr;gap:4px 18px"><div class="lbp-pill" style="width:34px;height:34px;justify-content:center;border-radius:50%;background:var(--p6);color:#fff;font-size:14px">3</div><div><h3 class="lbp-h3">Audit</h3><p class="lbp-p">LocalBoost reviews the profile, the website and the reviews against a checklist. For each issue it records what it saw, where and when.</p><p class="lbp-small" style="margin:0"><strong>Available in:</strong> Free tools: you answer 8 questions or work through the checklist. Pro: automated, on live data.</p></div></div><div class="lbp-card" style="display:grid;grid-template-columns:44px 1fr;gap:4px 18px"><div class="lbp-pill" style="width:34px;height:34px;justify-content:center;border-radius:50%;background:var(--p6);color:#fff;font-size:14px">4</div><div><h3 class="lbp-h3">Fix</h3><p class="lbp-p">Findings become an ordered action list. Each action explains what to change and why. Nothing on your Google profile is changed unless you confirm it.</p><p class="lbp-small" style="margin:0"><strong>Available in:</strong> Free tools: guided checklists and generators for descriptions, services and review replies.</p></div></div><div class="lbp-card" style="display:grid;grid-template-columns:44px 1fr;gap:4px 18px"><div class="lbp-pill" style="width:34px;height:34px;justify-content:center;border-radius:50%;background:var(--p6);color:#fff;font-size:14px">5</div><div><h3 class="lbp-h3">Track</h3><p class="lbp-p">Over time LocalBoost records reviews, positions for keywords and locations you choose, and the competitors you pick. Positions are recorded only when a supported search-data provider is connected.</p><p class="lbp-small" style="margin:0"><strong>Available in:</strong> Pro and Agency, launching soon.</p></div></div><div class="lbp-card" style="display:grid;grid-template-columns:44px 1fr;gap:4px 18px"><div class="lbp-pill" style="width:34px;height:34px;justify-content:center;border-radius:50%;background:var(--p6);color:#fff;font-size:14px">6</div><div><h3 class="lbp-h3">Report</h3><p class="lbp-p">A monthly report lists what changed, the evidence for it and what remains open. Agency reports can carry your own branding.</p><p class="lbp-small" style="margin:0"><strong>Available in:</strong> Pro and Agency, launching soon.</p></div></div></div></div></section><section class="lbp-sec alt" id="data"><div class="lbp-wrap"><div class="lbp-head"><h2 class="lbp-h2">What data we read</h2></div><p class="lbp-lead" style="max-width:760px;margin-bottom:28px">LocalBoost reads Google data only after you sign in and approve it. Access is read-only by default. We change something on your profile only when you confirm that specific action. You can disconnect at any time from your Google Account permissions.</p><div class="lbp-tablewrap"><table class="lbp-table"><thead><tr><th scope="col">Data</th><th scope="col">What we read</th><th scope="col">Why</th><th scope="col">Access</th></tr></thead><tbody><tr><th scope="row">Business Profile details</th><td>Name, categories, address, phone, hours, description, services and links.</td><td>Check completeness and consistency.</td><td>Read-only</td></tr><tr><th scope="row">Reviews</th><td>Rating, review text, date and whether you replied.</td><td>Spot unanswered or negative reviews and recurring themes.</td><td>Read-only. A reply is posted only after you approve it.</td></tr><tr><th scope="row">Your website</th><td>Public pages: title, headings, contact details, basic technical signals.</td><td>Compare with the profile and check on-page basics.</td><td>Public pages only</td></tr><tr><th scope="row">Search results for chosen keywords</th><td>Positions returned by a search-data provider for a keyword and location.</td><td>Rank tracking and competitor comparison.</td><td>Provider not connected yet</td></tr></tbody></table></div></div></section><section class="lbp-sec" id="measured"><div class="lbp-wrap"><div class="lbp-head"><h2 class="lbp-h2">Measured, estimated, simulated</h2></div><div class="lbp-tablewrap"><table class="lbp-table"><thead><tr><th scope="col">Label</th><th scope="col">What it means</th><th scope="col">Example</th></tr></thead><tbody><tr><th scope="row">Measured</th><td>Values read directly from your profile, reviews or website, or returned by a data provider, with the source and time shown.</td><td>Profile fields, review counts and ratings, a rank position for one keyword and place at one time.</td></tr><tr><th scope="row">Estimated</th><td>Values we calculate from measured data. They are labelled and the inputs are shown.</td><td>The visibility score, which combines measured signals into one number.</td></tr><tr><th scope="row">Self-reported</th><td>Values based on your own answers.</td><td>The score from the 8-question visibility check.</td></tr><tr><th scope="row">Simulated</th><td>Illustrative output for practice. It is not real data.</td><td>The rank grid simulator.</td></tr></tbody></table></div></div></section><section class="lbp-sec alt" id="limits"><div class="lbp-wrap"><div class="lbp-head"><h2 class="lbp-h2">Limitations</h2></div><p class="lbp-lead" style="max-width:760px;margin-bottom:24px">Local search is not fully predictable. Here is what we cannot do.</p><ul class="lbp-list" style="max-width:820px"><li><strong>Rankings vary.</strong> Google results change with the searcher&rsquo;s location, device, time and history. A rank check is a snapshot, not a permanent position.</li><li><strong>We do not control Google.</strong> We cannot promise a ranking, and following a recommendation does not guarantee a result.</li><li><strong>We only see what is exposed.</strong> We can read data Google and our providers make available. We cannot see competitors&rsquo; private data, and some metrics may be limited or unavailable.</li><li><strong>Small numbers are noisy.</strong> With few reviews or searches, changes can be chance rather than a trend.</li><li><strong>Access can change.</strong> Google may change or restrict its programmes. If data is unavailable, the product says so instead of estimating silently.</li><li><strong>Recommendations are guidance.</strong> They follow published Google guidelines and common practice, but you are responsible for the information on your profile.</li></ul></div></section>
+<section class="lbp-sec"><div class="lbp-wrap"><div class="lbp-cta-band"><h2>Try the free check first</h2><p>It takes about two minutes and needs no account.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="lbp-btn" href="../check/index.html">Check my business &ndash; free</a><a class="lbp-btn" style="background:transparent;color:inherit;border-color:currentColor" href="../pricing/index.html#waitlist">Join the Pro waitlist</a></div></div></div></section>
+</main>
+<!-- lb:footer -->
+<footer class="lb-footer" data-lb-shell="footer">
+  <div class="lb-footer-inner">
+    <div class="lb-footer-grid">
+      <div class="lb-footer-col lb-footer-col-brand">
+        <a href="../index.html" class="lb-footer-brand" aria-label="LocalBoost home"><img class="lb-logo-img lb-logo-light" src="../assets/brand/logo.svg" alt="LocalBoost" width="129" height="32"><img class="lb-logo-img lb-logo-dark" src="../assets/brand/logo-dark.svg" alt="" width="129" height="32" aria-hidden="true"></a>
+        <p class="lb-footer-tag">Honest local SEO for Indian businesses: real data, clear fixes, no ranking promises.</p>
+        <a class="lb-footer-mail" href="mailto:support@localboost.in">support@localboost.in</a>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="../how-it-works/index.html">How it works</a></li>
+          <li><a href="../pricing/index.html">Pricing</a></li>
+          <li><a href="../pro/index.html">LocalBoost Pro</a></li>
+          <li><a href="../waitlist/index.html">Join the waitlist</a></li>
+          <li><a href="../check/index.html">Free visibility check</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="../audit/index.html">Business audit</a></li>
+          <li><a href="../tools/local-seo-checklist/index.html">Local SEO checklist</a></li>
+          <li><a href="../tools/review-reply-generator/index.html">Review reply generator</a></li>
+          <li><a href="../tools/review-request-generator/index.html">Review request generator</a></li>
+          <li><a href="../tools/description-generator/index.html">Description generator</a></li>
+          <li><a href="../tools/qr-generator/index.html">Review QR generator</a></li>
+          <li><a href="../tools/rank-grid-simulator/index.html">Rank grid simulator</a></li>
+          <li><a href="../tools/index.html">All free tools</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="../google-business-profile/index.html">Google Business Profile</a></li>
+          <li><a href="../google-maps-seo/index.html">Google Maps SEO</a></li>
+          <li><a href="../google-reviews/index.html">Google reviews</a></li>
+          <li><a href="../local-seo/index.html">Local SEO</a></li>
+          <li><a href="../business-growth/index.html">Business growth</a></li>
+          <li><a href="../businesses/index.html">Industries</a></li>
+          <li><a href="../cities/index.html">Cities</a></li>
+          <li><a href="../blog/index.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about/index.html">About</a></li>
+          <li><a href="../contact/index.html">Contact</a></li>
+          <li><a href="../search/index.html">Search</a></li>
+        </ul>
+      </div>
+      <div class="lb-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy/index.html">Privacy policy</a></li>
+          <li><a href="../terms/index.html">Terms of service</a></li>
+          <li><a href="../disclaimer/index.html">Disclaimer</a></li>
+          <li><a href="../compliance/index.html">Google compliance</a></li>
+          <li><a href="../refund-policy/index.html">Refund policy</a></li>
+          <li><button type="button" class="lb-link-btn" onclick="window.LBConsent&amp;&amp;LBConsent.open()">Cookie settings</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lb-footer-bottom">
+      <p>LocalBoost is an independent product and is not affiliated with, endorsed by or sponsored by Google LLC. Google, Google Maps and Google Business Profile are trademarks of Google LLC.</p>
+      <p>&copy; 2026 LocalBoost. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+<!-- /lb:footer -->
+<script>
+(function(){
+  document.querySelectorAll('.lbp-faq-q').forEach(function(b){
+    b.addEventListener('click',function(){
+      var it=b.closest('.lbp-faq-item'),o=it.classList.toggle('open');
+      b.setAttribute('aria-expanded',o?'true':'false');
+    });
+  });
+})();
+</script>
+<script src="../assets/localboost-api-config.js"></script>
+<script src="../assets/consent.js" defer></script>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

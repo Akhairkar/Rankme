@@ -278,6 +278,12 @@ def apply(rel, text, tpl_h, tpl_f, year):
         link = '<link rel="stylesheet" href="%sassets/public-shell.css">%s' % (pg.site_root, nl)
         new = new[:head_end.start()] + link + new[head_end.start():]
         notes.append("public-shell.css linked")
+    # theme manager (assets/theme.js) drives the header theme toggle; load early to avoid a theme flash
+    head_end = re.search(r"</head>", new, re.I)
+    if head_end and "assets/theme.js" not in new[:head_end.start()]:
+        tag = '<script src="%sassets/theme.js"></script>%s' % (pg.site_root, nl)
+        new = new[:head_end.start()] + tag + new[head_end.start():]
+        notes.append("theme.js added")
     # advisory warnings (not changed): mobile menu needs site.css + site.js
     if "assets/site.js" not in new:
         notes.append("WARN no assets/site.js (mobile menu inactive)")
