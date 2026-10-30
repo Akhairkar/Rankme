@@ -43,3 +43,9 @@ crons = ["0 * * * *"]
 
 # Custom domain (api.localboost.in) is attached in the Cloudflare dashboard or by uncommenting:
 # routes = [{ pattern = "api.localboost.in", custom_domain = true }]
+
+# Google data retention (days) - re-verify against current Google API policies before launch (see docs/GOOGLE-DATA-RETENTION.md)
+# GOOGLE_REVIEW_CONTENT_TTL_DAYS = "30"
+# GOOGLE_PROFILE_CACHE_TTL_DAYS = "30"
+# GOOGLE_SEARCH_CONSOLE_TTL_DAYS = "540"
+# Secrets (set with `wrangler secret put`, never here): GOOGLE_MAPS_API_KEY (Places API New, competitor verification), ANTHROPIC_API_KEY (optional, AI assistant)
