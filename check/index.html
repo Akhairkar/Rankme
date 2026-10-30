@@ -99,6 +99,10 @@
   .result-body p { font-size:14.5px; color:var(--text-secondary); margin-bottom:var(--sp-3); }
   .result-body a.guide-link { font-size:13.5px; font-weight:700; color:var(--primary-600); }
 
+  .lb-funnel { background:var(--primary-100); border:1px solid #BFE7E1; border-radius:16px; padding:24px; margin:32px 0 0; }
+  .lb-funnel h3 { font-size:20px; font-weight:800; margin-bottom:6px; }
+  .lb-funnel > p { font-size:14.5px; color:var(--text-secondary); margin-bottom:4px; }
+  .lb-funnel .lb-wl { margin:16px 0 0; }
   .disclaimer-box { background:var(--bg-muted); border-radius:var(--radius-md); padding:var(--sp-4) var(--sp-5); font-size:13px; color:var(--text-secondary); margin:var(--sp-7) 0; }
   .disclaimer-box strong { color:var(--text-primary); }
 
@@ -179,6 +183,8 @@
 
       <div id="resultItems"></div>
 
+      <div class="lb-funnel"><h3>Next step: verify this with your real Google data</h3><p>Your score above comes from your own answers. The next step is a live audit of your actual Google Business Profile: missing fields, category and review gaps, and a prioritised 30-day action plan. Pro is opening soon.</p><div data-lb-waitlist data-source="audit"></div></div>
+
       <div class="disclaimer-box">
         <strong>A note on this score:</strong> this is a self-reported, educational estimate based on your own answers — not a live check of your actual Google listing, and not a ranking prediction. Google rankings depend on many factors outside anyone's control.
       </div>
@@ -196,6 +202,8 @@
   <div class="footer-bottom">© 2026 LocalBoost. Not affiliated with or endorsed by Google.</div>
 </footer>
 
+<script src="../assets/localboost-api-config.js"></script>
+<script src="../assets/waitlist.js" defer></script>
 <script>
 (function () {
   // Each question: category, text, options [{label, value: 0-2 points, key}]
@@ -343,6 +351,7 @@
 
     quizWrap.style.display = 'none';
     resultsWrap.classList.add('show');
+    try { var _b = new URLSearchParams(window.location.search).get('biz'); if (window.LBWaitlist) LBWaitlist.setContext({ score: score, biz: _b ? _b.slice(0, 60) : '' }); } catch (e) {}
 
     const ring = document.getElementById('scoreRing');
     const scoreNum = document.getElementById('scoreNum');

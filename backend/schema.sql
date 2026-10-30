@@ -312,3 +312,21 @@ CREATE TABLE IF NOT EXISTS search_console_metrics (
   created_at INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_gsc_metrics_business_date ON search_console_metrics(business_id,date);
+
+-- Public waitlist / lead capture (no account required)
+CREATE TABLE IF NOT EXISTS waitlist (
+  id TEXT PRIMARY KEY,
+  contact_key TEXT NOT NULL UNIQUE,
+  email TEXT,
+  phone TEXT,
+  name TEXT,
+  business_name TEXT,
+  city TEXT,
+  source TEXT,
+  score INTEGER,
+  lang TEXT,
+  ip_hash TEXT,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_waitlist_ip ON waitlist(ip_hash, created_at);

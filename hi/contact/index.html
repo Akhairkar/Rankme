@@ -174,9 +174,9 @@
     <!-- Quick WhatsApp CTA -->
     <div>
       <div class="wa-box">
-        <h3 style="font-size:20px; margin-bottom:6px;">💬 तुरंत सहायता चाहिए?</h3>
-        <p style="font-size:14px; opacity:.95;">WhatsApp पर सीधे हमारे लोकल SEO विशेषज्ञों से चैट करें।</p>
-        <a href="https://wa.me/919876543210?text=Hi%2C+I+would+like+a+free+Google+Maps+audit+for+my+business." target="_blank" rel="noopener" class="wa-btn">WhatsApp पर चैट करें &rarr;</a>
+        <h3 style="font-size:20px; margin-bottom:6px;">✉️ ईमेल पसंद है?</h3>
+        <p style="font-size:14px; opacity:.95;">हमें लिखें, हम 1-2 कार्य-दिवस में जवाब देंगे।</p>
+        <a href="mailto:support@localboost.in" class="wa-btn">support@localboost.in &rarr;</a>
       </div>
 
       <div class="card">
@@ -259,11 +259,22 @@
 </footer>
 
 
+<script src="../../assets/localboost-api-config.js"></script>
 <script>
 function handleLeadSubmit(e) {
   e.preventDefault();
-  document.getElementById('leadForm').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
+  var g = function (id) { return document.getElementById(id).value; };
+  var d = { business_name: g('businessName'), city: g('city'), phone: g('phone'), consent: document.getElementById('consent').checked, source: 'contact', lang: document.documentElement.lang === 'hi' ? 'hi' : 'en' };
+  var cfg = window.LOCALBOOST_API || {};
+  var done = function () { document.getElementById('leadForm').style.display = 'none'; document.getElementById('formSuccess').style.display = 'block'; };
+  if (cfg.enabled && cfg.baseUrl) {
+    fetch(cfg.baseUrl.replace(/\/$/, '') + '/api/waitlist', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) })
+      .then(function (r) { if (!r.ok) throw 0; done(); })
+      .catch(function () { alert(d.lang === 'hi' ? 'कुछ गड़बड़ हुई। कृपया support@localboost.in पर ईमेल करें।' : 'Something went wrong. Please email support@localboost.in.'); });
+  } else { // API not live yet: send via the visitor's email app instead of pretending it was submitted
+    location.href = 'mailto:support@localboost.in?subject=' + encodeURIComponent('Callback request') + '&body=' + encodeURIComponent('Business: ' + d.business_name + '\nCity: ' + d.city + '\nPhone: ' + d.phone + '\nChallenge: ' + g('challenge'));
+    done();
+  }
 }
 </script>
 

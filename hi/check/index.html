@@ -97,6 +97,10 @@
   .result-body p { font-size:14.5px; color:var(--text-secondary); margin-bottom:var(--sp-3); }
   .result-body a.guide-link { font-size:13.5px; font-weight:700; color:var(--primary-600); }
 
+  .lb-funnel { background:var(--primary-100); border:1px solid #BFE7E1; border-radius:16px; padding:24px; margin:32px 0 0; }
+  .lb-funnel h3 { font-size:20px; font-weight:800; margin-bottom:6px; }
+  .lb-funnel > p { font-size:14.5px; color:var(--text-secondary); margin-bottom:4px; }
+  .lb-funnel .lb-wl { margin:16px 0 0; }
   .disclaimer-box { background:var(--bg-muted); border-radius:var(--radius-md); padding:var(--sp-4) var(--sp-5); font-size:13px; color:var(--text-secondary); margin:var(--sp-7) 0; }
   .disclaimer-box strong { color:var(--text-primary); }
 
@@ -204,6 +208,8 @@
 
       <div id="resultItems"></div>
 
+      <div class="lb-funnel"><h3>अगला कदम: अपने असली Google डेटा से इसे जाँचें</h3><p>ऊपर का स्कोर आपके अपने जवाबों से बना है। अगला कदम आपकी असली Google Business Profile का लाइव ऑडिट है: कमी वाले फ़ील्ड, कैटेगरी और रिव्यू की कमियाँ, और 30-दिन की प्राथमिकता वाली योजना। Pro जल्द ही आ रहा है।</p><div data-lb-waitlist data-source="audit"></div></div>
+
       <div class="disclaimer-box">
         <strong>इस स्कोर के बारे में:</strong> यह आपके अपने जवाबों पर आधारित एक शैक्षिक अनुमान है — यह आपकी असली Google लिस्टिंग की लाइव जांच नहीं है, और न ही किसी रैंकिंग का पूर्वानुमान। Google रैंकिंग कई कारकों पर निर्भर करती है जो किसी के नियंत्रण में नहीं हैं।
       </div>
@@ -243,6 +249,8 @@
   <div class="footer-bottom">© 2026 LocalBoost. Google से संबद्ध या समर्थित नहीं।</div>
 </footer>
 
+<script src="../../assets/localboost-api-config.js"></script>
+<script src="../../assets/waitlist.js" defer></script>
 <script>
 (function () {
   const questions = [
@@ -381,6 +389,7 @@
 
     quizWrap.style.display = 'none';
     resultsWrap.classList.add('show');
+    try { var _b = new URLSearchParams(window.location.search).get('biz'); if (window.LBWaitlist) LBWaitlist.setContext({ score: score, biz: _b ? _b.slice(0, 60) : '' }); } catch (e) {}
 
     const ring = document.getElementById('scoreRing');
     const scoreNum = document.getElementById('scoreNum');
