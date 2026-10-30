@@ -26,12 +26,12 @@ Build the complete working product. Do not add unrelated tools, marketplaces, ge
 - [x] Session lookup foundation
 - [x] Google OAuth authorization-start foundation
 - [x] Fix keyword API session lookup bug
-- [ ] Secure Google OAuth callback/token exchange
-- [ ] Encrypted refresh-token persistence
+- [x] Secure Google OAuth callback/token exchange (code complete, unit-tested with mocks; needs real credentials to verify end to end)
+- [x] Encrypted refresh-token persistence (AES-GCM, key from Worker secret)
 - [ ] Production Google OAuth credentials/configuration
-- [ ] Google Business Profile account discovery
+- [x] Google Business Profile account discovery (POST /api/google/sync; untested against live Google)
 - [x] Verified GBP integration contract documented
-- [ ] Google Business Profile location discovery
+- [x] Google Business Profile location discovery (POST /api/google/sync; untested against live Google)
 - [ ] Business/location synchronization
 - [ ] Real GBP profile data ingestion
 - [x] Real GBP profile audit engine (verified-location data)
