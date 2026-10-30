@@ -113,7 +113,7 @@ if(url.pathname==="/auth/google/start"&&request.method==="GET"){
  const hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");
  if(!env.DB)return withCors(json({error:"Database unavailable"},503),request,env);
  await env.DB.prepare("INSERT INTO oauth_states(state_hash,created_at) VALUES(?,?)").bind(hash,Date.now()).run();
- const p=new URLSearchParams({client_id:env.GOOGLE_CLIENT_ID,redirect_uri:env.GOOGLE_REDIRECT_URI,response_type:"code",scope:"openid email profile https://www.googleapis.com/auth/business.manage",access_type:"offline",prompt:"consent",state});
+ const sc=url.searchParams.get("scope")==="search_console";const p=new URLSearchParams({client_id:env.GOOGLE_CLIENT_ID,redirect_uri:env.GOOGLE_REDIRECT_URI,response_type:"code",scope:"openid email profile https://www.googleapis.com/auth/business.manage"+(sc?" https://www.googleapis.com/auth/webmasters.readonly":""),access_type:"offline",prompt:"consent",include_granted_scopes:"true",state});
  return Response.redirect("https://accounts.google.com/o/oauth2/v2/auth?"+p.toString(),302);
 }
 if(url.pathname==="/auth/google/callback"&&request.method==="GET"){
