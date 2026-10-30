@@ -59,3 +59,10 @@ test("callback creates user, encrypted token and hashed session", async () => {
   assert.ok(![...db.t.google_connections.values()][0].includes("rt"));
   assert.equal(db.t.oauth_states.size, 0, "state is single-use");
 });
+
+import { safeReturnPath } from "../src/oauth.js";
+test("post-login return path allows only dashboard paths", () => {
+  assert.equal(safeReturnPath("/dashboard/onboarding/"), "/dashboard/onboarding/");
+  assert.equal(safeReturnPath("/hi/dashboard/index.html"), "/hi/dashboard/index.html");
+  for (const bad of ["https://evil.example/", "//evil.example", "/dashboard/../admin", "/other/", "dashboard/", "/dashboard//x", null, 5]) assert.equal(safeReturnPath(bad), null);
+});

@@ -69,6 +69,7 @@ export function checkReplySafety(text) {
   if (LIABILITY_RE.test(text)) v.push("liability_admission");
   if (REVIEW_SOLICIT_RE.test(text)) v.push("review_solicitation");
   if (hasUrl(text)) v.push("url_in_text");
+  if (/@/.test(text)) v.push("contact_details");
   return v;
 }
 const PROMO_RE = /\b(best|no\.?\s*1|number one|#1|award\w*|guarantee\w*|cheapest|lowest price|certified|years? of experience|since \d{4}|trusted by|top[- ]rated|leading)\b/i;
@@ -351,7 +352,7 @@ export function buildDeterministicInsights(topic, evidence) {
     case "profile": {
       const f = (name) => byField(items, name)[0];
       const gaps = [];
-      if (f("description")?.data.present === false) gaps.push(["Add a business description", "Write a factual description of what you offer and where, in up to 750 characters.", f("description")]);
+      if (f("description")?.data.present === false) gaps.push(["Add a business description", "Write a factual description of what you offer and where, within Google's description length limit.", f("description")]);
       if (f("hours")?.data.present === false) gaps.push(["Add opening hours", "Enter your regular opening hours so customers see when you are open.", f("hours")]);
       if (f("phone")?.data.present === false) gaps.push(["Add a phone number", "Add a primary phone number customers can call.", f("phone")]);
       if (!f("website")) gaps.push(["Add a website", "Add your website address so customers can visit it.", f("name")]);
@@ -398,7 +399,7 @@ export function validateModelInsights(raw, evidence) {
     const urls = (text.match(URL_RE) || []).filter((u) => !evidenceText.includes(u.toLowerCase()));
     if (urls.length) return drop("unsupported_url");
     if (/@/.test(text) && !evidenceText.includes("@")) return drop("unsupported_contact");
-    if (INCENTIVE_RE.test(text) && !INCENTIVE_RE.test(evidenceText)) return drop("incentive_language");
+    if (INCENTIVE_RE.test(text)) return drop("incentive_language");
     const refs = [...new Set(r.evidence_refs)];
     const allVerified = refs.every((x) => ids.get(x).verification === "verified");
     res.insights.push({
@@ -659,7 +660,7 @@ async function draftHandler(request, ctx) {
     if (INJECTION_RE.test(review.text)) warnings.push("The review text contains instruction-like wording. It was treated purely as customer content and ignored as instructions.");
     if (rv.reply_status === "answered") warnings.push("This review already has a reply on Google.");
     const tpl = buildReviewReply(review, business.name, lang, tone);
-    const allowed = allowedNumbers(evItem, business.name);
+    const allowed = allowedNumbers([], business.name); // numbers quoted in review text are not trusted
     const validate = (t) => [...checkReplySafety(t), ...(numericClaimCheck(t, allowed).length ? ["unsupported_number"] : []), ...(t.length > 700 ? ["too_long"] : [])];
     let draft = tpl.text, state = "template_only", model = null;
     const gate = await modelGate(ctx, business.id);

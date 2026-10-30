@@ -6,7 +6,7 @@ import { jobs } from "./routes.js";
 import { findDuplicateBusiness } from "./platform.js";
 import { requireRecentAuth, accountDeletionBlockers, ensureWorkspace } from "./workspace.js";
 import { handleWaitlist } from "./waitlist.js";
-import { handleGoogleCallback, handleLogout, syncGoogleLocations } from "./oauth.js";
+import { handleGoogleCallback, handleLogout, syncGoogleLocations, safeReturnPath } from "./oauth.js";
 import { buildAiContext, generateSafeRecommendations } from "./ai.js";
 
 const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
@@ -115,7 +115,7 @@ if(url.pathname==="/auth/google/start"&&request.method==="GET"){
  const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(state));
  const hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,"0")).join("");
  if(!env.DB)return withCors(json({error:"Database unavailable"},503),request,env);
- await env.DB.prepare("INSERT INTO oauth_states(state_hash,created_at) VALUES(?,?)").bind(hash,Date.now()).run();
+ await env.DB.prepare("INSERT INTO oauth_states(state_hash,created_at) VALUES(?,?)").bind(hash,Date.now()).run();{const rp=safeReturnPath(url.searchParams.get("return"));if(rp){try{await env.DB.prepare("INSERT INTO oauth_state_meta(state_hash,return_path,created_at) VALUES(?,?,?)").bind(hash,rp,Date.now()).run();}catch{}}}
  const sc=url.searchParams.get("scope")==="search_console";const p=new URLSearchParams({client_id:env.GOOGLE_CLIENT_ID,redirect_uri:env.GOOGLE_REDIRECT_URI,response_type:"code",scope:"openid email profile https://www.googleapis.com/auth/business.manage"+(sc?" https://www.googleapis.com/auth/webmasters.readonly":""),access_type:"offline",prompt:"consent",include_granted_scopes:"true",state});
  return Response.redirect("https://accounts.google.com/o/oauth2/v2/auth?"+p.toString(),302);
 }

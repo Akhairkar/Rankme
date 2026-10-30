@@ -31,6 +31,13 @@ export async function decryptToken(secret, value) {
   return dec.decode(pt);
 }
 
+/** Only same-site dashboard paths are accepted as post-login destinations (prevents open redirects). */
+export function safeReturnPath(v) {
+  if (typeof v !== "string" || v.length > 120) return null;
+  if (!/^\/(hi\/)?dashboard\/[A-Za-z0-9_\-./]*$/.test(v) || v.includes("..") || v.includes("//")) return null;
+  return v;
+}
+
 function fail(code) {
   return Response.redirect(FRONTEND + "/dashboard/google-profile.html?google_error=" + encodeURIComponent(code), 302);
 }
@@ -50,6 +57,12 @@ export async function handleGoogleCallback(request, env) {
   const row = await env.DB.prepare("SELECT created_at FROM oauth_states WHERE state_hash=?").bind(stateHash).first();
   await env.DB.prepare("DELETE FROM oauth_states WHERE state_hash=?").bind(stateHash).run();
   if (!row || Date.now() - row.created_at > STATE_TTL_MS) return fail("invalid_state");
+  let returnPath = "/dashboard/google-profile.html";
+  try {
+    const meta = await env.DB.prepare("SELECT return_path FROM oauth_state_meta WHERE state_hash=?").bind(stateHash).first();
+    await env.DB.prepare("DELETE FROM oauth_state_meta WHERE state_hash=?").bind(stateHash).run();
+    returnPath = safeReturnPath(meta?.return_path) || returnPath;
+  } catch { /* table not migrated yet: use the default destination */ }
 
   // Exchange the authorization code server side.
   const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
@@ -103,7 +116,7 @@ export async function handleGoogleCallback(request, env) {
   await env.DB.prepare("DELETE FROM sessions WHERE expires_at<?").bind(now).run();
   await env.DB.prepare("DELETE FROM oauth_states WHERE created_at<?").bind(now - STATE_TTL_MS).run();
 
-  const headers = new Headers({ location: FRONTEND + "/dashboard/google-profile.html?connected=1" });
+  const headers = new Headers({ location: FRONTEND + returnPath + (returnPath.includes("?") ? "&" : "?") + "connected=1" });
   headers.append("set-cookie", `lb_session=${sid}; Path=/; Max-Age=${SESSION_TTL_MS / 1000}; HttpOnly; Secure; SameSite=Lax`);
   return new Response(null, { status: 302, headers });
 }

@@ -341,3 +341,543 @@ CREATE TABLE IF NOT EXISTS rate_limits (
   count INTEGER NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_rate_limits_window ON rate_limits(window_start);
+
+-- ===== 010_google.sql =====
+-- Google integrations: connection health, sync log, review replies, Search Console selection.
+-- Idempotent. Refresh tokens stay in google_connections (encrypted); this table only holds state.
+CREATE TABLE IF NOT EXISTS google_connection_state (
+  user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+  needs_reconnect INTEGER NOT NULL DEFAULT 0,
+  reconnect_flagged_at INTEGER,
+  last_error_code TEXT,
+  last_sync_at INTEGER,
+  updated_at INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS google_sync_log (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  kind TEXT NOT NULL,            -- reviews | performance | search_console
+  state TEXT NOT NULL,
+  code TEXT,
+  item_count INTEGER,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_google_sync_log_biz_kind ON google_sync_log(business_id, kind, created_at);
+
+CREATE TABLE IF NOT EXISTS review_replies (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  review_id TEXT NOT NULL REFERENCES reviews(id) ON DELETE CASCADE,
+  reply_text TEXT NOT NULL,
+  status TEXT NOT NULL,          -- posted | failed
+  error_code TEXT,
+  confirmed_at INTEGER NOT NULL,
+  posted_at INTEGER,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_review_replies_review ON review_replies(review_id, created_at);
+
+CREATE INDEX IF NOT EXISTS idx_gsc_properties_user_url ON search_console_properties(user_id, business_id, property_url);
+CREATE INDEX IF NOT EXISTS idx_gsc_metrics_property_date ON search_console_metrics(property_id, date);
+
+-- ===== 020_billing.sql =====
+-- Billing: Razorpay orders, invoices (GST), webhook idempotency, extended plan limits.
+ALTER TABLE payments ADD COLUMN provider_order_id TEXT;
+ALTER TABLE payments ADD COLUMN plan_code TEXT;
+ALTER TABLE payments ADD COLUMN billing_interval TEXT;
+ALTER TABLE payments ADD COLUMN taxable_minor INTEGER;
+ALTER TABLE payments ADD COLUMN cgst_minor INTEGER;
+ALTER TABLE payments ADD COLUMN sgst_minor INTEGER;
+ALTER TABLE payments ADD COLUMN billing_name TEXT;
+ALTER TABLE payments ADD COLUMN billing_gstin TEXT;
+ALTER TABLE payments ADD COLUMN refunded_minor INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE payments ADD COLUMN updated_at INTEGER;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_payments_order ON payments(provider_order_id) WHERE provider_order_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_payments_provider_payment ON payments(provider_payment_id);
+
+ALTER TABLE plan_entitlements ADD COLUMN max_audits_per_month INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE plan_entitlements ADD COLUMN max_rank_scans_per_month INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE plan_entitlements ADD COLUMN max_competitors INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE plan_entitlements ADD COLUMN max_crawl_pages INTEGER NOT NULL DEFAULT 1;
+
+CREATE TABLE IF NOT EXISTS processed_webhook_events (
+  event_id TEXT PRIMARY KEY,
+  event_type TEXT,
+  received_at INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS refunds (
+  id TEXT PRIMARY KEY,               -- provider refund id
+  payment_id TEXT NOT NULL REFERENCES payments(id) ON DELETE CASCADE,
+  user_id TEXT NOT NULL,
+  amount_minor INTEGER NOT NULL,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_refunds_payment ON refunds(payment_id);
+
+CREATE TABLE IF NOT EXISTS invoice_counters (
+  year INTEGER PRIMARY KEY,
+  last_seq INTEGER NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS invoices (
+  id TEXT PRIMARY KEY,
+  number TEXT NOT NULL UNIQUE,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  payment_id TEXT NOT NULL UNIQUE REFERENCES payments(id) ON DELETE CASCADE,
+  plan_code TEXT,
+  billing_interval TEXT,
+  taxable_minor INTEGER NOT NULL,
+  cgst_minor INTEGER NOT NULL,
+  sgst_minor INTEGER NOT NULL,
+  total_minor INTEGER NOT NULL,
+  currency TEXT NOT NULL DEFAULT 'INR',
+  status TEXT NOT NULL DEFAULT 'paid',
+  customer_name TEXT,
+  customer_gstin TEXT,
+  issued_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_invoices_user ON invoices(user_id, issued_at);
+
+-- ===== 030_audit.sql =====
+-- Unified business audit engine (audit.js). Reuses audits / audit_issues from 000_base.sql.
+-- Unified audits are stored with audits.audit_type = 'unified'; audits.status = 'completed' | 'partial'.
+ALTER TABLE audits ADD COLUMN score_breakdown_json TEXT;   -- [{section,label,weight,points,max,available}]
+ALTER TABLE audits ADD COLUMN checks_json TEXT;            -- every check result incl. pass/unavailable (no finding row)
+ALTER TABLE audits ADD COLUMN findings_count INTEGER;
+ALTER TABLE audits ADD COLUMN model_version TEXT;
+
+-- audit_issues: explanation = why_it_matters, recommended_fix = recommended_action
+ALTER TABLE audit_issues ADD COLUMN finding_key TEXT;      -- stable "<code>|<source>" key used for compare + carry-forward
+ALTER TABLE audit_issues ADD COLUMN source TEXT;
+ALTER TABLE audit_issues ADD COLUMN verification TEXT;     -- verified | user_provided | unavailable
+ALTER TABLE audit_issues ADD COLUMN evidence TEXT;
+ALTER TABLE audit_issues ADD COLUMN instructions_json TEXT; -- JSON array of step strings
+ALTER TABLE audit_issues ADD COLUMN checked_at INTEGER;
+
+CREATE INDEX IF NOT EXISTS idx_audits_business_created ON audits(business_id, created_at);
+CREATE INDEX IF NOT EXISTS idx_audit_issues_audit ON audit_issues(audit_id);
+
+-- ===== 040_rank.sql =====
+-- Real local rank-grid scans. Separate from the educational rank-grid simulator (no shared tables/code).
+-- rank_snapshots / keywords (000_base.sql) are untouched.
+CREATE TABLE IF NOT EXISTS rank_scans (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  keyword_id TEXT NOT NULL REFERENCES keywords(id) ON DELETE CASCADE,
+  grid_size INTEGER NOT NULL,
+  radius_m INTEGER NOT NULL,
+  center_lat REAL NOT NULL,
+  center_lng REAL NOT NULL,
+  center_source TEXT,
+  state TEXT NOT NULL DEFAULT 'running',  -- running | completed | partial | provider_error
+  provider TEXT,
+  points_total INTEGER NOT NULL DEFAULT 0,
+  points_ok INTEGER NOT NULL DEFAULT 0,
+  points_failed INTEGER NOT NULL DEFAULT 0,
+  avg_position REAL,
+  visibility REAL,
+  schedule_id TEXT,
+  scan_date TEXT NOT NULL,                -- UTC YYYY-MM-DD
+  created_at INTEGER NOT NULL,
+  completed_at INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_rank_scans_kw ON rank_scans(business_id, keyword_id, created_at);
+CREATE INDEX IF NOT EXISTS idx_rank_scans_user_time ON rank_scans(user_id, created_at);
+
+CREATE TABLE IF NOT EXISTS rank_scan_points (
+  id TEXT PRIMARY KEY,
+  scan_id TEXT NOT NULL REFERENCES rank_scans(id) ON DELETE CASCADE,
+  grid_row INTEGER NOT NULL,
+  grid_col INTEGER NOT NULL,
+  lat REAL NOT NULL,
+  lng REAL NOT NULL,
+  position INTEGER,                       -- NULL = not found in provider results (or error, see error column). Never filled.
+  ranking_url TEXT,
+  visibility REAL,
+  raw_count INTEGER,
+  error TEXT,                             -- non-null = provider call failed (distinct from not found)
+  competitors_json TEXT,                  -- only what the provider returned; NULL when absent
+  provider TEXT,
+  observed_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_rank_points_scan ON rank_scan_points(scan_id);
+
+CREATE TABLE IF NOT EXISTS scan_schedules (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  keyword_id TEXT NOT NULL REFERENCES keywords(id) ON DELETE CASCADE,
+  grid_size INTEGER NOT NULL,
+  radius_m INTEGER NOT NULL,
+  frequency TEXT NOT NULL,                -- weekly | monthly
+  plan_code TEXT,                         -- plan at create/update time; used for caps by the cron job
+  next_run_at INTEGER NOT NULL,
+  active INTEGER NOT NULL DEFAULT 1,
+  last_run_at INTEGER,
+  last_scan_id TEXT,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL,
+  UNIQUE (business_id, keyword_id)
+);
+CREATE INDEX IF NOT EXISTS idx_scan_schedules_due ON scan_schedules(active, next_run_at);
+
+-- ===== 050_platform.sql =====
+-- 050_platform: business profile extension, first-party analytics. Idempotent (safe to re-run).
+
+-- SQLite has no ADD COLUMN IF NOT EXISTS, so extended business fields live in a side table.
+CREATE TABLE IF NOT EXISTS business_profile_ext (
+  business_id TEXT PRIMARY KEY REFERENCES businesses(id) ON DELETE CASCADE,
+  address TEXT,
+  state TEXT,
+  pin_code TEXT,
+  country TEXT,
+  secondary_categories_json TEXT,
+  service_areas_json TEXT,
+  hours_json TEXT,
+  description TEXT,
+  language TEXT,
+  timezone TEXT,
+  lat REAL,
+  lng REAL,
+  archived_at INTEGER,
+  updated_at INTEGER NOT NULL
+);
+
+-- Raw consented events: no IP, no user id, no personal data. visitor_hash = sha256(ip+ua+day+secret), rotates daily.
+CREATE TABLE IF NOT EXISTS analytics_events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  day TEXT NOT NULL,
+  event TEXT NOT NULL,
+  tool TEXT,
+  path TEXT,
+  lang TEXT,
+  plan TEXT,
+  visitor_hash TEXT,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_analytics_events_day ON analytics_events(day, event);
+
+-- Daily rollup kept after raw rows are deleted (90 days). event='*' row = unique visitors for the day.
+CREATE TABLE IF NOT EXISTS analytics_daily (
+  day TEXT NOT NULL,
+  event TEXT NOT NULL,
+  tool TEXT NOT NULL DEFAULT '',
+  plan TEXT NOT NULL DEFAULT '',
+  events INTEGER NOT NULL,
+  visitors INTEGER NOT NULL,
+  PRIMARY KEY (day, event, tool, plan)
+);
+
+-- ===== 070_workspace.sql =====
+-- Workspaces, team roles, invitations, audit log. Additive only; `businesses` is NOT altered.
+CREATE TABLE IF NOT EXISTS workspaces (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  owner_user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  is_personal INTEGER NOT NULL DEFAULT 0,
+  created_at INTEGER NOT NULL
+);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_workspaces_personal ON workspaces(owner_user_id) WHERE is_personal=1;
+
+CREATE TABLE IF NOT EXISTS workspace_members (
+  workspace_id TEXT NOT NULL REFERENCES workspaces(id) ON DELETE CASCADE,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  role TEXT NOT NULL CHECK (role IN ('owner','admin','manager','analyst','client')),
+  status TEXT NOT NULL DEFAULT 'active' CHECK (status IN ('active','suspended')),
+  invited_by TEXT,
+  created_at INTEGER NOT NULL,
+  PRIMARY KEY (workspace_id, user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_workspace_members_user ON workspace_members(user_id, status);
+
+-- Limited access for the `client` role: only the listed businesses.
+CREATE TABLE IF NOT EXISTS business_members (
+  workspace_id TEXT NOT NULL REFERENCES workspaces(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at INTEGER NOT NULL,
+  PRIMARY KEY (business_id, user_id)
+);
+CREATE INDEX IF NOT EXISTS idx_business_members_user ON business_members(user_id);
+
+-- Which workspace a business belongs to (unmapped business = creator's personal workspace).
+CREATE TABLE IF NOT EXISTS business_workspace (
+  business_id TEXT PRIMARY KEY REFERENCES businesses(id) ON DELETE CASCADE,
+  workspace_id TEXT NOT NULL REFERENCES workspaces(id) ON DELETE CASCADE
+);
+CREATE INDEX IF NOT EXISTS idx_business_workspace_ws ON business_workspace(workspace_id);
+
+CREATE TABLE IF NOT EXISTS workspace_invitations (
+  id TEXT PRIMARY KEY,
+  workspace_id TEXT NOT NULL REFERENCES workspaces(id) ON DELETE CASCADE,
+  token_hash TEXT NOT NULL UNIQUE,
+  email TEXT NOT NULL,
+  role TEXT NOT NULL CHECK (role IN ('admin','manager','analyst','client')),
+  business_ids_json TEXT,
+  invited_by TEXT,
+  expires_at INTEGER NOT NULL,
+  accepted_at INTEGER,
+  accepted_by TEXT,
+  revoked_at INTEGER,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_invitations_ws ON workspace_invitations(workspace_id, created_at);
+
+CREATE TABLE IF NOT EXISTS audit_logs (
+  id TEXT PRIMARY KEY,
+  workspace_id TEXT,
+  actor_user_id TEXT,
+  action TEXT NOT NULL,
+  target_type TEXT,
+  target_id TEXT,
+  metadata_json TEXT,
+  ip_hash TEXT,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_audit_logs_ws_time ON audit_logs(workspace_id, created_at DESC, id);
+
+-- ===== 080_notifications.sql =====
+-- Notifications, preferences, email outbox. Module: src/notifications.js
+CREATE TABLE IF NOT EXISTS notifications (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT REFERENCES businesses(id) ON DELETE CASCADE,
+  kind TEXT NOT NULL,
+  severity TEXT NOT NULL DEFAULT 'info' CHECK (severity IN ('info','warning','critical')),
+  title TEXT NOT NULL,
+  body TEXT,
+  link TEXT,
+  dedupe_key TEXT,
+  read_at INTEGER,
+  created_at INTEGER NOT NULL,
+  emailed_at INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_notifications_user_time ON notifications(user_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_notifications_user_unread ON notifications(user_id, read_at);
+CREATE INDEX IF NOT EXISTS idx_notifications_dedupe ON notifications(user_id, dedupe_key, created_at);
+
+CREATE TABLE IF NOT EXISTS notification_preferences (
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  kind TEXT NOT NULL,
+  in_app INTEGER NOT NULL DEFAULT 1,
+  email INTEGER NOT NULL DEFAULT 0,
+  digest INTEGER NOT NULL DEFAULT 1,
+  updated_at INTEGER NOT NULL,
+  PRIMARY KEY (user_id, kind)
+);
+
+CREATE TABLE IF NOT EXISTS email_outbox (
+  id TEXT PRIMARY KEY,
+  user_id TEXT REFERENCES users(id) ON DELETE CASCADE,
+  notification_id TEXT,
+  to_email TEXT NOT NULL,
+  subject TEXT NOT NULL,
+  body_text TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','sent','failed','suppressed')),
+  attempts INTEGER NOT NULL DEFAULT 0,
+  last_error TEXT,
+  next_attempt_at INTEGER,
+  created_at INTEGER NOT NULL,
+  sent_at INTEGER
+);
+CREATE INDEX IF NOT EXISTS idx_email_outbox_pending ON email_outbox(status, next_attempt_at, created_at);
+
+-- Idempotency log for the fan-out and digest jobs (one row per source item that was already considered).
+CREATE TABLE IF NOT EXISTS notification_fanout_log (
+  source_key TEXT PRIMARY KEY,
+  created_at INTEGER NOT NULL
+);
+
+-- ===== 085_actions_reports.sql =====
+-- Action Center tasks + shareable report snapshots. Modules: src/actions.js, src/reports.js
+CREATE TABLE IF NOT EXISTS action_tasks (
+  id TEXT PRIMARY KEY,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  source_type TEXT NOT NULL CHECK (source_type IN ('audit_finding','manual','assistant')),
+  source_id TEXT,
+  source_audit_id TEXT,
+  finding_key TEXT,
+  title TEXT NOT NULL,
+  description TEXT,
+  reason TEXT,
+  evidence TEXT,
+  priority TEXT NOT NULL DEFAULT 'medium' CHECK (priority IN ('critical','high','medium','low')),
+  effort_minutes INTEGER,
+  due_date TEXT,
+  status TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open','in_progress','done','reopened','ignored')),
+  assignee_user_id TEXT,
+  created_by TEXT,
+  completed_at INTEGER,
+  completed_by TEXT,
+  verified_audit_id TEXT,
+  verified_at INTEGER,
+  before_evidence TEXT,
+  after_evidence TEXT,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_action_tasks_business ON action_tasks(business_id, status);
+CREATE INDEX IF NOT EXISTS idx_action_tasks_finding ON action_tasks(business_id, finding_key);
+
+CREATE TABLE IF NOT EXISTS action_task_notes (
+  id TEXT PRIMARY KEY,
+  task_id TEXT NOT NULL REFERENCES action_tasks(id) ON DELETE CASCADE,
+  user_id TEXT NOT NULL,
+  note TEXT NOT NULL,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_action_task_notes_task ON action_task_notes(task_id, created_at);
+
+-- Attachments are LINKS only. File uploads would need object storage (Cloudflare R2), which is not provisioned.
+CREATE TABLE IF NOT EXISTS action_task_attachments (
+  id TEXT PRIMARY KEY,
+  task_id TEXT NOT NULL REFERENCES action_tasks(id) ON DELETE CASCADE,
+  filename TEXT NOT NULL,
+  url TEXT NOT NULL,
+  created_by TEXT NOT NULL,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_action_task_attachments_task ON action_task_attachments(task_id);
+
+CREATE TABLE IF NOT EXISTS report_snapshots (
+  id TEXT PRIMARY KEY,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  kind TEXT NOT NULL CHECK (kind IN ('weekly','monthly','rank','website_audit','profile_audit','reviews','competitors','search_console','actions')),
+  period_start INTEGER NOT NULL,
+  period_end INTEGER NOT NULL,
+  data_json TEXT NOT NULL,
+  generated_at INTEGER NOT NULL,
+  generated_by TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_report_snapshots_business ON report_snapshots(business_id, generated_at DESC);
+-- A scheduled period is generated at most once per business and kind.
+CREATE UNIQUE INDEX IF NOT EXISTS idx_report_snapshots_schedule ON report_snapshots(business_id, kind, period_start, period_end) WHERE generated_by = 'system:schedule';
+
+CREATE TABLE IF NOT EXISTS report_shares (
+  id TEXT PRIMARY KEY,
+  snapshot_id TEXT NOT NULL REFERENCES report_snapshots(id) ON DELETE CASCADE,
+  token_hash TEXT NOT NULL UNIQUE,
+  expires_at INTEGER NOT NULL,
+  revoked_at INTEGER,
+  created_by TEXT NOT NULL,
+  created_at INTEGER NOT NULL,
+  view_count INTEGER NOT NULL DEFAULT 0,
+  last_viewed_at INTEGER,
+  brand_json TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_report_shares_snapshot ON report_shares(snapshot_id);
+
+CREATE TABLE IF NOT EXISTS report_schedules (
+  id TEXT PRIMARY KEY,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  kind TEXT NOT NULL CHECK (kind IN ('weekly','monthly')),
+  active INTEGER NOT NULL DEFAULT 1,
+  last_snapshot_id TEXT,
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL,
+  UNIQUE (business_id, kind)
+);
+CREATE INDEX IF NOT EXISTS idx_report_schedules_active ON report_schedules(active);
+
+-- ===== 090_assistant.sql =====
+-- AI assistant module (assistant.js). Stores every generated insight set / draft / summary for audit and history.
+-- Nothing here is ever published automatically. Retention: rows older than 180 days are deleted by the
+-- "assistant-retention" job. evidence_json holds the (already redacted) evidence the output was based on.
+CREATE TABLE IF NOT EXISTS assistant_runs (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  topic TEXT NOT NULL,            -- an insight topic, "draft:<kind>" or "monthly_progress"
+  state TEXT NOT NULL,            -- ai_assisted | deterministic_only | model_output_rejected | model_unavailable | template_only | insufficient_evidence
+  model TEXT,                     -- NULL when no model contributed
+  evidence_json TEXT NOT NULL,
+  output_json TEXT NOT NULL,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_assistant_runs_business ON assistant_runs(business_id, created_at);
+CREATE INDEX IF NOT EXISTS idx_assistant_runs_user ON assistant_runs(user_id, created_at);
+CREATE INDEX IF NOT EXISTS idx_assistant_runs_created ON assistant_runs(created_at);
+
+-- ===== 100_reviews_competitors.sql =====
+-- Review analytics aggregates, Google data-retention log, competitor module. Idempotent.
+-- Aggregates contain counts/averages only (no Google review content) and survive text purges.
+CREATE TABLE IF NOT EXISTS review_monthly_aggregates (
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  month TEXT NOT NULL,                 -- UTC YYYY-MM
+  count INTEGER NOT NULL,
+  avg_rating REAL,
+  five INTEGER NOT NULL DEFAULT 0,
+  four INTEGER NOT NULL DEFAULT 0,
+  three INTEGER NOT NULL DEFAULT 0,
+  two INTEGER NOT NULL DEFAULT 0,
+  one INTEGER NOT NULL DEFAULT 0,
+  answered_count INTEGER NOT NULL DEFAULT 0,
+  computed_at INTEGER NOT NULL,
+  PRIMARY KEY (business_id, month)
+);
+
+-- One row per purge action. Counts only: never content.
+CREATE TABLE IF NOT EXISTS data_retention_log (
+  id TEXT PRIMARY KEY,
+  user_id TEXT,
+  business_id TEXT,
+  dataset TEXT NOT NULL,               -- review_text | google_locations_raw | search_console | competitor_places | review_rows
+  action TEXT NOT NULL,                -- ttl_purge | disconnect_purge
+  rows_affected INTEGER NOT NULL,
+  ttl_days INTEGER,
+  created_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_retention_log_time ON data_retention_log(created_at);
+
+CREATE TABLE IF NOT EXISTS competitor_profiles (
+  id TEXT PRIMARY KEY,
+  business_id TEXT NOT NULL REFERENCES businesses(id) ON DELETE CASCADE,
+  name TEXT NOT NULL,
+  website TEXT,
+  address_text TEXT,
+  place_id TEXT,
+  lat REAL,
+  lng REAL,
+  source TEXT NOT NULL DEFAULT 'user_entered',          -- user_entered | places_api | rank_provider
+  verified_at INTEGER,
+  verification_state TEXT NOT NULL DEFAULT 'unverified', -- unverified | verified | failed
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_competitor_profiles_biz ON competitor_profiles(business_id);
+
+-- Candidates returned by Places Text Search, held server-side until the user confirms one.
+CREATE TABLE IF NOT EXISTS competitor_place_candidates (
+  competitor_id TEXT NOT NULL REFERENCES competitor_profiles(id) ON DELETE CASCADE,
+  place_id TEXT NOT NULL,
+  data_json TEXT NOT NULL,
+  fetched_at INTEGER NOT NULL,
+  PRIMARY KEY (competitor_id, place_id)
+);
+
+-- Google-derived facts for a confirmed place, kept apart from user-entered fields.
+CREATE TABLE IF NOT EXISTS competitor_places_data (
+  competitor_id TEXT PRIMARY KEY REFERENCES competitor_profiles(id) ON DELETE CASCADE,
+  place_id TEXT NOT NULL,
+  display_name TEXT,
+  formatted_address TEXT,
+  website_uri TEXT,
+  rating REAL,
+  user_rating_count INTEGER,
+  source TEXT NOT NULL DEFAULT 'places_api',
+  fetched_at INTEGER NOT NULL
+);
+
+-- ===== 110_oauth_return.sql =====
+-- Where to send the user after the Google sign-in round trip (allow-listed dashboard paths only).
+CREATE TABLE IF NOT EXISTS oauth_state_meta (
+  state_hash TEXT PRIMARY KEY,
+  return_path TEXT NOT NULL,
+  created_at INTEGER NOT NULL
+);
