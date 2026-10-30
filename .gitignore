@@ -1,1 +1,5 @@
 dist/
+__pycache__/
+*.pyc
+*.whl
+node_modules/
