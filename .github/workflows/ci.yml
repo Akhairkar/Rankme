@@ -1,0 +1,35 @@
+name: CI
+on:
+  workflow_call:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Schema is generated from migrations
+        working-directory: backend
+        run: node scripts/build-schema.mjs && git diff --exit-code schema.sql
+      - name: Syntax check
+        working-directory: backend
+        run: for f in src/*.js; do node --check "$f"; done
+      - name: Unit tests
+        working-directory: backend
+        run: npm test
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Sitemap is up to date
+        run: python3 scripts/build_sitemap.py --check
+      - name: SEO and link integrity
+        run: python3 scripts/seo_check.py
+      - name: Shared header/footer consistent
+        run: |
+          if [ -f scripts/public-shell/apply_shell.py ]; then python3 scripts/public-shell/apply_shell.py --check; fi
