@@ -200,7 +200,7 @@ export async function listPerformanceMetrics(env, userId, businessId, limit=90) 
 export async function getLatestAudit(env, userId, businessId) {
   if (!env.DB) return null;
   return env.DB.prepare(
-    "SELECT a.* FROM audits a JOIN businesses b ON b.id=a.business_id WHERE a.business_id=? AND b.user_id=? ORDER BY a.created_at DESC LIMIT 1"
+    "SELECT a.* FROM audits a JOIN businesses b ON b.id=a.business_id WHERE a.business_id=? AND b.user_id=? AND a.audit_type!='unified' ORDER BY a.created_at DESC LIMIT 1"
   ).bind(businessId,userId).first();
 }
 
