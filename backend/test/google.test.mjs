@@ -31,7 +31,7 @@ function fakeDB() {
     if (S("SELECT r.id,r.google_review_name FROM reviews")) return t.reviews.find((r) => r.id === a[0]) || null;
     if (S("UPDATE reviews SET reply_status='answered'")) { t.reviews.find((r) => r.id === a[0]).reply_status = "answered"; return {}; }
     if (S("INSERT INTO review_replies")) { t.replies.push({ status: sql.includes("'posted'") ? "posted" : "failed", text: a[4] }); return {}; }
-    if (S("SELECT * FROM businesses")) return { id: a[0] };
+    if (S("SELECT * FROM businesses")) return { id: a[0], user_id: "u1" };
     if (S("SELECT * FROM performance_metrics WHERE id")) return t.perf.at(-1) || null;
     if (S("INSERT INTO performance_metrics")) { t.perf.push({ id: a[0], impressions: a[4], website_clicks: a[5], call_clicks: a[6], direction_requests: a[7], raw: a[9] }); return {}; }
     if (S("INSERT INTO google_sync_log")) { t.log.push({ kind: a[3], state: a[4], code: a[5] }); return {}; }

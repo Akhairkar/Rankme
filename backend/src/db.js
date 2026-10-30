@@ -2,10 +2,46 @@ export function id(prefix = "lb") {
   return prefix + "_" + crypto.randomUUID().replaceAll("-", "");
 }
 
+// Team-aware access. Returns {business, role, canWrite} or null (no access / not found: callers answer 404).
+// - Legacy/unmapped business: its creator is the owner (unchanged behaviour); other users are checked
+//   against the creator's personal workspace.
+// - Mapped business (business_workspace): ONLY active members of that workspace have access
+//   (a removed or suspended member loses access immediately, even if they created the business).
+// - owner/admin/manager: whole workspace, canWrite=true. analyst: whole workspace, read-only.
+//   client: read-only, only businesses assigned in business_members.
+export async function getBusinessAccess(env, userId, businessId) {
+  if (!env.DB || !userId || !businessId) return null;
+  const business = await env.DB.prepare("SELECT * FROM businesses WHERE id = ? LIMIT 1").bind(businessId).first();
+  if (!business) return null;
+  try {
+    const map = await env.DB.prepare("SELECT workspace_id FROM business_workspace WHERE business_id = ? LIMIT 1").bind(businessId).first();
+    let wsId = map?.workspace_id || null;
+    if (!wsId) {
+      if (business.user_id === userId) return { business, role: "owner", canWrite: true };
+      const p = await env.DB.prepare("SELECT id FROM workspaces WHERE owner_user_id = ? AND is_personal = 1 LIMIT 1").bind(business.user_id).first();
+      wsId = p?.id || null;
+    }
+    if (!wsId) return null;
+    const m = await env.DB.prepare("SELECT role, status FROM workspace_members WHERE workspace_id = ? AND user_id = ? LIMIT 1").bind(wsId, userId).first();
+    if (!m || m.status !== "active") return null;
+    if (m.role === "owner" || m.role === "admin" || m.role === "manager") return { business, role: m.role, canWrite: true };
+    if (m.role === "analyst") return { business, role: "analyst", canWrite: false };
+    if (m.role === "client") {
+      const a = await env.DB.prepare("SELECT 1 AS ok FROM business_members WHERE workspace_id = ? AND business_id = ? AND user_id = ? LIMIT 1").bind(wsId, businessId, userId).first();
+      return a ? { business, role: "client", canWrite: false } : null;
+    }
+    return null;
+  } catch {
+    // Workspace tables unavailable (migration 070 not applied): fall back to plain ownership.
+    return business.user_id === userId ? { business, role: "owner", canWrite: true } : null;
+  }
+}
+
+// Write-capable access only (owner/admin/manager, or the legacy owner). Analyst/client get null here
+// on purpose: existing modules use this for reads AND writes. Read-only roles use getBusinessAccess.
 export async function getUserBusiness(env, userId, businessId) {
-  if (!env.DB) return null;
-  return env.DB.prepare("SELECT * FROM businesses WHERE id = ? AND user_id = ? LIMIT 1")
-    .bind(businessId, userId).first();
+  const access = await getBusinessAccess(env, userId, businessId);
+  return access && access.canWrite ? access.business : null;
 }
 
 export async function listBusinesses(env, userId) {

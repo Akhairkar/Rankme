@@ -1,8 +1,9 @@
 // Module router. Feature modules export `routes` (see routes.js) instead of editing index.js.
 // Route: { method, path, auth: "public" | "session", handler(request, ctx) -> Response }
-// ctx: { env, url, userId, json(data,status), getUserBusiness(id), requireFeature(name),
+// ctx: { env, url, userId, json(data,status), getUserBusiness(id), getBusinessAccess(id), requireFeature(name),
 //        rateLimit(key, limit, windowMs) -> {ok}, ip, now() }
 import { routes } from "./routes.js";
+import { getBusinessAccess } from "./db.js";
 
 const enc = new TextEncoder();
 const hex = (b) => [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
@@ -38,6 +39,8 @@ export async function routeModules(request, env, url, deps) {
     env, url, userId, ip, json,
     now: () => Date.now(),
     getUserBusiness: (id) => getUserBusiness(env, userId, id),
+    // -> {business, role, canWrite} | null ; includes read-only roles (analyst, client)
+    getBusinessAccess: (id) => getBusinessAccess(env, userId, id),
     requireFeature: (name) => requireFeature(env, userId, name),
     rateLimit: (key, limit, windowMs) => rateLimit(env, key, limit, windowMs),
   };
