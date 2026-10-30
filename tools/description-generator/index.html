@@ -146,6 +146,66 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta property="og:site_name" content="LocalBoost">
 <link rel="stylesheet" href="../../assets/site.css">
+<style id="lb-extra">
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+</style>
 </head>
 <body>
 
@@ -169,106 +229,31 @@
   <div class="tool-head">
     <div class="tool-badge">Free Interactive Tool</div>
     <h1>Business Description Generator</h1>
-    <p class="tool-desc">Generate a professional, local SEO-optimized description for your Google Business Profile within Google's 750-character limit.</p>
+    <p class="tool-desc">Draft a factual Google Business Profile description from your own details, kept within the 750-character limit. Edit it before you use it.</p>
   </div>
 
   <div class="tool-card">
-
-    <form id="descForm">
+    <form id="descForm" novalidate>
       <div class="form-row">
-        <div class="form-group">
-          <label for="bizName">Business Name *</label>
-          <input type="text" id="bizName" placeholder="e.g. Royal Sweets &amp; Bakery" required>
-        </div>
-        <div class="form-group">
-          <label for="bizCat">Primary Category *</label>
-          <input type="text" id="bizCat" placeholder="e.g. Bakery / Sweet Shop" required>
-        </div>
+        <div class="form-group"><label for="bizName">Business Name <span class="req">*</span></label><input type="text" id="bizName" placeholder="e.g. Sharma Sweets & Bakery" maxlength="100"></div>
+        <div class="form-group"><label for="bizCat">Primary Category <span class="req">*</span></label><input type="text" id="bizCat" placeholder="e.g. Bakery / Sweet Shop" maxlength="80"></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label for="bizCity">City / Landmark / Area *</label>
-          <input type="text" id="bizCity" placeholder="e.g. Sector 18, Noida" required>
-        </div>
-        <div class="form-group">
-          <label for="bizLang">Language</label>
-          <select id="bizLang">
-            <option value="en">English</option>
-            <option value="hi">Hindi (Devanagari)</option>
-            <option value="hinglish">Hinglish</option>
-          </select>
-        </div>
+        <div class="form-group"><label for="bizCity">City / Landmark / Area <span class="req">*</span></label><input type="text" id="bizCity" placeholder="e.g. Sector 18, Noida" maxlength="80"></div>
+        <div class="form-group"><label for="bizLang">Language</label><select id="bizLang"><option value="en">English</option><option value="hi">Hindi (Devanagari)</option><option value="hinglish">Hinglish</option></select></div>
       </div>
-      <div class="form-group">
-        <label for="bizServices">Key Services or Specialties (comma separated)</label>
-        <input type="text" id="bizServices" placeholder="e.g. Pure Ghee Sweets, Custom Birthday Cakes, Free Home Delivery">
-      </div>
-      <div class="form-group">
-        <label for="bizUSP">Unique Selling Proposition (USP)</label>
-        <input type="text" id="bizUSP" placeholder="e.g. Serving authentic recipes since 1985 with 100% pure ingredients">
-      </div>
+      <div class="form-group"><label for="bizServices">Key Services or Specialties (comma separated)</label><input type="text" id="bizServices" placeholder="e.g. Milk sweets, Birthday cakes, Event catering" maxlength="400"></div>
+      <div class="form-group"><label for="bizUSP">Facts about your business (optional)</label><input type="text" id="bizUSP" placeholder="e.g. Family-run since 1985, vegetarian kitchen" maxlength="200"><small>Write only things that are true and checkable. Avoid prices, offers, "best" and "No. 1": Google may reject promotional descriptions.</small></div>
+      <div class="lb-err" id="descErr" role="alert"></div>
       <button type="submit" class="btn-submit">Generate Business Description</button>
     </form>
-
-    <div class="result-box" id="resultBox">
-      <div class="result-header">
-        <span class="result-title">Generated GBP Description (<span id="charCount">0</span>/750 chars)</span>
-        <button class="btn-copy" id="copyBtn" type="button">Copy to Clipboard</button>
-      </div>
-      <div class="output-area" id="outputArea"></div>
-      <p style="font-size:12.5px; color:var(--text-secondary); margin-top:10px;">
-        <strong>Tip:</strong> Paste this into your Google Business Profile under "Edit Profile &rarr; Description". Keep it under Google's 750 character limit.
-      </p>
+    <div id="descBox" class="lb-hidden" style="margin-top:28px;">
+      <div class="result-header"><span class="result-title">Draft description</span><span class="lb-count" id="descCount" aria-live="polite"></span></div>
+      <div id="descWarn"></div>
+      <div class="lb-out"><textarea id="descOut" rows="8" aria-label="Draft description"></textarea><div class="lb-meta"><span></span><button type="button" class="lb-btn primary" id="descCopy">Copy description</button></div></div>
+      <div class="lb-banner info"><strong>Tip:</strong> paste this into your Google Business Profile under Edit profile, then Description. It is a draft: edit it so it describes your real business, and do not add links, phone numbers or offers.</div>
     </div>
-
-    <script>
-      document.getElementById('descForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('bizName').value.trim();
-        const cat = document.getElementById('bizCat').value.trim();
-        const city = document.getElementById('bizCity').value.trim();
-        const lang = document.getElementById('bizLang').value;
-        const services = document.getElementById('bizServices').value.trim();
-        const usp = document.getElementById('bizUSP').value.trim();
-
-        let desc = '';
-        if (lang === 'hi') {
-          desc = `स्वागत है ${name} में! हम ${city} में स्थित एक प्रमुख ${cat} हैं। `;
-          if (usp) desc += `${usp}। `;
-          if (services) desc += `हम ${services} जैसी सेवाएं पूर्ण गुणवत्ता और प्रामाणिकता के साथ प्रदान करते हैं। `;
-          desc += `हमारा उद्देश्य अपने सभी ग्राहकों को सर्वोत्तम सेवा और संतुष्टि देना है। आज ही विजिट करें या अधिक जानकारी के लिए संपर्क करें!`;
-        } else if (lang === 'hinglish') {
-          desc = `Welcome to ${name}! Hum ${city} me leading ${cat} hain. `;
-          if (usp) desc += `${usp}. `;
-          if (services) desc += `Hum ${services} jaisi best services offer karte hain. `;
-          desc += `Hamara lakshya har customer ko top quality aur best experience dena hai. Aaj hi visit karein ya details ke liye contact karein!`;
-        } else {
-          desc = `Welcome to ${name}, your trusted ${cat} in ${city}. `;
-          if (usp) desc += `${usp}. `;
-          if (services) desc += `We specialize in ${services}, committed to delivering exceptional quality, reliability, and dedicated customer satisfaction. `;
-          desc += `Whether you are a resident of ${city} or visiting, our experienced team is here to assist you. Visit us today or contact us for more information!`;
-        }
-
-        if (desc.length > 745) {
-          desc = desc.substring(0, 742) + '...';
-        }
-
-        const out = document.getElementById('outputArea');
-        out.textContent = desc;
-        document.getElementById('charCount').textContent = desc.length;
-        document.getElementById('resultBox').classList.add('active');
-        document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-
-      document.getElementById('copyBtn').addEventListener('click', function() {
-        const text = document.getElementById('outputArea').textContent;
-        navigator.clipboard.writeText(text).then(() => {
-          this.textContent = 'Copied!';
-          setTimeout(() => { this.textContent = 'Copy to Clipboard'; }, 2000);
-        });
-      });
-    </script>
-
+    <p class="lb-links"><strong>Related:</strong> <a href="../services-generator/index.html">Services &amp; Menu Generator</a> &middot; <a href="../local-keyword-research/index.html">Local Keyword Ideas</a></p>
   </div>
 </main>
 
@@ -304,5 +289,7 @@
 
 <script src="../../assets/consent.js" defer></script>
 <script src="../../assets/site.js" defer></script>
+<script src="../shared/tool-common.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

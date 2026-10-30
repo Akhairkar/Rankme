@@ -146,6 +146,66 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta property="og:site_name" content="LocalBoost">
 <link rel="stylesheet" href="../../assets/site.css">
+<style id="lb-extra">
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+</style>
 </head>
 <body>
 
@@ -169,69 +229,43 @@
   <div class="tool-head">
     <div class="tool-badge">Free Interactive Tool</div>
     <h1>Review Request Message Generator</h1>
-    <p class="tool-desc">Generate compliant WhatsApp, SMS, and Email messages to ask satisfied customers for genuine Google reviews.</p>
+    <p class="tool-desc">Create WhatsApp, SMS and email messages that ask customers for an honest Google review. Edit them, then send them yourself, one customer at a time.</p>
   </div>
 
   <div class="tool-card">
-
-    <form id="reqForm">
+    <div class="lb-banner warn"><strong>Google review rules to follow</strong><ul style="margin:8px 0 0 20px;"><li>No incentives: do not offer discounts, gifts, cash or entry to a draw in return for a review.</li><li>No gating: ask every customer, not only the ones who seem happy, and do not steer unhappy customers away from reviewing.</li><li>No fake reviews: never write reviews for customers or post reviews from your own devices or staff.</li><li>One request per customer: send a single polite request and do not keep reminding.</li><li>Ask for honest feedback. Do not tell people what to write or what rating to give.</li></ul></div>
+    <form id="rqForm" novalidate>
       <div class="form-row">
-        <div class="form-group">
-          <label for="reqBizName">Business Name *</label>
-          <input type="text" id="reqBizName" placeholder="e.g. Sharma Sweets" required>
-        </div>
-        <div class="form-group">
-          <label for="reqReviewLink">Direct Google Review Link *</label>
-          <input type="url" id="reqReviewLink" placeholder="https://g.page/r/.../review" required>
-        </div>
+        <div class="form-group"><label for="rqBiz">Business name <span class="req">*</span></label><input type="text" id="rqBiz" placeholder="e.g. Sharma Sweets" maxlength="80"></div>
+        <div class="form-group"><label for="rqCust">Customer name (optional)</label><input type="text" id="rqCust" placeholder="e.g. Priya" maxlength="40"></div>
       </div>
-      <div class="form-group">
-        <label for="reqService">Specific Service or Product Name</label>
-        <input type="text" id="reqService" placeholder="e.g. catering order / dental checkup / hair styling">
+      <div class="form-group"><label for="rqLink">Your Google review link <span class="req">*</span></label><input type="url" id="rqLink" placeholder="https://g.page/r/.../review" maxlength="500" autocomplete="off" spellcheck="false"><small>Use the official link from your Google Business Profile ("Ask for reviews"), or a writereview link built with your Place ID. Accepted: g.page, search.google.com/local/writereview?placeid=, maps.app.goo.gl.</small></div>
+      <div class="form-row">
+        <div class="form-group"><label for="rqSvc">Service or product (optional)</label><input type="text" id="rqSvc" placeholder="e.g. catering order / dental checkup" maxlength="60"></div>
+        <div class="form-group"><label for="rqPhone">Customer WhatsApp / mobile number (optional)</label><input type="tel" id="rqPhone" placeholder="e.g. 98765 43210" maxlength="20" autocomplete="off"><small>Only used to prefill the WhatsApp and SMS buttons on your device. It is not stored or sent to LocalBoost.</small></div>
       </div>
-      <button type="submit" class="btn-submit">Generate Review Request Messages</button>
+      <div class="form-row">
+        <div class="form-group"><label for="rqLang">Message language</label><select id="rqLang"><option value="en">English</option><option value="hi">Hindi (Devanagari)</option><option value="hn">Hinglish (Hindi in English letters)</option></select></div>
+        <div class="form-group"><label for="rqTone">Tone</label><select id="rqTone"><option value="warm">Warm and friendly</option><option value="professional">Professional</option><option value="brief">Brief</option></select></div>
+      </div>
+      <div class="lb-err" id="rqErr" role="alert"></div>
+      <button type="submit" class="btn-submit">Create messages</button>
     </form>
 
-    <div class="result-box" id="reqResultBox">
-      <div class="result-header">
-        <span class="result-title">Review Request Templates</span>
-      </div>
-
-      <div style="margin-bottom:20px;">
-        <div style="font-weight:700; font-size:14px; color:var(--primary-600); margin-bottom:6px;">WhatsApp Message (High Conversion)</div>
-        <div class="output-area" id="reqOutWa"></div>
-      </div>
-
-      <div style="margin-bottom:20px;">
-        <div style="font-weight:700; font-size:14px; color:var(--accent-600); margin-bottom:6px;">SMS Message (Concise)</div>
-        <div class="output-area" id="reqOutSms"></div>
-      </div>
-
-      <div>
-        <div style="font-weight:700; font-size:14px; color:var(--text-primary); margin-bottom:6px;">Formal Email Template</div>
-        <div class="output-area" id="reqOutEmail"></div>
-      </div>
+    <div id="rqResult" class="lb-hidden" style="margin-top:28px;">
+      <div class="result-header"><span class="result-title">Your messages (editable)</span></div>
+      <div class="lb-out"><h3>WhatsApp message</h3><textarea id="rqWa" rows="9" aria-label="WhatsApp message"></textarea>
+        <div class="lb-meta"><span class="lb-count" id="rqWaCount"></span><span class="lb-row"><button type="button" class="lb-btn" id="rqWaCopy">Copy</button><a class="lb-btn primary" id="rqWaOpen" href="#" target="_blank" rel="noopener noreferrer">Open in WhatsApp</a></span></div></div>
+      <div class="lb-out"><h3>SMS message</h3><textarea id="rqSms" rows="4" style="min-height:90px" aria-label="SMS message"></textarea>
+        <div class="lb-meta"><span><span class="lb-count" id="rqSmsCount" aria-live="polite"></span><br><span class="lb-note" id="rqSmsWarn"></span></span><span class="lb-row"><button type="button" class="lb-btn" id="rqSmsCopy">Copy</button><a class="lb-btn primary" id="rqSmsOpen" href="#">Open in SMS app</a></span></div></div>
+      <div class="lb-out"><h3>Email</h3>
+        <label class="sr-only" for="rqSub">Subject</label><input type="text" id="rqSub" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font:inherit;margin-bottom:10px;" aria-label="Subject">
+        <textarea id="rqBody" rows="9" aria-label="Body"></textarea>
+        <div class="lb-meta"><span class="lb-row"><button type="button" class="lb-btn" id="rqSubCopy">Copy (Subject)</button><button type="button" class="lb-btn" id="rqBodyCopy">Copy (Body)</button></span><a class="lb-btn primary" id="rqMailOpen" href="#">Open in email app</a></div></div>
+      <div class="lb-banner info"><strong>Tip:</strong> put the same review link on a QR code at your counter or on the bill. Use the <a href="../qr-generator/index.html">QR generator</a>.</div>
+      <div class="lb-banner info"><strong>About SMS in India:</strong> promotional or service SMS sent through a bulk provider must use DLT-registered templates. Ask your SMS provider before sending this text in bulk. Sending from your own phone to one customer is fine.</div>
     </div>
-
-    <script>
-      document.getElementById('reqForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const biz = document.getElementById('reqBizName').value.trim();
-        const link = document.getElementById('reqReviewLink').value.trim();
-        const serv = document.getElementById('reqService').value.trim() || 'your visit';
-
-        const wa = `Hi [Customer Name],\n\nThank you for choosing ${biz} for ${serv} today! We hope you had a wonderful experience.\n\nCould you take 30 seconds to share your review on Google? It really helps our local team grow:\n${link}\n\nThank you so much!\nTeam ${biz}`;
-        const sms = `Dear Customer, thanks for visiting ${biz}! Please share your feedback on Google: ${link} . It takes only 30 secs. Thank you!`;
-        const email = `Subject: How was your experience with ${biz}?\n\nDear [Customer Name],\n\nThank you for trusting ${biz} with ${serv}. Customer satisfaction is our top priority, and we would love to hear your feedback.\n\nIf you enjoyed our service, please consider taking a moment to rate us on Google:\n${link}\n\nThank you for your continued support!\n\nWarm regards,\n${biz}`;
-
-        document.getElementById('reqOutWa').textContent = wa;
-        document.getElementById('reqOutSms').textContent = sms;
-        document.getElementById('reqOutEmail').textContent = email;
-        document.getElementById('reqResultBox').classList.add('active');
-        document.getElementById('reqResultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    </script>
-
+    <p class="lb-links"><strong>Related:</strong> <a href="../places-lookup/index.html">Places Lookup & Place ID Finder</a> &middot; <a href="../qr-generator/index.html">QR Generator</a> &middot; <a href="../review-reply-generator/index.html">Review Reply Generator</a></p>
   </div>
 </main>
 
@@ -267,5 +301,7 @@
 
 <script src="../../assets/consent.js" defer></script>
 <script src="../../assets/site.js" defer></script>
+<script src="../shared/tool-common.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website SEO Checker for Local Businesses | LocalBoost</title>
+<meta name="description" content="Check a public web page for SEO issues: title, headings, links, schema and local signals. Each issue has evidence and a fix. Report, CSV and print.">
+<link rel="canonical" href="https://www.localboost.in/tools/website-seo-checker/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/website-seo-checker/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/website-seo-checker/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/website-seo-checker/">
+<meta property="og:title" content="Website SEO Checker for Local Businesses">
+<meta property="og:description" content="Check a public web page for SEO issues: title, headings, links, schema and local signals. Each issue has evidence and a fix. Report, CSV and print.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.localboost.in/tools/website-seo-checker/">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Website SEO Checker for Local Businesses",
+  "description": "Check a public web page for SEO issues: title, headings, links, schema and local signals. Each issue has evidence and a fix. Report, CSV and print.",
+  "url": "https://www.localboost.in/tools/website-seo-checker/",
+  "inLanguage": "en-IN",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any (web browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "INR"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "LocalBoost",
+    "url": "https://www.localboost.in/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.localboost.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://www.localboost.in/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Website SEO Checker for Local Businesses",
+      "item": "https://www.localboost.in/tools/website-seo-checker/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the Website SEO Checker check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It reads one public page and reports on-page SEO and local-business signals: title, description, headings, links, images, structured data, mobile viewport, indexability and local signals such as phone number, address and map."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the address I enter sent to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. This tool is different from our browser-only tools: when you press Check website, the address is sent to the LocalBoost API, which fetches the public page. Nothing else is sent. If the live checker is not online yet, nothing is sent at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it give a ranking score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It lists issues with evidence and fixes. It does not predict rankings and shows no overall score unless the checker returns one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why was my website blocked or unreachable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only public web pages on standard ports can be checked. Localhost, private addresses, raw IPs, links with a password and non-web schemes are blocked. A site can also be unreachable if it is offline, too slow (over 8 seconds), redirects in a loop, or its robots.txt disallows our checker."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The single-page checker is free and costs INR 0, limited to 10 checks per hour from one network."
+      }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg-base:#FAF9F6; --bg-surface:#FFFFFF; --bg-muted:#F0EEE9;
+    --text-primary:#1E1E1E; --text-secondary:#5A5A54; --border:#E2E0D9;
+    --primary-600:#0F766E; --primary-500:#14968C; --primary-100:#E0F5F2;
+    --accent-600:#E8722C; --accent-100:#FCE8D9;
+    --success:#1E8E5A; --warning:#C98A02; --danger:#C4402C;
+    --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px;
+    --radius-md:8px; --radius-lg:12px; --radius-xl:20px;
+    --font:'Manrope','Noto Sans Devanagari',system-ui,-apple-system,sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:var(--font); background:var(--bg-base); color:var(--text-primary); line-height:1.65; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 var(--sp-5); }
+
+  header { position:sticky; top:0; z-index:50; background:rgba(250,249,246,.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+  .nav-inner { max-width:1180px; margin:0 auto; padding:var(--sp-4) var(--sp-5); display:flex; align-items:center; justify-content:space-between; }
+  .logo { display:flex; align-items:center; gap:var(--sp-2); font-weight:800; font-size:18px; }
+  .logo-mark { width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--primary-600),var(--primary-500)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:15px; }
+  .nav-cta { background:var(--accent-600); color:#fff; font-weight:600; font-size:14px; padding:10px 18px; border-radius:var(--radius-md); }
+  .nav-cta:hover { background:#CE5F1E; }
+  .nav-right { display:flex; align-items:center; gap:var(--sp-3); }
+  .lang-switch { font-size:13px; font-weight:600; color:var(--text-secondary); border:1px solid var(--border); border-radius:999px; padding:6px 14px; background:var(--bg-surface); }
+
+  .breadcrumb { font-size:13.5px; color:var(--text-secondary); padding:var(--sp-5) var(--sp-5) 0; max-width:960px; margin:0 auto; }
+  .breadcrumb a { color:var(--primary-600); font-weight:600; }
+  .breadcrumb span { margin:0 6px; }
+
+  .tool-head { padding:var(--sp-4) 0 var(--sp-6); text-align:center; }
+  .tool-badge { display:inline-block; font-size:12px; font-weight:800; text-transform:uppercase; color:var(--primary-600); background:var(--primary-100); padding:4px 12px; border-radius:999px; margin-bottom:var(--sp-3); }
+  h1 { font-size:32px; line-height:1.25; letter-spacing:-.015em; margin-bottom:var(--sp-2); }
+  .tool-desc { font-size:17.5px; color:var(--text-secondary); max-width:680px; margin:0 auto; }
+
+  .tool-card { background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-xl); padding:32px; box-shadow:0 4px 20px rgba(0,0,0,0.04); margin-bottom:48px; }
+  .form-group { margin-bottom:20px; }
+  .form-group label { display:block; font-size:14.5px; font-weight:700; margin-bottom:6px; color:var(--text-primary); }
+  .form-group input, .form-group select, .form-group textarea { width:100%; padding:12px 16px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; background:var(--bg-base); color:var(--text-primary); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--primary-600); background:#fff; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  
+  .btn-submit { display:inline-block; width:100%; background:var(--primary-600); color:#fff; font-weight:700; font-size:16px; padding:14px 24px; border:none; border-radius:var(--radius-md); cursor:pointer; transition:background .15s ease; text-align:center; }
+  .btn-submit:hover { background:var(--primary-500); }
+
+  .result-box { background:#F8FAFC; border:1px solid #CBD5E1; border-radius:var(--radius-lg); padding:24px; margin-top:28px; display:none; }
+  .result-box.active { display:block; }
+  .result-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+  .result-title { font-size:18px; font-weight:800; color:var(--text-primary); }
+  .btn-copy { background:#fff; border:1px solid var(--border); border-radius:6px; padding:6px 14px; font-size:13px; font-weight:600; cursor:pointer; display:inline-flex; align-items:center; gap:6px; }
+  .btn-copy:hover { background:var(--bg-muted); }
+
+  .output-area { font-size:15.5px; line-height:1.7; color:#1E293B; white-space:pre-wrap; background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:18px; }
+
+  footer { background:var(--bg-muted); border-top:1px solid var(--border); padding:var(--sp-7) 0; margin-top:var(--sp-7); text-align:center; font-size:13.5px; color:var(--text-secondary); }
+  .disclaimer { max-width:800px; margin:0 auto var(--sp-4); font-size:12.5px; line-height:1.5; }
+
+  @media (max-width:700px) {
+    .form-row { grid-template-columns:1fr; }
+    .tool-card { padding:20px; }
+    h1 { font-size:26px; }
+  }
+</style>
+<style>
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+</style>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta property="og:site_name" content="LocalBoost">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="../../index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
+    <div class="nav-right">
+      <a class="lang-switch" href="https://www.localboost.in/hi/tools/website-seo-checker/" aria-label="हिंदी में देखें">EN · हिं</a>
+      <a href="../../check/index.html" class="nav-cta">Free Visibility Audit</a>
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="../../index.html">Home</a><span>/</span>
+  <a href="../../tools/index.html">Tools</a><span>/</span>
+  <span>Website SEO Checker for Local Businesses</span>
+</nav>
+
+<main class="wrap">
+  <div class="tool-head">
+    <div class="tool-badge">Free Tool</div>
+    <h1>Website SEO Checker for Local Businesses</h1>
+    <p class="tool-desc">Check one public page of your website for on-page SEO and local-business signals. Every finding comes with evidence and a suggested fix.</p>
+  </div>
+
+  <div class="tool-card">
+    <div class="lb-banner info"><strong>What this checks:</strong> public, on-page signals of one page (title, description, headings, links, images, structured data, mobile viewport, indexability, local signals such as phone, address and map). It does not measure rankings, traffic or reviews, and no overall score is shown unless the checker returns one.</div>
+    <div id="scDisabled" class="lb-banner warn lb-hidden" role="status"><strong>Live checker connects when the production API is online.</strong> The live checker is not switched on yet, so this page cannot fetch websites right now. Nothing has been sent anywhere. In the meantime you can run the single-page audit that works entirely in your browser: <a href="../../audit/index.html">Open the Free Business &amp; Website Audit</a></div>
+    <form id="scForm" novalidate>
+      <div class="form-group"><label for="scUrl">Website address <span class="req">*</span></label><input type="text" id="scUrl" inputmode="url" placeholder="https://www.yourbusiness.in" maxlength="2048" autocomplete="off" spellcheck="false"></div>
+      <div class="lb-err" id="scErr" role="alert"></div>
+      <button type="submit" class="btn-submit" id="scGo">Check website</button>
+      <p class="lb-note"><strong>Privacy:</strong> when you click the button, the address you enter is sent to the LocalBoost API, and our server fetches that public page. Nothing else from this page is sent. The free checker allows 10 checks per hour from one network and reads one page.</p>
+    </form>
+    <div id="scStatus" class="lb-banner info lb-hidden" role="status" aria-live="polite" style="margin-top:20px;"></div>
+
+    <div id="scResult" class="lb-hidden" style="margin-top:28px;">
+      <div id="scBanner"></div>
+      <div id="scStats" class="lb-stats"></div>
+      <div id="scMeta" class="lb-note" style="margin-bottom:14px;"></div>
+      <div class="lb-row lb-noprint" style="margin-bottom:16px;">
+        <button type="button" class="lb-btn" id="scCopy">Copy as text</button>
+        <button type="button" class="lb-btn" id="scCsvI">Export issues CSV</button>
+        <button type="button" class="lb-btn" id="scCsvP">Export pages CSV</button>
+        <button type="button" class="lb-btn" id="scPrint">Print / save PDF</button>
+        <button type="button" class="lb-btn primary" id="scAgain">Check again</button>
+      </div>
+      <h2 style="font-size:19px;margin-bottom:10px;">Issues</h2>
+      <div class="form-row3 lb-noprint">
+        <div class="form-group"><label for="scSev">Severity</label><select id="scSev"><option value="">All</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></div>
+        <div class="form-group"><label for="scCat">Category</label><select id="scCat"></select></div>
+        <div class="form-group"><label for="scQ">Search issues</label><input type="text" id="scQ" maxlength="80"></div>
+      </div>
+      <div id="scIssues"></div>
+      <h2 style="font-size:19px;margin:24px 0 10px;">Pages checked</h2>
+      <div class="lb-scroll" id="scPages"></div>
+      <div id="scSkipped"></div>
+      <div id="scPs" class="lb-hidden" style="margin-top:26px;">
+        <div class="lb-row" style="justify-content:space-between;margin-bottom:10px;"><h2 style="font-size:19px;">PageSpeed (Google PageSpeed Insights)</h2>
+          <div class="lb-row lb-noprint"><button type="button" class="lb-btn primary" data-ps="mobile" aria-pressed="true">Mobile</button><button type="button" class="lb-btn" data-ps="desktop" aria-pressed="false">Desktop</button></div></div>
+        <div id="scPsBody"></div>
+      </div>
+    </div>
+
+    <details class="lb-details"><summary>What the checker looks at</summary><ul><li>Page status, redirects, robots.txt rules and meta robots / noindex.</li><li>Title and meta description presence and length, H1 count, heading order, canonical and hreflang.</li><li>Images without alt text, mobile viewport tag, html lang attribute, Open Graph tags.</li><li>JSON-LD structured data, including LocalBusiness type and key properties.</li><li>Local signals: tel: link or phone number, street address, contact link and embedded map.</li><li>Internal link count and a sample of internal links for errors.</li></ul><p class="lb-note">Limits: one page per check, public pages only, pages larger than 1.5 MB are not analysed, and each request waits at most 8 seconds. Findings are automated and may include false positives, so check them before you change anything.</p></details>
+    <p class="lb-links"><strong>Related:</strong> <a href="../competitor-comparison/index.html">Competitor Comparison</a> &middot; <a href="../local-seo-checklist/index.html">Local SEO Checklist</a> &middot; <a href="../../audit/index.html">Free Business &amp; Website Audit</a></p>
+  </div>
+</main>
+
+<section class="faq-section" style="padding: 40px 20px; background: #f9fafb; margin-top: 40px; border-top: 1px solid #e5e7eb;">
+<div class="container" style="max-width: 800px; margin: 0 auto;">
+<h2 style="font-size: 24px; font-weight: bold; margin-bottom: 24px; color: #1f2937;">Frequently Asked Questions (FAQs) about Website SEO Checker</h2>
+<div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
+
+        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">What does the Website SEO Checker check?</h3>
+            <p style="color: #4b5563; line-height: 1.6; margin: 0;">It reads one public page and reports on-page SEO and local-business signals: title, description, headings, links, images, structured data, mobile viewport, indexability and local signals such as phone number, address and map.</p>
+        </div>
+
+        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Is the address I enter sent to a server?</h3>
+            <p style="color: #4b5563; line-height: 1.6; margin: 0;">Yes. This tool is different from our browser-only tools: when you press Check website, the address is sent to the LocalBoost API, which fetches the public page. Nothing else is sent. If the live checker is not online yet, nothing is sent at all.</p>
+        </div>
+
+        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Does it give a ranking score?</h3>
+            <p style="color: #4b5563; line-height: 1.6; margin: 0;">No. It lists issues with evidence and fixes. It does not predict rankings and shows no overall score unless the checker returns one.</p>
+        </div>
+
+        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Why was my website blocked or unreachable?</h3>
+            <p style="color: #4b5563; line-height: 1.6; margin: 0;">Only public web pages on standard ports can be checked. Localhost, private addresses, raw IPs, links with a password and non-web schemes are blocked. A site can also be unreachable if it is offline, too slow (over 8 seconds), redirects in a loop, or its robots.txt disallows our checker.</p>
+        </div>
+
+        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Is it free?</h3>
+            <p style="color: #4b5563; line-height: 1.6; margin: 0;">Yes. The single-page checker is free and costs INR 0, limited to 10 checks per hour from one network.</p>
+        </div>
+
+</div>
+</div>
+</section>
+<footer>
+  <div class="disclaimer">
+    <strong>Policy Notice:</strong> LocalBoost tools are built to help businesses adhere strictly to Google Business Profile terms of service. Output does not guarantee ranking positions. All secrets and sensitive data remain local to your browser.
+  </div>
+  <div>© 2026 LocalBoost. All rights reserved.</div>
+</footer>
+
+<script src="../../assets/consent.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+<script src="../../assets/localboost-api-config.js"></script>
+<script src="../shared/tool-common.js"></script>
+<script src="../shared/site-api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

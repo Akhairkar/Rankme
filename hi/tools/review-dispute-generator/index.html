@@ -87,6 +87,66 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../../assets/site.css">
+<style id="lb-extra">
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+</style>
 </head>
 <body>
 
@@ -104,38 +164,27 @@
   <div class="hero">
     <span style="font-size:12px; font-weight:800; text-transform:uppercase; color:var(--primary-600); background:var(--primary-100); padding:4px 12px; border-radius:999px;">Legal &amp; Policy Drafter</span>
     <h1 style="font-size:36px; font-weight:800; margin-top:12px;">Google Review पॉलिसी अपील व डिस्प्यूट ड्राफ्टर</h1>
-    <p style="font-size:17px; color:var(--text-secondary); max-width:640px; margin:8px auto 0;">आधिकारिक गूगल पॉलिसी नियमों का हवाला देकर फर्जी या भ्रामक समीक्षाओं को हटवाने के लिए पत्र तैयार करें।</p>
+    <p style="font-size:17px; color:var(--text-secondary); max-width:640px; margin:8px auto 0;">ऐसे रिव्यू की समीक्षा के लिए Google को तथ्यात्मक संदेश का ड्राफ़्ट बनाएँ जो आपके अनुसार उसकी नीति तोड़ता है। यह सिर्फ़ आपकी दी जानकारी इस्तेमाल करता है और कुछ सबमिट नहीं करता।</p>
   </div>
 
   <div class="card">
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="disBizName">Business Name</label>
-        <input type="text" id="disBizName" class="form-control" value="Apex Dental Clinic">
+    <div class="lb-banner warn"><strong>सटीक और शांत रहें।</strong> कानूनी कार्रवाई की धमकी न दें, जो तथ्य आपने जाँचे नहीं वे न लिखें, और रिव्यूअर का नाम लेकर सार्वजनिक रूप से आरोप न लगाएँ। हटाने की गारंटी कभी नहीं होती, और यह कानूनी सलाह नहीं है।</div>
+    <details class="lb-details" style="margin:0 0 20px;"><summary>आम तौर पर स्टेप का क्रम</summary><ol><li>रिव्यू सच्ची शिकायत हो तभी विनम्रता से जवाब दें; वरना जवाब न दें।</li><li>अपनी Business Profile से रिव्यू फ़्लैग करें (रिव्यू सूची में रिव्यू के मेन्यू से Report review चुनें)।</li><li>Google के रिव्यू-हटाने के टूल में स्टेटस देखें, और न हटे तो Business Profile Help में अपील का विकल्प इस्तेमाल करें।</li><li>स्पष्टीकरण या अपील के शब्दों के लिए इस ड्राफ़्ट का इस्तेमाल करें। अंतिम फ़ैसला Google का होता है।</li></ol></details>
+    <form id="disForm" novalidate>
+      <div class="form-grid">
+        <div class="form-group"><label for="disBizName">बिज़नेस का नाम <span class="req">*</span></label><input type="text" id="disBizName" class="form-control" maxlength="120"></div>
+        <div class="form-group"><label for="disReviewer">रिव्यूअर का डिस्प्ले नाम (वैकल्पिक)</label><input type="text" id="disReviewer" class="form-control" maxlength="80"></div>
+        <div class="form-group"><label for="disPolicy">नीति संबंधी चिंता</label><select id="disPolicy" class="form-control"><option value="conflict">हितों का टकराव (प्रतिस्पर्धी या पूर्व कर्मचारी)</option><option value="fake">फ़र्ज़ी एंगेजमेंट / असली ग्राहक नहीं</option><option value="harassment">आपत्तिजनक सामग्री या उत्पीड़न</option><option value="offtopic">विषय से हटकर या गलत बिज़नेस</option><option value="spam">स्पैम या प्रचार सामग्री</option></select></div>
       </div>
-      <div class="form-group">
-        <label for="disReviewer">Reviewer Display Name</label>
-        <input type="text" id="disReviewer" class="form-control" value="Rajesh K. (No History)">
-      </div>
-      <div class="form-group">
-        <label for="disPolicy">Google Violation Policy</label>
-        <select id="disPolicy" class="form-control">
-          <option value="conflict">Conflict of Interest (Competitor / Disgruntled ex-employee)</option>
-          <option value="fake">Fake Engagement / Not a Customer</option>
-          <option value="harassment">Offensive Content / Harassment / Defamation</option>
-          <option value="offtopic">Off-topic / Wrong Business Location</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="disExcerpt">Review Text Excerpt</label>
-      <textarea id="disExcerpt" class="form-control" rows="3">Worst place ever, doctors are scammers, do not visit here! Go to XYZ Dental instead.</textarea>
-    </div>
-
-    <button class="btn-action" onclick="generateAppeal()">Generate Policy-Cited Appeal Letter</button>
-
-    <div class="appeal-output" id="appealBox">Click "Generate Policy-Cited Appeal Letter" above to draft your formal Google Support submission.</div>
+      <div class="form-group"><label for="disExcerpt">रिव्यू का टेक्स्ट <span class="req">*</span></label><textarea id="disExcerpt" class="form-control" rows="4" maxlength="1500" placeholder="रिव्यू जैसा दिख रहा है वैसा ही पेस्ट करें"></textarea></div>
+      <div class="form-group"><label for="disExtra">अतिरिक्त तथ्य (वैकल्पिक)</label><textarea id="disExtra" class="form-control" rows="2" maxlength="500" placeholder="सिर्फ़ वही जो आप दिखा सकें, जैसे "रिव्यू में ऐसे बिज़नेस का ज़िक्र है जो हमारा नहीं है""></textarea></div>
+      <label class="lb-check"><input type="checkbox" id="disRecords"><span>मैंने अपने रिकॉर्ड जाँचे और इस रिव्यूअर से मेल खाता कोई ग्राहक, बुकिंग या ऑर्डर नहीं मिला। (सिर्फ़ तब टिक करें जब यह सच हो।)</span></label>
+      <div class="lb-err" id="disErr" role="alert"></div>
+      <button type="submit" class="btn-action">संदेश का ड्राफ़्ट बनाएँ</button>
+    </form>
+    <div id="disOut" class="lb-hidden" style="margin-top:24px;"><div class="result-header"><span class="result-title">ड्राफ़्ट संदेश</span></div>
+      <div class="lb-out"><textarea id="appealBox" rows="14" aria-label="ड्राफ़्ट संदेश"></textarea><div class="lb-meta"><span></span><button type="button" class="lb-btn primary" id="disCopy">ड्राफ़्ट कॉपी करें</button></div></div></div>
+    <p class="lb-links"><strong>संबंधित:</strong> <a href="../review-reply-generator/index.html">रिव्यू रिप्लाई जनरेटर</a> &middot; <a href="../review-request-generator/index.html">रिव्यू रिक्वेस्ट जनरेटर</a></p>
   </div>
 </main>
 
@@ -164,53 +213,11 @@
 </section>
 <footer>© 2026 LocalBoost. सर्वाधिकार सुरक्षित।</footer>
 
-<script>
-function generateAppeal() {
-  const biz = document.getElementById('disBizName').value;
-  const reviewer = document.getElementById('disReviewer').value;
-  const policy = document.getElementById('disPolicy').value;
-  const text = document.getElementById('disExcerpt').value;
 
-  let policyCode = "Google Prohibited and Restricted Content Policy (Fake Engagement)";
-  let legalArg = "We have cross-checked our internal patient/customer billing records and have zero history of this user ever utilizing our services. Furthermore, the review appears intentionally designed to misdirect users to a direct competitor.";
-
-  if (policy === 'conflict') {
-    policyCode = "Google Prohibited and Restricted Content (Conflict of Interest)";
-    legalArg = "This review explicitly attempts to divert customers to a competing business entity, demonstrating clear commercial bias and conflict of interest prohibited under Google policy guidelines.";
-  } else if (policy === 'harassment') {
-    policyCode = "Google Prohibited and Restricted Content (Harassment & Defamation)";
-    legalArg = "The reviewer uses unsubstantiated, slanderous claims intended to disparage professional reputation without providing factual basis or transaction verification.";
-  }
-
-  const letter = `SUBJECT: Formal Appeal for Review Removal - Policy Violation on "${biz}" Profile
-
-Dear Google Business Profile Support Team,
-
-I am writing to formally request the manual investigation and removal of an illegitimate customer review posted on our verified Google Business Profile.
-
-LISTING DETAILS:
-Business Name: ${biz}
-Reviewer Name: ${reviewer}
-Review Content: "${text}"
-
-POLICY INFRINGEMENT CITED:
-Violation Category: ${policyCode}
-
-JUSTIFICATION:
-${legalArg}
-
-Under Google's Maps User Contributed Content Policy, reviews must reflect genuine customer experiences and remain free of competitor interference, harassment, or unsubstantiated defamatory claims. 
-
-We request your team examine this account's review history and flag this review for permanent removal to preserve map data integrity.
-
-Sincerely,
-Management, ${biz}`;
-
-  document.getElementById('appealBox').textContent = letter;
-}
-</script>
 
 <script src="../../../assets/consent.js" defer></script>
 <script src="../../../assets/site.js" defer></script>
+<script src="../../../tools/shared/tool-common.js"></script>
+<script src="../../../tools/review-dispute-generator/app.js"></script>
 </body>
 </html>

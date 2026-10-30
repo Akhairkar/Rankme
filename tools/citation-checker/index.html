@@ -89,6 +89,66 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../../assets/site.css">
+<style id="lb-extra">
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+</style>
 </head>
 <body>
 
@@ -106,80 +166,23 @@
   <div class="hero">
     <span style="font-size:12px; font-weight:800; text-transform:uppercase; color:var(--primary-600); background:var(--primary-100); padding:4px 12px; border-radius:999px;">NAP Standardization</span>
     <h1 style="font-size:36px; font-weight:800; margin-top:12px;">Indian Local Citation Builder &amp; NAP Formatter</h1>
-    <p style="font-size:17px; color:var(--text-secondary); max-width:640px; margin:8px auto 0;">Ensure 100% NAP consistency across major Indian business directories to boost your local Google Maps authority.</p>
+    <p style="font-size:17px; color:var(--text-secondary); max-width:640px; margin:8px auto 0;">Write your business name, address and phone number once, then copy them in a consistent format for each directory. Nothing is submitted for you.</p>
   </div>
 
   <div class="card">
+    <div class="lb-banner info"><strong>Why consistency matters:</strong> use the same spelling, abbreviations and phone format as your Google Business Profile. LocalBoost only formats text; you paste it into each directory yourself, and each directory has its own sign-up and verification steps.</div>
     <h3 style="font-size:18px; margin-bottom:16px;">Standard Business NAP Entry</h3>
     <div class="form-grid">
-      <div class="form-group">
-        <label for="napName">Exact Business Name</label>
-        <input type="text" id="napName" class="form-control" placeholder="e.g. Sharma Sweets, Karol Bagh">
-      </div>
-      <div class="form-group">
-        <label for="napAddr">Full Physical Address</label>
-        <input type="text" id="napAddr" class="form-control" value="Shop 14, Main Market, Sector 18, Noida 201301">
-      </div>
-      <div class="form-group">
-        <label for="napPhone">Official Phone Number</label>
-        <input type="text" id="napPhone" class="form-control" value="+91 98765 43210">
-      </div>
-      <div class="form-group">
-        <label for="napWeb">Website URL</label>
-        <input type="text" id="napWeb" class="form-control" value="https://www.royalsweets.com">
-      </div>
+      <div class="form-group"><label for="napName">Exact Business Name</label><input type="text" id="napName" class="form-control" placeholder="e.g. Sharma Sweets" maxlength="120"></div>
+      <div class="form-group"><label for="napAddr">Full Physical Address</label><input type="text" id="napAddr" class="form-control" placeholder="Shop number, street, area, city, pincode" maxlength="250"></div>
+      <div class="form-group"><label for="napPhone">Official Phone Number</label><input type="tel" id="napPhone" class="form-control" placeholder="e.g. 98765 43210" maxlength="30"></div>
+      <div class="form-group"><label for="napWeb">Website URL (optional)</label><input type="text" id="napWeb" class="form-control" placeholder="https://www.yourbusiness.in" maxlength="200" inputmode="url"></div>
     </div>
-
-    <h3 style="font-size:18px; margin:24px 0 16px;">One-Click Copy for Top Indian Directories</h3>
-    <div class="directory-list">
-      <div class="dir-card">
-        <div>
-          <div class="dir-title">Justdial Business Listing</div>
-          <div class="dir-desc">Major Indian consumer search directory. Requires verified mobile OTP.</div>
-        </div>
-        <button class="btn-dir" onclick="copyNAP('Justdial')">Copy Justdial Format</button>
-      </div>
-
-      <div class="dir-card">
-        <div>
-          <div class="dir-title">IndiaMART Profile</div>
-          <div class="dir-desc">Essential B2B and retail authority citation for Indian search algorithms.</div>
-        </div>
-        <button class="btn-dir" onclick="copyNAP('IndiaMART')">Copy IndiaMART Format</button>
-      </div>
-
-      <div class="dir-card">
-        <div>
-          <div class="dir-title">Sulekha Business Directory</div>
-          <div class="dir-desc">High domain authority citation source for local service providers.</div>
-        </div>
-        <button class="btn-dir" onclick="copyNAP('Sulekha')">Copy Sulekha Format</button>
-      </div>
-
-      <div class="dir-card">
-        <div>
-          <div class="dir-title">TradeIndia Directory</div>
-          <div class="dir-desc">High-trust B2B manufacturer and local distributor directory.</div>
-        </div>
-        <button class="btn-dir" onclick="copyNAP('TradeIndia')">Copy TradeIndia Format</button>
-      </div>
-
-      <div class="dir-card">
-        <div>
-          <div class="dir-title">Bing Places for Business</div>
-          <div class="dir-desc">Powers Windows search, Bing Maps, and Cortana voice searches.</div>
-        </div>
-        <button class="btn-dir" onclick="copyNAP('Bing')">Copy Bing Places Format</button>
-      </div>
-
-      <div class="dir-card">
-        <div>
-          <div class="dir-title">Apple Maps (Apple Business Connect)</div>
-          <div class="dir-desc">Direct discovery for iPhone, Siri, and Apple CarPlay searches.</div>
-        </div>
-        <button class="btn-dir" onclick="copyNAP('Apple')">Copy Apple Maps Format</button>
-      </div>
-    </div>
+    <div class="lb-err" id="napErr" role="alert"></div>
+    <div class="lb-row" style="margin:8px 0 4px;"><button type="button" class="lb-btn primary" id="napAll">Copy standard NAP block</button><span class="lb-count" id="napOk" role="status"></span></div>
+    <h3 style="font-size:18px; margin:24px 0 16px;">One-Click Copy for Popular Indian Directories</h3>
+    <div class="directory-list"><div class="dir-card"><div><div class="dir-title">Justdial Business Listing</div><div class="dir-desc">Popular Indian local business directory. You create the listing on Justdial&#x27;s own site.</div></div><button type="button" class="btn-dir" data-portal="Justdial">Copy Justdial Format</button></div><div class="dir-card"><div><div class="dir-title">IndiaMART Profile</div><div class="dir-desc">B2B marketplace, most useful for suppliers, manufacturers and wholesalers.</div></div><button type="button" class="btn-dir" data-portal="IndiaMART">Copy IndiaMART Format</button></div><div class="dir-card"><div><div class="dir-title">Sulekha Business Directory</div><div class="dir-desc">Directory for local service providers.</div></div><button type="button" class="btn-dir" data-portal="Sulekha">Copy Sulekha Format</button></div><div class="dir-card"><div><div class="dir-title">TradeIndia Directory</div><div class="dir-desc">B2B directory for manufacturers and traders.</div></div><button type="button" class="btn-dir" data-portal="TradeIndia">Copy TradeIndia Format</button></div><div class="dir-card"><div><div class="dir-title">Bing Places for Business</div><div class="dir-desc">Business listings for Bing search and Bing Maps.</div></div><button type="button" class="btn-dir" data-portal="Bing Places">Copy Bing Places Format</button></div><div class="dir-card"><div><div class="dir-title">Apple Maps (Apple Business Connect)</div><div class="dir-desc">Lets you manage how your business appears in Apple Maps.</div></div><button type="button" class="btn-dir" data-portal="Apple Maps">Copy Apple Maps Format</button></div></div>
+    <p class="lb-links"><strong>Related:</strong> <a href="../local-seo-checklist/index.html">Local SEO Checklist</a> &middot; <a href="../places-lookup/index.html">Places Lookup</a></p>
   </div>
 </main>
 
@@ -208,26 +211,11 @@
 </section>
 <footer>© 2026 LocalBoost. All rights reserved.</footer>
 
-<script>
-function copyNAP(portal) {
-  const name = document.getElementById('napName').value;
-  const addr = document.getElementById('napAddr').value;
-  const phone = document.getElementById('napPhone').value;
-  const web = document.getElementById('napWeb').value;
 
-  const text = `--- ${portal} CITATION DATA ---
-Business Name: ${name}
-Address: ${addr}
-Phone: ${phone}
-Website: ${web}
-Pincode & Country: India`;
-
-  navigator.clipboard.writeText(text);
-  alert(`Formatted NAP for ${portal} copied to clipboard!`);
-}
-</script>
 
 <script src="../../assets/consent.js" defer></script>
 <script src="../../assets/site.js" defer></script>
+<script src="../shared/tool-common.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
