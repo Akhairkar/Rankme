@@ -10,7 +10,8 @@ import { buildAiContext, generateSafeRecommendations } from "./ai.js";
 
 const json = (data, status = 200, headers = {}) => new Response(JSON.stringify(data), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...headers } });
 function corsHeaders(request, env) { const origin=request.headers.get("Origin")||""; const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean); return {"access-control-allow-origin":allowed.includes(origin)?origin:allowed[0],"access-control-allow-credentials":"true","access-control-allow-headers":"content-type,authorization,x-lb-consent","access-control-allow-methods":"GET,POST,PUT,PATCH,DELETE,OPTIONS","vary":"Origin"}; }
-function withCors(response,request,env){const h=new Headers(response.headers);Object.entries(corsHeaders(request,env)).forEach(([k,v])=>h.set(k,v));return new Response(response.body,{status:response.status,headers:h});}
+const RID=new WeakMap();
+function withCors(response,request,env){const h=new Headers(response.headers);if(RID.has(request))h.set("x-request-id",RID.get(request));Object.entries(corsHeaders(request,env)).forEach(([k,v])=>h.set(k,v));return new Response(response.body,{status:response.status,headers:h});}
 async function health(env){let database="unavailable";if(env.DB){try{await env.DB.prepare("SELECT 1").first();database="ok"}catch(_){database="error"}}return json({ok:true,service:"localboost-api",database});}
 async function requestUser(request, env){
   const cookie=request.headers.get("Cookie")||"";
@@ -23,7 +24,7 @@ async function requestUser(request, env){
   return row?.user_id||null;
 }
 async function enforceRateLimit(env, userId, bucket, limit=60, windowMs=60000){
-  if(!env.DB)return {ok:true};
+  if(!env.DB)return {ok:false,unavailable:true};
   const now=Date.now(), windowStart=now-Math.floor(now/windowMs)*windowMs;
   const key=String(userId)+":"+bucket+":"+windowStart;
   try{
@@ -33,7 +34,7 @@ async function enforceRateLimit(env, userId, bucket, limit=60, windowMs=60000){
       "SELECT COUNT(*) AS count FROM usage_events WHERE user_id=? AND event_type LIKE ? AND created_at>=?"
     ).bind(userId,"rate:"+String(userId)+":"+bucket+":%",windowStart).first();
     return {ok:Number(row?.count||0)<=limit};
-  }catch{return {ok:true};}
+  }catch{return {ok:false,unavailable:true};}
 }
 function rateLimitResponse(request,env){return withCors(json({error:"Rate limit exceeded",code:"rate_limited"},429),request,env);}
 function normalizeKeyword(value){return typeof value==="string"?value.trim().replace(/\\s+/g," ").slice(0,160):"";}
@@ -61,7 +62,8 @@ async function queryRankProvider(env, input){
   }catch(error){return {state:"provider_error",results:[],error:error?.name==="AbortError"?"timeout":"provider_request_failed"};}
   finally{clearTimeout(timer);}
 }
-export default {async scheduled(event,env,ctx){return scheduled(event,env,ctx)},async fetch(request,env){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders(request,env)});const url=new URL(request.url);try{
+export default {async scheduled(event,env,ctx){return scheduled(event,env,ctx)},async fetch(request,env){if(request.method==="OPTIONS")return new Response(null,{status:204,headers:corsHeaders(request,env)});const url=new URL(request.url);RID.set(request,crypto.randomUUID());try{
+if(request.method!=="GET"&&request.method!=="HEAD"){const cl=Number(request.headers.get("content-length")||0);if(cl>262144)return withCors(json({error:"Request body too large",code:"payload_too_large"},413),request,env);}
 if(request.method!=="GET"&&request.method!=="HEAD"&&url.pathname!=="/api/billing/webhook"){const o=request.headers.get("Origin");const allowed=(env.ALLOWED_ORIGINS||"https://localboost.in,https://www.localboost.in").split(",").map(s=>s.trim()).filter(Boolean);if(o&&!allowed.includes(o))return withCors(json({error:"Origin not allowed",code:"bad_origin"},403),request,env);}
 {const mr=await routeModules(request,env,url,{json,requestUser,getUserBusiness,requireFeature});if(mr)return withCors(mr,request,env);}
 if(url.pathname==="/health"&&request.method==="GET")return withCors(await health(env),request,env);if(url.pathname==="/api/overview"&&request.method==="GET"){const uid=await requestUser(request,env);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const businessId=url.searchParams.get("business_id");if(!businessId)return withCors(json({error:"business_id is required"},400),request,env);const business=await getUserBusiness(env,uid,businessId);if(!business)return withCors(json({error:"Business not found"},404),request,env);const location=await getBusinessLocationSummary(env,uid,businessId);const reviews=await getReviewSummary(env,uid,businessId);let profile=null;if(location){let address={};try{address=JSON.parse(location.address_json||"{}")}catch(_){}profile=calculateProfileAuditSignals({name:business.name,category:business.category,address,phone:business.phone,website:business.website_url});}return withCors(json({business,connection:location?{state:"verified_data",location:location.name}: {state:"awaiting_google_connection"},reviews,profile}),request,env);}
@@ -127,7 +129,7 @@ if(url.pathname==="/api/monitoring/events"&&request.method==="POST"){const uid=a
 
 if(url.pathname==="/api/recommendations"&&request.method==="GET"){const uid=await requestUser(request,env);if(!uid)return withCors(json({error:"Authentication required"},401),request,env);const businessId=url.searchParams.get("business_id");if(!businessId)return withCors(json({error:"business_id is required"},400),request,env);const gate=await requireFeature(env,uid,"reports_enabled");if(!gate.ok)return withCors(entitlementDenied("reports_enabled",gate.entitlements),request,env);const data=await getRecommendationData(env,uid,businessId);if(!data)return withCors(json({error:"Business not found"},404),request,env);const recs=[];for(const issue of data.issues||[]){if(issue.status==="resolved")continue;recs.push({code:"issue:"+issue.code,priority:issue.severity,title:issue.title,instructions:issue.recommended_fix||issue.explanation||"Review this verified profile issue and update the Google Business Profile.",source:"verified_profile_audit"});}if(data.reviews?.unanswered>0)recs.push({code:"reviews:unanswered",priority:"medium",title:data.reviews.unanswered+" review"+(data.reviews.unanswered===1?"":"s")+" need a reply",instructions:"Review and respond to unanswered customer reviews in the Google Business Profile.",source:"verified_reviews"});const aiRecommendations=generateSafeRecommendations(data);return withCors(json({business:data.business,recommendations:aiRecommendations.length?aiRecommendations:recs,context:buildAiContext(data),state:(aiRecommendations.length||recs.length)?"verified_data":"awaiting_verified_data",provider:"deterministic_fallback",ai_enabled:false}),request,env);}
 return withCors(json({error:"Not found"},404),request,env);
-}catch(_){return withCors(json({error:"Internal server error"},500),request,env)}}};
+}catch(_){return withCors(json({error:"Internal server error",code:"internal_error",request_id:RID.get(request)},500),request,env)}}};
 
 // Scheduled monitoring entry point.
 // The Worker must only create events from verified provider data; unavailable providers

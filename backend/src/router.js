@@ -8,7 +8,7 @@ const enc = new TextEncoder();
 const hex = (b) => [...new Uint8Array(b)].map((x) => x.toString(16).padStart(2, "0")).join("");
 
 export async function rateLimit(env, key, limit = 60, windowMs = 60000) {
-  if (!env.DB) return { ok: true };
+  if (!env.DB) return { ok: false, unavailable: true }; // fail closed: never leave a limited endpoint unlimited
   const now = Date.now();
   const windowStart = now - (now % windowMs);
   const k = key + ":" + windowStart;
@@ -20,7 +20,7 @@ export async function rateLimit(env, key, limit = 60, windowMs = 60000) {
     if (Math.random() < 0.01) await env.DB.prepare("DELETE FROM rate_limits WHERE window_start<?").bind(now - 3600000).run();
     return { ok: Number(row?.count || 0) <= limit };
   } catch {
-    return { ok: true }; // fail open on infrastructure error, never block users because of the limiter
+    return { ok: false, unavailable: true }; // fail closed on limiter/DB error
   }
 }
 
