@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>डेटा रिटेंशन व डिलीट पॉलिसी | LocalBoost</title>
+<meta name="description" content="LocalBoost क्या डेटा कितने समय तक रखता है, और आप अपना डेटा कैसे एक्सपोर्ट करें, Google डिस्कनेक्ट करें या अकाउंट डिलीट करें, पेमेंट रिकॉर्ड, वेटलिस्ट और एनालिटिक्स सहित।">
+<link rel="canonical" href="https://www.localboost.in/hi/data-retention/">
+<link rel="alternate" hreflang="en" href="https://www.localboost.in/data-retention/">
+<link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/data-retention/">
+<link rel="alternate" hreflang="x-default" href="https://www.localboost.in/data-retention/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base:#FAF9F6; --bg-surface:#FFFFFF; --bg-muted:#F0EEE9;
+    --text-primary:#1E1E1E; --text-secondary:#5A5A54; --border:#E2E0D9;
+    --primary-600:#0F766E; --primary-500:#14968C; --primary-100:#E0F5F2;
+    --accent-600:#E8722C;
+    --font:'Manrope','Noto Sans Devanagari',system-ui,sans-serif;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:var(--font); background:var(--bg-base); color:var(--text-primary); line-height:1.7; min-height:100vh; display:flex; flex-direction:column; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { max-width:840px; margin:0 auto; padding:40px 24px 64px; flex-grow:1; width:100%; }
+  header { position:sticky; top:0; z-index:50; background:rgba(250,249,246,.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
+  .nav-inner { max-width:1180px; margin:0 auto; padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .logo { display:flex; align-items:center; gap:8px; font-weight:800; font-size:18px; }
+  .logo-mark { width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--primary-600),var(--primary-500)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; }
+  .nav-cta { background:var(--accent-600); color:#fff; font-weight:600; font-size:14px; padding:10px 18px; border-radius:8px; }
+  .lang-switch { font-size:13px; font-weight:600; color:var(--text-secondary); border:1px solid var(--border); border-radius:999px; padding:6px 14px; background:#fff; }
+
+  .legal-card { background:#fff; border:1px solid var(--border); border-radius:16px; padding:40px; box-shadow:0 1px 4px rgba(0,0,0,0.02); }
+  h1 { font-size:32px; font-weight:800; margin-bottom:12px; }
+  .updated { font-size:13.5px; color:var(--text-secondary); margin-bottom:28px; border-bottom:1px solid var(--border); padding-bottom:16px; }
+  h2 { font-size:21px; margin:28px 0 12px; color:var(--text-primary); }
+  p { font-size:15.5px; color:#334155; margin-bottom:16px; }
+  ul { margin:0 0 20px 24px; font-size:15px; color:#334155; }
+  li { margin-bottom:6px; }
+  strong { color:var(--text-primary); }
+</style>
+<style id="lb-legal">@media(max-width:600px){.legal-card{padding:22px 18px}h1{font-size:26px}.wrap{padding:24px 16px 48px}}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://www.localboost.in/hi/"},{"@type":"ListItem","position":2,"name":"डेटा रिटेंशन व डिलीट","item":"https://www.localboost.in/hi/data-retention/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://www.localboost.in/hi/"},{"@type":"ListItem","position":2,"name":"डेटा रिटेंशन व डिलीट","item":"https://www.localboost.in/hi/data-retention/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"होम","item":"https://www.localboost.in/hi/"},{"@type":"ListItem","position":2,"name":"प्राइवेसी पॉलिसी","item":"https://www.localboost.in/hi/privacy/"}]}
+</script>
+<link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="डेटा रिटेंशन व डिलीट पॉलिसी">
+<meta property="og:description" content="LocalBoost क्या डेटा कितने समय तक रखता है, और आप अपना डेटा कैसे एक्सपोर्ट करें, Google डिस्कनेक्ट करें या अकाउंट डिलीट करें, पेमेंट रिकॉर्ड, वेटलिस्ट और एनालिटिक्स सहित।">
+<meta property="og:url" content="https://www.localboost.in/hi/data-retention/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="../../hi/index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
+    <nav class="nav-links" style="display:flex; align-items:center; gap:20px;">
+      <a href="../../hi/tools/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">टूल्स</a>
+      <a href="../../hi/businesses/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">उद्योग</a>
+      <a href="../../hi/cities/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">शहर</a>
+      <a href="../../hi/blog/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">ब्लॉग</a>
+      <a href="../../hi/pricing/index.html" style="font-size:14.5px; font-weight:600; color:var(--text-primary);">मूल्य</a>
+      <a href="../../hi/search/index.html" style="font-size:14px; font-weight:600; color:var(--text-secondary); display:flex; align-items:center; gap:4px;" aria-label="वेबसाइट खोजें">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>खोजें</span>
+      </a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a class="lang-switch" href="../../data-retention/index.html" aria-label="View in English">EN · हिं</a>
+      <a href="../../hi/check/index.html" class="nav-cta">फ्री ऑडिट</a>
+    </div>
+  </div>
+</header>
+
+
+<main class="wrap">
+  <div class="legal-card">
+    <span style="display:inline-block; font-size:12px; font-weight:800; text-transform:uppercase; color:var(--primary-600); background:var(--primary-100); padding:3px 10px; border-radius:999px; margin-bottom:12px;">डेटा रिटेंशन</span>
+    <h1>डेटा रिटेंशन व डिलीट</h1>
+    <div class="updated">अंतिम अपडेट: 30 अक्टूबर 2026</div>
+    <div class="summary-box" style="background:var(--primary-100); border-left:4px solid var(--primary-600); border-radius:8px; padding:14px 18px; margin:0 0 24px; font-size:15px; color:var(--text-primary);"><strong>सरल भाषा में:</strong> जब तक आपका अकाउंट सक्रिय है, हम आपका डेटा रखते हैं। आप अकाउंट पेज से उसे JSON में डाउनलोड कर सकते हैं, Google डिस्कनेक्ट कर सकते हैं (इससे हमारा टोकन रद्द होता है) या अकाउंट डिलीट कर सकते हैं। डिलीट करने पर आपके बिज़नेस, कीवर्ड, रिव्यू, ऑडिट और Google कनेक्शन हमारे लाइव डेटाबेस से हट जाते हैं। पेमेंट और टैक्स रिकॉर्ड उतने समय तक रखे जाते हैं जितना क़ानून माँगे, और वेटलिस्ट या संपर्क एंट्री केवल जवाब देने तक।</div>
+
+<h2>1. रिटेंशन क्यों मायने रखता है</h2>
+<p>आपको यह देखने का हक़ है कि हमारे पास क्या है, उसकी कॉपी लेने का, और उसे हटवाने का। इस पेज में LocalBoost के हर तरह के डेटा, उसके रखे जाने की अवधि और आप ख़ुद क्या कर सकते हैं, यह बताया गया है। यह <a href="../privacy/index.html" style="color:var(--primary-600); font-weight:700;">प्राइवेसी पॉलिसी</a> का पूरक है। नीचे की अवधियाँ हमारी नीति हैं; जहाँ क़ानून किसी रिकॉर्ड को रखना ज़रूरी बनाता है, वहाँ क़ानूनी ज़रूरत सर्वोपरि है।</p>
+
+<h2>2. हम क्या रखते हैं और कितने समय तक</h2>
+<div style="overflow-x:auto; margin:0 0 20px;">
+<table style="width:100%; border-collapse:collapse; font-size:14.5px; min-width:520px;">
+<thead><tr style="background:var(--bg-muted); text-align:left;"><th style="padding:10px; border:1px solid var(--border);">डेटा</th><th style="padding:10px; border:1px solid var(--border);">कितने समय तक</th></tr></thead>
+<tbody>
+<tr><td style="padding:10px; border:1px solid var(--border);">अकाउंट विवरण (नाम, ईमेल)</td><td style="padding:10px; border:1px solid var(--border);">जब तक अकाउंट सक्रिय है; डिलीट पर हटता है।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">बिज़नेस, कीवर्ड, प्रतिस्पर्धी, ऑडिट और रैंक-स्कैन नतीजे</td><td style="padding:10px; border:1px solid var(--border);">जब तक अकाउंट सक्रिय है; अकाउंट डिलीट होने पर, या आइटम आर्काइव/डिलीट करने पर हटते हैं।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">Google Business Profile, रिव्यू और Search Console डेटा</td><td style="padding:10px; border:1px solid var(--border);">जब तक कनेक्ट है और अकाउंट सक्रिय है; अकाउंट डिलीट पर हटता है। डिस्कनेक्ट करने से नया डेटा पढ़ना रुक जाता है।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">Google एक्सेस (रिफ़्रेश) टोकन</td><td style="padding:10px; border:1px solid var(--border);">डिस्कनेक्ट या अकाउंट डिलीट होने तक; उस समय Google के पास रद्द किया जाता है।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">साइन-इन सेशन</td><td style="padding:10px; border:1px solid var(--border);">समाप्त होने या साइन-आउट तक; समाप्त सेशन साफ़ कर दिए जाते हैं।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">पेमेंट, ऑर्डर और इनवॉइस रिकॉर्ड</td><td style="padding:10px; border:1px solid var(--border);">जब तक टैक्स, अकाउंटिंग व अन्य क़ानून माँगें, अकाउंट डिलीट के बाद भी। कार्ड विवरण हम कभी स्टोर नहीं करते।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">वेटलिस्ट और संपर्क सबमिशन</td><td style="padding:10px; border:1px solid var(--border);">केवल उतने समय तक जितना जवाब देने या लॉन्च बताने के लिए चाहिए; अनुरोध पर हटाए जाते हैं।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">सहमति-आधारित एनालिटिक्स इवेंट</td><td style="padding:10px; border:1px solid var(--border);">बिना IP पते के प्रोडक्ट-उपयोग इवेंट; प्रोडक्ट सुधार में काम आने तक ही।</td></tr>
+<tr><td style="padding:10px; border:1px solid var(--border);">रेट-लिमिट काउंटर</td><td style="padding:10px; border:1px solid var(--border);">अल्पकालिक, अपने आप साफ़ होते हैं।</td></tr>
+</tbody></table>
+</div>
+
+<h2>3. अपना डेटा एक्सपोर्ट करें</h2>
+<p>साइन-इन यूज़र अकाउंट पेज से अपने अकाउंट में रखे सारे डेटा की कॉपी डाउनलोड कर सकते हैं। यह डाउनलोड एक्सपोर्ट एंडपॉइंट (<code>/api/account/export</code>) से बनी JSON फ़ाइल है, जिसमें आपके बिज़नेस, कीवर्ड, नतीजे और रिकॉर्ड शामिल हैं। कुछ स्क्रीन से ऑडिट या रैंक नतीजे CSV में भी डाउनलोड किए जा सकते हैं। अगर आप साइन-इन नहीं कर पा रहे, तो अपने पंजीकृत पते से हमें ईमेल करें; पहचान सत्यापित करने के बाद हम मदद करेंगे।</p>
+
+<h2>4. Google डिस्कनेक्ट करें</h2>
+<p>अकाउंट पेज पर आप कभी भी Google डिस्कनेक्ट कर सकते हैं। इससे Google के पास टोकन रद्द हो जाता है और सहेजा हुआ कनेक्शन हट जाता है। पहले से आयात किया डेटा तब तक रहता है जब तक आप उसे या अकाउंट को डिलीट न करें, ताकि पुरानी रिपोर्ट आपके पास रहें। आप अपने Google Account की सुरक्षा सेटिंग में जाकर थर्ड-पार्टी एक्सेस से LocalBoost को भी हटा सकते हैं; अगली बार हमारे उस एक्सेस के इस्तेमाल की कोशिश विफल होगी और हम कनेक्शन को हटा हुआ मानेंगे।</p>
+
+<h2>5. अपना अकाउंट डिलीट करें</h2>
+<p>अकाउंट पेज पर डिलीट विकल्प इस्तेमाल करें। इसे वापस नहीं किया जा सकता, इसलिए हम पुष्टि माँगते हैं। डिलीट होने पर आपका अकाउंट, बिज़नेस, कीवर्ड, प्रतिस्पर्धी, रिव्यू, ऑडिट और Google कनेक्शन हमारे लाइव डेटाबेस से हट जाते हैं। हम केवल वही रखते हैं जो क़ानून माँगता है, मुख्यतः पेमेंट और इनवॉइस रिकॉर्ड, और इनका किसी और काम में उपयोग नहीं होता। पहले <a href="../refund-policy/index.html" style="color:var(--primary-600); font-weight:700;">रिफ़ंड व कैंसिलेशन पॉलिसी</a> के अनुसार प्लान कैंसल करना बेहतर है।</p>
+
+<h2>6. बैकअप और प्रदाता</h2>
+<p>हमारा इन्फ्रास्ट्रक्चर प्रदाता डिलीट के बाद भी सीमित समय तक डेटाबेस बैकअप या लॉग रख सकता है, जो प्रदाता के शेड्यूल से अपने आप हटते हैं। तकनीकी गड़बड़ी के अलावा हम इनका उपयोग डिलीट किया अकाउंट वापस लाने में नहीं करते। पेमेंट प्रदाता अपनी नीतियों के अनुसार अपने रिकॉर्ड रखते हैं, और जो डेटा आप पहले ही Google पर प्रकाशित कर चुके हैं वह Google पर ही रहता है।</p>
+
+<h2>7. वेटलिस्ट, संपर्क और ईमेल</h2>
+<p>अगर आपने बिना अकाउंट के वेटलिस्ट जॉइन की या हमें लिखा, तो उसी पते से <a href="mailto:support@localboost.in" style="color:var(--primary-600); font-weight:700;">support@localboost.in</a> पर हटाने का अनुरोध करें। काम हो जाने पर हम पुष्टि करेंगे। ईमेल भेजना चालू होने पर ईमेल प्रदाताओं के नाम हम प्राइवेसी पॉलिसी में सूचीबद्ध करेंगे।</p>
+
+<h2>8. एनालिटिक्स के विकल्प</h2>
+<p>एनालिटिक्स इवेंट केवल तब भेजे जाते हैं जब आप कुकी बैनर स्वीकार करें, और उनमें आपका IP पता स्टोर नहीं होता। अगर आपने अस्वीकार किया था या पसंद बदलनी है, तो अपने ब्राउज़र में इस साइट का लोकल स्टोरेज साफ़ कर दें; बैनर फिर से पूछेगा।</p>
+
+<h2>9. अनुरोध और शिकायतें</h2>
+<p>पहुँच, सुधार, मिटाने या शिकायत के किसी भी अनुरोध के लिए <a href="mailto:support@localboost.in" style="color:var(--primary-600); font-weight:700;">support@localboost.in</a> पर लिखें। हमें पहले आपकी पहचान सत्यापित करनी पड़ सकती है। शिकायत संपर्क: support@localboost.in। यह भी देखें: <a href="../terms/index.html" style="color:var(--primary-600); font-weight:700;">सेवा की शर्तें</a> और <a href="../compliance/index.html" style="color:var(--primary-600); font-weight:700;">Google अनुपालन</a>।</p>
+
+  </div>
+</main>
+
+<footer>
+  <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:32px; text-align:left; margin-bottom:40px;">
+      <div>
+        <div style="font-weight:800; font-size:16px; margin-bottom:12px; color:var(--text-primary);">LocalBoost</div>
+        <p style="font-size:13.5px; color:var(--text-secondary); margin-bottom:14px;">The definitive local SEO and Google Maps ranking intelligence platform for Indian businesses.</p>
+        <a href="../../hi/contact/index.html" style="font-size:13px; font-weight:700; color:var(--primary-600);">संपर्क व सहायता &rarr;</a>
+      </div>
+      <div>
+        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">डायग्नोस्टिक टूल्स</div>
+        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
+          <li><a href="../../hi/tools/index.html">Tools Overview</a></li>
+          <li><a href="../../hi/check/index.html">Free Business Audit</a></li>
+          <li><a href="../../hi/tools/local-seo-checklist/index.html">Local SEO Checklist</a></li>
+          <li><a href="../../hi/tools/description-generator/index.html">Description Generator</a></li>
+          <li><a href="../../hi/tools/review-reply-generator/index.html">Review Reply Tool</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">गाइड्स व शहर</div>
+        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
+          <li><a href="../../hi/businesses/index.html">All 18 Industries</a></li>
+          <li><a href="../../hi/businesses/salon/index.html">Salon SEO Guide</a></li>
+          <li><a href="../../hi/businesses/restaurant/index.html">Restaurant SEO Guide</a></li>
+          <li><a href="../../hi/businesses/doctor/index.html">Doctor Clinic SEO</a></li>
+          <li><a href="../../hi/cities/index.html">City SEO Hub</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-weight:700; font-size:14px; margin-bottom:12px; color:var(--text-primary);">प्लेटफ़ॉर्म</div>
+        <ul style="list-style:none; font-size:13.5px; color:var(--text-secondary); display:flex; flex-direction:column; gap:8px;">
+          <li><a href="../../hi/pricing/index.html">Pricing &amp; Plans</a></li>
+          <li><a href="../../hi/blog/index.html">Knowledge Blog</a></li>
+          <li><a href="../../hi/compliance/index.html">Google Compliance</a></li>
+          <li><a href="../../hi/privacy/index.html">Privacy Policy</a></li>
+          <li><a href="../../hi/terms/index.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border); padding-top:24px; font-size:12.5px; color:var(--text-secondary); text-align:center;">
+      <p style="margin-bottom:8px;"><strong>Disclaimer:</strong> LocalBoost is an independent local SEO tool. We are not affiliated with or endorsed by Google LLC. Google Maps and Google Business Profile are registered trademarks of Google LLC.</p>
+      <p>© 2026 LocalBoost. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script src="../../assets/consent.js" defer></script>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

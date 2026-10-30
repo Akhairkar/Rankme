@@ -1,5 +1,8 @@
 # LocalBoost — Full Product Build Status
 
+> **Status note (30 Oct 2026):** the checkbox list below is historical and over-states readiness. For the verified state see `docs/IMPLEMENTATION-AUDIT.md` and `docs/HANDOFF.md`.
+
+
 Last updated: 2026-09-30
 
 ## Product goal

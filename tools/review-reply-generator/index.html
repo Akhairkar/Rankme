@@ -146,6 +146,66 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta property="og:site_name" content="LocalBoost">
 <link rel="stylesheet" href="../../assets/site.css">
+<style id="lb-extra">
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+</style>
 </head>
 <body>
 
@@ -169,97 +229,43 @@
   <div class="tool-head">
     <div class="tool-badge">Free Interactive Tool</div>
     <h1>Review Reply Generator</h1>
-    <p class="tool-desc">Generate professional, policy-safe responses to positive, neutral, or negative Google reviews in English and Hindi.</p>
+    <p class="tool-desc">Draft three different, editable replies to a Google review. Written from careful templates in English, Hindi or Hinglish. You review, edit and post them yourself.</p>
   </div>
 
   <div class="tool-card">
-
-    <form id="replyForm">
+    <div class="lb-banner warn"><strong>Do not publish automatically.</strong> LocalBoost never posts anything to Google. Read each draft, edit it so it is true for your business and this customer, then post it yourself from your Google Business Profile. Only keep promises you will actually keep.</div>
+    <form id="rvForm" novalidate>
       <div class="form-row">
-        <div class="form-group">
-          <label for="repBizName">Your Business Name *</label>
-          <input type="text" id="repBizName" placeholder="e.g. Dr. Verma Dental Care" required>
-        </div>
-        <div class="form-group">
-          <label for="repCustName">Customer / Reviewer Name *</label>
-          <input type="text" id="repCustName" placeholder="e.g. Ankit Sharma" required>
-        </div>
+        <div class="form-group"><label for="rvCat">Business category</label><select id="rvCat"></select></div>
+        <div class="form-group"><label for="rvBiz">Your business name <span class="req">*</span></label><input type="text" id="rvBiz" placeholder="e.g. Dr. Verma Dental Care" maxlength="80" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label for="repRating">Star Rating Received *</label>
-          <select id="repRating">
-            <option value="5">5 Stars (Praise)</option>
-            <option value="4">4 Stars (Good with minor remark)</option>
-            <option value="3">3 Stars (Neutral / Mixed)</option>
-            <option value="1">1 or 2 Stars (Complaint / Negative)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="repTone">Response Tone</label>
-          <select id="repTone">
-            <option value="professional">Professional &amp; Polite</option>
-            <option value="warm">Warm &amp; Friendly</option>
-            <option value="deescalating">De-escalating (Offline Resolution)</option>
-          </select>
-        </div>
+        <div class="form-group"><label for="rvName">Reviewer name (optional)</label><input type="text" id="rvName" placeholder="e.g. Ankit" maxlength="40"><small>Use the first name shown on the review. Leave blank if unsure.</small></div>
+        <div class="form-group"><label for="rvKw">Topics the reviewer mentioned (optional)</label><input type="text" id="rvKw" placeholder="e.g. waiting time, cleanliness, staff" maxlength="140"><small>Up to 3, separated by commas. Used in one sentence. Do not paste the full review or any private details.</small></div>
       </div>
-      <div class="form-group">
-        <label for="repReviewText">Customer Review Text (Optional)</label>
-        <textarea id="repReviewText" rows="3" placeholder="e.g. Great treatment and painless extraction, but had to wait 20 minutes."></textarea>
+      <div class="form-row3">
+        <div class="form-group"><label for="rvStars">Star rating</label><select id="rvStars"><option value="5" selected>5 ★</option><option value="4">4 ★</option><option value="3">3 ★</option><option value="2">2 ★</option><option value="1">1 ★</option></select></div>
+        <div class="form-group"><label for="rvSent">Sentiment of the review</label><select id="rvSent"><option value="pos">Positive</option><option value="neu">Neutral / mixed</option><option value="neg">Negative</option></select></div>
+        <div class="form-group"><label for="rvTone">Tone</label><select id="rvTone"><option value="warm">Warm and friendly</option><option value="professional">Professional</option><option value="brief">Brief</option></select></div>
       </div>
-      <div class="form-group">
-        <label for="repPhone">Owner Phone / Email for Offline Resolution</label>
-        <input type="text" id="repPhone" placeholder="e.g. +91 98765 43210 or care@drvermadental.in">
+      <div class="form-row">
+        <div class="form-group"><label for="rvLang">Reply language</label><select id="rvLang"><option value="en">English</option><option value="hi">Hindi (Devanagari)</option><option value="hn">Hinglish (Hindi in English letters)</option></select></div>
+        <div class="form-group"><label for="rvContact">Contact detail for taking it offline (optional)</label><input type="text" id="rvContact" placeholder="e.g. +91 98765 43210 or care@yourbusiness.in" maxlength="80"><small>For negative reviews, replies invite the reviewer to contact you directly. If blank, replies point to the contact details on your Google profile.</small></div>
       </div>
-      <button type="submit" class="btn-submit">Generate Review Replies</button>
+      <div class="lb-err" id="rvErr" role="alert"></div>
+      <button type="submit" class="btn-submit">Generate 3 replies</button>
     </form>
 
-    <div class="result-box" id="repResultBox">
-      <div class="result-header">
-        <span class="result-title">Suggested Reply Options</span>
-      </div>
-      <div style="margin-bottom:16px;">
-        <div style="font-size:13px; font-weight:700; color:var(--primary-600); margin-bottom:4px;">Option 1: English Reply</div>
-        <div class="output-area" id="repOutEn"></div>
-      </div>
-      <div>
-        <div style="font-size:13px; font-weight:700; color:var(--accent-600); margin-bottom:4px;">Option 2: Hindi / Hinglish Reply</div>
-        <div class="output-area" id="repOutHi"></div>
-      </div>
+    <div id="rvResult" class="lb-hidden" style="margin-top:28px;">
+      <div class="result-header"><span class="result-title">Suggested replies (editable)</span><span class="lb-count" id="rvVar"></span></div>
+      <div id="rvNotes"></div>
+      <div id="rvList"></div>
+      <div class="lb-row lb-noprint"><button type="button" class="lb-btn primary" id="rvRegen">Regenerate with variation</button></div>
     </div>
 
-    <script>
-      document.getElementById('replyForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const biz = document.getElementById('repBizName').value.trim();
-        const cust = document.getElementById('repCustName').value.trim();
-        const rating = document.getElementById('repRating').value;
-        const tone = document.getElementById('repTone').value;
-        const rev = document.getElementById('repReviewText').value.trim();
-        const contact = document.getElementById('repPhone').value.trim() || 'our management team';
-
-        let enReply = '';
-        let hiReply = '';
-
-        if (rating === '5') {
-          enReply = `Dear ${cust},\n\nThank you so much for taking the time to share your positive 5-star experience with ${biz}! We are thrilled to hear that you were satisfied with our service. Your kind words mean the world to our dedicated team. We look forward to welcoming you back soon!\n\nWarm regards,\nThe Team at ${biz}`;
-          hiReply = `Namaste ${cust} ji,\n\n${biz} par apna anubhav share karne aur 5-star rating dene ke liye aapka bohot-bohot shukriya! Hume behad khushi hui ki aapko hamari service pasand aayi. Aage bhi aapki seva ke liye hum hamesha taiyar hain.\n\nShubhkamnayein,\nTeam ${biz}`;
-        } else if (rating === '4' || rating === '3') {
-          enReply = `Hello ${cust},\n\nThank you for sharing your feedback with ${biz}. We are glad you had a generally good experience, though we always aim for 5 stars! We have noted your comments and are actively working on improvements. If there is anything specific we can do to make your next visit even better, please contact us at ${contact}.\n\nBest regards,\nManagement at ${biz}`;
-          hiReply = `Namaste ${cust} ji,\n\nApna feedback dene ke liye dhanyawad. Hume khushi hai ki aapka anubhav achha raha, par hamara lakshya hamesha 5-star service dena hota hai. Humne aapke sujhav ko note kar liya hai. Kisi bhi anya sahayata ke liye aap humse ${contact} par baat kar sakte hain.\n\nDhanyawad,\n${biz}`;
-        } else {
-          enReply = `Hello ${cust},\n\nWe sincerely apologize for your disappointing experience with ${biz}. Delivering attentive, quality service is our top priority, and we regret that we fell short during your visit. We take your feedback seriously and would appreciate the opportunity to discuss this further and make things right. Please reach out directly to ${contact}.\n\nSincerely,\nManagement at ${biz}`;
-          hiReply = `Namaste ${cust} ji,\n\nAapko huye kasht ke liye hum dil se maafi maangte hain. ${biz} par hamara lakshya hamesha behtareen seva dena hai, aur hume dukh hai ki aapko santushti nahi mili. Hum is mamle ko theek karna chahte hain—kripya humse seedhe ${contact} par sampark karein taaki hum aapki samasya ka samadhan kar sakein.\n\nDhanyawad,\n${biz}`;
-        }
-
-        document.getElementById('repOutEn').textContent = enReply;
-        document.getElementById('repOutHi').textContent = hiReply;
-        document.getElementById('repResultBox').classList.add('active');
-        document.getElementById('repResultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    </script>
-
+    <div class="lb-banner danger" style="margin-top:28px;"><strong>Is the review fake, spam or against Google policy?</strong> A reply is not the right tool. Examples: a review from someone who never visited, off-topic content, hate speech, conflict of interest, or a competitor attack. Flag it for removal from your Business Profile and prepare the report with our <a href="../review-dispute-generator/index.html">Review Dispute Generator</a>. Never reply with accusations, personal details or threats.</div>
+    <details class="lb-details"><summary>How these drafts stay safe</summary><ul><li>No discounts, gifts or other incentives, and no request to change or delete a review.</li><li>No admission of legal fault or liability, and no medical, legal or financial claims.</li><li>No private details about the reviewer: no order, booking or treatment information.</li><li>Negative reviews are taken offline: the reply invites a direct conversation instead of arguing in public.</li><li>No claims such as &quot;we always&quot; or &quot;100%&quot;. The wording stays general so it is true for most businesses.</li></ul></details>
+    <p class="lb-links"><strong>Related:</strong> <a href="../review-dispute-generator/index.html">Review Dispute Generator</a> &middot; <a href="../review-request-generator/index.html">Review Request Generator</a></p>
   </div>
 </main>
 
@@ -295,5 +301,7 @@
 
 <script src="../../assets/consent.js" defer></script>
 <script src="../../assets/site.js" defer></script>
+<script src="../shared/tool-common.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

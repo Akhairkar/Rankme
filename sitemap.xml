@@ -525,6 +525,15 @@
   </url>
 
   <url>
+    <loc>https://www.localboost.in/data-retention/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/data-retention/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/data-retention/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/data-retention/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://www.localboost.in/disclaimer/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/disclaimer/"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/disclaimer/"/>
@@ -1137,6 +1146,15 @@
   </url>
 
   <url>
+    <loc>https://www.localboost.in/hi/data-retention/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/data-retention/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/data-retention/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/data-retention/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://www.localboost.in/hi/disclaimer/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/disclaimer/"/>
     <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/disclaimer/"/>
@@ -1269,6 +1287,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/pro/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.localboost.in/hi/refund-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/refund-policy/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/refund-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/refund-policy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <url>
@@ -1449,6 +1476,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/pro/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.localboost.in/refund-policy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.localboost.in/refund-policy/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/refund-policy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.localboost.in/refund-policy/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <url>

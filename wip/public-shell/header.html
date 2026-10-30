@@ -1,0 +1,20 @@
+<header class="lb-header" data-lb-shell="header">
+  <div class="nav-inner">
+    <a href="{{site_root}}{{home_href}}" class="logo" aria-label="{{t:logo_label}}">{{logo}}</a>
+    <nav class="nav-links" aria-label="{{t:nav_label}}">
+      <a href="{{href:tools/index.html}}">{{t:nav_tools}}</a>
+      <a href="{{href:businesses/index.html}}">{{t:nav_industries}}</a>
+      <a href="{{href:cities/index.html}}">{{t:nav_cities}}</a>
+      <a href="{{guides_href}}">{{t:nav_guides}}</a>
+      <a href="{{href:blog/index.html}}">{{t:nav_blog}}</a>
+      <a href="{{href:pricing/index.html}}">{{t:nav_pricing}}</a>
+      <a href="{{href:search/index.html}}" class="lb-nav-search" aria-label="{{t:nav_search_label}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>{{t:nav_search}}</span></a>
+    </nav>
+    <div class="lb-actions">
+      <a class="lang-switch" href="{{lang_switch_href}}" hreflang="{{lang_switch_lang}}" lang="{{lang_switch_lang}}" aria-label="{{t:lang_switch_label}}">EN · हिं</a>
+      <button type="button" class="lb-theme-toggle" data-lb-theme-toggle aria-label="{{t:theme_label}}" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+      <a href="{{href:check/index.html}}" class="nav-cta">{{t:nav_cta}}</a>
+    </div>
+  </div>
+  <script>(function(){var h=document.currentScript.parentNode,b=h.querySelector('[data-lb-theme-toggle]');if(!b)return;function show(){if(window.LBTheme||document.querySelector('script[src*="theme.js"]'))b.hidden=false}document.addEventListener('DOMContentLoaded',show);b.addEventListener('click',function(){if(window.LBTheme&&typeof LBTheme.toggle==='function'){LBTheme.toggle();return}var r=document.documentElement,d=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',d);try{localStorage.setItem('lb-theme',d)}catch(e){}})})();</script>
+</header>

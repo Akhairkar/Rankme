@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Review Reply Generator | LocalBoost</title>
+<title>Google रिव्यू रिप्लाई जनरेटर | LocalBoost</title>
 <meta name="description" content="Google reviews ka turant reply generate karein. Positive aur negative dono tarah ke reviews ke liye tayar templates.">
 <link rel="canonical" href="https://www.localboost.in/hi/tools/review-reply-generator/">
 <link rel="alternate" hreflang="en" href="https://www.localboost.in/tools/review-reply-generator/">
 <link rel="alternate" hreflang="hi" href="https://www.localboost.in/hi/tools/review-reply-generator/">
 <link rel="alternate" hreflang="x-default" href="https://www.localboost.in/tools/review-reply-generator/">
-<meta property="og:title" content="Review Reply Generator">
+<meta property="og:title" content="Google रिव्यू रिप्लाई जनरेटर">
 <meta property="og:description" content="Google reviews ka turant reply generate karein. Positive aur negative dono tarah ke reviews ke liye tayar templates.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.localboost.in/hi/tools/review-reply-generator/">
@@ -146,6 +146,66 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta property="og:site_name" content="LocalBoost">
 <link rel="stylesheet" href="../../../assets/site.css">
+<style id="lb-extra">
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+</style>
 </head>
 <body>
 
@@ -169,97 +229,43 @@
   <div class="tool-head">
     <div class="tool-badge">Free Interactive Tool</div>
     <h1>Review Reply Generator</h1>
-    <p class="tool-desc">Google reviews ka vinamra aur professional reply generate karein (English aur Hindi mein).</p>
+    <p class="tool-desc">Google रिव्यू के लिए तीन अलग-अलग, बदले जा सकने वाले रिप्लाई बनाएँ। अंग्रेज़ी, हिंदी या हिंग्लिश में, सोच-समझकर लिखे टेम्पलेट से। पढ़कर, ज़रूरी बदलाव करके पोस्ट आप खुद करें।</p>
   </div>
 
   <div class="tool-card">
-
-    <form id="replyForm">
+    <div class="lb-banner warn"><strong>अपने-आप पब्लिश न करें।</strong> LocalBoost Google पर कुछ भी पोस्ट नहीं करता। हर ड्राफ़्ट पढ़ें, उसे अपने बिज़नेस और इस ग्राहक के हिसाब से सही करें, फिर अपनी Google Business Profile से खुद पोस्ट करें। सिर्फ़ वही वादा करें जो आप निभा सकें।</div>
+    <form id="rvForm" novalidate>
       <div class="form-row">
-        <div class="form-group">
-          <label for="repBizName">Your Business Name *</label>
-          <input type="text" id="repBizName" placeholder="e.g. Dr. Verma Dental Care" required>
-        </div>
-        <div class="form-group">
-          <label for="repCustName">Customer / Reviewer Name *</label>
-          <input type="text" id="repCustName" placeholder="e.g. Ankit Sharma" required>
-        </div>
+        <div class="form-group"><label for="rvCat">बिज़नेस कैटेगरी</label><select id="rvCat"></select></div>
+        <div class="form-group"><label for="rvBiz">आपके बिज़नेस का नाम <span class="req">*</span></label><input type="text" id="rvBiz" placeholder="जैसे डॉ. वर्मा डेंटल केयर" maxlength="80" required></div>
       </div>
       <div class="form-row">
-        <div class="form-group">
-          <label for="repRating">Star Rating Received *</label>
-          <select id="repRating">
-            <option value="5">5 Stars (Praise)</option>
-            <option value="4">4 Stars (Good with minor remark)</option>
-            <option value="3">3 Stars (Neutral / Mixed)</option>
-            <option value="1">1 or 2 Stars (Complaint / Negative)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="repTone">Response Tone</label>
-          <select id="repTone">
-            <option value="professional">Professional &amp; Polite</option>
-            <option value="warm">Warm &amp; Friendly</option>
-            <option value="deescalating">De-escalating (Offline Resolution)</option>
-          </select>
-        </div>
+        <div class="form-group"><label for="rvName">रिव्यू लिखने वाले का नाम (वैकल्पिक)</label><input type="text" id="rvName" placeholder="जैसे अंकित" maxlength="40"><small>रिव्यू में दिख रहा पहला नाम लिखें। पक्का न हो तो खाली छोड़ें।</small></div>
+        <div class="form-group"><label for="rvKw">रिव्यू में बताई गई बातें (वैकल्पिक)</label><input type="text" id="rvKw" placeholder="जैसे इंतज़ार का समय, साफ़-सफ़ाई, स्टाफ़" maxlength="140"><small>ज़्यादा से ज़्यादा 3, कॉमा से अलग करें। एक वाक्य में इस्तेमाल होंगी। पूरा रिव्यू या कोई निजी जानकारी पेस्ट न करें।</small></div>
       </div>
-      <div class="form-group">
-        <label for="repReviewText">Customer Review Text (Optional)</label>
-        <textarea id="repReviewText" rows="3" placeholder="e.g. Great treatment and painless extraction, but had to wait 20 minutes."></textarea>
+      <div class="form-row3">
+        <div class="form-group"><label for="rvStars">स्टार रेटिंग</label><select id="rvStars"><option value="5" selected>5 ★</option><option value="4">4 ★</option><option value="3">3 ★</option><option value="2">2 ★</option><option value="1">1 ★</option></select></div>
+        <div class="form-group"><label for="rvSent">रिव्यू की भावना</label><select id="rvSent"><option value="pos">सकारात्मक</option><option value="neu">न्यूट्रल / मिला-जुला</option><option value="neg">नकारात्मक</option></select></div>
+        <div class="form-group"><label for="rvTone">टोन</label><select id="rvTone"><option value="warm">गर्मजोशी भरा</option><option value="professional">प्रोफ़ेशनल</option><option value="brief">संक्षिप्त</option></select></div>
       </div>
-      <div class="form-group">
-        <label for="repPhone">Owner Phone / Email for Offline Resolution</label>
-        <input type="text" id="repPhone" placeholder="e.g. +91 98765 43210 or care@drvermadental.in">
+      <div class="form-row">
+        <div class="form-group"><label for="rvLang">रिप्लाई की भाषा</label><select id="rvLang"><option value="en">English</option><option value="hi">हिंदी (देवनागरी)</option><option value="hn">हिंग्लिश (अंग्रेज़ी अक्षरों में हिंदी)</option></select></div>
+        <div class="form-group"><label for="rvContact">बात ऑफ़लाइन करने के लिए संपर्क (वैकल्पिक)</label><input type="text" id="rvContact" placeholder="जैसे +91 98765 43210 या care@yourbusiness.in" maxlength="80"><small>नकारात्मक रिव्यू में रिप्लाई सीधे संपर्क करने को कहता है। खाली छोड़ने पर रिप्लाई आपकी Google प्रोफ़ाइल के संपर्क विवरण की ओर इशारा करता है।</small></div>
       </div>
-      <button type="submit" class="btn-submit">Generate Review Replies</button>
+      <div class="lb-err" id="rvErr" role="alert"></div>
+      <button type="submit" class="btn-submit">3 रिप्लाई बनाएँ</button>
     </form>
 
-    <div class="result-box" id="repResultBox">
-      <div class="result-header">
-        <span class="result-title">Suggested Reply Options</span>
-      </div>
-      <div style="margin-bottom:16px;">
-        <div style="font-size:13px; font-weight:700; color:var(--primary-600); margin-bottom:4px;">Option 1: English Reply</div>
-        <div class="output-area" id="repOutEn"></div>
-      </div>
-      <div>
-        <div style="font-size:13px; font-weight:700; color:var(--accent-600); margin-bottom:4px;">Option 2: Hindi / Hinglish Reply</div>
-        <div class="output-area" id="repOutHi"></div>
-      </div>
+    <div id="rvResult" class="lb-hidden" style="margin-top:28px;">
+      <div class="result-header"><span class="result-title">सुझाए गए रिप्लाई (बदले जा सकते हैं)</span><span class="lb-count" id="rvVar"></span></div>
+      <div id="rvNotes"></div>
+      <div id="rvList"></div>
+      <div class="lb-row lb-noprint"><button type="button" class="lb-btn primary" id="rvRegen">नए बदलाव के साथ दोबारा बनाएँ</button></div>
     </div>
 
-    <script>
-      document.getElementById('replyForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const biz = document.getElementById('repBizName').value.trim();
-        const cust = document.getElementById('repCustName').value.trim();
-        const rating = document.getElementById('repRating').value;
-        const tone = document.getElementById('repTone').value;
-        const rev = document.getElementById('repReviewText').value.trim();
-        const contact = document.getElementById('repPhone').value.trim() || 'our management team';
-
-        let enReply = '';
-        let hiReply = '';
-
-        if (rating === '5') {
-          enReply = `Dear ${cust},\n\nThank you so much for taking the time to share your positive 5-star experience with ${biz}! We are thrilled to hear that you were satisfied with our service. Your kind words mean the world to our dedicated team. We look forward to welcoming you back soon!\n\nWarm regards,\nThe Team at ${biz}`;
-          hiReply = `Namaste ${cust} ji,\n\n${biz} par apna anubhav share karne aur 5-star rating dene ke liye aapka bohot-bohot shukriya! Hume behad khushi hui ki aapko hamari service pasand aayi. Aage bhi aapki seva ke liye hum hamesha taiyar hain.\n\nShubhkamnayein,\nTeam ${biz}`;
-        } else if (rating === '4' || rating === '3') {
-          enReply = `Hello ${cust},\n\nThank you for sharing your feedback with ${biz}. We are glad you had a generally good experience, though we always aim for 5 stars! We have noted your comments and are actively working on improvements. If there is anything specific we can do to make your next visit even better, please contact us at ${contact}.\n\nBest regards,\nManagement at ${biz}`;
-          hiReply = `Namaste ${cust} ji,\n\nApna feedback dene ke liye dhanyawad. Hume khushi hai ki aapka anubhav achha raha, par hamara lakshya hamesha 5-star service dena hota hai. Humne aapke sujhav ko note kar liya hai. Kisi bhi anya sahayata ke liye aap humse ${contact} par baat kar sakte hain.\n\nDhanyawad,\n${biz}`;
-        } else {
-          enReply = `Hello ${cust},\n\nWe sincerely apologize for your disappointing experience with ${biz}. Delivering attentive, quality service is our top priority, and we regret that we fell short during your visit. We take your feedback seriously and would appreciate the opportunity to discuss this further and make things right. Please reach out directly to ${contact}.\n\nSincerely,\nManagement at ${biz}`;
-          hiReply = `Namaste ${cust} ji,\n\nAapko huye kasht ke liye hum dil se maafi maangte hain. ${biz} par hamara lakshya hamesha behtareen seva dena hai, aur hume dukh hai ki aapko santushti nahi mili. Hum is mamle ko theek karna chahte hain—kripya humse seedhe ${contact} par sampark karein taaki hum aapki samasya ka samadhan kar sakein.\n\nDhanyawad,\n${biz}`;
-        }
-
-        document.getElementById('repOutEn').textContent = enReply;
-        document.getElementById('repOutHi').textContent = hiReply;
-        document.getElementById('repResultBox').classList.add('active');
-        document.getElementById('repResultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    </script>
-
+    <div class="lb-banner danger" style="margin-top:28px;"><strong>क्या रिव्यू फ़र्ज़ी, स्पैम या Google की पॉलिसी के ख़िलाफ़ है?</strong> तब रिप्लाई सही रास्ता नहीं है। जैसे: जो व्यक्ति कभी आया ही नहीं, विषय से हटकर बातें, नफ़रत भरी भाषा, हितों का टकराव या प्रतिस्पर्धी का हमला। इसे अपनी Business Profile से हटाने के लिए फ़्लैग करें और रिपोर्ट हमारे <a href="../review-dispute-generator/index.html">रिव्यू डिस्प्यूट जनरेटर</a> से तैयार करें। आरोप, निजी जानकारी या धमकी वाला रिप्लाई कभी न दें।</div>
+    <details class="lb-details"><summary>ये ड्राफ़्ट सुरक्षित कैसे रहते हैं</summary><ul><li>कोई छूट, गिफ़्ट या दूसरा प्रलोभन नहीं, और रिव्यू बदलने या हटाने का अनुरोध नहीं।</li><li>कानूनी ज़िम्मेदारी या गलती की स्वीकारोक्ति नहीं, और कोई मेडिकल, कानूनी या वित्तीय दावा नहीं।</li><li>रिव्यू लिखने वाले की निजी जानकारी नहीं: कोई ऑर्डर, बुकिंग या इलाज का ब्योरा नहीं।</li><li>नकारात्मक रिव्यू को ऑफ़लाइन ले जाया जाता है: सबके सामने बहस की जगह सीधी बातचीत का न्योता।</li><li>&quot;हम हमेशा&quot; या &quot;100%&quot; जैसे दावे नहीं। शब्द सामान्य रखे गए हैं ताकि ज़्यादातर बिज़नेस के लिए सही रहें।</li></ul></details>
+    <p class="lb-links"><strong>संबंधित:</strong> <a href="../review-dispute-generator/index.html">रिव्यू डिस्प्यूट जनरेटर</a> &middot; <a href="../review-request-generator/index.html">रिव्यू रिक्वेस्ट जनरेटर</a></p>
   </div>
 </main>
 
@@ -295,5 +301,7 @@
 
 <script src="../../../assets/consent.js" defer></script>
 <script src="../../../assets/site.js" defer></script>
+<script src="../../../tools/shared/tool-common.js"></script>
+<script src="../../../tools/review-reply-generator/app.js"></script>
 </body>
 </html>

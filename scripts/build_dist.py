@@ -3,7 +3,7 @@
 import os, shutil
 from site_lib import ROOT
 
-EXCLUDE_DIRS = {".git", ".github", "backend", "docs", "scripts", "_templates", "node_modules", "dist", ".claude"}
+EXCLUDE_DIRS = {"wip", ".git", ".github", "backend", "docs", "scripts", "_templates", "node_modules", "dist", ".claude"}
 EXCLUDE_EXT = {".md", ".py", ".sh"}
 out = os.path.join(ROOT, "dist")
 shutil.rmtree(out, ignore_errors=True)

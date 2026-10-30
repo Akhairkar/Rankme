@@ -1,0 +1,109 @@
+/* ==========================================================================
+   LocalBoost design tokens  (assets/lb-tokens.css)
+   Load first:  <link rel="stylesheet" href="/assets/lb-tokens.css">
+   Light is the default. Dark applies when <html data-theme="dark"> or when the
+   OS prefers dark and the page is not forced light (<html data-theme="light">).
+   Existing variable names (--bg-base, --text-primary, --primary-600 ...) are kept.
+   NOTE: --primary-600 / --accent-600 / --success / --warning / --danger are
+   "text & icon" colours and flip lighter in dark. Use --btn-*-bg for solid
+   button fills (white text stays AA in both themes).
+   ========================================================================== */
+:root, [data-theme="light"] {
+  color-scheme: light;
+  /* Surfaces & text */
+  --bg-base: #FAF9F6; --bg-surface: #FFFFFF; --bg-muted: #F0EEE9; --bg-raised: #FFFFFF;
+  --text-primary: #1E1E1E; --text-secondary: #5A5A54; --text-on-primary: #FFFFFF;
+  --border: #E2E0D9; --border-strong: #85837B;
+  /* Brand */
+  --primary-700: #0B5F58; --primary-600: #0F766E; --primary-500: #14968C; --primary-100: #E0F5F2; --primary-50: #F1FAF8;
+  --btn-primary-bg: #0F766E; --btn-primary-bg-hover: #0B5F58; --btn-primary-bg-active: #094C47;
+  --accent-700: #A94A0C; --accent-600: #E8722C; --accent-100: #FCE8D9;
+  --btn-accent-bg: #A94A0C; --btn-accent-bg-hover: #9E440B;
+  /* Status: base = icons/borders/fills, -text = text on -bg or surface, -bg = tint */
+  --success: #1E8E5A; --success-text: #166B43; --success-bg: #E4F5EC;
+  --warning: #BF8302; --warning-text: #7A5200; --warning-bg: #FBF1D9;
+  --danger: #C4402C; --danger-text: #A03221; --danger-bg: #FBE9E5;
+  --info: #2563A6; --info-text: #1D4F87; --info-bg: #E5EEF8;
+  --btn-danger-bg: #C4402C; --btn-danger-bg-hover: #A83624;
+  --focus-ring: #0F766E;
+  --shadow-sm: 0 2px 8px rgba(30,30,30,.06);
+  --shadow-md: 0 8px 24px rgba(30,30,30,.09);
+  --shadow-lg: 0 20px 48px rgba(30,30,30,.16);
+  --scrim: rgba(20,20,18,.55);
+  /* Charts: categorical series (each >= 3:1 on surface), sequential teal ramp, semantic */
+  --chart-1: #0F766E; --chart-2: #D2631F; --chart-3: #2563A6; --chart-4: #A87400;
+  --chart-5: #7A4FA3; --chart-6: #C23B6B; --chart-7: #3F8A2E; --chart-8: #5F6B78;
+  --chart-seq-1: #E0F5F2; --chart-seq-2: #A5DDD6; --chart-seq-3: #4FB5AA; --chart-seq-4: #14968C; --chart-seq-5: #0B5F58;
+  --chart-grid: #E2E0D9; --chart-axis: #5A5A54; --chart-good: #1E8E5A; --chart-mid: #BF8302; --chart-bad: #C4402C;
+
+  /* Typography */
+  --font: 'Manrope','Noto Sans Devanagari',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --font-mono: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --text-xs: 12px; --text-sm: 14px; --text-base: 16px; --text-lg: 18px; --text-xl: 22px;
+  --text-2xl: 28px; --text-3xl: 36px; --text-4xl: clamp(36px, 5vw + 12px, 48px);
+  --lh-tight: 1.2; --lh-snug: 1.4; --lh-normal: 1.6;
+  --fw-regular: 400; --fw-medium: 500; --fw-semibold: 600; --fw-bold: 700; --fw-extrabold: 800;
+  /* Spacing (4px grid) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px;
+  /* Radii */
+  --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px; --radius-xl: 20px; --radius-pill: 999px;
+  /* Z-index */
+  --z-base: 0; --z-dropdown: 100; --z-sticky: 200; --z-drawer: 300; --z-modal: 400; --z-toast: 500; --z-consent: 600;
+  /* Motion */
+  --dur-fast: 120ms; --dur: 200ms; --dur-slow: 320ms; --ease: cubic-bezier(.2,.7,.2,1);
+  /* Layout */
+  --container: 1120px; --container-narrow: 720px; --gutter: 16px;
+  --sidebar-w: 256px; --topbar-h: 56px; --tap: 44px;
+}
+@media (min-width: 768px) { :root { --gutter: 24px; } }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --bg-base: #121311; --bg-surface: #1B1C1A; --bg-muted: #262724; --bg-raised: #222320;
+  --text-primary: #ECEAE4; --text-secondary: #ABA9A1; --text-on-primary: #FFFFFF;
+  --border: #383A35; --border-strong: #7E807A;
+  --primary-700: #7DD9CD; --primary-600: #3DC2B3; --primary-500: #2BA89B; --primary-100: #0E2F2C; --primary-50: #0B2321;
+  --btn-primary-bg: #0F766E; --btn-primary-bg-hover: #0D6B64; --btn-primary-bg-active: #0A5A54;
+  --accent-700: #F7A874; --accent-600: #F2914F; --accent-100: #3A2314;
+  --btn-accent-bg: #A94A0C; --btn-accent-bg-hover: #923F09;
+  --success: #4CC38A; --success-text: #6FD3A4; --success-bg: #11301F;
+  --warning: #E3B03B; --warning-text: #EDC468; --warning-bg: #33280C;
+  --danger: #F28571; --danger-text: #F6A090; --danger-bg: #3A1A14;
+  --info: #6BA6EA; --info-text: #8DBBF0; --info-bg: #14263D;
+  --btn-danger-bg: #B3392A; --btn-danger-bg-hover: #9A2F22;
+  --focus-ring: #4FD1C2;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.25);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.45);
+  --shadow-lg: 0 20px 48px rgba(0,0,0,.55);
+  --scrim: rgba(0,0,0,.65);
+  --chart-1: #3DC2B3; --chart-2: #F2914F; --chart-3: #6BA6EA; --chart-4: #E3B03B;
+  --chart-5: #B392E0; --chart-6: #F07CA6; --chart-7: #7CCB6B; --chart-8: #9AA7B5;
+  --chart-seq-1: #0E2F2C; --chart-seq-2: #145B55; --chart-seq-3: #1E8A80; --chart-seq-4: #3DC2B3; --chart-seq-5: #9CEBE1;
+  --chart-grid: #383A35; --chart-axis: #ABA9A1; --chart-good: #4CC38A; --chart-mid: #E3B03B; --chart-bad: #F28571;
+  }
+}
+:root[data-theme="dark"], [data-theme="dark"] {
+  color-scheme: dark;
+  --bg-base: #121311; --bg-surface: #1B1C1A; --bg-muted: #262724; --bg-raised: #222320;
+  --text-primary: #ECEAE4; --text-secondary: #ABA9A1; --text-on-primary: #FFFFFF;
+  --border: #383A35; --border-strong: #7E807A;
+  --primary-700: #7DD9CD; --primary-600: #3DC2B3; --primary-500: #2BA89B; --primary-100: #0E2F2C; --primary-50: #0B2321;
+  --btn-primary-bg: #0F766E; --btn-primary-bg-hover: #0D6B64; --btn-primary-bg-active: #0A5A54;
+  --accent-700: #F7A874; --accent-600: #F2914F; --accent-100: #3A2314;
+  --btn-accent-bg: #A94A0C; --btn-accent-bg-hover: #923F09;
+  --success: #4CC38A; --success-text: #6FD3A4; --success-bg: #11301F;
+  --warning: #E3B03B; --warning-text: #EDC468; --warning-bg: #33280C;
+  --danger: #F28571; --danger-text: #F6A090; --danger-bg: #3A1A14;
+  --info: #6BA6EA; --info-text: #8DBBF0; --info-bg: #14263D;
+  --btn-danger-bg: #B3392A; --btn-danger-bg-hover: #9A2F22;
+  --focus-ring: #4FD1C2;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4), 0 2px 8px rgba(0,0,0,.25);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.45);
+  --shadow-lg: 0 20px 48px rgba(0,0,0,.55);
+  --scrim: rgba(0,0,0,.65);
+  --chart-1: #3DC2B3; --chart-2: #F2914F; --chart-3: #6BA6EA; --chart-4: #E3B03B;
+  --chart-5: #B392E0; --chart-6: #F07CA6; --chart-7: #7CCB6B; --chart-8: #9AA7B5;
+  --chart-seq-1: #0E2F2C; --chart-seq-2: #145B55; --chart-seq-3: #1E8A80; --chart-seq-4: #3DC2B3; --chart-seq-5: #9CEBE1;
+  --chart-grid: #383A35; --chart-axis: #ABA9A1; --chart-good: #4CC38A; --chart-mid: #E3B03B; --chart-bad: #F28571;
+}

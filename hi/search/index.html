@@ -227,60 +227,9 @@
 </footer>
 
 
+<script src="../../assets/search-data.js"></script>
 <script>
-const DATA_HI = [
-  // Tools
-  { title: "Free Google Business Profile Diagnostic Audit", url: "/check/", cat: "tools", desc: "Interactive 8-question self-audit tool providing visibility score, review velocity rating, and prioritized local SEO fix checklist." },
-  { title: "Comprehensive Website & Local SEO Audit Engine", url: "/audit/", cat: "tools", desc: "Deterministic audit engine analyzing meta tags, title length, schema, and mobile responsiveness with priority fix guidance." },
-  { title: "Interactive 40-Point Local SEO Checklist", url: "/tools/local-seo-checklist/", cat: "tools", desc: "Interactive checklist with localStorage persistence covering GBP foundation, photos, reviews, and local citations." },
-  { title: "AI Google Business Description Generator", url: "/tools/description-generator/", cat: "tools", desc: "Generate policy-compliant 750-character GBP business descriptions with local keywords and customer value propositions." },
-  { title: "Business Services & Menu Catalog Generator", url: "/tools/services-generator/", cat: "tools", desc: "Build structured service items and menus with price ranges and keyword-rich service descriptions." },
-  { title: "Review Reply Generator with AI Tones", url: "/tools/review-reply-generator/", cat: "tools", desc: "Create respectful, professional responses for 5-star praise and delicate 1-star negative complaints." },
-  { title: "WhatsApp Review Request Message Generator", url: "/tools/review-request-generator/", cat: "tools", desc: "Pre-formatted WhatsApp and SMS review request scripts tailored for retail shops, salons, doctors, and clinics." },
-  { title: "Responsive Google Maps Embed Generator", url: "/tools/maps-embed/", cat: "tools", desc: "Generate secure, responsive iframe embed code with LocalBusiness Schema for embedding on your business website." },
-  { title: "Google Places Lookup & Place ID Finder", url: "/tools/places-lookup/", cat: "tools", desc: "Find your official Place ID and generate direct 1-click review links for QR codes and billing cards." },
-
-  // Core Guides
-  { title: "Google Business Profile Optimization Guide", url: "/google-business-profile/", cat: "guides", desc: "Step-by-step master guide for claiming, verifying, and optimizing your Google Business Profile listing." },
-  { title: "Google Maps SEO & Local 3-Pack Ranking", url: "/google-maps-seo/", cat: "guides", desc: "How proximity, prominence, and relevance algorithms determine local pack rankings on Google Maps." },
-  { title: "Google Reviews Management & Velocity Guide", url: "/google-reviews/", cat: "guides", desc: "Master guide to collecting reviews ethically, handling negative feedback, and policy violation avoidance." },
-  { title: "Local Citations & NAP Consistency Guide", url: "/local-citations/", cat: "guides", desc: "Ensure your Name, Address, and Phone number are 100% consistent across Indian business directories." },
-  { title: "Local SEO Keyword Research for Indian Businesses", url: "/local-seo-keywords/", cat: "guides", desc: "Find high-intent 'near me' and bilingual Hindi/English search queries customers use to find your business." },
-
-  // Verticals
-  { title: "Salon & Beauty Parlour Local SEO Guide", url: "/businesses/salon/", cat: "businesses", desc: "How salons rank #1 on Google Maps using hair styling photos, price menus, and mirror QR review links." },
-  { title: "Restaurant & Cafe Google Maps Ranking Guide", url: "/businesses/restaurant/", cat: "businesses", desc: "Local 3-pack optimization for dining, digital menus, food photography, and weekend peak rush management." },
-  { title: "Doctor Clinic & Healthcare Local SEO Guide", url: "/businesses/doctor/", cat: "businesses", desc: "Build patient trust, manage appointment links, and optimize medical specializations ethically." },
-  { title: "Dental Clinic Google Maps Ranking Guide", url: "/businesses/dentist/", cat: "businesses", desc: "Win root canal, braces, and cosmetic dentistry patients with verified patient testimonials and treatment fees." },
-  { title: "Gym & Fitness Center Local SEO Guide", url: "/businesses/gym/", cat: "businesses", desc: "Dominate New Year fitness searches, personal training packages, and workout space virtual tours." },
-  { title: "Hotel & Guest House Google Maps Guide", url: "/businesses/hotel/", cat: "businesses", desc: "Optimize room amenities, check-in policies, direct booking buttons, and traveler review velocity." },
-  { title: "Kirana & Grocery Store Local SEO Guide", url: "/businesses/kirana-store/", cat: "businesses", desc: "Rank for daily essentials, home delivery radius, and WhatsApp order phone numbers." },
-  { title: "Mobile Repair Shop Google Maps Guide", url: "/businesses/mobile-shop/", cat: "businesses", desc: "Attract urgent screen replacement and battery repair customers with same-day warranty badges." },
-  { title: "Plumber Services Local SEO Guide", url: "/businesses/plumber/", cat: "businesses", desc: "Service-area business setup for emergency leaks, pipe repair, and verified plumbing citations." },
-  { title: "Electrician Services Local SEO Guide", url: "/businesses/electrician/", cat: "businesses", desc: "Rank in nearby localities for house wiring, MCB tripping, and appliance installations." },
-  { title: "Coaching Institute Local SEO Guide", url: "/businesses/coaching-institute/", cat: "businesses", desc: "Attract JEE, NEET, UPSC, and board exam students with topper testimonials and demo class booking." },
-  { title: "Car Repair & Multi-Brand Garage Guide", url: "/businesses/car-repair/", cat: "businesses", desc: "Rank for periodic car service, denting painting, and doorstep pickup attributes." },
-  { title: "Real Estate Agent Local SEO Guide", url: "/businesses/real-estate-agent/", cat: "businesses", desc: "Showcase verified flat listings, builder floor sales, and trusted property brokerage." },
-  { title: "Chartered Accountant (CA) Local SEO Guide", url: "/businesses/chartered-accountant/", cat: "businesses", desc: "Generate GST filing, company registration, and income tax audit client inquiries." },
-  { title: "Bakery & Cake Shop Local SEO Guide", url: "/businesses/bakery/", cat: "businesses", desc: "Dominate birthday cake, designer fondant, and eggless bakery searches in your neighbourhood." },
-  { title: "Hardware & Sanitary Store Local SEO Guide", url: "/businesses/hardware-store/", cat: "businesses", desc: "Connect with local contractors and home renovators looking for tools, paints, and fittings." },
-  { title: "Photographer & Studio Local SEO Guide", url: "/businesses/photographer/", cat: "businesses", desc: "Showcase wedding photography, pre-wedding shoot packages, and portrait studio portfolio." },
-  { title: "Pest Control Services Local SEO Guide", url: "/businesses/pest-control/", cat: "businesses", desc: "Rank for termite inspection, cockroach herbal treatment, and commercial sanitation." },
-
-  // Cities
-  { title: "Local SEO & Google Maps Guide for Delhi NCR", url: "/cities/delhi/", cat: "cities", desc: "Rank across Delhi, Noida, and Gurgaon micro-markets with bilingual Hinglish search trends and MCD compliance." },
-  { title: "Local SEO & Google Maps Guide for Mumbai", url: "/cities/mumbai/", cat: "cities", desc: "Win railway station proximity searches in Bandra, Andheri, and Thane with BMC Gumasta compliance." },
-  { title: "Local SEO & Google Maps Guide for Bengaluru", url: "/cities/bengaluru/", cat: "cities", desc: "Dominate tech-corridor searches in Koramangala and Indiranagar with high review velocity and BBMP licenses." },
-  { title: "Local SEO & Google Maps Guide for Pune", url: "/cities/pune/", cat: "cities", desc: "Optimize for Hinjewadi IT hubs and classic Pune peths with PMC trade verification." },
-  { title: "Local SEO & Google Maps Guide for Hyderabad", url: "/cities/hyderabad/", cat: "cities", desc: "Local pack ranking factors for HITEC City, Gachibowli, and Old City dining & healthcare businesses." },
-  { title: "Local SEO & Google Maps Guide for Jaipur", url: "/cities/jaipur/", cat: "cities", desc: "Capture wedding and tourist footfall in MI Road, C-Scheme, and Johari Bazaar." },
-
-  // Blog
-  { title: "Google Algorithm Local Ranking Factors (2026 Edition)", url: "/blog/google-algorithm-local-ranking-factors-2026/", cat: "blog", desc: "Deep dive into neural matching, proximity weight changes, photo interaction signals, and review velocity in 2026." },
-  { title: "How to Fix a Suspended Google Business Profile", url: "/blog/how-to-fix-suspended-google-business-profile/", cat: "blog", desc: "Complete reinstatement roadmap for soft and hard suspensions without losing your reviews or ranking equity." },
-  { title: "Multi-Location Local SEO Strategy for Indian Businesses", url: "/blog/multi-location-local-seo-strategy-india/", cat: "blog", desc: "How franchises, clinics, and multi-branch retail stores dominate multiple pin codes without cannibalization." },
-  { title: "Connecting WhatsApp Business to Google Maps", url: "/blog/whatsapp-business-google-maps-integration/", cat: "blog", desc: "Convert Google Maps search visitors into paying customers with automated WhatsApp booking links." }
-];
+const DATA = (window.LB_SEARCH_DATA || {}).hi || [];
 
 const input = document.getElementById('searchInput');
 const pills = document.querySelectorAll('.pill');
@@ -318,7 +267,7 @@ function render() {
     let titleHtml = item.title;
     let descHtml = item.desc;
     if (q) {
-      const reg = new RegExp(`(${q})`, 'gi');
+      const reg = new RegExp(`(${q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
       titleHtml = titleHtml.replace(reg, '<mark>$1</mark>');
       descHtml = descHtml.replace(reg, '<mark>$1</mark>');
     }

@@ -146,6 +146,67 @@
 <meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
 <meta property="og:site_name" content="LocalBoost">
 <link rel="stylesheet" href="../../assets/site.css">
+<style id="lb-extra">
+  .lb-banner { border-radius:var(--radius-md); padding:12px 16px; font-size:14.5px; line-height:1.55; margin:0 0 20px; border:1px solid; }
+  .lb-banner strong { font-weight:800; }
+  .lb-banner.warn { background:#FFF4E5; border-color:#F2B66B; color:#6B3B00; }
+  .lb-banner.info { background:#E8F4F2; border-color:#9CD3CC; color:#0B4F49; }
+  .lb-banner.danger { background:#FDECEA; border-color:#E8A59B; color:#7A1F12; }
+  .lb-banner.ok { background:#E7F5EC; border-color:#9ED3B3; color:#14532D; }
+  .lb-banner a { text-decoration:underline; font-weight:700; }
+  .lb-note { font-size:13px; color:var(--text-secondary); margin-top:6px; line-height:1.5; }
+  .lb-note a, .lb-links a { color:var(--primary-600); font-weight:700; text-decoration:underline; }
+  .lb-err { color:var(--danger); font-size:13.5px; font-weight:600; margin-top:6px; min-height:0; }
+  .lb-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+  .lb-btn { display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#fff; color:var(--text-primary); border:1px solid #B9B6AC; border-radius:var(--radius-md); padding:9px 16px; font:inherit; font-size:14px; font-weight:700; cursor:pointer; text-decoration:none; line-height:1.3; }
+  .lb-btn:hover { background:var(--bg-muted); }
+  .lb-btn.primary { background:var(--primary-600); color:#fff; border-color:var(--primary-600); }
+  .lb-btn.primary:hover { background:#0B5F58; }
+  .lb-btn[disabled], .lb-btn[aria-disabled="true"] { opacity:.55; cursor:not-allowed; pointer-events:none; }
+  .btn-submit[disabled] { opacity:.6; cursor:wait; }
+  .lb-btn:focus-visible, .btn-submit:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #14968C; outline-offset:2px; }
+  .lb-out { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:16px; margin-bottom:16px; }
+  .lb-out h3 { font-size:15px; font-weight:800; margin-bottom:8px; color:var(--primary-600); }
+  .lb-out textarea { width:100%; min-height:150px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); font-family:var(--font); font-size:15px; line-height:1.6; background:#FCFCFB; color:var(--text-primary); resize:vertical; }
+  .lb-out .lb-meta { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-top:8px; }
+  .lb-count { font-size:13px; color:var(--text-secondary); font-weight:600; }
+  .lb-count.over { color:var(--danger); }
+  .lb-fieldset { border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px 4px; margin-bottom:20px; }
+  .lb-fieldset legend { font-size:14.5px; font-weight:700; padding:0 6px; }
+  .lb-check { display:flex; gap:10px; align-items:flex-start; font-size:14.5px; margin-bottom:12px; }
+  .lb-check input { width:auto !important; margin-top:5px; }
+  .form-group .req { color:var(--danger); }
+  .form-group small, .form-hint { display:block; font-size:12.5px; color:var(--text-secondary); margin-top:4px; line-height:1.45; }
+  .form-row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; }
+  .badge { display:inline-block; font-size:11.5px; font-weight:800; padding:2px 9px; border-radius:999px; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+  .badge.high { background:#FDECEA; color:#9B2C1C; } .badge.medium { background:#FFF1DA; color:#8A5A00; } .badge.low { background:#E6EEF8; color:#1D4E89; }
+  .badge.transactional { background:#E0F5F2; color:#0B5F58; } .badge.commercial { background:#FFF1DA; color:#8A5A00; } .badge.informational { background:#E6EEF8; color:#1D4E89; } .badge.navigational { background:#EFE7F7; color:#5B2E86; }
+  .badge.neutral { background:var(--bg-muted); color:var(--text-secondary); }
+  table.lb-table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+  table.lb-table th, table.lb-table td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; word-break:break-word; }
+  table.lb-table th { background:var(--bg-muted); font-size:12.5px; text-transform:uppercase; letter-spacing:.03em; color:var(--text-secondary); position:sticky; top:0; }
+  .lb-scroll { overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md); max-height:520px; overflow-y:auto; -webkit-overflow-scrolling:touch; }
+  .lb-scroll table.lb-table { display:table; min-width:520px; }
+  .lb-links { margin-top:14px; font-size:14px; }
+  .lb-cols { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .lb-stat { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; min-width:110px; }
+  .lb-stat b { display:block; font-size:24px; line-height:1.2; }
+  .lb-stat span { font-size:12.5px; color:var(--text-secondary); font-weight:600; }
+  .lb-stats { display:flex; flex-wrap:wrap; gap:12px; margin:12px 0 18px; }
+  details.lb-details { background:#fff; border:1px solid var(--border); border-radius:var(--radius-md); padding:12px 16px; margin-top:16px; }
+  details.lb-details summary { cursor:pointer; font-weight:700; }
+  details.lb-details ul, details.lb-details ol { margin:10px 0 0 20px; font-size:14px; }
+  details.lb-details li { margin-bottom:4px; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .lb-hidden { display:none !important; }
+  .lb-spinner { display:inline-block; width:16px; height:16px; border:3px solid #CFE7E4; border-top-color:var(--primary-600); border-radius:50%; animation:lbspin .8s linear infinite; vertical-align:-3px; margin-right:8px; }
+  @keyframes lbspin { to { transform:rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .lb-spinner { animation:none; } }
+  main.wrap { overflow-wrap:anywhere; }
+  .faq-section { overflow-wrap:anywhere; }
+  @media (max-width:700px) { .form-row3, .lb-cols { grid-template-columns:1fr; } .lb-btn { flex:1 1 auto; } table.lb-table { font-size:13px; } }
+  .result-box.lb-hidden { display:none !important; }
+</style>
 </head>
 <body>
 
@@ -169,54 +230,68 @@
   <div class="tool-head">
     <div class="tool-badge">Free Interactive Tool</div>
     <h1>Google Places Lookup & Place ID Finder</h1>
-    <p class="tool-desc">Find official Google Place IDs, direct 1-click review URLs, and coordinate links for any verified business.</p>
+    <p class="tool-desc">Create a Google Maps search link for your business. Add your real Place ID to build a direct "write a review" link. Nothing is looked up or sent anywhere.</p>
   </div>
 
   <div class="tool-card">
+    <div class="lb-banner info"><strong>What this tool does and does not do:</strong> it builds links from what you type. It does not look up, scrape or verify listings, and it cannot find a Place ID from a business name. Use Google's own Place ID Finder (steps below) to get the ID.</div>
 
-    <form id="placesForm">
+    <h2 style="font-size:18px; margin-bottom:12px;">Step 1: Google Maps search link</h2>
+    <form id="placesForm" novalidate>
       <div class="form-row">
         <div class="form-group">
-          <label for="plName">Business Name *</label>
-          <input type="text" id="plName" placeholder="e.g. Apollo Pharmacy" required>
+          <label for="plName">Business Name <span class="req">*</span></label>
+          <input type="text" id="plName" placeholder="e.g. Apollo Pharmacy" required maxlength="120" autocomplete="off">
         </div>
         <div class="form-group">
-          <label for="plCity">City or Locality *</label>
-          <input type="text" id="plCity" placeholder="e.g. Indiranagar, Bengaluru" required>
+          <label for="plCity">City or Locality <span class="req">*</span></label>
+          <input type="text" id="plCity" placeholder="e.g. Indiranagar, Bengaluru" required maxlength="120" autocomplete="off">
         </div>
       </div>
-      <button type="submit" class="btn-submit">Find Listing &amp; Place ID</button>
+      <div class="lb-err" id="plErr" role="alert"></div>
+      <button type="submit" class="btn-submit">Create Maps search link</button>
     </form>
 
-    <div class="result-box" id="placesResultBox">
-      <div class="result-header">
-        <span class="result-title">Official Google Maps Listing Details</span>
+    <div class="result-box lb-hidden active" id="plMapsBox" style="display:block">
+      <div class="result-header"><span class="result-title" id="plMapsTitle"></span></div>
+      <div class="output-area" id="plMapsUrl" style="word-break:break-all;"></div>
+      <div class="lb-row" style="margin-top:14px;">
+        <a id="plMapsOpen" class="lb-btn primary" href="#" target="_blank" rel="noopener noreferrer"></a>
+        <button type="button" class="lb-btn" id="plMapsCopy"></button>
       </div>
-      <div class="output-area" id="placesOut"></div>
-      <div style="margin-top:16px;">
-        <a id="directReviewBtn" href="#" target="_blank" rel="noopener" class="btn-submit" style="display:inline-block; width:auto; text-decoration:none; padding:10px 20px; font-size:14px;">Open Direct Google Review Dialog</a>
-      </div>
+      <div id="plMapsNote" class="lb-banner info" style="margin:14px 0 0;"></div>
     </div>
 
-    <script>
-      document.getElementById('placesForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('plName').value.trim();
-        const city = document.getElementById('plCity').value.trim();
-        const q = encodeURIComponent(`${name} ${city}`);
+    <hr style="border:0; border-top:1px solid var(--border); margin:32px 0;">
 
-        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${q}`;
-        const reviewSearchUrl = `https://search.google.com/local/writereview?placeid=${q}`;
+    <h2 style="font-size:18px; margin-bottom:12px;">Step 2: Write-a-review link (needs a real Place ID)</h2>
+    <form id="pidForm" novalidate>
+      <div class="form-group">
+        <label for="plPid">Google Place ID <span class="req">*</span></label>
+        <input type="text" id="plPid" placeholder="e.g. ChIJ..." maxlength="500" autocomplete="off" spellcheck="false">
+        <small>Paste the Place ID you copied from Google's Place ID Finder. We only build the link; we do not check it with Google.</small>
+      </div>
+      <div class="lb-err" id="pidErr" role="alert"></div>
+      <button type="submit" class="btn-submit">Create review link</button>
+    </form>
 
-        const details = `Business: ${name}\nLocation: ${city}\nStatus: Verified Listing Query\nOfficial Google Maps Search URL: ${mapsUrl}\n\nTo get your permanent Google Place ID directly from Google Developers tool:\n1. Visit developers.google.com/maps/documentation/places/web-service/place-id\n2. Search your exact business name.\n3. Copy the alphanumeric Place ID (e.g. ChIJ...)\n\nDirect Review Shortlink Pattern:\nhttps://search.google.com/local/writereview?placeid=[YOUR_PLACE_ID]`;
+    <div class="result-box lb-hidden active" id="plRevBox" style="display:block">
+      <div class="result-header"><span class="result-title" id="plRevTitle"></span></div>
+      <div class="output-area" id="plRevUrl" style="word-break:break-all;"></div>
+      <div class="lb-row" style="margin-top:14px;">
+        <a id="plRevOpen" class="lb-btn primary" href="#" target="_blank" rel="noopener noreferrer"></a>
+        <button type="button" class="lb-btn" id="plRevCopy"></button>
+      </div>
+      <div id="plRevNote" class="lb-banner ok" style="margin:14px 0 0;"></div>
+    </div>
 
-        document.getElementById('placesOut').textContent = details;
-        document.getElementById('directReviewBtn').href = mapsUrl;
-        document.getElementById('placesResultBox').classList.add('active');
-        document.getElementById('placesResultBox').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      });
-    </script>
+    <details class="lb-details" open>
+      <summary>How to find your Place ID (official methods)</summary>
+      <ol><li>Open Google's Place ID Finder: <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" target="_blank" rel="noopener">developers.google.com/maps/documentation/javascript/examples/places-placeid-finder</a>.</li><li>Type your business name and area in the search box and pick your listing from the suggestions.</li><li>Copy the Place ID shown on the map (it usually begins with "ChIJ") and paste it in Step 2.</li><li>Alternative: in your Google Business Profile, use the "Ask for reviews" / "Get more reviews" option to copy the official short review link (g.page/...), and use that link directly in the Review Request Generator.</li></ol>
+    </details>
 
+    <div class="lb-banner warn" style="margin-top:20px;"><strong>Reminder:</strong> ask every customer for an honest review. Do not offer discounts or gifts for reviews, do not ask only happy customers, and never write reviews for customers. Google can remove reviews and penalise profiles that break its policies.</div>
+    <p class="lb-links"><strong>Related tools:</strong> <a href="../review-request-generator/index.html">Review Request Generator</a> &middot; <a href="../qr-generator/index.html">QR Generator for your counter</a></p>
   </div>
 </main>
 
@@ -252,5 +327,7 @@
 
 <script src="../../assets/consent.js" defer></script>
 <script src="../../assets/site.js" defer></script>
+<script src="../shared/tool-common.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
