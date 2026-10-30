@@ -56,7 +56,18 @@
     main { padding:20px; }
   }
 </style>
-<script src="../../assets/localboost-api-config.js"></script></head>
+<script src="../../assets/localboost-api-config.js"></script><link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0F766E">
+<meta property="og:site_name" content="LocalBoost">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monthly Reports | LocalBoost Dashboard">
+<meta property="og:description" content="Measurable search metrics, calls, directions, and completed growth milestones.">
+<meta property="og:url" content="https://www.localboost.in/dashboard/reports/">
+<meta property="og:image" content="https://www.localboost.in/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/site.css">
+</head>
 <body>
 
 <aside>
@@ -80,5 +91,6 @@
 <script src="../../assets/consent.js" defer></script>
 <script>
 (async()=>{const cfg=window.LOCALBOOST_API||{},base=(cfg.baseUrl||"").replace(/\/$/,""),bid=sessionStorage.getItem("localboost_business_id");const state=document.getElementById("stateTitle"),stateText=document.getElementById("stateText"),detail=document.getElementById("detail");if(!cfg.enabled||!base||!bid){state.textContent="Production report connection is pending";stateText.textContent="Connect the production API and a verified business to generate this report.";return}try{const r=await fetch(base+"/api/reports/overview?business_id="+encodeURIComponent(bid),{credentials:"include"});const d=await r.json();if(!r.ok)throw new Error(d.error||"Report unavailable");document.getElementById("account").textContent=d.business?.name||"Connected business";document.getElementById("reviews").textContent=d.reviews?.count??"—";document.getElementById("reviewsSub").textContent=d.reviews?.average_rating!=null?"Average rating "+Number(d.reviews.average_rating).toFixed(1):"Awaiting verified ratings";document.getElementById("snapshots").textContent=d.rank_snapshots?.length??"—";const verifiedMetrics=d.performance||null;document.getElementById("impressions").textContent=verifiedMetrics?.impressions??"—";const calls=verifiedMetrics?.call_clicks??null,dirs=verifiedMetrics?.direction_requests??null;document.getElementById("engagement").textContent=(calls!=null||dirs!=null)?((calls||0)+(dirs||0)):"—";if(d.state==="verified_data"){state.textContent="Verified report data available";stateText.textContent="The report below uses stored business-specific measurements.";detail.textContent="Reviews and/or verified rank measurements are available. Google performance metrics are shown separately when ingested."; }else{state.textContent="Waiting for verified measurements";stateText.textContent="The business is connected, but report measurements are not available yet.";detail.textContent="No verified review or ranking measurements are available yet. Missing data is not converted into zero.";}}catch(e){state.textContent="Report unavailable";stateText.textContent=e.message;detail.textContent="Check the business connection and subscription access, then try again."}})();
-document.getElementById("printBtn")?.addEventListener("click",()=>window.print());\n</script></body>
+document.getElementById("printBtn")?.addEventListener("click",()=>window.print());\n</script><script src="../../assets/site.js" defer></script>
+</body>
 </html>

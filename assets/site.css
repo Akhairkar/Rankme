@@ -1,0 +1,20 @@
+/* LocalBoost shared responsive fixes (loaded on every page via consent.js sibling include) */
+.lb-burger{display:none;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid #E2E0D9;border-radius:10px;background:#fff;cursor:pointer;color:#1E1E1E;padding:0}
+.lb-burger svg{width:20px;height:20px}
+@media (max-width:820px){
+  html,body{overflow-x:hidden}
+  header .nav-inner{flex-wrap:wrap;gap:10px;padding:12px 16px!important}
+  header .nav-links{display:none!important;order:5;flex-basis:100%;flex-direction:column;align-items:stretch!important;gap:0!important;padding:6px 0 10px;border-top:1px solid #E2E0D9}
+  header .nav-links a{padding:12px 4px;border-bottom:1px solid #F0EEE9;font-size:15px!important}
+  header.lb-open .nav-links{display:flex!important}
+  header .lb-burger{display:inline-flex;margin-left:auto;order:2}
+  header .nav-inner>div:last-child{order:3}
+  header .nav-cta{padding:8px 12px!important;font-size:13px!important}
+  .lang-switch{padding:5px 10px!important}
+  img,svg,table,pre{max-width:100%}
+  table{display:block;overflow-x:auto}
+}
+@media (max-width:480px){
+  header .nav-inner>div:last-child .nav-cta{display:none}
+  .wrap{padding-left:16px!important;padding-right:16px!important}
+}
