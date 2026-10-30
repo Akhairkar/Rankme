@@ -37,11 +37,13 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the cheapest way to promote a local business?", "acceptedAnswer": {"@type": "Answer", "text": "Setting up and regularly updating a free Google Business Profile, asking happy customers for reviews, and building referral relationships with neighbouring businesses are the lowest-cost options. They cost time rather than money."}}, {"@type": "Question", "name": "Can I promote my business in local WhatsApp or Facebook groups?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes, but follow each group's rules and focus on being helpful rather than repeatedly advertising. Spamming can get you removed and harms your reputation."}}]}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-base:#FAF9F6; --bg-surface:#FFFFFF; --bg-muted:#F0EEE9;
@@ -104,39 +106,13 @@
 
   @media (max-width:860px) { .related-grid { grid-template-columns:repeat(2,1fr); } }
   @media (max-width:700px) { h1 { font-size:26px; } .related-grid { grid-template-columns:1fr; } }
+
+  .faq-section { margin-top:40px; }
+  .faq-card { background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px; margin-bottom:16px; }
+  .faq-card h4 { font-size:17px; font-weight:700; color:var(--text-primary); margin-bottom:8px; }
+  .faq-card p { font-size:15px; color:var(--text-secondary); margin:0; }
+  article a { color:var(--primary-600); font-weight:600; }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is LocalBoost free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The guides and self-serve tools on LocalBoost are free and need no signup. Paid plans add features that need a connected Google account, such as monitoring and review management. See the Pricing page for details."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can LocalBoost guarantee a #1 ranking on Google?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. No tool or agency can guarantee rankings. Local results depend on relevance, distance and prominence, plus your competition. LocalBoost shows you what to improve; it does not promise positions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens to my data?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The free tools run in your browser and nothing is sent anywhere. Data is processed on our servers only if you choose to connect your Google account. Read our Privacy Policy for details."
-      }
-    }
-  ]
-}
-</script>
 <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
 <meta name="theme-color" content="#0F766E">
@@ -151,7 +127,7 @@
     <a href="../../index.html" class="logo"><span class="logo-mark">LB</span><span>LocalBoost</span></a>
     <div class="nav-right">
       <a class="lang-switch" href="../../hi/business-growth/free-local-business-promotion/index.html" aria-label="हिंदी में देखें">EN · हिं</a>
-      <a href="../../index.html#hero-form" class="nav-cta">Start Free Audit</a>
+      <a href="../../check/index.html" class="nav-cta">Start Free Audit</a>
     </div>
   </div>
 </header>
@@ -171,17 +147,25 @@
     </div>
 
     <article>
-      <h2>1. Maximize Google Business Profile features</h2>
-      <p>Your GBP is the most powerful free promotional tool available. Use the Products tab to list inventory, use Posts for weekly updates, and turn on messaging to chat with customers directly.</p>
-      
+      <h2>1. Use every free Google Business Profile feature</h2>
+      <p>Your Business Profile is the most useful free promotional tool a local business has. Choose accurate categories, list your services or products, add photos, answer questions, publish Posts regularly and reply to reviews. Check what your category supports, because available features differ between business types and can change over time.</p>
       <h2>2. Partner with non-competing local businesses</h2>
-      <p>If you're a plumber, partner with a local electrician to refer clients to each other. Cross-promotion doesn't cost money, just a good relationship.</p>
-      
-      <h2>3. Leverage local Facebook groups</h2>
-      <p>Join community groups. Don't just spam your services — answer questions and be genuinely helpful. When people ask for recommendations, your name will naturally come up.</p>
-      
+      <p>If you are a plumber, partner with a local electrician so you refer clients to each other. A wedding photographer can partner with a caterer and a decorator; a coaching class with a stationery shop. Cross-promotion costs only a good relationship, and a warm referral often converts better than a cold advertisement.</p>
+      <h2>3. Join local groups, and help first</h2>
+      <p>Join neighbourhood and trade groups on Facebook and WhatsApp. Don't just post your services. Answer questions, share tips and be genuinely helpful. When people ask for a recommendation, your name will come up naturally. Respect each group's rules on promotion.</p>
+      <h2>4. Turn customers into your marketing team</h2>
+      <p>Ask happy customers for a Google review, and ask whether they would recommend you to a friend or neighbour. Give a simple card or WhatsApp message they can forward. Do not pay or reward people for reviews, which Google does not allow, but a sincere thank-you costs nothing.</p>
+      <h2>5. Make your shop and vehicles work for you</h2>
+      <p>A clear signboard, a visible phone number, a QR code at the counter, and branding on your delivery bag or service vehicle are one-time costs that keep working. Use the <a href="../../tools/qr-generator/index.html">QR generator</a> to link your QR to your Google reviews page.</p>
+
       <div class="callout">
         Free promotion costs time instead of money. Pick one or two free strategies and commit to them consistently rather than trying to do everything at once.
+      </div>
+
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-card"><h4>What is the cheapest way to promote a local business?</h4><p>Setting up and regularly updating a free Google Business Profile, asking happy customers for reviews, and building referral relationships with neighbouring businesses are the lowest-cost options. They cost time rather than money.</p></div>
+        <div class="faq-card"><h4>Can I promote my business in local WhatsApp or Facebook groups?</h4><p>Often yes, but follow each group&#x27;s rules and focus on being helpful rather than repeatedly advertising. Spamming can get you removed and harms your reputation.</p></div>
       </div>
 
       <div class="cta-box">
@@ -203,29 +187,6 @@
   </div>
 </main>
 
-<section class="faq-section" style="padding: 40px 20px; background: #f9fafb; margin-top: 40px; border-top: 1px solid #e5e7eb;">
-<div class="container" style="max-width: 800px; margin: 0 auto;">
-<h2 style="font-size: 24px; font-weight: bold; margin-bottom: 24px; color: #1f2937;">Frequently Asked Questions (FAQs) about Free Local Business Promotion</h2>
-<div class="faq-list" style="display: flex; flex-direction: column; gap: 16px;">
-
-        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Is LocalBoost free to use?</h3>
-            <p style="color: #4b5563; line-height: 1.6; margin: 0;">The guides and self-serve tools on LocalBoost are free and need no signup. Paid plans add features that need a connected Google account, such as monitoring and review management. See the Pricing page for details.</p>
-        </div>
-
-        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">Can LocalBoost guarantee a #1 ranking on Google?</h3>
-            <p style="color: #4b5563; line-height: 1.6; margin: 0;">No. No tool or agency can guarantee rankings. Local results depend on relevance, distance and prominence, plus your competition. LocalBoost shows you what to improve; it does not promise positions.</p>
-        </div>
-
-        <div class="faq-item" style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <h3 style="font-size: 18px; font-weight: 600; color: #111827; margin-bottom: 8px; margin-top: 0;">What happens to my data?</h3>
-            <p style="color: #4b5563; line-height: 1.6; margin: 0;">The free tools run in your browser and nothing is sent anywhere. Data is processed on our servers only if you choose to connect your Google account. Read our Privacy Policy for details.</p>
-        </div>
-
-</div>
-</div>
-</section>
 <footer>
   <div class="disclaimer-box">
     <strong>A note on results:</strong> Growth outcomes depend on many factors specific to your business and market and cannot be guaranteed. This guide is general educational information and is not affiliated with or endorsed by Google.
